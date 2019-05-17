@@ -39,22 +39,21 @@ namespace Project.Aiming
                 if (cellToSpawnBubble == null)
                 {
                     Debug.LogError("Trying to spawn bubble outside of grid. Ignoring the try. Provided position: " + positionToSpawnBubble);
-                    _gameStateController.GamePlayState.Value = GamePlayState.Idle;
+                    _gameStateController.ChangeGamePlayState(GamePlayState.Idle);
                 }
                 else if (_gridMap.BubblesRegistry.FirstOrDefault(x => x.Position.Value == positionToSpawnBubble) != null)
                 {
                     Debug.LogError("Trying to spawn bubble on cell that already has bubble. Ignoring the try. Provided position: " + positionToSpawnBubble);
-                    _gameStateController.GamePlayState.Value = GamePlayState.Idle;
+                    _gameStateController.ChangeGamePlayState(GamePlayState.Idle);
                 }
                 else
                 {
-                    //todo: it should change to bubble flying state
-                    _gameStateController.GamePlayState.Value = GamePlayState.Idle;
+                    BubbleFlyPath.Value = _bubbleDestinationFinder.BubbleAimedData.Path;
                 }
             }
             else
             {
-                _gameStateController.GamePlayState.Value = GamePlayState.Idle;
+                _gameStateController.ChangeGamePlayState(GamePlayState.Idle);
             }
         }
     }

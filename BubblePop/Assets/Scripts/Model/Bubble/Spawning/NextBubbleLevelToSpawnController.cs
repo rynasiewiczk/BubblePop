@@ -13,6 +13,8 @@ namespace Project.Bubbles
 
         public NextBubbleLevelToSpawnController(IGameStateController gameStateController, BubbleData bubbleData)
         {
+            BubbleLevelToSpawn = new ReactiveProperty<int>();
+
             _bubbleData = bubbleData;
             gameStateController.GamePlayState.Where(x => x == GamePlayState.None || x == GamePlayState.BubbleFlying).Subscribe(x => FindNextLevelToSpawn());
         }
