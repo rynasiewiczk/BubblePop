@@ -1,46 +1,47 @@
 using System;
+using System.Collections.Generic;
 using Enums;
 using Model;
-using Project.Bubbles;
+using Project.Grid;
+using Project.Input;
 using UniRx;
-using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Project.Aiming
 {
+    //TODO: it has way to many responsibilities. break it down
     public class BubbleDestinationFinder : IBubbleDestinationFinder
     {
         private readonly string _wallLayerName = SRLayers.Wall.name;
         private readonly string _bubbleLayerName = SRLayers.Bubble.name;
 
-        public ReactiveProperty<Vector2Int> DestinationPosition { get; }
-
         private readonly IAimingDirectionObserver _aimingDirectionObserver = null;
+        private readonly IGridMap _gridMap = null;
+        private readonly AimingSettings _aimingSettings = null;
         private readonly LayerMask _layerMask;
-
-        //public BubbleSide BubbleHitSide { get; private set; }
+        private readonly List<Vector2> _aimPath = new List<Vector2>();
+        
         public BubbleAimedData BubbleAimedData { get; private set; }
 
         public BubbleDestinationFinder(IGameStateController gameStateController, IInputEventsNotifier inputEventsNotifier,
-            IAimingDirectionObserver aimingDirectionObserver)
+            IAimingDirectionObserver aimingDirectionObserver, AimingSettings aimingSettings, IGridMap gridMap)
         {
             _layerMask = LayerMask.GetMask(_bubbleLayerName, _wallLayerName);
             _aimingDirectionObserver = aimingDirectionObserver;
+            _aimingSettings = aimingSettings;
+            _gridMap = gridMap;
 
-            inputEventsNotifier.OnInputMove.Where(x => gameStateController.GamePlayState.Value == GamePlayState.Aiming)
+            inputEventsNotifier.OnInputMove.Where(x => gameStateController.GamePlayState.Value == GamePlayState.Aiming && AimingAboveStartingPoint())
                 .Subscribe(x => FireRaycastToFindPositionForBubble(x, 0));
+        }
 
-            inputEventsNotifier.OnInputEnd.Skip(1).Subscribe(x => Debug.Log(BubbleAimedData.AimedSide.ToString()));
+        private bool AimingAboveStartingPoint()
+        {
+            return _aimingDirectionObserver.AimingDirection.Value.y > 0;
         }
 
         private void FireRaycastToFindPositionForBubble(Vector2 startPoint, int reflections = 0)
         {
-            if (AimingBelowTheLimit())
-            {
-                return;
-            }
-
-
             startPoint = AdjustStartPointToAvoidHitSameObject(startPoint);
 
             var aimingDirection = SetAimingDirection(reflections);
@@ -48,6 +49,8 @@ namespace DefaultNamespace
             var raycastHit = GetHitCollider(startPoint, aimingDirection, out var collider);
             if (collider == null)
             {
+                ResetAimData();
+
                 return;
             }
 
@@ -55,9 +58,18 @@ namespace DefaultNamespace
 
             if (collider.gameObject.layer == LayerMask.NameToLayer(_wallLayerName))
             {
-                BubbleAimedData = null;
+                if (reflections >= _aimingSettings.MaxAmountOfWallBounces)
+                {
+                    ResetAimData();
+                    return;
+                }
+                
+                ResetAimData();
 
                 var hitPosition = raycastHit.point;
+                
+                _aimPath.Add(hitPosition);
+                
                 reflections++;
                 FireRaycastToFindPositionForBubble(hitPosition, reflections);
             }
@@ -67,13 +79,21 @@ namespace DefaultNamespace
                 var aimedSide = GetBubbleAimedSide(raycastHit.point, bubblePosition);
                 //todo: get position on row for the collider and get bubble from GridMap
                 var bubbleView = collider.gameObject.GetComponentInParent<BubbleView>();
-                BubbleAimedData = new BubbleAimedData(bubbleView.Model, aimedSide);
+                
+                _aimPath.Add(_gridMap.GetPositionToSpawnBubble(bubbleView.Model, aimedSide));
+                BubbleAimedData = new BubbleAimedData(bubbleView.Model, aimedSide, _aimPath.ToArray());
             }
             else
             {
-                BubbleAimedData = null;
+                ResetAimData();
                 Debug.LogWarning("Raycast hit not expected layer. Hit layer: " + collider.gameObject.layer);
             }
+        }
+
+        private void ResetAimData()
+        {
+            BubbleAimedData = null;
+            _aimPath.Clear();
         }
 
         private BubbleSide GetBubbleAimedSide(Vector2 hitPoint, Vector2 bubblePosition)
@@ -140,12 +160,6 @@ namespace DefaultNamespace
             }
 
             return startPoint;
-        }
-
-        private bool AimingBelowTheLimit()
-        {
-            var result = _aimingDirectionObserver.AimingDirection.Value.y < 0;
-            return result;
         }
     }
 }

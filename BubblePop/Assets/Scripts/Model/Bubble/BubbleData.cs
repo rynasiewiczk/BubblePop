@@ -6,6 +6,11 @@ using Random = UnityEngine.Random;
 [Serializable] public class BubbleData
 {
     public int InitialMaxBubblesLevel = 4;
+    [SerializeField] private int _differenceBetweenAvailableColorsAndSpawningColors = 3;
+    [SerializeField] private float _flySpeed = 5;
+    
+    public int MaxBubbleLevelToSpawn => _listOfColors.Count - _differenceBetweenAvailableColorsAndSpawningColors;
+    public float FlySpeed => _flySpeed;
 
     [SerializeField] private List<Color> _listOfColors = null;
 

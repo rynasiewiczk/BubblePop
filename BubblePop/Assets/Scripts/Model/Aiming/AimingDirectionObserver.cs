@@ -1,9 +1,10 @@
 using Enums;
 using Model;
+using Project.Input;
 using UniRx;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Project.Aiming
 {
     public class AimingDirectionObserver : IAimingDirectionObserver
     {

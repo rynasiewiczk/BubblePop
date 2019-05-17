@@ -1,4 +1,4 @@
-namespace DefaultNamespace
+namespace Project.Aiming
 {
     public interface IStartAimingStateObserver { }
 }

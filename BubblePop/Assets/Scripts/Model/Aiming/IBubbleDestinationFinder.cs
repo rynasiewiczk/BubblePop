@@ -1,13 +1,7 @@
-using Enums;
-using UniRx;
-using UnityEngine;
-
-namespace DefaultNamespace
+namespace Project.Aiming
 {
     public interface IBubbleDestinationFinder
     {
-        ReactiveProperty<Vector2Int> DestinationPosition { get; }
-        //BubbleSide BubbleHitSide { get; }
         BubbleAimedData BubbleAimedData { get; }
     }
 }

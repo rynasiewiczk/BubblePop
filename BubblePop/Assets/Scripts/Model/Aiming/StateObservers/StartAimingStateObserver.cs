@@ -1,8 +1,9 @@
 using Enums;
 using Model;
+using Project.Input;
 using UniRx;
 
-namespace DefaultNamespace
+namespace Project.Aiming
 {
     public class StartAimingStateObserver : IStartAimingStateObserver
     {

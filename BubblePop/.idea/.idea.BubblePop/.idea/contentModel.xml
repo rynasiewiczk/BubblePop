@@ -847,9 +847,15 @@
               <e p="Bubble.cs" t="Include" />
               <e p="BubbleData.cs" t="Include" />
               <e p="BubblesPool.cs" t="Include" />
-              <e p="BubblesSpawner.cs" t="Include" />
               <e p="IBubble.cs" t="Include" />
-              <e p="IBubblesSpawner.cs" t="Include" />
+              <e p="Spawning" t="Include">
+                <e p="BubbleFlyObserver.cs" t="Include" />
+                <e p="BubblesSpawner.cs" t="Include" />
+                <e p="IBubbleFlyObserver.cs" t="Include" />
+                <e p="IBubblesSpawner.cs" t="Include" />
+                <e p="INextBubbleLevelToSpawnController.cs" t="Include" />
+                <e p="NextBubbleLevelToSpawnController.cs" t="Include" />
+              </e>
               <e p="Test" t="Include">
                 <e p="BubblesDebugger.cs" t="Include" />
               </e>
@@ -867,6 +873,7 @@
               </e>
               <e p="Cell.cs" t="Include" />
               <e p="GridMap.cs" t="Include" />
+              <e p="GridMapHelper.cs" t="Include" />
               <e p="GridSettings.cs" t="Include" />
               <e p="GridSettingsInstaller.cs" t="Include" />
               <e p="ICell.cs" t="Include" />
