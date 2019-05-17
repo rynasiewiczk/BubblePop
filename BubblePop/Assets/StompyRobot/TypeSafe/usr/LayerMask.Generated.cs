@@ -34,4 +34,8 @@ public sealed class SRLayerMask {
     public const int Water = 16;
     
     public const int UI = 32;
+    
+    public const int Bubble = 256;
+    
+    public const int Wall = 512;
 }

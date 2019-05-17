@@ -7,6 +7,7 @@ public class InGameInstaller : MonoInstaller
     {
         Random.InitState(42);
         
+        GridActionsInstaller.Install(Container);
         GridInstaller.Install(Container);
     }
 }
