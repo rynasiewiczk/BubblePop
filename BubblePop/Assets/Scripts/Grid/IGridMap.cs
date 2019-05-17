@@ -8,7 +8,7 @@ namespace Project.Grid
     public interface IGridMap
     {
         ReactiveProperty<Vector2Int> Size { get; }
-        ReactiveCollection<Bubble> BubblesRegistry { get; }
+        ReactiveCollection<IBubble> BubblesRegistry { get; }
         ReactiveCollection<ICell> CellsRegistry { get; }
 
         ReactiveDictionary<int, GridRowSide> GridRowSidesMap { get; }

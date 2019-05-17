@@ -21,7 +21,7 @@ namespace Project.Grid.BuildingGrid
 
             for (int y = 0; y < gridSize.y; y++)
             {
-                for (int x = 0; x < gridSize.x + 1; x++)
+                for (int x = 0; x < gridSize.x; x++)
                 {
 //                    if (x == 0 && gridSettings.StartGridRow == GridRow.Left && y % 2 == 0)
 //                    {
@@ -54,7 +54,7 @@ namespace Project.Grid.BuildingGrid
 
             for (int y = 0; y < gridSettingsWarmedRowsSize; y++)
             {
-                for (int x = 0; x < gridSize.x + 1; x++)
+                for (int x = 0; x < gridSize.x; x++)
                 {
 //                    if (x == 0 && startGridRow == GridRow.Left && (gridSize.y + y) % 2 == 0)
 //                    {

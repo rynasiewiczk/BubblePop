@@ -5,6 +5,8 @@ using Random = UnityEngine.Random;
 
 [Serializable] public class BubbleData
 {
+    public int InitialMaxBubblesLevel = 4;
+
     [SerializeField] private List<Color> _listOfColors;
 
     public int GetValueForLevel(int level)
@@ -31,9 +33,8 @@ using Random = UnityEngine.Random;
         if (level <= 0)
         {
             Debug.LogError("Provided level of bubble is less than 1. Level 2 will be returned to avoid breaking the game. Provided level: " + level);
+            level = 2;
         }
-
-        level = 2;
     }
 
     private void UpdateListOfColorsWithNew(int level)
@@ -61,7 +62,7 @@ using Random = UnityEngine.Random;
         var randomColor = new Color(colorValues[0], colorValues[1], colorValues[2], 1);
 
         Debug.Log("RANDOM COLOR: " + randomColor);
-        
+
         return randomColor;
     }
 }

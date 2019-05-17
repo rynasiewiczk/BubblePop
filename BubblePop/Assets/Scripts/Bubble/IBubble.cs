@@ -6,6 +6,8 @@ namespace Project.Bubbles
     public interface IBubble
     {
         ReactiveProperty<Vector2Int> Position { get; }
-        ReactiveProperty<int> Value { get; }
+        ReactiveProperty<int> Level { get; }
+        
+        ReactiveCommand<Bubble> Destroyed { get; }
     }
 }
