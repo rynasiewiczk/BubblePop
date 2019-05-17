@@ -21,25 +21,32 @@ public sealed class SRResources {
     
     private const string _tsInternal = "1.3.2-Unity5";
     
-    public static global::TypeSafe.Resource<global::UnityEngine.TextAsset> LineBreaking_Leading_Characters {
+    public static global::TypeSafe.Resource<global::DG.Tweening.Core.DOTweenSettings> DOTweenSettings {
         get {
-            return ((global::TypeSafe.Resource<global::UnityEngine.TextAsset>)(@__ts_internal_resources[0]));
+            return ((global::TypeSafe.Resource<global::DG.Tweening.Core.DOTweenSettings>)(@__ts_internal_resources[0]));
         }
     }
     
-    public static global::TypeSafe.Resource<global::UnityEngine.TextAsset> LineBreaking_Following_Characters {
+    public static global::TypeSafe.Resource<global::UnityEngine.TextAsset> LineBreaking_Leading_Characters {
         get {
             return ((global::TypeSafe.Resource<global::UnityEngine.TextAsset>)(@__ts_internal_resources[1]));
         }
     }
     
+    public static global::TypeSafe.Resource<global::UnityEngine.TextAsset> LineBreaking_Following_Characters {
+        get {
+            return ((global::TypeSafe.Resource<global::UnityEngine.TextAsset>)(@__ts_internal_resources[2]));
+        }
+    }
+    
     public static global::TypeSafe.PrefabResource ProjectContext {
         get {
-            return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[2]));
+            return ((global::TypeSafe.PrefabResource)(@__ts_internal_resources[3]));
         }
     }
     
     private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_resources = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.IResource>(new global::TypeSafe.IResource[] {
+                new global::TypeSafe.Resource<global::DG.Tweening.Core.DOTweenSettings>("DOTweenSettings", "DOTweenSettings"),
                 new global::TypeSafe.Resource<global::UnityEngine.TextAsset>("LineBreaking Leading Characters", "LineBreaking Leading Characters"),
                 new global::TypeSafe.Resource<global::UnityEngine.TextAsset>("LineBreaking Following Characters", "LineBreaking Following Characters"),
                 new global::TypeSafe.PrefabResource("ProjectContext", "ProjectContext")});
@@ -302,7 +309,17 @@ public sealed class SRResources {
             }
         }
         
-       
+        public static global::TypeSafe.Resource<global::Project.Aiming.AimingInstaller> AimingInstaller {
+            get {
+                return ((global::TypeSafe.Resource<global::Project.Aiming.AimingInstaller>)(@__ts_internal_resources[2]));
+            }
+        }
+        
+        private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_resources = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.IResource>(new global::TypeSafe.IResource[] {
+                    new global::TypeSafe.Resource<global::BubbleDataInstaller>("BubbleDataInstaller", "Ingame/BubbleDataInstaller"),
+                    new global::TypeSafe.Resource<global::GridSettingsInstaller>("GridSettingsInstaller", "Ingame/GridSettingsInstaller"),
+                    new global::TypeSafe.Resource<global::Project.Aiming.AimingInstaller>("AimingInstaller", "Ingame/AimingInstaller")});
+        
         /// <summary>
         /// Return a list of all resources in this folder.
         /// This method has a very low performance cost, no need to cache the result.

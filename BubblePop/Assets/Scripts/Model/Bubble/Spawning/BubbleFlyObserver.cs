@@ -27,6 +27,8 @@ namespace Project.Bubbles
             var flySpeed = _bubbleData.FlySpeed;
 
             var flyDuration = distance / flySpeed;
+            
+            
         }
     }
 }
