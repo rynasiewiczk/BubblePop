@@ -12,6 +12,7 @@ public class BubbleView : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer = null;
     [SerializeField] private TextMeshPro _text = null;
 
+    public IBubble Model = null;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class BubbleView : MonoBehaviour
 
     public void Setup(IBubble model)
     {
+        Model = model;
         SetPosition(model.Position.Value);
         SetColor(model.Level.Value);
         SetValue(model.Level.Value);

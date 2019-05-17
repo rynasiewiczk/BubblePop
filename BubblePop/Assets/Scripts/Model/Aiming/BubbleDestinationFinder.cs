@@ -1,7 +1,9 @@
 using System;
 using Enums;
 using Model;
+using Project.Bubbles;
 using UniRx;
+using UnityEditor.Experimental.UIElements.GraphView;
 using UnityEngine;
 
 namespace DefaultNamespace
@@ -16,7 +18,8 @@ namespace DefaultNamespace
         private readonly IAimingDirectionObserver _aimingDirectionObserver = null;
         private readonly LayerMask _layerMask;
 
-        public Vector2? BubbleHitPoint { get; private set; }
+        //public BubbleSide BubbleHitSide { get; private set; }
+        public BubbleAimedData BubbleAimedData { get; private set; }
 
         public BubbleDestinationFinder(IGameStateController gameStateController, IInputEventsNotifier inputEventsNotifier,
             IAimingDirectionObserver aimingDirectionObserver)
@@ -26,6 +29,8 @@ namespace DefaultNamespace
 
             inputEventsNotifier.OnInputMove.Where(x => gameStateController.GamePlayState.Value == GamePlayState.Aiming)
                 .Subscribe(x => FireRaycastToFindPositionForBubble(x, 0));
+
+            inputEventsNotifier.OnInputEnd.Skip(1).Subscribe(x => Debug.Log(BubbleAimedData.AimedSide.ToString()));
         }
 
         private void FireRaycastToFindPositionForBubble(Vector2 startPoint, int reflections = 0)
@@ -50,7 +55,7 @@ namespace DefaultNamespace
 
             if (collider.gameObject.layer == LayerMask.NameToLayer(_wallLayerName))
             {
-                BubbleHitPoint = null;
+                BubbleAimedData = null;
 
                 var hitPosition = raycastHit.point;
                 reflections++;
@@ -58,18 +63,48 @@ namespace DefaultNamespace
             }
             else if (collider.gameObject.layer == LayerMask.NameToLayer(_bubbleLayerName))
             {
-                BubbleHitPoint = raycastHit.point;
-
-                Debug.DrawLine((Vector2) BubbleHitPoint, (Vector2) BubbleHitPoint + Vector2.down / 2, Color.red);
-                Debug.DrawLine((Vector2) BubbleHitPoint, (Vector2) BubbleHitPoint + Vector2.left / 2, Color.red);
-                Debug.DrawLine((Vector2) BubbleHitPoint, (Vector2) BubbleHitPoint + Vector2.right / 2, Color.red);
-                Debug.DrawLine((Vector2) BubbleHitPoint, (Vector2) BubbleHitPoint + Vector2.up / 2, Color.red);
+                var bubblePosition = collider.gameObject.transform.position;
+                var aimedSide = GetBubbleAimedSide(raycastHit.point, bubblePosition);
+                //todo: get position on row for the collider and get bubble from GridMap
+                var bubbleView = collider.gameObject.GetComponentInParent<BubbleView>();
+                BubbleAimedData = new BubbleAimedData(bubbleView.Model, aimedSide);
             }
             else
             {
-                BubbleHitPoint = null;
+                BubbleAimedData = null;
                 Debug.LogWarning("Raycast hit not expected layer. Hit layer: " + collider.gameObject.layer);
             }
+        }
+
+        private BubbleSide GetBubbleAimedSide(Vector2 hitPoint, Vector2 bubblePosition)
+        {
+            var result = BubbleSide.None;
+
+            var hitOffset = hitPoint - bubblePosition;
+            if (hitOffset.x < 0 && hitOffset.y < 0)
+            {
+                result = BubbleSide.BottomLeft;
+            }
+            else if (hitOffset.x < 0 && hitOffset.y >= 0)
+            {
+                result = BubbleSide.TopLeft;
+            }
+            else if (hitOffset.x >= 0 && hitOffset.y < 0)
+            {
+                result = BubbleSide.BottomRight;
+            }
+            else if (hitOffset.x >= 0 && hitOffset.y >= 0)
+            {
+                result = BubbleSide.TopRight;
+            }
+
+            if (result == BubbleSide.None)
+            {
+                Debug.LogError("Side of bubble hit was not calculated properly. Returning BottmLeft");
+                return BubbleSide.BottomLeft;
+            }
+
+            return result;
         }
 
         private RaycastHit2D GetHitCollider(Vector2 startPoint, Vector2 aimingDirection, out Collider2D collider)

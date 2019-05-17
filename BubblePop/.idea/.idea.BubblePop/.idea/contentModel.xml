@@ -816,6 +816,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Enums" t="Include">
+            <e p="BubbleSide.cs" t="Include" />
             <e p="GamePlayState.cs" t="Include" />
             <e p="GridRowSide.cs" t="Include" />
           </e>
@@ -831,13 +832,16 @@
             <e p="Aiming" t="Include">
               <e p="AimingDirectionObserver.cs" t="Include" />
               <e p="AimingSettings.cs" t="Include" />
+              <e p="BubbleAimedData.cs" t="Include" />
               <e p="BubbleDestinationFinder.cs" t="Include" />
-              <e p="EndAimingStateObserver.cs" t="Include" />
               <e p="IAimingDirectionObserver.cs" t="Include" />
               <e p="IBubbleDestinationFinder.cs" t="Include" />
-              <e p="IEndAimingStateObserver.cs" t="Include" />
-              <e p="IStartAimingStateObserver.cs" t="Include" />
-              <e p="StartAimingStateObserver.cs" t="Include" />
+              <e p="StateObservers" t="Include">
+                <e p="EndAimingStateObserver.cs" t="Include" />
+                <e p="IEndAimingStateObserver.cs" t="Include" />
+                <e p="IStartAimingStateObserver.cs" t="Include" />
+                <e p="StartAimingStateObserver.cs" t="Include" />
+              </e>
             </e>
             <e p="Bubble" t="Include">
               <e p="Bubble.cs" t="Include" />
