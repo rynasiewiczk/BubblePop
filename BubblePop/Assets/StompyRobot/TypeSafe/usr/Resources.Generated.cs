@@ -315,10 +315,17 @@ public sealed class SRResources {
             }
         }
         
+        public static global::TypeSafe.Resource<global::PlayerLevelSettingsInstaller> PlayerLevelSettingsInstaller {
+            get {
+                return ((global::TypeSafe.Resource<global::PlayerLevelSettingsInstaller>)(@__ts_internal_resources[3]));
+            }
+        }
+        
         private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_resources = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.IResource>(new global::TypeSafe.IResource[] {
                     new global::TypeSafe.Resource<global::BubbleDataInstaller>("BubbleDataInstaller", "Ingame/BubbleDataInstaller"),
                     new global::TypeSafe.Resource<global::GridSettingsInstaller>("GridSettingsInstaller", "Ingame/GridSettingsInstaller"),
-                    new global::TypeSafe.Resource<global::Project.Aiming.AimingInstaller>("AimingInstaller", "Ingame/AimingInstaller")});
+                    new global::TypeSafe.Resource<global::Project.Aiming.AimingInstaller>("AimingInstaller", "Ingame/AimingInstaller"),
+                    new global::TypeSafe.Resource<global::PlayerLevelSettingsInstaller>("PlayerLevelSettingsInstaller", "Ingame/PlayerLevelSettingsInstaller")});
         
         /// <summary>
         /// Return a list of all resources in this folder.

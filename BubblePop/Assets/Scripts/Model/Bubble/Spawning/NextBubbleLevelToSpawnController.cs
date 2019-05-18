@@ -27,7 +27,6 @@ namespace Project.Bubbles
             var levelToSpawn = Random.Range(1, maxLevelToSpawn + 1);
 
             BubbleLevelToSpawn.Value = levelToSpawn;
-            Debug.Log("NEXT TO SPAWN: " + levelToSpawn);
         }
     }
 }

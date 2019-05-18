@@ -55,3 +55,6 @@ MonoBehaviour:
   - Path: Assets/Resources/Ingame/AimingInstaller.asset
     Type: Project.Aiming.AimingInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  - Path: Assets/Resources/Ingame/PlayerLevelSettingsInstaller.asset
+    Type: PlayerLevelSettingsInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null

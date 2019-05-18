@@ -13,8 +13,6 @@ namespace Model
         {
             GamePlayState = new ReactiveProperty<GamePlayState>(Enums.GamePlayState.Idle);
             PreviousGamePlayState = Enums.GamePlayState.None;
-
-            GamePlayState.Subscribe(x => Debug.Log(x));
         }
 
         public void ChangeGamePlayState(GamePlayState newState)

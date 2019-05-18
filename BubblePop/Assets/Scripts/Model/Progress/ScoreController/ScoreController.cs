@@ -17,18 +17,20 @@ namespace Model.ScoreController
             Score = new ReactiveProperty<int>();
 
             _gameStateController = gameStateController;
-            signalBus.Subscribe<SpawnBubbleOnGridSignal>(signal => GetScoreOnBubbleSpawn(signal.Level));
+            signalBus.Subscribe<SpawnBubbleOnGridSignal>(signal => GetScoreOnBubbleCombine(signal.Level));
 
             _bubbleData = bubbleData;
 
             //todo: middle state for getting score would be useful
-            gameStateController.GamePlayState.Where(x => x == GamePlayState.DropBubblesAfterCombining)
-                .Subscribe(x => GetScoreOnBubbleSpawn(bubblesSpawner.JustSpawned.Value.Level.Value));
+//            gameStateController.GamePlayState.Where(x => x == GamePlayState.DropBubblesAfterCombining)
+//                .Subscribe(x => GetScoreOnBubbleCombine(bubblesSpawner.JustSpawned.Value.Level.Value));
+            //bubblesSpawner.JustSpawned./*Where(x => _gameStateController.GamePlayState.Value >= GamePlayState.BubblesCombining && x != null)
+            //    .*/Subscribe(x => GetScoreOnBubbleSpawn(x.Level.Value));
         }
 
-        private void GetScoreOnBubbleSpawn(int level)
+        private void GetScoreOnBubbleCombine(int level)
         {
-            if (_gameStateController.GamePlayState.Value == GamePlayState.Idle || _gameStateController.GamePlayState.Value == GamePlayState.None)
+            if (_gameStateController.GamePlayState.Value >= GamePlayState.Aiming && _gameStateController.GamePlayState.Value < GamePlayState.DropBubblesAfterCombining)
             {
                 return;
             }

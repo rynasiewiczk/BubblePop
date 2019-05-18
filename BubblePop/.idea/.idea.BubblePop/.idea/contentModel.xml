@@ -839,6 +839,11 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Debugg" t="Include">
+            <e p="NextBubbleDebug.cs" t="Include" />
+            <e p="PlayerLevelDebugger.cs" t="Include" />
+            <e p="ScoreDebug.cs" t="Include" />
+          </e>
           <e p="Enums" t="Include">
             <e p="BubbleSide.cs" t="Include" />
             <e p="GamePlayState.cs" t="Include" />
@@ -850,7 +855,8 @@
             <e p="GridActionsInstaller.cs" t="Include" />
             <e p="GridInstaller.cs" t="Include" />
             <e p="InGameInstaller.cs" t="Include" />
-            <e p="ScoreInstaller.cs" t="Include" />
+            <e p="PlayerLevelSettingsInstaller.cs" t="Include" />
+            <e p="ProgressInstaller.cs" t="Include" />
             <e p="SignalBusInstaller.cs" t="Include" />
             <e p="ViewInstaller.cs" t="Include" />
           </e>
@@ -939,9 +945,16 @@
                 <e p="InputDebugMessenger.cs" t="Include" />
               </e>
             </e>
-            <e p="ScoreController" t="Include">
-              <e p="IScoreController.cs" t="Include" />
-              <e p="ScoreController.cs" t="Include" />
+            <e p="Progress" t="Include">
+              <e p="PlayerLevelController" t="Include">
+                <e p="IPlayerLevelController.cs" t="Include" />
+                <e p="PlayerLevelController.cs" t="Include" />
+                <e p="PlayerLevelSettings.cs" t="Include" />
+              </e>
+              <e p="ScoreController" t="Include">
+                <e p="IScoreController.cs" t="Include" />
+                <e p="ScoreController.cs" t="Include" />
+              </e>
             </e>
           </e>
           <e p="View" t="Include">

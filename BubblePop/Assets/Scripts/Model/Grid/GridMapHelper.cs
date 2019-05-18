@@ -32,7 +32,7 @@ namespace Project.Grid
                     direction = rowSideOfHit == GridRowSide.Left ? new Vector2Int(-1, -1) : new Vector2Int(0, -1);
                     if (BubbleExistsAtPosition(gridMap, bubble.Position.Value + direction))
                     {
-                        direction = direction.x == 0 ? new Vector2Int(1, direction.y) : new Vector2Int(0, direction.y);
+                        direction = new Vector2Int(-1, 0);
                     }
 
                     break;
@@ -40,7 +40,7 @@ namespace Project.Grid
                     direction = rowSideOfHit == GridRowSide.Left ? new Vector2Int(0, -1) : new Vector2Int(1, -1);
                     if (BubbleExistsAtPosition(gridMap, bubble.Position.Value + direction))
                     {
-                        direction = direction.x == 0 ? new Vector2Int(-1, direction.y) : new Vector2Int(0, direction.y);
+                        direction = new Vector2Int(1, 0);
                     }
 
                     break;
