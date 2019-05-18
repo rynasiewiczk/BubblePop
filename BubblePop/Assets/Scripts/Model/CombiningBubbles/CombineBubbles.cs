@@ -17,6 +17,7 @@ namespace Model.CombiningBubbles
         private readonly List<IBubble> _bubblesToCollapseBufferList = new List<IBubble>(10);
         private BubbleData _bubbleData = null;
         private CombineBubbleSignal _combineBubbleSignal = new CombineBubbleSignal();
+        private SpawnBubbleOnGridSignal _spawnBubbleOnGridSignal = new SpawnBubbleOnGridSignal();
         private SignalBus _signalBus = null;
         private IGameStateController _gameStateController = null;
 
@@ -32,10 +33,13 @@ namespace Model.CombiningBubbles
 
         private void CollapseBubbles(List<IBubble> bubbles)
         {
+            _gameStateController.ChangeGamePlayState(GamePlayState.WaitingForBubblesCombine);
+
             var level = bubbles[0].Level.Value;
             var levelAfterCombination = GetLevelAfterBubblesCombination(level, bubbles.Count);
 
             var bubbleWithMaxNeighboursWithResultLevel = FindBubbleToCollapseTo(bubbles, levelAfterCombination, out var toCollapseNeighboursAfterThisCollapse);
+            var positionOfCollapse = bubbleWithMaxNeighboursWithResultLevel.Position.Value;
 
             var collapseDuration = _bubbleData.CombiningDuration;
 
@@ -53,13 +57,12 @@ namespace Model.CombiningBubbles
             {
                 foreach (var bubble in bubbles)
                 {
-                    if (bubble.Position.Value == bubbleWithMaxNeighboursWithResultLevel.Position.Value)
-                    {
-                        continue;
-                    }
-
                     bubble.Destroy();
                 }
+
+                _spawnBubbleOnGridSignal.Level = levelAfterCombination;
+                _spawnBubbleOnGridSignal.Position = positionOfCollapse;
+                _signalBus.Fire(_spawnBubbleOnGridSignal);
 
                 _gameStateController.ChangeGamePlayState(nextState);
             });

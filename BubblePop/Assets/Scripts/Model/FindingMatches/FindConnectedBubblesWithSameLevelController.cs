@@ -20,8 +20,6 @@ namespace Model.FindingMatches
             _gridMap = gridMap;
             _gameStateController = gameStateController;
 
-//            bubblesSpawner.JustSpawned.Where(x => x != null && gameStateController.GamePlayState.Value == GamePlayState.BubblesCombining)
-//                .Subscribe(x => CombineBubbles(x));
             gameStateController.GamePlayState.Where(x => x == GamePlayState.BubblesCombining).Subscribe(x => CombineBubbles(bubblesSpawner.JustSpawned.Value));
         }
 
