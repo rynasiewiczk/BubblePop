@@ -850,6 +850,7 @@
             <e p="GridActionsInstaller.cs" t="Include" />
             <e p="GridInstaller.cs" t="Include" />
             <e p="InGameInstaller.cs" t="Include" />
+            <e p="SignalBusInstaller.cs" t="Include" />
             <e p="ViewInstaller.cs" t="Include" />
           </e>
           <e p="Model" t="Include">
@@ -871,11 +872,18 @@
               <e p="Bubble.cs" t="Include" />
               <e p="BubbleData.cs" t="Include" />
               <e p="BubblesPool.cs" t="Include" />
-              <e p="IBubble.cs" t="Include" />
-              <e p="Spawning" t="Include">
+              <e p="Flying" t="Include">
                 <e p="BubbleFlyObserver.cs" t="Include" />
-                <e p="BubblesSpawner.cs" t="Include" />
                 <e p="IBubbleFlyObserver.cs" t="Include" />
+              </e>
+              <e p="IBubble.cs" t="Include" />
+              <e p="PlacingOnGrid" t="Include">
+                <e p="IPlacerOfBubbleOnGrid.cs" t="Include" />
+                <e p="PlacerOfBubbleOnGrid.cs" t="Include" />
+              </e>
+              <e p="SpawnBubbleOnGridSignal.cs" t="Include" />
+              <e p="Spawning" t="Include">
+                <e p="BubblesSpawner.cs" t="Include" />
                 <e p="IBubblesSpawner.cs" t="Include" />
                 <e p="INextBubbleLevelToSpawnController.cs" t="Include" />
                 <e p="NextBubbleLevelToSpawnController.cs" t="Include" />
@@ -892,7 +900,7 @@
               <e p="BuildingGrid" t="Include">
                 <e p="GridCellsBuilder.cs" t="Include" />
                 <e p="IGridCellsBuilder.cs" t="Include" />
-                <e p="IInitalBubblesBuilder.cs" t="Include" />
+                <e p="IInitialBubblesBuilder.cs" t="Include" />
                 <e p="InitialBubblesBuilder.cs" t="Include" />
               </e>
               <e p="Cell.cs" t="Include" />

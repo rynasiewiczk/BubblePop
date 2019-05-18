@@ -2,6 +2,7 @@
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
+using Zenject;
 
 [Serializable]
 public class AimingSettings
@@ -11,8 +12,8 @@ public class AimingSettings
 
     public int MaxAmountOfWallBounces = 1;
 
-    public Vector3 GetAimingPositionInViewPortPosition()
+    public Vector2 GetAimingPositionInViewPortPosition()
     {
-        return new Vector3((float)_screenWidthAimPositionPercentage/100, (float)_screenHeightAimPositionPercentage/100);
+        return new Vector2((float)_screenWidthAimPositionPercentage/100, (float)_screenHeightAimPositionPercentage/100);
     }
 }

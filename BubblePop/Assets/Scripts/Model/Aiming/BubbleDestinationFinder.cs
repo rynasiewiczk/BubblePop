@@ -18,21 +18,26 @@ namespace Project.Aiming
         private readonly IAimingDirectionObserver _aimingDirectionObserver = null;
         private readonly IGridMap _gridMap = null;
         private readonly AimingSettings _aimingSettings = null;
+        private readonly Camera _camera = null;
+
         private readonly LayerMask _layerMask;
         private readonly List<Vector2> _aimPath = new List<Vector2>();
-        
-        public BubbleAimedData BubbleAimedData { get; private set; }
+
+        private Vector2 AimingPositionInWorldPoint => _camera.ViewportToWorldPoint(_aimingSettings.GetAimingPositionInViewPortPosition());
+
+        public BubbleAimedData AimedBubbleData { get; private set; }
 
         public BubbleDestinationFinder(IGameStateController gameStateController, IInputEventsNotifier inputEventsNotifier,
-            IAimingDirectionObserver aimingDirectionObserver, AimingSettings aimingSettings, IGridMap gridMap)
+            IAimingDirectionObserver aimingDirectionObserver, AimingSettings aimingSettings, IGridMap gridMap, Camera camera)
         {
             _layerMask = LayerMask.GetMask(_bubbleLayerName, _wallLayerName);
             _aimingDirectionObserver = aimingDirectionObserver;
             _aimingSettings = aimingSettings;
             _gridMap = gridMap;
+            _camera = camera;
 
             inputEventsNotifier.OnInputMove.Where(x => gameStateController.GamePlayState.Value == GamePlayState.Aiming && AimingAboveStartingPoint())
-                .Subscribe(x => FireRaycastToFindPositionForBubble(x, 0));
+                .Subscribe(x => FireRaycastToFindPositionForBubble(AimingPositionInWorldPoint, 0));
         }
 
         private bool AimingAboveStartingPoint()
@@ -63,13 +68,13 @@ namespace Project.Aiming
                     ResetAimData();
                     return;
                 }
-                
+
                 ResetAimData();
 
                 var hitPosition = raycastHit.point;
-                
+
                 _aimPath.Add(hitPosition);
-                
+
                 reflections++;
                 FireRaycastToFindPositionForBubble(hitPosition, reflections);
             }
@@ -79,9 +84,9 @@ namespace Project.Aiming
                 var aimedSide = GetBubbleAimedSide(raycastHit.point, bubblePosition);
                 //todo: get position on row for the collider and get bubble from GridMap
                 var bubbleView = collider.gameObject.GetComponentInParent<BubbleView>();
-                
+
                 _aimPath.Add(_gridMap.GetPositionToSpawnBubble(bubbleView.Model, aimedSide));
-                BubbleAimedData = new BubbleAimedData(bubbleView.Model, aimedSide, _aimPath.ToArray());
+                AimedBubbleData = new BubbleAimedData(bubbleView.Model, aimedSide, _aimPath.ToArray());
             }
             else
             {
@@ -92,7 +97,7 @@ namespace Project.Aiming
 
         private void ResetAimData()
         {
-            BubbleAimedData = null;
+            AimedBubbleData = null;
             _aimPath.Clear();
         }
 

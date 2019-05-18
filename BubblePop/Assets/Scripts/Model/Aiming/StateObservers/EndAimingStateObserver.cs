@@ -15,6 +15,14 @@ namespace Project.Aiming
         private readonly IGridMap _gridMap = null;
 
         public ReactiveProperty<Vector2[]> BubbleFlyPath { get; }
+        public Vector2Int BubbleDestination 
+        {
+            get
+            {
+                var lastPathPosition = BubbleFlyPath.Value.Last();
+                return new Vector2Int((int)lastPathPosition.x, (int)lastPathPosition.y);
+            }
+        }
 
         public EndAimingStateObserver(IInputEventsNotifier inputEventsNotifier, IBubbleDestinationFinder bubbleDestinationFinder,
             IGameStateController gameStateController, IGridMap gridMap)
@@ -31,10 +39,10 @@ namespace Project.Aiming
 
         private void GetPlaceToSpawnBubble()
         {
-            if (_bubbleDestinationFinder.BubbleAimedData != null)
+            if (_bubbleDestinationFinder.AimedBubbleData != null)
             {
-                var positionToSpawnBubble = _gridMap.GetPositionToSpawnBubble(_bubbleDestinationFinder.BubbleAimedData.Bubble,
-                    _bubbleDestinationFinder.BubbleAimedData.AimedSide);
+                var positionToSpawnBubble = _gridMap.GetPositionToSpawnBubble(_bubbleDestinationFinder.AimedBubbleData.Bubble,
+                    _bubbleDestinationFinder.AimedBubbleData.AimedSide);
                 var cellToSpawnBubble = _gridMap.CellsRegistry.FirstOrDefault(x => x.Position == positionToSpawnBubble);
                 if (cellToSpawnBubble == null)
                 {
@@ -48,7 +56,7 @@ namespace Project.Aiming
                 }
                 else
                 {
-                    BubbleFlyPath.Value = _bubbleDestinationFinder.BubbleAimedData.Path;
+                    BubbleFlyPath.Value = _bubbleDestinationFinder.AimedBubbleData.Path;
                 }
             }
             else

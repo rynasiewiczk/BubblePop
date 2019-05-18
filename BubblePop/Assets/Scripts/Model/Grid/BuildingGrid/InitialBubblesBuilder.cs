@@ -1,22 +1,20 @@
 using Project.Bubbles;
 using UnityEngine;
+using Zenject;
 
 namespace Project.Grid.BuildingGrid
 {
-    public class InitialBubblesBuilder : IInitalBubblesBuilder
+    public class InitialBubblesBuilder : IInitialBubblesBuilder
     {
-        private readonly IGridMap _gridMap = null;
-        private readonly GridSettings _gridSettings = null;
-
-        private readonly IBubblesSpawner _bubblesSpawner = null;
         private readonly BubbleData _bubbleData;
 
-        public InitialBubblesBuilder(IGridMap gridMap, GridSettings gridSettings, IBubblesSpawner bubblesSpawner, BubbleData bubbleData)
+        private readonly SignalBus _signalBus = null;
+        private readonly SpawnBubbleOnGridSignal _spawnBubbleOnGridSignal = new SpawnBubbleOnGridSignal();
+
+        public InitialBubblesBuilder(IGridMap gridMap, GridSettings gridSettings, BubbleData bubbleData, SignalBus signalBus)
         {
-            _gridMap = gridMap;
-            _gridSettings = gridSettings;
-            _bubblesSpawner = bubblesSpawner;
             _bubbleData = bubbleData;
+            _signalBus = signalBus;
 
             CreateInitialBubbles(gridMap, gridSettings);
         }
@@ -30,7 +28,10 @@ namespace Project.Grid.BuildingGrid
                 for (int x = 0; x < gridSettings.StartGridSize.x; x++)
                 {
                     var bubbleLevel = Random.Range(1, _bubbleData.InitialMaxBubblesLevel + 1);
-                    _bubblesSpawner.SpawnBubble(new Vector2Int(x, y), bubbleLevel);
+
+                    _spawnBubbleOnGridSignal.Position = new Vector2Int(x, y);
+                    _spawnBubbleOnGridSignal.Level = bubbleLevel;
+                    _signalBus.Fire(_spawnBubbleOnGridSignal);
                 }
             }
         }

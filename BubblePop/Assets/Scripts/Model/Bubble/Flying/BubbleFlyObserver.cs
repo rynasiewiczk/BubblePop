@@ -36,7 +36,7 @@ namespace Project.Bubbles
             var flySpeed = _bubbleData.FlySpeed;
             var flyDuration = distance / flySpeed;
 
-            DOVirtual.DelayedCall(flyDuration, () => { _gameStateController.ChangeGamePlayState(GamePlayState.Idle); });
+            DOVirtual.DelayedCall(flyDuration, () => { _gameStateController.ChangeGamePlayState(GamePlayState.PlacingBubbleOnGrid); });
         }
 
         private float CalculateDistanceOfFly(Vector2[] flyPath)
