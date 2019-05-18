@@ -30,14 +30,8 @@ public class BubbleView : MonoBehaviour
 
     private void SetPosition(Vector2Int position)
     {
-        var bubbleSide = _gridMap.GetGridSideForRow(position.y);
-        var offset = 0f;
-        if (bubbleSide == GridRowSide.Right)
-        {
-            offset += .5f;
-        }
-
-        transform.position = (Vector2) position + new Vector2(offset, 0);
+        var viewPosition = _gridMap.GetGridViewPosition(position);
+        transform.position = viewPosition;
     }
 
     private void SetColor(int level)

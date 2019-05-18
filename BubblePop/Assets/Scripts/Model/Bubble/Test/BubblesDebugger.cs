@@ -19,15 +19,10 @@ public class BubblesDebugger : MonoBehaviour
         foreach (var bubble in _gridMap.BubblesRegistry)
         {
             var color = _bubbleData.GetColorForLevel(bubble.Level.Value);
+            var viewPosition = _gridMap.GetGridViewPosition(bubble.Position.Value);
+            
             Gizmos.color = color;
-
-            var offset = 0f;
-            if (_gridMap.GridRowSidesMap[bubble.Position.Value.y] == GridRowSide.Right)
-            {
-                offset += .5f;
-            }
-
-            Gizmos.DrawSphere(bubble.Position.Value + new Vector2(offset, 0), .5f);
+            Gizmos.DrawSphere(viewPosition, .5f);
         }
     }
 }

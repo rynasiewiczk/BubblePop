@@ -40,10 +40,22 @@ namespace Project.Grid
             return result;
         }
 
-        public static float GetRowsHeight(this IGridMap gridMap, int row)
+        public static Vector2 GetGridViewPosition(this IGridMap gridMap, Vector2Int position)
+        {
+            var offsetX = 0f;
+            if (gridMap.GridRowSidesMap[position.y] == GridRowSide.Right)
+            {
+                offsetX += .5f;
+            }
+
+            var viewPositionInX = position.x + offsetX;
+            var viewPositionInY = gridMap.GetHeightOfRow(position.y);
+            return new Vector2(viewPositionInX, viewPositionInY);
+        }
+        
+        private static float GetHeightOfRow(this IGridMap gridMap, int row)
         {
             var heightBetweenRows = Mathf.Pow(Mathf.Pow(DISTANCE_BETWEEN_BUBBLES, 2) - Mathf.Pow(HALF_OF_DISTANCE_BETWEEN_BUBBLES, 2), .5f);
-            Debug.Log(heightBetweenRows);
 
             var result = heightBetweenRows * row;
             return result;
