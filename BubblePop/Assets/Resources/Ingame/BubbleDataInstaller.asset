@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: BubbleDataInstaller
   m_EditorClassIdentifier: 
   _bubbleData:
-    InitialMaxBubblesLevel: 4
+    InitialMaxBubblesLevel: 3
     _differenceBetweenAvailableColorsAndSpawningColors: 3
     _flySpeed: 15
-    _combiningSpeed: 13
+    combiningDuration: 0.25
     _listOfColors:
     - {r: 0.9622642, g: 0.27687788, b: 0.27687788, a: 1}
     - {r: 0, g: 0.81960785, b: 0, a: 1}
     - {r: 0.25, g: 0.5046797, b: 1, a: 1}
     - {r: 0.9355841, g: 0.2216981, b: 1, a: 1}
     - {r: 0.86904603, g: 1, b: 0.24056602, a: 1}
-    - {r: 0.2783019, g: 0.9623779, b: 1, a: 1}
+    AfterCombiningDelay: 0.1

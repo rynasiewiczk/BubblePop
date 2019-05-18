@@ -850,6 +850,7 @@
             <e p="GridActionsInstaller.cs" t="Include" />
             <e p="GridInstaller.cs" t="Include" />
             <e p="InGameInstaller.cs" t="Include" />
+            <e p="ScoreInstaller.cs" t="Include" />
             <e p="SignalBusInstaller.cs" t="Include" />
             <e p="ViewInstaller.cs" t="Include" />
           </e>
@@ -937,6 +938,10 @@
               <e p="Test" t="Include">
                 <e p="InputDebugMessenger.cs" t="Include" />
               </e>
+            </e>
+            <e p="ScoreController" t="Include">
+              <e p="IScoreController.cs" t="Include" />
+              <e p="ScoreController.cs" t="Include" />
             </e>
           </e>
           <e p="View" t="Include">
