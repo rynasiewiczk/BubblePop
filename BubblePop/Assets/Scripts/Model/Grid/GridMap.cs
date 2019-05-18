@@ -24,14 +24,16 @@ namespace Project.Grid
             Size.Value = gridSettings.StartGridSize;
         }
 
-        public Bubble GetBubbleAtPosition(Vector2Int position)
+        public IBubble GetBubbleAtPosition(Vector2Int position)
         {
-            throw new System.NotImplementedException();
+            var bubble = BubblesRegistry.FirstOrDefault(x => x.Position.Value == position);
+            return bubble;
         }
 
-        public Bubble GetBubbleAtPosition(int x, int y)
+        public IBubble GetBubbleAtPosition(int x, int y)
         {
-            throw new System.NotImplementedException();
+            var position = new Vector2Int(x, y);
+            return GetBubbleAtPosition(position);
         }
 
         public void CreateCellsRegistry(List<ICell> cells)
