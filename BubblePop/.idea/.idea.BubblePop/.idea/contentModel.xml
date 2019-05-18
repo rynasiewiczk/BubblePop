@@ -852,6 +852,7 @@
           <e p="Installers" t="Include">
             <e p="AimingInstaller.cs" t="Include" />
             <e p="BubbleDataInstaller.cs" t="Include" />
+            <e p="BubbleViewSettingsInstaller.cs" t="Include" />
             <e p="GridActionsInstaller.cs" t="Include" />
             <e p="GridInstaller.cs" t="Include" />
             <e p="InGameInstaller.cs" t="Include" />
@@ -960,8 +961,11 @@
           <e p="View" t="Include">
             <e p="Bubble" t="Include">
               <e p="BubbleView.cs" t="Include" />
+              <e p="BubbleViewBounceComponent.cs" t="Include" />
               <e p="BubbleViewCollapseComponent.cs" t="Include" />
               <e p="BubbleViewPool.cs" t="Include" />
+              <e p="BubbleViewSettings.cs" t="Include" />
+              <e p="OnBubbleHitSignal.cs" t="Include" />
             </e>
           </e>
         </e>

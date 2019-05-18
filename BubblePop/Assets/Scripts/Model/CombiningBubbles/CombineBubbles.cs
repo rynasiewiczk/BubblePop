@@ -82,11 +82,11 @@ namespace Model.CombiningBubbles
             foreach (var bubble in bubbles)
             {
                 _bubblesToCollapseBufferList.Clear();
-                int bubblesToCollapse =
-                    _gridMap.FindBubblesToCollapse(level, bubble.Position.Value, _bubblesToCollapseBufferList).Count;
-                if (ShouldUpdateBetterFitBubble(LastCombinedBubbleNeighboursWithSameLevelAmount, maxNumberOfConnections, bubble, bubbleToCollapseTo))
+                var bubblesToCollect = _gridMap.FindBubblesToCollapse(level, bubble.Position.Value, _bubblesToCollapseBufferList);
+                int bubblesToCollapseCount = bubblesToCollect.Count;
+                if (ShouldUpdateBetterFitBubble(bubblesToCollapseCount, maxNumberOfConnections, bubble, bubbleToCollapseTo))
                 {
-                    maxNumberOfConnections = bubblesToCollapse;
+                    maxNumberOfConnections = bubblesToCollapseCount;
                     bubbleToCollapseTo = bubble;
                 }
             }

@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Model.CombiningBubbles;
 using Project.Grid;
@@ -22,6 +23,11 @@ namespace View
         private void Start()
         {
             _signalBus.Subscribe<CombineBubbleSignal>(Combine);
+        }
+
+        private void OnDestroy()
+        {
+            _signalBus.TryUnsubscribe<CombineBubbleSignal>(Combine);
         }
 
         private void Combine(CombineBubbleSignal signal)

@@ -1,3 +1,4 @@
+using System;
 using Project.Grid;
 using UniRx;
 using UnityEngine;
@@ -5,12 +6,13 @@ using Zenject;
 
 namespace Project.Bubbles
 {
-    public class BubblesSpawner : IBubblesSpawner
+    public class BubblesSpawner : IBubblesSpawner, IDisposable
     {
         public ReactiveProperty<IBubble> JustSpawned { get; private set; } = new ReactiveProperty<IBubble>();
         private readonly BubblesPool _bubblesPool = null;
         private readonly BubbleData _bubbleData = null;
         private readonly GridSettings _gridSettings = null;
+        private SignalBus _signalBus = null;
 
         public BubblesSpawner(BubblesPool bubblesPool, BubbleData bubbleData, GridSettings gridSettings, SignalBus signalBus)
         {
@@ -18,7 +20,13 @@ namespace Project.Bubbles
             _bubbleData = bubbleData;
             _gridSettings = gridSettings;
 
-            signalBus.Subscribe<SpawnBubbleOnGridSignal>(signal => { SpawnBubble(signal); });
+            _signalBus = signalBus;
+            _signalBus.Subscribe<SpawnBubbleOnGridSignal>(signal => { SpawnBubble(signal); });
+        }
+
+        public void Dispose()
+        {
+            _signalBus.Subscribe<SpawnBubbleOnGridSignal>(signal => { SpawnBubble(signal); });
         }
 
         public IBubble SpawnBubble(SpawnBubbleOnGridSignal signal)

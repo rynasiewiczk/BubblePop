@@ -1,3 +1,4 @@
+using System;
 using Enums;
 using Project.Bubbles;
 using UniRx;
@@ -5,32 +6,33 @@ using Zenject;
 
 namespace Model.ScoreController
 {
-    public class ScoreController : IScoreController
+    public class ScoreController : IScoreController, IDisposable
     {
         public ReactiveProperty<int> Score { get; }
 
         private readonly BubbleData _bubbleData = null;
         private IGameStateController _gameStateController = null;
+        private SignalBus _signalBus = null;
 
         public ScoreController(IBubblesSpawner bubblesSpawner, IGameStateController gameStateController, SignalBus signalBus, BubbleData bubbleData)
         {
             Score = new ReactiveProperty<int>();
 
             _gameStateController = gameStateController;
-            signalBus.Subscribe<SpawnBubbleOnGridSignal>(signal => GetScoreOnBubbleCombine(signal.Level));
+            _signalBus = signalBus;
+            _signalBus.Subscribe<SpawnBubbleOnGridSignal>(signal => GetScoreOnBubbleCombine(signal.Level));
 
             _bubbleData = bubbleData;
-
-            //todo: middle state for getting score would be useful
-//            gameStateController.GamePlayState.Where(x => x == GamePlayState.DropBubblesAfterCombining)
-//                .Subscribe(x => GetScoreOnBubbleCombine(bubblesSpawner.JustSpawned.Value.Level.Value));
-            //bubblesSpawner.JustSpawned./*Where(x => _gameStateController.GamePlayState.Value >= GamePlayState.BubblesCombining && x != null)
-            //    .*/Subscribe(x => GetScoreOnBubbleSpawn(x.Level.Value));
+        }
+        
+        public void Dispose()
+        {
+            _signalBus.TryUnsubscribe<SpawnBubbleOnGridSignal>(signal => GetScoreOnBubbleCombine(signal.Level));
         }
 
         private void GetScoreOnBubbleCombine(int level)
         {
-            if (_gameStateController.GamePlayState.Value >= GamePlayState.Aiming && _gameStateController.GamePlayState.Value < GamePlayState.DropBubblesAfterCombining)
+            if (_gameStateController.GamePlayState.Value < GamePlayState.BubblesCombining)
             {
                 return;
             }
