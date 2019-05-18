@@ -6,6 +6,28 @@ namespace Project.Grid
 {
     public static class BubblesFindingHelper
     {
+        private static readonly Vector2Int[] _leftRowCheckVectors = new Vector2Int[]
+        {
+            new Vector2Int(-1, 1),
+            new Vector2Int(0, 1),
+            new Vector2Int(-1, -1),
+            new Vector2Int(-1, -1),
+
+            new Vector2Int(-1, 0),
+            new Vector2Int(1, 0),
+        };
+
+        private static readonly Vector2Int[] _rightRowCheckVectors = new Vector2Int[]
+        {
+            new Vector2Int(0, 1),
+            new Vector2Int(1, 1),
+            new Vector2Int(0, -1),
+            new Vector2Int(1, -1),
+
+            new Vector2Int(-1, 0),
+            new Vector2Int(1, 0),
+        };
+
         public static List<IBubble> FindBubblesToCollapse(this IGridMap map, IBubble startBubble, List<IBubble> bufferList)
         {
             bufferList.Add(startBubble);
@@ -18,10 +40,13 @@ namespace Project.Grid
 
         private static void GetNeighboursWithLevel(IGridMap map, int level, Vector2Int startPos, Vector2Int dirToIgnore, List<IBubble> bufferList)
         {
-            AddToListIfMatch(map, level, startPos, Vector2Int.up, dirToIgnore, bufferList);
-            AddToListIfMatch(map, level, startPos, Vector2Int.down, dirToIgnore, bufferList);
-            AddToListIfMatch(map, level, startPos, Vector2Int.left, dirToIgnore, bufferList);
-            AddToListIfMatch(map, level, startPos, Vector2Int.right, dirToIgnore, bufferList);
+            var rowSide = map.GetGridSideForRow(startPos.y);
+            var checkVectors = rowSide == GridRowSide.Left ? _leftRowCheckVectors : _rightRowCheckVectors;
+
+            foreach (var checkVector in checkVectors)
+            {
+                AddToListIfMatch(map, level, startPos, checkVector, dirToIgnore, bufferList);
+            }
         }
 
         private static void AddToListIfMatch(IGridMap map, int level, Vector2Int startPos, Vector2Int dirToCheck, Vector2Int dirToIgnore,

@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d56e2297-98c2-4f48-a3c1-9ee0340c0891" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enums/GamePlayState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enums/GamePlayState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Installers/GridActionsInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Installers/GridActionsInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Model/Bubble/PlacingOnGrid/PlacerOfBubbleOnGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Model/Bubble/PlacingOnGrid/PlacerOfBubbleOnGrid.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Model/Bubble/Spawning/NextBubbleLevelToSpawnController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Model/Bubble/Spawning/NextBubbleLevelToSpawnController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Model/Grid/GridMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Model/Grid/GridMap.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Model/Grid/GridMapHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Model/Grid/GridMapHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Model/Grid/IGridMap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Model/Grid/IGridMap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Model/Grid/BubblesFindingHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Model/Grid/BubblesFindingHelper.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,57 +34,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/Grid/BubblesFindingHelper.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+            <state relative-caret-position="720">
+              <caret line="76" column="1" selection-end-line="76" selection-end-column="1" />
               <folding>
-                <marker date="1558180560442" expanded="true" signature="6:75" ph="..." />
-                <marker date="1558180560442" expanded="true" signature="99:2068" ph="{...}" />
-                <marker date="1558180560442" expanded="true" signature="146:2066" ph="{...}" />
-                <marker date="1558180560442" expanded="true" signature="276:536" ph="{...}" />
-                <marker date="1558180560442" expanded="true" signature="684:1079" ph="{...}" />
-                <marker date="1558180560442" expanded="true" signature="1256:1882" ph="{...}" />
-                <marker date="1558180560442" expanded="true" signature="1515:1567" ph="{...}" />
-                <marker date="1558180560442" expanded="true" signature="1677:1729" ph="{...}" />
-                <marker date="1558180560442" expanded="true" signature="1974:2060" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/GameState/GameStateController.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-              <folding>
-                <marker date="1558107054400" expanded="true" signature="6:44" ph="..." />
-                <marker date="1558107054400" expanded="true" signature="61:747" ph="{...}" />
-                <marker date="1558107054400" expanded="true" signature="123:745" ph="{...}" />
-                <marker date="1558107054400" expanded="true" signature="323:553" ph="{...}" />
-                <marker date="1558107054400" expanded="true" signature="618:739" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/FindingMatches/FindConnectedBubblesWithSameLevel.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-              <folding>
-                <marker date="1558180958985" expanded="true" signature="6:121" ph="..." />
-                <marker date="1558180958985" expanded="true" signature="153:2037" ph="{...}" />
-                <marker date="1558180958985" expanded="true" signature="243:2035" ph="{...}" />
-                <marker date="1558180958985" expanded="true" signature="666:1135" ph="{...}" />
-                <marker date="1558180958985" expanded="true" signature="1188:2029" ph="{...}" />
-                <marker date="1558180958985" expanded="true" signature="1414:1498" ph="{...}" />
-                <marker date="1558180958985" expanded="true" signature="1559:1717" ph="{...}" />
-                <marker date="1558180958985" expanded="true" signature="1734:2019" ph="{...}" />
-                <marker date="1558180958985" expanded="true" signature="1817:2005" ph="{...}" />
+                <marker date="1558183132233" expanded="true" signature="6:75" ph="..." />
+                <marker date="1558183132233" expanded="true" signature="99:2654" ph="{...}" />
+                <marker date="1558183132233" expanded="true" signature="146:2652" ph="{...}" />
+                <marker date="1558183132233" expanded="true" signature="237:459" ph="{...}" />
+                <marker date="1558183132233" expanded="true" signature="547:766" ph="{...}" />
+                <marker date="1558183132233" expanded="true" signature="892:1152" ph="{...}" />
+                <marker date="1558183132233" expanded="true" signature="1300:1665" ph="{...}" />
+                <marker date="1558183132233" expanded="true" signature="1533:1655" ph="{...}" />
+                <marker date="1558183132233" expanded="true" signature="1842:2468" ph="{...}" />
+                <marker date="1558183132233" expanded="true" signature="2101:2153" ph="{...}" />
+                <marker date="1558183132233" expanded="true" signature="2263:2315" ph="{...}" />
+                <marker date="1558183132233" expanded="true" signature="2560:2646" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -113,14 +74,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/Bubble/Spawning/NextBubbleLevelToSpawnController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="168">
+              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
               <folding>
-                <marker date="1558181216009" expanded="true" signature="6:57" ph="..." />
-                <marker date="1558181216009" expanded="true" signature="84:1076" ph="{...}" />
-                <marker date="1558181216009" expanded="true" signature="172:1074" ph="{...}" />
-                <marker date="1558181216009" expanded="true" signature="459:754" ph="{...}" />
-                <marker date="1558181216009" expanded="true" signature="799:1068" ph="{...}" />
+                <marker date="1558181416817" expanded="true" signature="6:57" ph="..." />
+                <marker date="1558181416817" expanded="true" signature="84:1112" ph="{...}" />
+                <marker date="1558181416817" expanded="true" signature="172:1110" ph="{...}" />
+                <marker date="1558181416817" expanded="true" signature="459:790" ph="{...}" />
+                <marker date="1558181416817" expanded="true" signature="835:1104" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -181,11 +142,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/Bubble/Spawning/BubblesSpawner.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-144">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            <state relative-caret-position="50">
+              <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
               <folding>
                 <marker date="1558175799442" expanded="false" signature="6:66" ph="..." />
                 <marker date="1558175799442" expanded="true" signature="93:1230" ph="{...}" />
@@ -201,8 +162,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/Bubble/PlacingOnGrid/PlacerOfBubbleOnGrid.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="24" column="87" selection-start-line="24" selection-start-column="87" selection-end-line="24" selection-end-column="87" />
+            <state relative-caret-position="96">
+              <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
               <folding>
                 <marker date="1558180803594" expanded="true" signature="6:75" ph="..." />
                 <marker date="1558180803594" expanded="true" signature="116:1175" ph="{...}" />
@@ -370,11 +331,11 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Model/Grid/GridMap.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Model/FindingMatches/IFindConnectedBubblesWithSameLevel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enums/GamePlayState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Model/Grid/BubblesFindingHelper.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Installers/GridActionsInstaller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Model/Bubble/PlacingOnGrid/PlacerOfBubbleOnGrid.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Model/FindingMatches/FindConnectedBubblesWithSameLevel.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Model/Bubble/Spawning/NextBubbleLevelToSpawnController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Model/FindingMatches/FindConnectedBubblesWithSameLevel.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Model/Grid/BubblesFindingHelper.cs" />
       </list>
     </option>
   </component>
@@ -499,12 +460,12 @@
       <workItem from="1558021705426" duration="12322000" />
       <workItem from="1558087764463" duration="20645000" />
       <workItem from="1558120537692" duration="7989000" />
-      <workItem from="1558173167892" duration="8174000" />
+      <workItem from="1558173167892" duration="9348000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50480000" />
+    <option name="totallyTimeSpent" value="51654000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -523,9 +484,9 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.56980354" />
+      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.36091003" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.42502585" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.42502585" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -604,20 +565,7 @@
               <option value="938" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Model/Bubble/Spawning/BubblesSpawner.cs</url>
-          <line>30</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Model/Bubble/Spawning/BubblesSpawner.cs" initialLine="30">
-            <startOffsets>
-              <option value="1040" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1085" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1248,24 +1196,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/Grid/BubblesFindingHelper.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="11" column="34" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-          <folding>
-            <marker date="1558180560442" expanded="true" signature="6:75" ph="..." />
-            <marker date="1558180560442" expanded="true" signature="99:2068" ph="{...}" />
-            <marker date="1558180560442" expanded="true" signature="146:2066" ph="{...}" />
-            <marker date="1558180560442" expanded="true" signature="276:536" ph="{...}" />
-            <marker date="1558180560442" expanded="true" signature="684:1079" ph="{...}" />
-            <marker date="1558180560442" expanded="true" signature="1256:1882" ph="{...}" />
-            <marker date="1558180560442" expanded="true" signature="1515:1567" ph="{...}" />
-            <marker date="1558180560442" expanded="true" signature="1677:1729" ph="{...}" />
-            <marker date="1558180560442" expanded="true" signature="1974:2060" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Installers/GridActionsInstaller.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -1278,34 +1208,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/GameState/GameStateController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-          <folding>
-            <marker date="1558107054400" expanded="true" signature="6:44" ph="..." />
-            <marker date="1558107054400" expanded="true" signature="61:747" ph="{...}" />
-            <marker date="1558107054400" expanded="true" signature="123:745" ph="{...}" />
-            <marker date="1558107054400" expanded="true" signature="323:553" ph="{...}" />
-            <marker date="1558107054400" expanded="true" signature="618:739" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/Bubble/PlacingOnGrid/PlacerOfBubbleOnGrid.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="24" column="87" selection-start-line="24" selection-start-column="87" selection-end-line="24" selection-end-column="87" />
-          <folding>
-            <marker date="1558180803594" expanded="true" signature="6:75" ph="..." />
-            <marker date="1558180803594" expanded="true" signature="116:1175" ph="{...}" />
-            <marker date="1558180803594" expanded="true" signature="180:1173" ph="{...}" />
-            <marker date="1558180803594" expanded="true" signature="596:1167" ph="{...}" />
-            <marker date="1558180803594" expanded="true" signature="789:1155" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/FindingMatches/IFindConnectedBubblesWithSameLevel.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -1313,38 +1215,6 @@
           <folding>
             <marker date="1558180254253" expanded="true" signature="30:111" ph="{...}" />
             <marker date="1558180254253" expanded="true" signature="88:109" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/FindingMatches/FindConnectedBubblesWithSameLevel.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-          <folding>
-            <marker date="1558180958985" expanded="true" signature="6:121" ph="..." />
-            <marker date="1558180958985" expanded="true" signature="153:2037" ph="{...}" />
-            <marker date="1558180958985" expanded="true" signature="243:2035" ph="{...}" />
-            <marker date="1558180958985" expanded="true" signature="666:1135" ph="{...}" />
-            <marker date="1558180958985" expanded="true" signature="1188:2029" ph="{...}" />
-            <marker date="1558180958985" expanded="true" signature="1414:1498" ph="{...}" />
-            <marker date="1558180958985" expanded="true" signature="1559:1717" ph="{...}" />
-            <marker date="1558180958985" expanded="true" signature="1734:2019" ph="{...}" />
-            <marker date="1558180958985" expanded="true" signature="1817:2005" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/Bubble/Spawning/NextBubbleLevelToSpawnController.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <marker date="1558181216009" expanded="true" signature="6:57" ph="..." />
-            <marker date="1558181216009" expanded="true" signature="84:1076" ph="{...}" />
-            <marker date="1558181216009" expanded="true" signature="172:1074" ph="{...}" />
-            <marker date="1558181216009" expanded="true" signature="459:754" ph="{...}" />
-            <marker date="1558181216009" expanded="true" signature="799:1068" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1400,8 +1270,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/Bubble/Spawning/BubblesSpawner.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-144">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="50">
+          <caret line="23" column="50" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
           <folding>
             <marker date="1558175799442" expanded="false" signature="6:66" ph="..." />
             <marker date="1558175799442" expanded="true" signature="93:1230" ph="{...}" />
@@ -1409,6 +1279,86 @@
             <marker date="1558175799442" expanded="true" signature="562:797" ph="{...}" />
             <marker date="1558175799442" expanded="true" signature="865:948" ph="{...}" />
             <marker date="1558175799442" expanded="true" signature="1017:1222" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/Bubble/PlacingOnGrid/PlacerOfBubbleOnGrid.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+          <folding>
+            <marker date="1558180803594" expanded="true" signature="6:75" ph="..." />
+            <marker date="1558180803594" expanded="true" signature="116:1175" ph="{...}" />
+            <marker date="1558180803594" expanded="true" signature="180:1173" ph="{...}" />
+            <marker date="1558180803594" expanded="true" signature="596:1167" ph="{...}" />
+            <marker date="1558180803594" expanded="true" signature="789:1155" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/Bubble/Spawning/NextBubbleLevelToSpawnController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding>
+            <marker date="1558181416817" expanded="true" signature="6:57" ph="..." />
+            <marker date="1558181416817" expanded="true" signature="84:1112" ph="{...}" />
+            <marker date="1558181416817" expanded="true" signature="172:1110" ph="{...}" />
+            <marker date="1558181416817" expanded="true" signature="459:790" ph="{...}" />
+            <marker date="1558181416817" expanded="true" signature="835:1104" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/FindingMatches/FindConnectedBubblesWithSameLevel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="23" column="139" selection-start-line="23" selection-start-column="139" selection-end-line="23" selection-end-column="139" />
+          <folding>
+            <marker date="1558181498084" expanded="true" signature="6:121" ph="..." />
+            <marker date="1558181498084" expanded="true" signature="153:1705" ph="{...}" />
+            <marker date="1558181498084" expanded="true" signature="243:1703" ph="{...}" />
+            <marker date="1558181498084" expanded="true" signature="666:982" ph="{...}" />
+            <marker date="1558181498084" expanded="true" signature="1035:1697" ph="{...}" />
+            <marker date="1558181498084" expanded="true" signature="1261:1345" ph="{...}" />
+            <marker date="1558181498084" expanded="true" signature="1406:1564" ph="{...}" />
+            <marker date="1558181498084" expanded="true" signature="1581:1687" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/GameState/GameStateController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+          <folding>
+            <marker date="1558107054400" expanded="true" signature="6:44" ph="..." />
+            <marker date="1558107054400" expanded="true" signature="61:747" ph="{...}" />
+            <marker date="1558107054400" expanded="true" signature="123:745" ph="{...}" />
+            <marker date="1558107054400" expanded="true" signature="323:553" ph="{...}" />
+            <marker date="1558107054400" expanded="true" signature="618:739" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Model/Grid/BubblesFindingHelper.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="76" column="1" selection-end-line="76" selection-end-column="1" />
+          <folding>
+            <marker date="1558183132233" expanded="true" signature="6:75" ph="..." />
+            <marker date="1558183132233" expanded="true" signature="99:2654" ph="{...}" />
+            <marker date="1558183132233" expanded="true" signature="146:2652" ph="{...}" />
+            <marker date="1558183132233" expanded="true" signature="237:459" ph="{...}" />
+            <marker date="1558183132233" expanded="true" signature="547:766" ph="{...}" />
+            <marker date="1558183132233" expanded="true" signature="892:1152" ph="{...}" />
+            <marker date="1558183132233" expanded="true" signature="1300:1665" ph="{...}" />
+            <marker date="1558183132233" expanded="true" signature="1533:1655" ph="{...}" />
+            <marker date="1558183132233" expanded="true" signature="1842:2468" ph="{...}" />
+            <marker date="1558183132233" expanded="true" signature="2101:2153" ph="{...}" />
+            <marker date="1558183132233" expanded="true" signature="2263:2315" ph="{...}" />
+            <marker date="1558183132233" expanded="true" signature="2560:2646" ph="{...}" />
           </folding>
         </state>
       </provider>
