@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Project.Bubbles;
+using Project.Bubbles.PlacingOnGrid;
 using UnityEngine;
 
 namespace Project.Grid
@@ -35,6 +36,18 @@ namespace Project.Grid
 
             GetNeighboursWithLevel(map, bubbleLevel, startBubble.Position.Value, Vector2Int.zero, bufferList);
 
+            return bufferList;
+        }
+
+        public static List<IBubble> FindBubblesToCollapse(this IGridMap gridMap, int level, Vector2Int position, List<IBubble> bufferList)
+        {
+            var bubbleAtPosition = gridMap.GetBubbleAtPositionOrNull(position);
+            if (bubbleAtPosition != null)
+            {
+                bufferList.Add(bubbleAtPosition);
+            }
+
+            GetNeighboursWithLevel(gridMap, level, position, Vector2Int.zero, bufferList);
             return bufferList;
         }
 

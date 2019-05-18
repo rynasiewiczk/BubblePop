@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 [Serializable] public class BubbleData
@@ -8,12 +9,12 @@ using Random = UnityEngine.Random;
     public int InitialMaxBubblesLevel = 4;
     [SerializeField] private int _differenceBetweenAvailableColorsAndSpawningColors = 3;
     [SerializeField] private float _flySpeed = 15f;
-    [SerializeField] private float _combiningSpeed = 13f;
+    [FormerlySerializedAs("_combiningSpeed")] [SerializeField] private float combiningDuration = 13f;
     [Space, SerializeField] private List<Color> _listOfColors = null;
 
     public int MaxBubbleLevelToSpawn => _listOfColors.Count - _differenceBetweenAvailableColorsAndSpawningColors;
     public float FlySpeed => _flySpeed;
-    public float CombiningSpeed => _combiningSpeed;
+    public float CombiningDuration => combiningDuration;
 
     public int GetValueForLevel(int level)
     {

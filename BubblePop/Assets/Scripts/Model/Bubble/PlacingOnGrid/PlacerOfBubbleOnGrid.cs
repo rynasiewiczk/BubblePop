@@ -21,7 +21,6 @@ namespace Project.Bubbles.PlacingOnGrid
                 _spawnBubbleOnGridSignal.Position = endAimingStateObserver.BubbleDestination;
                 _spawnBubbleOnGridSignal.Level = nextBubbleLevelToSpawnController.BubbleLevelToSpawn.Value;
                 signalBus.Fire(_spawnBubbleOnGridSignal);
-
                 _gameStateController.ChangeGamePlayState(GamePlayState.BubblesCombining);
             });
         }

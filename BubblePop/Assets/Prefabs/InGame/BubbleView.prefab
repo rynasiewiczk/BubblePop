@@ -89,6 +89,7 @@ GameObject:
   m_Component:
   - component: {fileID: 269434309295794830}
   - component: {fileID: 2525605538803913460}
+  - component: {fileID: 8357112972250275030}
   m_Layer: 8
   m_Name: BubbleView
   m_TagString: Untagged
@@ -127,6 +128,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 269434308949964341}
   _text: {fileID: 2588236731539682368}
+--- !u!114 &8357112972250275030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269434309295794831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63979c4f27b64c9e9d4830ce338f74b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _view: {fileID: 2525605538803913460}
 --- !u!1 &269434310310502805
 GameObject:
   m_ObjectHideFlags: 0

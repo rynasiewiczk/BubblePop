@@ -51,6 +51,11 @@ namespace Project.Grid
             return result;
         }
 
+        public static Vector2Int GetGridViewPositionVector2Int(this IGridMap gridMap, Vector2Int position)
+        {
+            var pos = GetGridViewPosition(gridMap, position);
+            return new Vector2Int((int)pos.x, (int)pos.y);
+        }
         public static Vector2 GetGridViewPosition(this IGridMap gridMap, Vector2Int position)
         {
             var offsetX = 0f;

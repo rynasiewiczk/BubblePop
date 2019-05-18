@@ -7,7 +7,8 @@ namespace Project.Bubbles
     {
         ReactiveProperty<Vector2Int> Position { get; }
         ReactiveProperty<int> Level { get; }
-        
+
+        void Destroy();
         ReactiveCommand<Bubble> Destroyed { get; }
     }
 }

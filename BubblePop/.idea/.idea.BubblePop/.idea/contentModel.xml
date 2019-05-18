@@ -892,9 +892,14 @@
                 <e p="BubblesDebugger.cs" t="Include" />
               </e>
             </e>
+            <e p="CombiningBubbles" t="Include">
+              <e p="CombineBubbles.cs" t="Include" />
+              <e p="CombineBubbleSignal.cs" t="Include" />
+              <e p="ICombineBubbles.cs" t="Include" />
+            </e>
             <e p="FindingMatches" t="Include">
-              <e p="FindConnectedBubblesWithSameLevel.cs" t="Include" />
-              <e p="IFindConnectedBubblesWithSameLevel.cs" t="Include" />
+              <e p="FindConnectedBubblesWithSameLevelController.cs" t="Include" />
+              <e p="IFindConnectedBubblesWithSameLevelController.cs" t="Include" />
             </e>
             <e p="GameState" t="Include">
               <e p="GameStateController.cs" t="Include" />
@@ -931,6 +936,7 @@
           <e p="View" t="Include">
             <e p="Bubble" t="Include">
               <e p="BubbleView.cs" t="Include" />
+              <e p="BubbleViewCollapseComponent.cs" t="Include" />
               <e p="BubbleViewPool.cs" t="Include" />
             </e>
           </e>
