@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Enums;
-using Project.Aiming;
 using Project.Bubbles;
 using UnityEngine;
 
@@ -32,7 +30,11 @@ namespace Project.Grid
                     direction = rowSideOfHit == GridRowSide.Left ? new Vector2Int(-1, -1) : new Vector2Int(0, -1);
                     if (BubbleExistsAtPosition(gridMap, bubble.Position.Value + direction))
                     {
-                        direction = new Vector2Int(-1, 0);
+                        direction = direction.x == 0 ? new Vector2Int(1, direction.y) : new Vector2Int(0, direction.y);
+                        if (BubbleExistsAtPosition(gridMap, bubble.Position.Value + direction))
+                        {
+                            direction = new Vector2Int(-1, 0);
+                        }
                     }
 
                     break;
@@ -40,7 +42,11 @@ namespace Project.Grid
                     direction = rowSideOfHit == GridRowSide.Left ? new Vector2Int(0, -1) : new Vector2Int(1, -1);
                     if (BubbleExistsAtPosition(gridMap, bubble.Position.Value + direction))
                     {
-                        direction = new Vector2Int(1, 0);
+                        direction = direction.x == 0 ? new Vector2Int(-1, direction.y) : new Vector2Int(0, direction.y);
+                        if (BubbleExistsAtPosition(gridMap, bubble.Position.Value + direction))
+                        {
+                            direction = new Vector2Int(1, 0);
+                        }
                     }
 
                     break;
@@ -55,8 +61,9 @@ namespace Project.Grid
         public static Vector2Int GetGridViewPositionVector2Int(this IGridMap gridMap, Vector2Int position)
         {
             var pos = GetGridViewPosition(gridMap, position);
-            return new Vector2Int((int)pos.x, (int)pos.y);
+            return new Vector2Int((int) pos.x, (int) pos.y);
         }
+
         public static Vector2 GetGridViewPosition(this IGridMap gridMap, Vector2Int position)
         {
             var offsetX = 0f;
@@ -83,6 +90,8 @@ namespace Project.Grid
 
             return list;
         }
+
+        
 
         private static float GetHeightOfRow(int row)
         {

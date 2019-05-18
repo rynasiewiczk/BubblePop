@@ -47,6 +47,11 @@ namespace Project.Aiming
 
         private void FireRaycastToFindPositionForBubble(Vector2 startPoint, int reflections = 0)
         {
+            if (reflections == 0)
+            {
+                ResetAimData();
+            }
+            
             startPoint = AdjustStartPointToAvoidHitSameObject(startPoint);
 
             var aimingDirection = SetAimingDirection(reflections);

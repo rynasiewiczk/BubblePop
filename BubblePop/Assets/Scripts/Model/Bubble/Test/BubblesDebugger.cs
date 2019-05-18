@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Project.Grid;
+﻿using Project.Grid;
 using UnityEngine;
 using Zenject;
 
@@ -16,6 +14,7 @@ public class BubblesDebugger : MonoBehaviour
             return;
         }
 
+        
         foreach (var bubble in _gridMap.BubblesRegistry)
         {
             var color = _bubbleData.GetColorForLevel(bubble.Level.Value);

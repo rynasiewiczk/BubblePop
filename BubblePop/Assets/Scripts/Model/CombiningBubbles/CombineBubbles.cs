@@ -6,6 +6,7 @@ using Model.FindingMatches;
 using Project.Bubbles;
 using Project.Grid;
 using UniRx;
+using UnityEngine;
 using Zenject;
 
 namespace Model.CombiningBubbles
@@ -39,6 +40,8 @@ namespace Model.CombiningBubbles
             var levelAfterCombination = GetLevelAfterBubblesCombination(level, bubbles.Count);
 
             var bubbleWithMaxNeighboursWithResultLevel = FindBubbleToCollapseTo(bubbles, levelAfterCombination, out var toCollapseNeighboursAfterThisCollapse);
+            LastCombinedBubbleNeighboursWithSameLevelAmount = toCollapseNeighboursAfterThisCollapse;
+            
             var positionOfCollapse = bubbleWithMaxNeighboursWithResultLevel.Position.Value;
 
             var collapseDuration = _bubbleData.CombiningDuration;
@@ -56,7 +59,10 @@ namespace Model.CombiningBubbles
             {
                 foreach (var bubble in bubbles)
                 {
-                    bubble.Destroy();
+                    if (bubble.IsPlayable())
+                    {
+                        bubble.Destroy();
+                    }
                 }
 
                 _spawnBubbleOnGridSignal.Level = levelAfterCombination;
@@ -76,11 +82,11 @@ namespace Model.CombiningBubbles
             foreach (var bubble in bubbles)
             {
                 _bubblesToCollapseBufferList.Clear();
-                LastCombinedBubbleNeighboursWithSameLevelAmount =
+                int bubblesToCollapse =
                     _gridMap.FindBubblesToCollapse(level, bubble.Position.Value, _bubblesToCollapseBufferList).Count;
                 if (ShouldUpdateBetterFitBubble(LastCombinedBubbleNeighboursWithSameLevelAmount, maxNumberOfConnections, bubble, bubbleToCollapseTo))
                 {
-                    maxNumberOfConnections = LastCombinedBubbleNeighboursWithSameLevelAmount;
+                    maxNumberOfConnections = bubblesToCollapse;
                     bubbleToCollapseTo = bubble;
                 }
             }

@@ -8,11 +8,11 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
     {
         public WaitAfterCombiningController(IGameStateController gameStateController, BubbleData bubbleData)
         {
-            gameStateController.GamePlayState.Where(x => x == GamePlayState.WaitingForBubblesCombine).Subscribe(x =>
-            {
-                DOVirtual.DelayedCall(bubbleData.CombiningDuration,
-                    () => gameStateController.ChangeGamePlayState(GamePlayState.DropBubblesAfterCombining));
-            });
+//            gameStateController.GamePlayState.Where(x => x == GamePlayState.WaitingForBubblesCombine).Subscribe(x =>
+//            {
+//                DOVirtual.DelayedCall(bubbleData.CombiningDuration + bubbleData.AfterCombiningDelay,
+//                    () => gameStateController.ChangeGamePlayState(GamePlayState.DropBubblesAfterCombining));
+//            });
         }
     }
 }

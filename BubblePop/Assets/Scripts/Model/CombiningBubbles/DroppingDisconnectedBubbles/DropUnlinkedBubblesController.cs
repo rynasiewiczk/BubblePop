@@ -1,7 +1,11 @@
+using System.Collections.Generic;
 using System.Linq;
 using Enums;
+using Project.Bubbles;
 using Project.Grid;
 using UniRx;
+using UnityEngine;
+using Zenject;
 
 namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
 {
@@ -10,10 +14,19 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
         private IGridMap _gridMap = null;
         private readonly IGameStateController _gameStateController = null;
         private readonly ICombineBubbles _combineBubbles = null;
+        private readonly GridSettings _gridSettings = null;
 
-        public DropUnlinkedBubblesController(IGridMap gridMap, IGameStateController gameStateController, ICombineBubbles combineBubbles)
+        private List<IBubble> _allBubbles = new List<IBubble>();
+        private List<IBubble> _bubblestToFall = new List<IBubble>();
+        private List<IBubble> _bubblesToStay = new List<IBubble>();
+        private List<IBubble> _topRowBubbles = new List<IBubble>();
+        private List<IBubble> _allConnectedBubbles = new List<IBubble>();
+
+        public DropUnlinkedBubblesController(IGridMap gridMap, IGameStateController gameStateController, ICombineBubbles combineBubbles,
+            GridSettings gridSettings)
         {
             _gridMap = gridMap;
+            _gridSettings = gridSettings;
             _gameStateController = gameStateController;
             _combineBubbles = combineBubbles;
 
@@ -22,16 +35,38 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
 
         private void DropUnlinkedBubbles()
         {
-            var bubbles = _gridMap.GetAllPlayableBubblesOnGrid();
+            _topRowBubbles.Clear();
+            _topRowBubbles = _gridMap.GetAllTopPlayableRowBubblesOnGrid(_gridSettings, _topRowBubbles);
+            _bubblestToFall.Clear();
+            _bubblesToStay.Clear();
 
-            bubbles = bubbles.OrderBy(x => x.Position.Value.y).ToList();
-
-            for (int i = bubbles.Count - 1; i >= 0; i--)
+            foreach (var topBubble in _topRowBubbles)
             {
-                var hasConnectionFromTop = _gridMap.HasBubbleConnectionFromTop(bubbles[i]);
-                if (!hasConnectionFromTop)
+                if (_bubblesToStay.Contains(topBubble) || _bubblestToFall.Contains(topBubble))
                 {
-                    bubbles[i].Destroy();
+                    continue;
+                }
+
+                _gridMap.GetAllConnectedBubbles(topBubble, _bubblesToStay, _allConnectedBubbles);
+            }
+
+            _allBubbles.Clear();
+            _allBubbles = _gridMap.GetAllPlayableBubblesOnGrid();
+            foreach (var bubble in _allBubbles)
+            {
+                if (_bubblesToStay.Contains(bubble))
+                {
+                    continue;
+                }
+
+                _bubblestToFall.Add(bubble);
+            }
+
+            for (int i = _bubblestToFall.Count - 1; i >= 0; i--)
+            {
+                if (_bubblestToFall[i].IsPlayable())
+                {
+                    _bubblestToFall[i].Destroy();
                 }
             }
 
