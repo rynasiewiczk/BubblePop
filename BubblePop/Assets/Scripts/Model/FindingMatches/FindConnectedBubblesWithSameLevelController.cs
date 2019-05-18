@@ -13,19 +13,22 @@ namespace Model.FindingMatches
     {
         private readonly IGridMap _gridMap = null;
         private readonly IGameStateController _gameStateController = null;
+        private BubbleData _bubbleData = null;
         public ReactiveProperty<List<IBubble>> BubblesToCombine { get; private set; } = new ReactiveProperty<List<IBubble>>();
 
-        public FindConnectedBubblesWithSameLevelController(IGridMap gridMap, IGameStateController gameStateController, IBubblesSpawner bubblesSpawner)
+        public FindConnectedBubblesWithSameLevelController(IGridMap gridMap, IGameStateController gameStateController, IBubblesSpawner bubblesSpawner,
+            BubbleData bubbleData)
         {
             _gridMap = gridMap;
             _gameStateController = gameStateController;
+            _bubbleData = bubbleData;
 
             gameStateController.GamePlayState.Where(x => x == GamePlayState.BubblesCombining).Subscribe(x => CombineBubbles(bubblesSpawner.JustSpawned.Value));
         }
 
         private void CombineBubbles(IBubble bubble)
         {
-            DOVirtual.DelayedCall(.1f, () =>
+            DOVirtual.DelayedCall(_bubbleData.AfterCombiningDelay, () =>
             {
                 var list = new List<IBubble>();
                 list = _gridMap.FindBubblesToCollapse(bubble, list);

@@ -895,6 +895,12 @@
             <e p="CombiningBubbles" t="Include">
               <e p="CombineBubbles.cs" t="Include" />
               <e p="CombineBubbleSignal.cs" t="Include" />
+              <e p="DroppingDisconnectedBubbles" t="Include">
+                <e p="DropUnlinkedBubblesController.cs" t="Include" />
+                <e p="IDropUnlinkedBubblesController.cs" t="Include" />
+                <e p="IWaitAfterCombiningController.cs" t="Include" />
+                <e p="WaitAfterCombiningController.cs" t="Include" />
+              </e>
               <e p="ICombineBubbles.cs" t="Include" />
             </e>
             <e p="FindingMatches" t="Include">

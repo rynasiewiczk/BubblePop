@@ -10,5 +10,6 @@ namespace Enums
          PlacingBubbleOnGrid,
          BubblesCombining,
          WaitingForBubblesCombine,
+         DropBubblesAfterCombining,
      }
  }

@@ -1,5 +1,6 @@
 using Model;
 using Model.CombiningBubbles;
+using Model.CombiningBubbles.DroppingDisconnectedBubbles;
 using Model.FindingMatches;
 using Project.Aiming;
 using Project.Bubbles;
@@ -24,5 +25,8 @@ public class GridActionsInstaller : Installer<GridActionsInstaller>
         
         Container.BindInterfacesTo<CombineBubbles>().AsSingle().NonLazy();
         Container.DeclareSignal<CombineBubbleSignal>();
+        
+        Container.BindInterfacesTo<WaitAfterCombiningController>().AsSingle().NonLazy();
+        Container.BindInterfacesTo<DropUnlinkedBubblesController>().AsSingle().NonLazy();
     }
 }

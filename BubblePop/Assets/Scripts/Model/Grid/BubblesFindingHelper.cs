@@ -86,5 +86,30 @@ namespace Project.Grid
         {
             return bubble != null && bubble.Level.Value == level;
         }
+
+        public static bool HasBubbleConnectionFromTop(this IGridMap gridMap, IBubble bubble)
+        {
+            IBubble bubbleOnTop = null;
+
+            var rowSide = gridMap.GetGridSideForRow(bubble.Position.Value.y);
+
+            var posToCheck = bubble.Position.Value;
+            posToCheck += rowSide == GridRowSide.Left ? new Vector2Int(-1, 1) : new Vector2Int(0, 1);
+            bubbleOnTop = gridMap.GetBubbleAtPositionOrNull(posToCheck);
+            if (bubbleOnTop != null && bubble.IsPlayable())
+            {
+                return true;
+            }
+
+            posToCheck = bubble.Position.Value;
+            posToCheck += rowSide == GridRowSide.Left ? new Vector2Int(0, 1) : new Vector2Int(1, 1);
+            bubbleOnTop = gridMap.GetBubbleAtPositionOrNull(posToCheck);
+            if (bubbleOnTop != null && bubble.IsPlayable())
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

@@ -15,6 +15,7 @@ using Random = UnityEngine.Random;
     public int MaxBubbleLevelToSpawn => _listOfColors.Count - _differenceBetweenAvailableColorsAndSpawningColors;
     public float FlySpeed => _flySpeed;
     public float CombiningDuration => combiningDuration;
+    public float AfterCombiningDelay = .1f;
 
     public int GetValueForLevel(int level)
     {

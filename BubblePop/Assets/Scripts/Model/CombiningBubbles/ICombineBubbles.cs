@@ -1,4 +1,7 @@
 namespace Model.CombiningBubbles
 {
-    public interface ICombineBubbles { }
+    public interface ICombineBubbles
+    {
+        int LastCombinedBubbleNeighboursWithSameLevelAmount { get; }
+    }
 }

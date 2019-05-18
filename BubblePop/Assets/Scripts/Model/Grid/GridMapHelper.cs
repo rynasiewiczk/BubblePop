@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Enums;
 using Project.Aiming;
@@ -67,6 +68,20 @@ namespace Project.Grid
             var viewPositionInX = position.x + offsetX;
             var viewPositionInY = GetHeightOfRow(position.y);
             return new Vector2(viewPositionInX, viewPositionInY);
+        }
+
+        public static List<IBubble> GetAllPlayableBubblesOnGrid(this IGridMap gridMap)
+        {
+            var list = new List<IBubble>();
+            foreach (var bubble in gridMap.BubblesRegistry)
+            {
+                if (bubble.IsPlayable())
+                {
+                    list.Add(bubble);
+                }
+            }
+
+            return list;
         }
 
         private static float GetHeightOfRow(int row)

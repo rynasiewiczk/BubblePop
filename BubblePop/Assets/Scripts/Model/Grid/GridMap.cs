@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using Project.Aiming;
 using Project.Bubbles;
+using Sirenix.Utilities;
 using UniRx;
 using UnityEngine;
 
@@ -33,8 +35,14 @@ namespace Project.Grid
 
         public IBubble GetBubbleAtPositionOrNull(Vector2Int position)
         {
-            var bubble = BubblesRegistry.FirstOrDefault(x => x.Position.Value == position);
-            return bubble;
+            foreach (var bubble in BubblesRegistry)
+            {
+                if (bubble.Position.Value == position)
+                {
+                    return bubble;
+                }                
+            }
+            return null;
         }
 
         public IBubble GetBubbleAtPositionOrNull(int x, int y)

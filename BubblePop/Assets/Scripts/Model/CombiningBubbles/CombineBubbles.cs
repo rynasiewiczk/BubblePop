@@ -6,7 +6,6 @@ using Model.FindingMatches;
 using Project.Bubbles;
 using Project.Grid;
 using UniRx;
-using UnityEngine;
 using Zenject;
 
 namespace Model.CombiningBubbles
@@ -20,6 +19,7 @@ namespace Model.CombiningBubbles
         private SpawnBubbleOnGridSignal _spawnBubbleOnGridSignal = new SpawnBubbleOnGridSignal();
         private SignalBus _signalBus = null;
         private IGameStateController _gameStateController = null;
+        public int LastCombinedBubbleNeighboursWithSameLevelAmount { get; private set; }
 
         public CombineBubbles(IGridMap gridMap, IFindConnectedBubblesWithSameLevelController bubblesWithSameLevelController, BubbleData bubbleData,
             IGameStateController gameStateController, SignalBus signalBus)
@@ -52,7 +52,6 @@ namespace Model.CombiningBubbles
                 _signalBus.Fire(_combineBubbleSignal);
             }
 
-            var nextState = toCollapseNeighboursAfterThisCollapse > 1 ? GamePlayState.BubblesCombining : GamePlayState.Idle;
             DOVirtual.DelayedCall(collapseDuration, () =>
             {
                 foreach (var bubble in bubbles)
@@ -64,7 +63,8 @@ namespace Model.CombiningBubbles
                 _spawnBubbleOnGridSignal.Position = positionOfCollapse;
                 _signalBus.Fire(_spawnBubbleOnGridSignal);
 
-                _gameStateController.ChangeGamePlayState(nextState);
+
+                _gameStateController.ChangeGamePlayState(GamePlayState.DropBubblesAfterCombining);
             });
         }
 
@@ -76,11 +76,11 @@ namespace Model.CombiningBubbles
             foreach (var bubble in bubbles)
             {
                 _bubblesToCollapseBufferList.Clear();
-                var numberOfConnectionsAfterCollapse =
+                LastCombinedBubbleNeighboursWithSameLevelAmount =
                     _gridMap.FindBubblesToCollapse(level, bubble.Position.Value, _bubblesToCollapseBufferList).Count;
-                if (ShouldUpdateBetterFitBubble(numberOfConnectionsAfterCollapse, maxNumberOfConnections, bubble, bubbleToCollapseTo))
+                if (ShouldUpdateBetterFitBubble(LastCombinedBubbleNeighboursWithSameLevelAmount, maxNumberOfConnections, bubble, bubbleToCollapseTo))
                 {
-                    maxNumberOfConnections = numberOfConnectionsAfterCollapse;
+                    maxNumberOfConnections = LastCombinedBubbleNeighboursWithSameLevelAmount;
                     bubbleToCollapseTo = bubble;
                 }
             }
