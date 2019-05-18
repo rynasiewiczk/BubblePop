@@ -9,5 +9,6 @@ namespace Enums
          BubbleFlying,
          PlacingBubbleOnGrid,
          BubblesCombining,
+         WaitingForBubblesCombine,
      }
  }

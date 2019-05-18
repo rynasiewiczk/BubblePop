@@ -10,11 +10,10 @@ namespace Project.Grid
         ReactiveProperty<Vector2Int> Size { get; }
         ReactiveCollection<IBubble> BubblesRegistry { get; }
         ReactiveCollection<ICell> CellsRegistry { get; }
-
+        ICell GetCellAtPositionOrNull(Vector2Int position);
         ReactiveDictionary<int, GridRowSide> GridRowSidesMap { get; }
         
-        IBubble GetBubbleAtPosition(Vector2Int position);
-        IBubble GetBubbleAtPosition(int x, int y);
+        IBubble GetBubbleAtPositionOrNull(Vector2Int position);
         void CreateCellsRegistry(List<ICell> cells);
 
         void CreateGridRowSidesMap(Dictionary<int, GridRowSide> dictionary);

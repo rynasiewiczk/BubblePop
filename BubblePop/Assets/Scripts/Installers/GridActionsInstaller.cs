@@ -1,4 +1,5 @@
 using Model;
+using Model.FindingMatches;
 using Project.Aiming;
 using Project.Bubbles;
 using Project.Bubbles.PlacingOnGrid;
@@ -18,5 +19,6 @@ public class GridActionsInstaller : Installer<GridActionsInstaller>
         Container.BindInterfacesTo<EndAimingStateObserver>().AsSingle().NonLazy();
 
         Container.BindInterfacesTo<BubbleFlyObserver>().AsSingle().NonLazy();
+        Container.BindInterfacesTo<FindConnectedBubblesWithSameLevel>().AsSingle().NonLazy();
     }
 }

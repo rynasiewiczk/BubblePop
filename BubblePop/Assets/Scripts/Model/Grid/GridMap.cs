@@ -11,6 +11,7 @@ namespace Project.Grid
         public ReactiveProperty<Vector2Int> Size { get; private set; }
         public ReactiveCollection<IBubble> BubblesRegistry { get; private set; }
         public ReactiveCollection<ICell> CellsRegistry { get; private set; }
+
         public ReactiveDictionary<int, GridRowSide> GridRowSidesMap { get; private set; }
 
         public GridMap(GridSettings gridSettings, IBubblesSpawner bubblesSpawner)
@@ -24,16 +25,22 @@ namespace Project.Grid
             Size.Value = gridSettings.StartGridSize;
         }
 
-        public IBubble GetBubbleAtPosition(Vector2Int position)
+        public ICell GetCellAtPositionOrNull(Vector2Int position)
+        {
+            var cell = CellsRegistry.FirstOrDefault(x => x.Position == position);
+            return cell;
+        }
+
+        public IBubble GetBubbleAtPositionOrNull(Vector2Int position)
         {
             var bubble = BubblesRegistry.FirstOrDefault(x => x.Position.Value == position);
             return bubble;
         }
 
-        public IBubble GetBubbleAtPosition(int x, int y)
+        public IBubble GetBubbleAtPositionOrNull(int x, int y)
         {
             var position = new Vector2Int(x, y);
-            return GetBubbleAtPosition(position);
+            return GetBubbleAtPositionOrNull(position);
         }
 
         public void CreateCellsRegistry(List<ICell> cells)

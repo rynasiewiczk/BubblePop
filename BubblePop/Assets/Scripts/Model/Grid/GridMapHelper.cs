@@ -74,7 +74,7 @@ namespace Project.Grid
 
         public static bool BubbleExistsAtPosition(this IGridMap gridMap, Vector2Int position)
         {
-            var bubble = gridMap.GetBubbleAtPosition(position);
+            var bubble = gridMap.GetBubbleAtPositionOrNull(position);
             return bubble != null;
         }
     }

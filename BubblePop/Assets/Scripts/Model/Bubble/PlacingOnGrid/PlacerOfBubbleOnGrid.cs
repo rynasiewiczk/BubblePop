@@ -22,7 +22,7 @@ namespace Project.Bubbles.PlacingOnGrid
                 _spawnBubbleOnGridSignal.Level = nextBubbleLevelToSpawnController.BubbleLevelToSpawn.Value;
                 signalBus.Fire(_spawnBubbleOnGridSignal);
 
-                _gameStateController.ChangeGamePlayState(GamePlayState.Idle);
+                _gameStateController.ChangeGamePlayState(GamePlayState.BubblesCombining);
             });
         }
     }

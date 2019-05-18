@@ -892,11 +892,16 @@
                 <e p="BubblesDebugger.cs" t="Include" />
               </e>
             </e>
+            <e p="FindingMatches" t="Include">
+              <e p="FindConnectedBubblesWithSameLevel.cs" t="Include" />
+              <e p="IFindConnectedBubblesWithSameLevel.cs" t="Include" />
+            </e>
             <e p="GameState" t="Include">
               <e p="GameStateController.cs" t="Include" />
               <e p="IGameStateController.cs" t="Include" />
             </e>
             <e p="Grid" t="Include">
+              <e p="BubblesFindingHelper.cs" t="Include" />
               <e p="BuildingGrid" t="Include">
                 <e p="GridCellsBuilder.cs" t="Include" />
                 <e p="IGridCellsBuilder.cs" t="Include" />

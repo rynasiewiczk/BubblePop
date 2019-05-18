@@ -11,12 +11,14 @@ namespace Project.Bubbles
 
         private readonly BubbleData _bubbleData = null;
 
-        public NextBubbleLevelToSpawnController(IGameStateController gameStateController, BubbleData bubbleData)
+        public NextBubbleLevelToSpawnController(IGameStateController gameStateController, IBubblesSpawner bubblesSpawner, BubbleData bubbleData)
         {
             BubbleLevelToSpawn = new ReactiveProperty<int>();
 
             _bubbleData = bubbleData;
-            gameStateController.GamePlayState.Where(x => x == GamePlayState.None || x == GamePlayState.BubbleFlying).Subscribe(x => FindNextLevelToSpawn());
+            
+            gameStateController.GamePlayState.Where(x => x == GamePlayState.None || x == GamePlayState.BubblesCombining).Subscribe(x => FindNextLevelToSpawn());
+            FindNextLevelToSpawn();
         }
 
         private void FindNextLevelToSpawn()
@@ -25,6 +27,7 @@ namespace Project.Bubbles
             var levelToSpawn = Random.Range(1, maxLevelToSpawn + 1);
 
             BubbleLevelToSpawn.Value = levelToSpawn;
+            Debug.Log("NEXT TO SPAWN: " + levelToSpawn);
         }
     }
 }
