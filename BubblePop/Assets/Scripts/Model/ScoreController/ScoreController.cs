@@ -1,7 +1,7 @@
 using Enums;
 using Project.Bubbles;
 using UniRx;
-using UnityEngine;
+using Zenject;
 
 namespace Model.ScoreController
 {
@@ -10,26 +10,30 @@ namespace Model.ScoreController
         public ReactiveProperty<int> Score { get; }
 
         private readonly BubbleData _bubbleData = null;
+        private IGameStateController _gameStateController = null;
 
-        public ScoreController(IBubblesSpawner bubblesSpawner, IGameStateController gameStateController, BubbleData bubbleData)
+        public ScoreController(IBubblesSpawner bubblesSpawner, IGameStateController gameStateController, SignalBus signalBus, BubbleData bubbleData)
         {
             Score = new ReactiveProperty<int>();
+
+            _gameStateController = gameStateController;
+            signalBus.Subscribe<SpawnBubbleOnGridSignal>(signal => GetScoreOnBubbleSpawn(signal.Level));
 
             _bubbleData = bubbleData;
 
             //todo: middle state for getting score would be useful
             gameStateController.GamePlayState.Where(x => x == GamePlayState.DropBubblesAfterCombining)
-                .Subscribe(x => GetScoreOnDestroy(bubblesSpawner.JustSpawned.Value));
-            //bubblesSpawner.JustSpawned.Where(x => x != null).Subscribe(GetScoreOnDestroy);
+                .Subscribe(x => GetScoreOnBubbleSpawn(bubblesSpawner.JustSpawned.Value.Level.Value));
         }
 
-        private void GetScoreOnDestroy(IBubble bubble)
+        private void GetScoreOnBubbleSpawn(int level)
         {
-            bubble.Destroyed.Subscribe(x =>
+            if (_gameStateController.GamePlayState.Value == GamePlayState.Idle || _gameStateController.GamePlayState.Value == GamePlayState.None)
             {
-                Score.Value += _bubbleData.GetValueForLevel(x.Level.Value);
-                Debug.Log(Score.Value);
-            });
+                return;
+            }
+
+            Score.Value += _bubbleData.GetValueForLevel(level);
         }
     }
 }
