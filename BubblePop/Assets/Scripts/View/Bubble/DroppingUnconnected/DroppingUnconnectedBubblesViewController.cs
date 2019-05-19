@@ -11,6 +11,7 @@ public class DroppingUnconnectedBubblesViewController : IDroppingUnconnectedBubb
     private readonly BubbleData _bubbleData = null;
     private readonly IGridMap _gridMap = null;
 
+    private int _horizontalDirection = -1;
 
     public DroppingUnconnectedBubblesViewController(SignalBus signalBus, DroppingBubbleViewPool droppingBubbleViewPool, BubbleData bubbleData, IGridMap gridMap)
     {
@@ -34,6 +35,7 @@ public class DroppingUnconnectedBubblesViewController : IDroppingUnconnectedBubb
         var color = _bubbleData.GetColorForLevel(signal.Level);
         var value = _bubbleData.GetValueForLevel(signal.Level);
 
-        bubble.Setup(position, color, value);
+        bubble.Setup(position, color, value, _horizontalDirection);
+        _horizontalDirection = _horizontalDirection == -1 ? 1 : -1;
     }
 }

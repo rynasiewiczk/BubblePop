@@ -19,6 +19,7 @@ namespace View.DroppingUnconnected
         private float _horizontalVelocity;
 
         private float _gravity;
+        private float _rotationSpeed;
 
         private void Awake()
         {
@@ -41,8 +42,7 @@ namespace View.DroppingUnconnected
                 transform.localScale.y - scaleDownSpeed,
                 transform.localScale.z);
 
-            var rotationSpeed = _bubbleViewSettings.DropBubbleRotationSpeed * Time.deltaTime;
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.x, transform.eulerAngles.z + rotationSpeed);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.x, transform.eulerAngles.z + _rotationSpeed);
 
             var transparencySpeed = _bubbleViewSettings.DropBubbleTransparencyLossSpeed * Time.deltaTime;
             var color = _spriteRenderer.color;
@@ -56,20 +56,21 @@ namespace View.DroppingUnconnected
             }
         }
 
-        public void Setup(Vector2 position, Color color, int value)
+        public void Setup(Vector2 position, Color color, int value, int direction)
         {
             transform.position = position;
             _spriteRenderer.color = color;
             _text.text = value.ToString();
+
+            _horizontalDirection = direction;
+            _horizontalVelocity = _horizontalDirection * Random.Range(0, _bubbleViewSettings.DropBubbleMaxHorizontalVelocity);
+            _rotationSpeed = Random.Range(0, _bubbleViewSettings.DropBubbleRotationSpeed * Time.deltaTime);
+
+            _verticalVelocity = Random.Range(_bubbleViewSettings.DropBubbleMinStartVerticalVelocity, _bubbleViewSettings.DropBubbleMaxStartVerticalVelocity);
         }
 
         private void DeSpawn()
         {
-            _horizontalDirection = Random.Range(0, 2) == 0 ? -1 : 1;
-            _horizontalVelocity = _horizontalDirection * Random.Range(0, _bubbleViewSettings.DropBubbleMaxHorizontalVelocity);
-
-            _verticalVelocity = Random.Range(_bubbleViewSettings.DropBubbleMinStartVerticalVelocity, _bubbleViewSettings.DropBubbleMaxStartVerticalVelocity);
-
             transform.localScale = Vector3.one;
             transform.eulerAngles = Vector3.zero;
             var color = _spriteRenderer.color;
