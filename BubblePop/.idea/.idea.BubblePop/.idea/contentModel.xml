@@ -969,16 +969,26 @@
           </e>
           <e p="View" t="Include">
             <e p="Bubble" t="Include">
-              <e p="BubbleView.cs" t="Include" />
+              <e p="BounceOnHit" t="Include">
+                <e p="IViewBounceAfterBubbleArriveController.cs" t="Include" />
+                <e p="OnBubbleHitSignal.cs" t="Include" />
+                <e p="ViewBounceAfterBubbleArriveController.cs" t="Include" />
+              </e>
               <e p="BubbleViewAppearingComponent.cs" t="Include" />
               <e p="BubbleViewBounceComponent.cs" t="Include" />
               <e p="BubbleViewCollapseComponent.cs" t="Include" />
-              <e p="BubbleViewPool.cs" t="Include" />
               <e p="BubbleViewScrollingVerticalyComponent.cs" t="Include" />
-              <e p="BubbleViewSettings.cs" t="Include" />
-              <e p="IViewBounceAfterBubbleArriveController.cs" t="Include" />
-              <e p="OnBubbleHitSignal.cs" t="Include" />
-              <e p="ViewBounceAfterBubbleArriveController.cs" t="Include" />
+              <e p="FlyingAfterAiming" t="Include">
+                <e p="FlyingBubbleView.cs" t="Include" />
+                <e p="FlyingBubbleViewController.cs" t="Include" />
+                <e p="FlyingBubbleViewPool.cs" t="Include" />
+                <e p="IFlyingBubbleViewController.cs" t="Include" />
+              </e>
+              <e p="General" t="Include">
+                <e p="BubbleView.cs" t="Include" />
+                <e p="BubbleViewPool.cs" t="Include" />
+                <e p="BubbleViewSettings.cs" t="Include" />
+              </e>
             </e>
           </e>
         </e>

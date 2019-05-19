@@ -102,6 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bubbleView: {fileID: 2525605538803913460, guid: 65dee11f567a0e44d8def9617fa3af97,
     type: 3}
+  _flyingBubbleView: {fileID: 1701969752452525197, guid: 127dc989ad8176f45a8a4c55f1872264,
+    type: 3}
 --- !u!114 &995091664302746553
 MonoBehaviour:
   m_ObjectHideFlags: 0
