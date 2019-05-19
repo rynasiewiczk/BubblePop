@@ -17,11 +17,18 @@ public class BubblesDebugger : MonoBehaviour
         
         foreach (var bubble in _gridMap.BubblesRegistry)
         {
-            var color = _bubbleData.GetColorForLevel(bubble.Level.Value);
-            var viewPosition = _gridMap.GetGridViewPosition(bubble.Position.Value);
-            
-            Gizmos.color = color;
-            Gizmos.DrawSphere(viewPosition, .5f);
+            try
+            {
+                var color = _bubbleData.GetColorForLevel(bubble.Level.Value);
+                var viewPosition = _gridMap.GetGridViewPosition(bubble.Position.Value);
+
+                Gizmos.color = color;
+                Gizmos.DrawSphere(viewPosition, .5f);
+            }
+            catch
+            {
+                //debug only
+            }
         }
     }
 }

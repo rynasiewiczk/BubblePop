@@ -9,7 +9,7 @@ namespace Project.Bubbles
         ReactiveProperty<int> Level { get; }
 
         void MoveUpOneCell();
-        void MoveDown(int rows);
+        void MoveDownOneCell();
         
         bool IsPlayable();
         

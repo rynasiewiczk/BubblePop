@@ -53,12 +53,11 @@ namespace Model.ScrollingRowsDown
 
             if (lowestToken >= topEdge)
             {
-                var rowsToScroll = lowestToken - (topEdge + 1);
-                ScrollRowsDown(allTokens, rowsToScroll);
+                ScrollRowsDown(allTokens);
 
-                FireScrollRowsSignal(rowsToScroll);
+                FireScrollRowsSignal(-1);
 
-                DOVirtual.DelayedCall(_gridSettings.ScrollOneRowDuration * Mathf.Abs(rowsToScroll),
+                DOVirtual.DelayedCall(_gridSettings.ScrollOneRowDuration ,
                     () => _gameStateController.ChangeGamePlayState(GamePlayState.Idle));
             }
         }
@@ -93,11 +92,11 @@ namespace Model.ScrollingRowsDown
             }
         }
 
-        private void ScrollRowsDown(List<IBubble> list, int rowsToScroll)
+        private void ScrollRowsDown(List<IBubble> list)
         {
             list = list.OrderByDescending(x => x.Position.Value.y).ToList();
 
-            _gridMap.SwitchRowSidesOnMap(rowsToScroll);
+            _gridMap.SwitchRowSidesOnMap(1);
 
             for (int x = list.Count - 1; x >= 0; x--)
             {
@@ -105,7 +104,7 @@ namespace Model.ScrollingRowsDown
                 var cellUp = _gridMap.GetCellAtPositionOrNull(bubble.Position.Value);
                 if (cellUp != null)
                 {
-                    bubble.MoveDown(rowsToScroll);
+                    bubble.MoveDownOneCell();
                 }
                 else
                 {

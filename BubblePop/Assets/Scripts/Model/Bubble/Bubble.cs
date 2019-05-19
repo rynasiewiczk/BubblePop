@@ -40,9 +40,9 @@ namespace Project.Bubbles
             Position.Value = new Vector2Int(Position.Value.x, Position.Value.y + 1);
         }
 
-        public void MoveDown(int rows)
+        public void MoveDownOneCell()
         {
-            Position.Value = new Vector2Int(Position.Value.x, Position.Value.y - rows);
+            Position.Value = new Vector2Int(Position.Value.x, Position.Value.y - 1);
         }
 
         public bool IsPlayable()

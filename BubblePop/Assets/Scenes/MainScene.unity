@@ -236,6 +236,7 @@ MonoBehaviour:
   _showGrid: 1
   _showLineForBottomRowAvailableForBubbles: 1
   _showLineForTopRowAvailableForBubbles: 1
+  _showLineForBubblesAbovePlayableArea: 1
 --- !u!1 &871448324
 GameObject:
   m_ObjectHideFlags: 0
