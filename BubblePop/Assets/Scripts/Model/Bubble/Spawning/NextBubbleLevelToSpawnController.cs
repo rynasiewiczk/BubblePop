@@ -10,17 +10,19 @@ namespace Project.Bubbles
     {
         public ReactiveProperty<int> BubbleLevelToSpawn { get; private set; }
 
-        private IPlayerLevelController _playerLevelController = null;
+        private readonly IPlayerLevelController _playerLevelController = null;
         private readonly BubbleData _bubbleData = null;
 
-        public NextBubbleLevelToSpawnController(IGameStateController gameStateController, BubbleData bubbleData, IPlayerLevelController playerLevelController)
+        public NextBubbleLevelToSpawnController(IGameStateController gameStateController, BubbleData bubbleData, IPlayerLevelController playerLevelController,
+            IBubblesSpawner bubblesSpawner)
         {
             BubbleLevelToSpawn = new ReactiveProperty<int>();
 
             _bubbleData = bubbleData;
             _playerLevelController = playerLevelController;
 
-            gameStateController.GamePlayState.Where(x => x == GamePlayState.None || x == GamePlayState.BubblesCombining).Subscribe(x => FindNextLevelToSpawn());
+            bubblesSpawner.JustSpawned.Where(x => gameStateController.GamePlayState.Value < GamePlayState.BubblesCombining)
+                .Subscribe(x => FindNextLevelToSpawn());
             FindNextLevelToSpawn();
         }
 
