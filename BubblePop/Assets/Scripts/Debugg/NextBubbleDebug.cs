@@ -4,8 +4,8 @@ using Zenject;
 
 public class NextBubbleDebug : MonoBehaviour
 {
-    [Inject] private INextBubbleLevelToSpawnController _nextBubbleController;
-    [Inject] private BubbleData _bubbleData;
+    [Inject] private readonly INextBubbleLevelToSpawnController _nextBubbleController = null;
+    [Inject] private readonly BubbleData _bubbleData = null;
 
     private void OnGUI()
     {
@@ -14,6 +14,6 @@ public class NextBubbleDebug : MonoBehaviour
             return;
         }
 
-        GUI.TextArea(new Rect(0, 0, 50, 50), "Next: " + _bubbleData.GetValueForLevel(_nextBubbleController.BubbleLevelToSpawn.Value).ToString());
+        GUI.TextArea(new Rect(0, 0, 50, 50), "Next: " + _bubbleData.GetValueForLevel(_nextBubbleController.NextBubbleLevelToSpawn.Value).ToString());
     }
 }

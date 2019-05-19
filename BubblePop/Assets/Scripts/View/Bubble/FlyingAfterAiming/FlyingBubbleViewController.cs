@@ -37,7 +37,7 @@ namespace View.FlyingAfterAiming
 
         private void SpawnView(Vector2[] path)
         {
-            var level = _nextBubbleLevelToSpawnController.BubbleLevelToSpawn.Value;
+            var level = _nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Value;
             var flyingBubbleView = _flyingBubbleViewPool.Spawn();
 
             var path3d = new Vector3[path.Length];

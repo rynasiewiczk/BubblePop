@@ -1,8 +1,6 @@
-using UnityEngine;
-
 namespace Model.ScrollingRowsDown
 {
-    public class ScrollRowsSignal : MonoBehaviour
+    public class ScrollRowsSignal
     {
         public int RowsToScroll;
     }

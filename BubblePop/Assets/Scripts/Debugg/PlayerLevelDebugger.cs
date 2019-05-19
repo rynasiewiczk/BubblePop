@@ -4,7 +4,7 @@ using Zenject;
 
 public class PlayerLevelDebugger : MonoBehaviour
 {
-    [Inject] private IPlayerLevelController _controller;
+    [Inject] private readonly IPlayerLevelController _controller = null;
 
     private void OnGUI()
     {

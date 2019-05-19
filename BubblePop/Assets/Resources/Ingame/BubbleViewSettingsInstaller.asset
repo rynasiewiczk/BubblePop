@@ -15,3 +15,9 @@ MonoBehaviour:
   _bubbleViewSettings:
     OnHitBounceDistance: 0.12
     OnHidBounceHalfDuration: 0.1
+    AppearScaleDuration: 0.16
+    SmallPrewarmBubbleSize: 0.75
+    SmallPrewarmBubbleAppearDuration: 0.16
+    AimingBubbleOverscale: 1.1
+    AimingBubbleFromOverscaleToNormalDuration: 0.3
+    AimingBubbleTransitionDuration: 0.13

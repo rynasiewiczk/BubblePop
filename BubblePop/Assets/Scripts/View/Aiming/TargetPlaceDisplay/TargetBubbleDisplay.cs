@@ -8,7 +8,7 @@ namespace View.Aiming.TargetPlaceDisplay
     public class TargetBubbleDisplay : MonoBehaviour
     {
         [Inject] private readonly IBubbleDestinationFinder _bubbleDestinationFinder = null;
-        [Inject] private IGridMap _gridMap = null;
+        [Inject] private readonly IGridMap _gridMap = null;
 
         [SerializeField] private SpriteRenderer _spriteRenderer = null;
 
@@ -19,24 +19,46 @@ namespace View.Aiming.TargetPlaceDisplay
 
         private void Update()
         {
+            if (Time.time < 1f)
+            {
+                DisableRenderer();
+                return;
+            }
+
             var aimedBubbleData = _bubbleDestinationFinder.AimedBubbleData;
             if (aimedBubbleData == null)
             {
+                DisableRenderer();
                 return;
             }
+
+            EnableRenderer();
+
 
             var destination = aimedBubbleData.Path[aimedBubbleData.Path.Length - 1];
             destination = _gridMap.GetGridViewPosition(new Vector2Int((int) destination.x, (int) destination.y));
             transform.position = destination;
         }
 
+        private void EnableRenderer()
+        {
+            _spriteRenderer.enabled = true;
+        }
+
+        private void DisableRenderer()
+        {
+            _spriteRenderer.enabled = false;
+        }
+
         public void Show()
         {
+            EnableRenderer();
             gameObject.SetActive(true);
         }
 
         public void Hide()
         {
+            DisableRenderer();
             gameObject.SetActive(false);
         }
 

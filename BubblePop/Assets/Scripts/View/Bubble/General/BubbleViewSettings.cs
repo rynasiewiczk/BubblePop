@@ -13,5 +13,12 @@ namespace View
         public float OnHidBounceHalfDuration = .17f;
 
         [Space] public float AppearScaleDuration = .16f;
+
+        [Space] public float SmallPrewarmBubbleSize = .50f;
+        public float SmallPrewarmBubbleAppearDuration = .16f;
+
+        public float AimingBubbleOverscale = 1.1f;
+        public float AimingBubbleFromOverscaleToNormalDuration = .3f;
+        public float AimingBubbleTransitionDuration = .16f;
     }
 }

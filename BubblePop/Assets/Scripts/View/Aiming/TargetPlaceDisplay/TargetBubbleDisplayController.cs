@@ -25,7 +25,7 @@ namespace View.Aiming.TargetPlaceDisplay
             _gameStateController.GamePlayState.Where(x => x == GamePlayState.Aiming).Subscribe(x => ShowTargetDisplay());
             _gameStateController.GamePlayState.Where(x => x != GamePlayState.Aiming).Subscribe(x => HideTargetDisplay());
 
-            _nextBubbleLevelToSpawnController.BubbleLevelToSpawn.Subscribe(UpdateTargetDisplayColor);
+            _nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Subscribe(UpdateTargetDisplayColor);
         }
 
         private void UpdateTargetDisplayColor(int level)

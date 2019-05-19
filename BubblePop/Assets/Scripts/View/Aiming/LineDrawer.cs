@@ -33,7 +33,7 @@ namespace View.Aiming
 
         private void DrawLine(List<Vector2> path)
         {
-            if (path.Count == 0 && path.Count > 2)
+            if (path.Count == 0 || path.Count > 2)
             {
                 return;
             }

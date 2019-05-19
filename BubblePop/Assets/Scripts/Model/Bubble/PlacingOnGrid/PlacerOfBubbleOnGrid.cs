@@ -22,7 +22,7 @@ namespace Project.Bubbles.PlacingOnGrid
             _gameStateController.GamePlayState.Where(x => x == GamePlayState.PlacingBubbleOnGrid).Subscribe(x =>
             {
                 _spawnBubbleOnGridSignal.Position = endAimingStateObserver.BubbleDestination;
-                _spawnBubbleOnGridSignal.Level = nextBubbleLevelToSpawnController.BubbleLevelToSpawn.Value;
+                _spawnBubbleOnGridSignal.Level = nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Value;
                 signalBus.Fire(_spawnBubbleOnGridSignal);
                 _gameStateController.ChangeGamePlayState(GamePlayState.BubblesCombining);
             });

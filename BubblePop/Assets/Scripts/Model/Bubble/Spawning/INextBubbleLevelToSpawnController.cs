@@ -4,6 +4,9 @@ namespace Project.Bubbles
 {
     public interface INextBubbleLevelToSpawnController
     {
-        ReactiveProperty<int> BubbleLevelToSpawn { get; }
+        ReactiveProperty<int> NextBubbleLevelToSpawn { get; }
+        ReactiveProperty<int>PreWarmedBubbleLevelToSpawn { get; }
+        
+        ReactiveCommand BubblesToSpawnUpdated { get; }
     }
 }
