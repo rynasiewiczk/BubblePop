@@ -1023,6 +1023,7 @@
             </e>
             <e p="Ui" t="Include">
               <e p="PlayerLevelDisplayController.cs" t="Include" />
+              <e p="ScoreDisplayController.cs" t="Include" />
             </e>
           </e>
         </e>

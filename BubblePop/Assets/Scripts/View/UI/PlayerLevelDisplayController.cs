@@ -1,6 +1,5 @@
 using DG.Tweening;
 using Model.Progress.PlayerLevelController;
-using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -40,11 +39,6 @@ namespace View.UI
         {
             _text.text = _playerLevelController.PlayerLevel.Value.ToString();
             _playerLevelController.PlayerLevel.Skip(1).Subscribe(UpdateLevel);
-        }
-
-        [Button()] private void Test()
-        {
-            UpdateLevel(3);
         }
         
         private void UpdateLevel(int x)

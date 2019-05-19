@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6114795796726007961}
   - component: {fileID: 6114795796726007960}
   - component: {fileID: 6114795796726007967}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: GridScoresDisplayCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6114795797688084570}
   - component: {fileID: 6114795797688084580}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: GridViewCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6114795797688084569}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 289, y: 578, z: -10}
+  m_LocalPosition: {x: 440, y: 884, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6114795796726007962}
@@ -192,7 +192,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.84
+  orthographic size: 7.3
   m_Depth: 10
   m_CullingMask:
     serializedVersion: 2

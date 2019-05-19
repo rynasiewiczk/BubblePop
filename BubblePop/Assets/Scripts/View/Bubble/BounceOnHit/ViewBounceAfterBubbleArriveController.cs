@@ -21,6 +21,7 @@ namespace View
             gameStateController.GamePlayState.Where(x => x == GamePlayState.PlacingBubbleOnGrid).Subscribe(x =>
             {
                 var arrivePosition = endAimingStateObserver.BubbleDestination;
+                var targetPosition = gridMap.GetGridViewPosition(arrivePosition);
 
                 _aroundList.Clear();
                 var bubblesAround = gridMap.GetBubblesAroundPosition(arrivePosition, _aroundList);
@@ -28,7 +29,7 @@ namespace View
                 foreach (var bubble in bubblesAround)
                 {
                     _onBubbleHitSignal.Bubble = bubble;
-                    _onBubbleHitSignal.SoucrePosition = arrivePosition;
+                    _onBubbleHitSignal.SoucrePosition = targetPosition;
 
                     signalBus.Fire(_onBubbleHitSignal);
                 }
