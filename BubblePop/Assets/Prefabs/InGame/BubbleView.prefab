@@ -370,8 +370,9 @@ GameObject:
   m_Component:
   - component: {fileID: 101699962812273150}
   - component: {fileID: 8031555062900090746}
+  - component: {fileID: 4681271194654722127}
   m_Layer: 8
-  m_Name: BounceRoot
+  m_Name: AnimationRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -404,6 +405,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4492bbb8f36e2704698dfc8f334b24e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _view: {fileID: 2525605538803913460}
+--- !u!114 &4681271194654722127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630602162148464819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be704cdc4734475877e6a1e27c4685a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 2525605538803913460}

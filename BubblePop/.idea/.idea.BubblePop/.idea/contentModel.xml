@@ -970,6 +970,7 @@
           <e p="View" t="Include">
             <e p="Bubble" t="Include">
               <e p="BubbleView.cs" t="Include" />
+              <e p="BubbleViewAppearingComponent.cs" t="Include" />
               <e p="BubbleViewBounceComponent.cs" t="Include" />
               <e p="BubbleViewCollapseComponent.cs" t="Include" />
               <e p="BubbleViewPool.cs" t="Include" />

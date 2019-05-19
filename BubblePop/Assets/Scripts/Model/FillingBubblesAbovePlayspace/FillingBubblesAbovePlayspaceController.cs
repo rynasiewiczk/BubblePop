@@ -3,7 +3,6 @@ using Model.Progress.PlayerLevelController;
 using Project.Bubbles;
 using Project.Grid;
 using UniRx;
-using UnityEngine;
 using Zenject;
 
 namespace Model.FillingBubblesAbovePlayspace
@@ -41,7 +40,6 @@ namespace Model.FillingBubblesAbovePlayspace
             {
                 _spawnBubbleOnGridSignal.Position = cell.Position;
                 _spawnBubbleOnGridSignal.Level = _bubbleData.GetRandomBubbleLevelBasedOnPlayerLevel(_playerLevelController.PlayerLevel.Value);
-                Debug.Log(_spawnBubbleOnGridSignal.Level);
                 _signalBus.Fire(_spawnBubbleOnGridSignal);
             }
 
