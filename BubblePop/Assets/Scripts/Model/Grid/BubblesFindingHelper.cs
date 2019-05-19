@@ -205,5 +205,26 @@ namespace Project.Grid
 
             return bufferList;
         }
+
+        public static int GetLowestRowWithBubble(this IGridMap gridMap)
+        {
+            var allPlayableBubbles = gridMap.GetAllPlayableBubblesOnGrid();
+            return GetLowestRowWithBubble(gridMap, allPlayableBubbles);
+        }
+        
+        public static int GetLowestRowWithBubble(this IGridMap gridMap, List<IBubble> listOfBubbles)
+        {
+            var lowestRow = int.MaxValue;
+
+            foreach (var playableBubble in listOfBubbles)
+            {
+                if (playableBubble.Position.Value.y < lowestRow)
+                {
+                    lowestRow = playableBubble.Position.Value.y;
+                }
+            }
+
+            return lowestRow;
+        }
     }
 }

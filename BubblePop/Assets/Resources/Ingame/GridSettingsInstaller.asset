@@ -15,6 +15,9 @@ MonoBehaviour:
   _gridSettings:
     StartGridSize: {x: 6, y: 11}
     WarmedRowsSize: 5
+    SafetyRows: 5
     StartFreeBottomLines: 5
-    StartGridRow: 1
+    startGridRowSide: 1
     AlwasFreeBottomLines: 3
+    RowToScrollTokensDown: 6
+    ScrollOneRowDuration: 0.2

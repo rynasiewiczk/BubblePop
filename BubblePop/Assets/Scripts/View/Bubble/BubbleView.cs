@@ -8,7 +8,7 @@ public class BubbleView : MonoBehaviour
 {
     [Inject] private readonly BubbleData _bubbleData = null;
     [Inject] private readonly IGridMap _gridMap = null;
-
+    
     [SerializeField] private SpriteRenderer _spriteRenderer = null;
     [SerializeField] private TextMeshPro _text = null;
 

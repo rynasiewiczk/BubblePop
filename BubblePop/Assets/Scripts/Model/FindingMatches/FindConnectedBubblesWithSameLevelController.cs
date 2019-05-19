@@ -39,8 +39,7 @@ namespace Model.FindingMatches
                 }
                 else if (list.Count == 1)
                 {
-//                    Debug.Log("Combination not found");
-                    _gameStateController.ChangeGamePlayState(GamePlayState.Idle);
+                    _gameStateController.ChangeGamePlayState(GamePlayState.ScrollRows);
                 }
                 else
                 {

@@ -957,6 +957,11 @@
                 <e p="ScoreController.cs" t="Include" />
               </e>
             </e>
+            <e p="ScrollingRowsDown" t="Include">
+              <e p="IScrollRowsController.cs" t="Include" />
+              <e p="ScrollRowsController.cs" t="Include" />
+              <e p="ScrollRowsSignal.cs" t="Include" />
+            </e>
           </e>
           <e p="View" t="Include">
             <e p="Bubble" t="Include">
@@ -964,6 +969,7 @@
               <e p="BubbleViewBounceComponent.cs" t="Include" />
               <e p="BubbleViewCollapseComponent.cs" t="Include" />
               <e p="BubbleViewPool.cs" t="Include" />
+              <e p="BubbleViewScrollingVerticalyComponent.cs" t="Include" />
               <e p="BubbleViewSettings.cs" t="Include" />
               <e p="IViewBounceAfterBubbleArriveController.cs" t="Include" />
               <e p="OnBubbleHitSignal.cs" t="Include" />

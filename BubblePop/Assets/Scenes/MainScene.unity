@@ -204,7 +204,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &654704976
 Transform:
   m_ObjectHideFlags: 0
@@ -233,6 +233,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cellsColor: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 0.54509807}
   _switches: 1
+  _showGrid: 1
+  _showLineForBottomRowAvailableForBubbles: 1
+  _showLineForTopRowAvailableForBubbles: 1
 --- !u!1 &871448324
 GameObject:
   m_ObjectHideFlags: 0

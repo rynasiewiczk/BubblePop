@@ -2,6 +2,7 @@ using Model;
 using Model.CombiningBubbles;
 using Model.CombiningBubbles.DroppingDisconnectedBubbles;
 using Model.FindingMatches;
+using Model.ScrollingRowsDown;
 using Project.Aiming;
 using Project.Bubbles;
 using Project.Bubbles.PlacingOnGrid;
@@ -22,11 +23,14 @@ public class GridActionsInstaller : Installer<GridActionsInstaller>
 
         Container.BindInterfacesTo<BubbleFlyObserver>().AsSingle().NonLazy();
         Container.BindInterfacesTo<FindConnectedBubblesWithSameLevelController>().AsSingle().NonLazy();
-        
+
         Container.BindInterfacesTo<CombineBubbles>().AsSingle().NonLazy();
         Container.DeclareSignal<CombineBubbleSignal>();
-        
+
         Container.BindInterfacesTo<WaitAfterCombiningController>().AsSingle().NonLazy();
         Container.BindInterfacesTo<DropUnlinkedBubblesController>().AsSingle().NonLazy();
+
+        Container.BindInterfacesTo<ScrollRowsController>().AsSingle().NonLazy();
+        Container.DeclareSignal<ScrollRowsSignal>();
     }
 }

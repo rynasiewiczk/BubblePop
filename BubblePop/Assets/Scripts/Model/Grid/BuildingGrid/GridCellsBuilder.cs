@@ -23,16 +23,6 @@ namespace Project.Grid.BuildingGrid
             {
                 for (int x = 0; x < gridSize.x; x++)
                 {
-//                    if (x == 0 && gridSettings.StartGridRow == GridRow.Left && y % 2 == 0)
-//                    {
-//                        continue;
-//                    }
-//
-//                    if (x == gridSize.x && gridSettings.StartGridRow == GridRow.Left && y % 2 == 1)
-//                    {
-//                        continue;
-//                    }
-
                     var cell = new Cell(new Vector2Int(x, y));
                     cells.Add(cell);
                 }
@@ -41,31 +31,21 @@ namespace Project.Grid.BuildingGrid
                 rowSides.Add(y, rowSide);
             }
 
-            cells.AddRange(BuildCellsAboveTheTop(gridSize, gridSettings.WarmedRowsSize, gridSettings.startGridRowSide));
-            AddRowSidesAboveTheTop(gridSize, gridSettings.WarmedRowsSize, gridSettings.startGridRowSide, rowSides);
+            cells.AddRange(BuildCellsAboveTheTop(gridSize, gridSettings.WarmedRowsSize, gridSettings.SafetyRows));
+            AddRowSidesAboveTheTop(gridSize, gridSettings.WarmedRowsSize + gridSettings.SafetyRows, gridSettings.startGridRowSide, rowSides);
 
             gridMap.CreateCellsRegistry(cells);
         }
 
 
-        private List<ICell> BuildCellsAboveTheTop(Vector2Int gridSize, int gridSettingsWarmedRowsSize, GridRowSide startGridRowSide)
+        private List<ICell> BuildCellsAboveTheTop(Vector2Int gridSize, int gridSettingsWarmedRowsSize, int safetyRows)
         {
             var list = new List<ICell>();
 
-            for (int y = 0; y < gridSettingsWarmedRowsSize; y++)
+            for (int y = 0; y < gridSettingsWarmedRowsSize + safetyRows; y++)
             {
                 for (int x = 0; x < gridSize.x; x++)
                 {
-//                    if (x == 0 && startGridRow == GridRow.Left && (gridSize.y + y) % 2 == 0)
-//                    {
-//                        continue;
-//                    }
-//                    
-//                    if (x == gridSize.x && startGridRow == GridRow.Left && (gridSize.y + y) % 2 == 1)
-//                    {
-//                        continue;
-//                    }
-
                     var cell = new Cell(new Vector2Int(x, y + gridSize.y));
                     list.Add(cell);
                 }
@@ -74,10 +54,10 @@ namespace Project.Grid.BuildingGrid
             return list;
         }
 
-        private void AddRowSidesAboveTheTop(Vector2Int gridSize, int gridSettingsWarmedRowsSize, GridRowSide gridSettingsStartGridRowSide,
+        private void AddRowSidesAboveTheTop(Vector2Int gridSize, int additionalSize, GridRowSide gridSettingsStartGridRowSide,
             Dictionary<int, GridRowSide> rowSidesMap)
         {
-            for (int y = 0; y < gridSettingsWarmedRowsSize; y++)
+            for (int y = 0; y < additionalSize; y++)
             {
                 var rowSide = (GridRowSide) (((int) gridSettingsStartGridRowSide + gridSize.y + y) % 2);
                 rowSidesMap.Add(y + gridSize.y, rowSide);

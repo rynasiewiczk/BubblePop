@@ -70,7 +70,7 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
                 }
             }
 
-            var nextState = _combineBubbles.LastCombinedBubbleNeighboursWithSameLevelAmount <= 1 ? GamePlayState.Idle : GamePlayState.BubblesCombining;
+            var nextState = _combineBubbles.LastCombinedBubbleNeighboursWithSameLevelAmount <= 1 ? GamePlayState.ScrollRows : GamePlayState.BubblesCombining;
             _gameStateController.ChangeGamePlayState(nextState);
         }
     }

@@ -73,7 +73,7 @@ namespace Project.Grid
             }
 
             var viewPositionInX = position.x + offsetX;
-            var viewPositionInY = GetHeightOfRow(position.y);
+            var viewPositionInY = GetHeightOfRows(gridMap, position.y);
             return new Vector2(viewPositionInX, viewPositionInY);
         }
 
@@ -91,13 +91,25 @@ namespace Project.Grid
             return list;
         }
 
-        
+        public static List<IBubble> GetAllBubblesOnGrid(this IGridMap gridMap)
+        {
+            var list = new List<IBubble>();
+            foreach (var bubble in gridMap.BubblesRegistry)
+            {
+                if (bubble != null)
+                {
+                    list.Add(bubble);
+                }
+            }
 
-        private static float GetHeightOfRow(int row)
+            return list;
+        }
+
+        public static float GetHeightOfRows(this IGridMap gridMap,int rows)
         {
             var heightBetweenRows = Mathf.Pow(Mathf.Pow(DISTANCE_BETWEEN_BUBBLES, 2) - Mathf.Pow(HALF_OF_DISTANCE_BETWEEN_BUBBLES, 2), .5f);
 
-            var result = heightBetweenRows * row;
+            var result = heightBetweenRows * rows;
             return result;
         }
 

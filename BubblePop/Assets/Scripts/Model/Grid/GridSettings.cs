@@ -9,11 +9,15 @@ namespace Project.Grid
     {
         public Vector2Int StartGridSize = new Vector2Int(11, 6);
         public int WarmedRowsSize = 5;
+        public int SafetyRows = 5;
 
         public int StartFreeBottomLines = 5;
 
         [FormerlySerializedAs("StartGridRow")] public GridRowSide startGridRowSide = GridRowSide.Left;
         
         public int AlwasFreeBottomLines = 3;
+        public int RowToScrollTokensDown = 6;
+
+        public float ScrollOneRowDuration = .25f;
     }
 }
