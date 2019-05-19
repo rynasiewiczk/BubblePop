@@ -7,8 +7,8 @@ using Random = UnityEngine.Random;
 [Serializable] public class BubbleData
 {
     //todo: it should go to struct that describes player level range for bubble level
-    [SerializeField] private List<int> _minBubbleSpawnLevelsForPlayerLevel;
-    [SerializeField] private List<int> _maxBubbleSpawnLevelsForPlayerLevel;
+    [SerializeField] private List<int> _minBubbleSpawnLevelsForPlayerLevel = null;
+    [SerializeField] private List<int> _maxBubbleSpawnLevelsForPlayerLevel = null;
 
     [SerializeField] private int _bubbleLevelAvailableToSpawnAtstart = 3;
     

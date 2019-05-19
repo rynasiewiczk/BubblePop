@@ -38,8 +38,6 @@ namespace Project.Aiming
 
             inputEventsNotifier.OnInputMove.Where(x => gameStateController.GamePlayState.Value == GamePlayState.Aiming && AimingAboveStartingPoint())
                 .Subscribe(x => FireRaycastToFindPositionForBubble(AimingPositionInWorldPoint, 0));
-
-            inputEventsNotifier.OnInputEnd.Subscribe(x => ResetAimData());
         }
 
         private bool AimingAboveStartingPoint()
@@ -90,9 +88,12 @@ namespace Project.Aiming
                 //todo: get position on row for the collider and get bubble from GridMap
                 var bubbleView = collider.gameObject.GetComponentInParent<BubbleView>();
 
-//                AimPath.Add(_gridMap.GetPositionToSpawnBubble(bubbleView.Model, aimedSide));
                 AimPath.Add(raycastHit.point);
-                AimedBubbleData = new BubbleAimedData(bubbleView.Model, aimedSide, AimPath.ToArray());
+
+                var finalPositionOnGrid = _gridMap.GetPositionToSpawnBubble(bubbleView.Model, aimedSide);
+                var copyOfAimPathWithFinalPositionOnGrid = AimPath.ToArray();
+                copyOfAimPathWithFinalPositionOnGrid[AimPath.Count - 1] = finalPositionOnGrid;
+                AimedBubbleData = new BubbleAimedData(bubbleView.Model, aimedSide, copyOfAimPathWithFinalPositionOnGrid);
             }
             else
             {

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
-using System.Linq;
+using Enums;
+using Model;
 using Project.Aiming;
 using UnityEngine;
 using Zenject;
@@ -8,9 +9,10 @@ namespace View.Aiming
 {
     public class LineDrawer : MonoBehaviour
     {
-        [Inject] private AimingSettings _aimingSettings = null;
-        [Inject] private Camera _camera = null;
-        [Inject] private IBubbleDestinationFinder _bubbleDestinationFinder = null;
+        [Inject] private readonly AimingSettings _aimingSettings = null;
+        [Inject] private readonly Camera _camera = null;
+        [Inject] private readonly IBubbleDestinationFinder _bubbleDestinationFinder = null;
+        [Inject] private readonly IGameStateController _gameStateController = null;
 
         [SerializeField] private LineRenderer _line;
 
@@ -21,17 +23,22 @@ namespace View.Aiming
 
         private void Update()
         {
+            if (_gameStateController.GamePlayState.Value != GamePlayState.Aiming)
+            {
+                return;
+            }
+
             DrawLine(_bubbleDestinationFinder.AimPath);
         }
 
         private void DrawLine(List<Vector2> path)
         {
-            _line.positionCount = path.Count + 1;
-            if (path == null || path.Count == 0 && path.Count > 2)
+            if (path.Count == 0 && path.Count > 2)
             {
                 return;
             }
 
+            _line.positionCount = path.Count + 1;
             var startPoint = _camera.ViewportToWorldPoint(_aimingSettings.GetAimingPositionInViewPortPosition());
             startPoint = new Vector3(startPoint.x, startPoint.y, 0);
             _line.SetPosition(0, startPoint);

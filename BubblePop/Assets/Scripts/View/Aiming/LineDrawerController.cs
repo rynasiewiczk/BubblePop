@@ -1,4 +1,3 @@
-using System;
 using Enums;
 using Model;
 using UniRx;
@@ -20,7 +19,7 @@ namespace View.Aiming
         private void Start()
         {
             _gameStateController.GamePlayState.Where(x => x == GamePlayState.Aiming).Subscribe(x => _lineDrawer.Show());
-            //_gameStateController.GamePlayState.Where(x => x != GamePlayState.Aiming).Subscribe(x => _lineDrawer.Hide());
+            _gameStateController.GamePlayState.Where(x => x != GamePlayState.Aiming).Subscribe(x => _lineDrawer.Hide());
         }
     }
 }
