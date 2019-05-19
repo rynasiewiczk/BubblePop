@@ -9,7 +9,7 @@ namespace View
     {
         [SerializeField] private BubbleView _view = null;
         [Inject] private readonly GridSettings _gridSettings = null;
-        [Inject] private BubbleViewSettings _bubbleViewSettings = null;
+        [Inject] private readonly BubbleViewSettings _bubbleViewSettings = null;
 
         private bool _scaledUp = true;
         private Tween _tween;
@@ -34,11 +34,12 @@ namespace View
         {
             if (View == null)
             {
+                ScaleDown(true);
                 return;
             }
 
             if (View.Model == null)
-            {
+            {ScaleDown(true);
                 return;
             }
 
@@ -56,6 +57,8 @@ namespace View
 
         private void OnEnable()
         {
+            ScaleDown(true);
+
             _justEnabled = true;
         }
 

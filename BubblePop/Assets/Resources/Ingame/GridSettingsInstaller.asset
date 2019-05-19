@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gridSettings:
     StartGridSize: {x: 6, y: 11}
-    WarmedRowsSize: 5
-    SafetyRows: 5
+    WarmedRowsSize: 2
+    SafetyRows: 0
     StartFreeBottomLines: 5
     startGridRowSide: 1
     AlwasFreeBottomLines: 3

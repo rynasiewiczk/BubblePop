@@ -128,7 +128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &221287553
 Transform:
   m_ObjectHideFlags: 0
@@ -171,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &620074809
 Transform:
   m_ObjectHideFlags: 0
@@ -270,6 +270,16 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 7.3
       objectReference: {fileID: 0}
+    - target: {fileID: 1499939687853359323, guid: 34c21488d3af24f40a92134ee9ca057c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9524
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499939687853359323, guid: 34c21488d3af24f40a92134ee9ca057c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 16.75095
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34c21488d3af24f40a92134ee9ca057c, type: 3}
 --- !u!20 &710813747 stripped
@@ -300,7 +310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1628350729
 Transform:
   m_ObjectHideFlags: 0
@@ -795,22 +805,22 @@ PrefabInstance:
     - target: {fileID: 4162166237028734154, guid: b034c0e63be03b84abdd9f909622d3bf,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4162166237028734154, guid: b034c0e63be03b84abdd9f909622d3bf,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 736460264506432323, guid: b034c0e63be03b84abdd9f909622d3bf,
         type: 3}
       propertyPath: m_havePropertiesChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 736460264506432323, guid: b034c0e63be03b84abdd9f909622d3bf,
         type: 3}
       propertyPath: m_isInputParsingRequired
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b034c0e63be03b84abdd9f909622d3bf, type: 3}
@@ -1168,26 +1178,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textAlignment
       value: 514
-      objectReference: {fileID: 0}
-    - target: {fileID: 7659828325981496598, guid: 46f3f6e706a886d469b96f46c7bb3a16,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 7659828325981496598, guid: 46f3f6e706a886d469b96f46c7bb3a16,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 7659828325981496598, guid: 46f3f6e706a886d469b96f46c7bb3a16,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 7659828325981496598, guid: 46f3f6e706a886d469b96f46c7bb3a16,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7659828324330251516, guid: 46f3f6e706a886d469b96f46c7bb3a16,
         type: 3}

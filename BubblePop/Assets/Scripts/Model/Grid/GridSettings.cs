@@ -8,7 +8,7 @@ namespace Project.Grid
     public class GridSettings
     {
         public Vector2Int StartGridSize = new Vector2Int(11, 6);
-        public int WarmedRowsSize = 5;
+        public int WarmedRowsSize = 2;
         public int SafetyRows = 5;
 
         public int StartFreeBottomLines = 5;
