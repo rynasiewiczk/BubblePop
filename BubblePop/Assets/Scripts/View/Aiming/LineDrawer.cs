@@ -25,6 +25,7 @@ namespace View.Aiming
         {
             if (_gameStateController.GamePlayState.Value != GamePlayState.Aiming)
             {
+                DisableLine();
                 return;
             }
 
@@ -35,9 +36,11 @@ namespace View.Aiming
         {
             if (path.Count == 0 || path.Count > 2)
             {
+                DisableLine();
                 return;
             }
 
+            EnableLine();
             _line.positionCount = path.Count + 1;
             var startPoint = _camera.ViewportToWorldPoint(_aimingSettings.GetAimingPositionInViewPortPosition());
             startPoint = new Vector3(startPoint.x, startPoint.y, 0);
@@ -49,13 +52,25 @@ namespace View.Aiming
             }
         }
 
+        private void EnableLine()
+        {
+            _line.enabled = true;
+        }
+
+        private void DisableLine()
+        {
+            _line.enabled = false;
+        }
+
         public void Show()
         {
+            EnableLine();
             gameObject.SetActive(true);
         }
 
         public void Hide()
         {
+            DisableLine();
             gameObject.SetActive(false);
         }
     }

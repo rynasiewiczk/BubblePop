@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6114795797677896937}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: TextsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ Camera:
   m_Depth: 10
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 1024
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -218,7 +218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6114795798026460090}
   - component: {fileID: 6114795798026460091}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: GridScoresDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}

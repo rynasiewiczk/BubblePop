@@ -38,4 +38,8 @@ public sealed class SRLayerMask {
     public const int Bubble = 256;
     
     public const int Wall = 512;
+    
+    public const int GridText = 1024;
+    
+    public const int TopWall = 2048;
 }

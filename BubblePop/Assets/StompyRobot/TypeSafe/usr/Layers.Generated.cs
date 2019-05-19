@@ -63,6 +63,18 @@ public sealed class SRLayers {
         }
     }
     
+    public static global::TypeSafe.Layer GridText {
+        get {
+            return @__all[7];
+        }
+    }
+    
+    public static global::TypeSafe.Layer TopWall {
+        get {
+            return @__all[8];
+        }
+    }
+    
     private static global::System.Collections.Generic.IList<global::TypeSafe.Layer> @__all = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.Layer>(new global::TypeSafe.Layer[] {
                 new global::TypeSafe.Layer("Default", 0),
                 new global::TypeSafe.Layer("TransparentFX", 1),
@@ -70,7 +82,9 @@ public sealed class SRLayers {
                 new global::TypeSafe.Layer("Water", 4),
                 new global::TypeSafe.Layer("UI", 5),
                 new global::TypeSafe.Layer("Bubble", 8),
-                new global::TypeSafe.Layer("Wall", 9)});
+                new global::TypeSafe.Layer("Wall", 9),
+                new global::TypeSafe.Layer("GridText", 10),
+                new global::TypeSafe.Layer("TopWall", 11)});
     
     public static global::System.Collections.Generic.IList<global::TypeSafe.Layer> All {
         get {

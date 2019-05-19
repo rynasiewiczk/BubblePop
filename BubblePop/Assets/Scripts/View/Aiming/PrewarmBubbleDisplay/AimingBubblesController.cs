@@ -25,8 +25,6 @@ namespace View.Aiming.PrewarmBubbleDisplay
                 ShowNewPrewarm(_nextBubbleLevelToSpawnController.PreWarmedBubbleLevelToSpawn.Value, false);
                 SlideViewToAimPosition(_nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Value, false);
             });
-//            _nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Skip(2).Where(x => x > 0).Subscribe(x => SlideViewToAimPosition(x, false));
-//            _nextBubbleLevelToSpawnController.PreWarmedBubbleLevelToSpawn.Skip(1).Where(x => x > 0).Subscribe(x => ShowNewPrewarm(x, false));
 
             ShowNewPrewarm(_nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Value, true);
             SlideViewToAimPosition(_nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Value, true);

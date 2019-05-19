@@ -407,25 +407,32 @@ public sealed class SRResources {
         private Fonts_Materials() {
         }
         
-        public static global::TypeSafe.Resource<global::UnityEngine.Material> LiberationSans_SDF_Drop_Shadow {
+        public static global::TypeSafe.Resource<global::UnityEngine.Material> LiberationSans_SDF_HudText {
             get {
                 return ((global::TypeSafe.Resource<global::UnityEngine.Material>)(@__ts_internal_resources[0]));
             }
         }
         
-        public static global::TypeSafe.Resource<global::UnityEngine.Material> LiberationSans_SDF {
+        public static global::TypeSafe.Resource<global::UnityEngine.Material> LiberationSans_SDF_Drop_Shadow {
             get {
                 return ((global::TypeSafe.Resource<global::UnityEngine.Material>)(@__ts_internal_resources[1]));
             }
         }
         
-        public static global::TypeSafe.Resource<global::UnityEngine.Material> LiberationSans_SDF_Outline {
+        public static global::TypeSafe.Resource<global::UnityEngine.Material> LiberationSans_SDF {
             get {
                 return ((global::TypeSafe.Resource<global::UnityEngine.Material>)(@__ts_internal_resources[2]));
             }
         }
         
+        public static global::TypeSafe.Resource<global::UnityEngine.Material> LiberationSans_SDF_Outline {
+            get {
+                return ((global::TypeSafe.Resource<global::UnityEngine.Material>)(@__ts_internal_resources[3]));
+            }
+        }
+        
         private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_resources = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.IResource>(new global::TypeSafe.IResource[] {
+                    new global::TypeSafe.Resource<global::UnityEngine.Material>("LiberationSans SDF - HudText", "Fonts & Materials/LiberationSans SDF - HudText"),
                     new global::TypeSafe.Resource<global::UnityEngine.Material>("LiberationSans SDF - Drop Shadow", "Fonts & Materials/LiberationSans SDF - Drop Shadow"),
                     new global::TypeSafe.Resource<global::UnityEngine.Material>("LiberationSans SDF", "Fonts & Materials/LiberationSans SDF"),
                     new global::TypeSafe.Resource<global::UnityEngine.Material>("LiberationSans SDF - Outline", "Fonts & Materials/LiberationSans SDF - Outline")});

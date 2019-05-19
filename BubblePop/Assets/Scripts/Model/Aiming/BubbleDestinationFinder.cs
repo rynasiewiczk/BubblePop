@@ -12,6 +12,7 @@ namespace Project.Aiming
     //TODO: it has way to many responsibilities. break it down
     public class BubbleDestinationFinder : IBubbleDestinationFinder
     {
+        private readonly string _topWallLayerName = SRLayers.TopWall.name;
         private readonly string _wallLayerName = SRLayers.Wall.name;
         private readonly string _bubbleLayerName = SRLayers.Bubble.name;
 
@@ -30,7 +31,7 @@ namespace Project.Aiming
         public BubbleDestinationFinder(IGameStateController gameStateController, IInputEventsNotifier inputEventsNotifier,
             IAimingDirectionObserver aimingDirectionObserver, AimingSettings aimingSettings, IGridMap gridMap, Camera camera)
         {
-            _layerMask = LayerMask.GetMask(_bubbleLayerName, _wallLayerName);
+            _layerMask = LayerMask.GetMask(_bubbleLayerName, _wallLayerName, _topWallLayerName);
             _aimingDirectionObserver = aimingDirectionObserver;
             _aimingSettings = aimingSettings;
             _gridMap = gridMap;
@@ -60,7 +61,12 @@ namespace Project.Aiming
             if (collider == null)
             {
                 ResetAimData();
+                return;
+            }
 
+            if (collider.gameObject.layer == LayerMask.NameToLayer(_topWallLayerName))
+            {
+                ResetAimData();
                 return;
             }
 
