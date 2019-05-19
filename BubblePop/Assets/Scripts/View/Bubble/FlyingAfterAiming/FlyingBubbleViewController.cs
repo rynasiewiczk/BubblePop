@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using Project.Aiming;
 using Project.Bubbles;
 using Project.Grid;
@@ -9,16 +10,16 @@ namespace View.FlyingAfterAiming
 {
     public class FlyingBubbleViewController : IFlyingBubbleViewController
     {
-        private IEndAimingStateObserver _endAimingStateObserver = null;
-        private INextBubbleLevelToSpawnController _nextBubbleLevelToSpawnController = null;
-        private BubbleData _bubbleData = null;
-        private IGridMap _gridMap = null;
-        private AimingSettings _aimingSettings = null;
-        private Camera _camera;
+        private const float DELAY_FOR_SMOOTHNESS = 0.07f;
+        private readonly IEndAimingStateObserver _endAimingStateObserver = null;
+        private readonly INextBubbleLevelToSpawnController _nextBubbleLevelToSpawnController = null;
+        private readonly BubbleData _bubbleData = null;
+        private readonly IGridMap _gridMap = null;
+        private readonly AimingSettings _aimingSettings = null;
+        private readonly Camera _camera;
 
-        private FlyingBubbleViewPool _flyingBubbleViewPool = null;
-
-        private List<Vector2> _pathCopyList = new List<Vector2>();
+        private readonly FlyingBubbleViewPool _flyingBubbleViewPool = null;
+        private readonly List<Vector2> _pathCopyList = new List<Vector2>();
 
         public FlyingBubbleViewController(IEndAimingStateObserver endAimingStateObserver, INextBubbleLevelToSpawnController nextBubbleLevelToSpawnController,
             FlyingBubbleViewPool flyingBubbleViewPool, BubbleData bubbleData, IGridMap gridMap, AimingSettings aimingSettings, Camera camera)
@@ -61,7 +62,8 @@ namespace View.FlyingAfterAiming
             var bubbleValue = _bubbleData.GetValueForLevel(level);
             var color = _bubbleData.GetColorForLevel(level);
 
-            flyingBubbleView.Setup(path3d, bubbleValue, color, duration, () => _flyingBubbleViewPool.Despawn(flyingBubbleView));
+            flyingBubbleView.Setup(path3d, bubbleValue, color, duration,
+                () => { DOVirtual.DelayedCall(DELAY_FOR_SMOOTHNESS, () => { _flyingBubbleViewPool.Despawn(flyingBubbleView); }); });
         }
 
         private float GetFlyDuration(Vector2[] path, Vector3[] path3d)
@@ -76,7 +78,7 @@ namespace View.FlyingAfterAiming
         {
             var startPosition = _camera.ViewportToWorldPoint(_aimingSettings.GetAimingPositionInViewPortPosition());
             var distance = 0f;
-            distance = ((Vector2)path3d[0] - (Vector2)startPosition).magnitude;
+            distance = ((Vector2) path3d[0] - (Vector2) startPosition).magnitude;
             for (int i = 1; i < path.Length; i++)
             {
                 distance += (path[i] - path[i - 1]).magnitude;

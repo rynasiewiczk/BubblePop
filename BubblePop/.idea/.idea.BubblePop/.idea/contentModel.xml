@@ -977,6 +977,7 @@
               <e p="BubbleViewAppearingComponent.cs" t="Include" />
               <e p="BubbleViewBounceComponent.cs" t="Include" />
               <e p="BubbleViewCollapseComponent.cs" t="Include" />
+              <e p="BubbleViewLayering.cs" t="Include" />
               <e p="BubbleViewScrollingVerticalyComponent.cs" t="Include" />
               <e p="FlyingAfterAiming" t="Include">
                 <e p="FlyingBubbleView.cs" t="Include" />

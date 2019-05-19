@@ -22,6 +22,12 @@ namespace View.FlyingAfterAiming
             Debug.Assert(_text, "Missing reference: _text", this);
         }
 
+        private void Start()
+        {
+            const int flyingBubbleTextSortingLayer = 998;
+            _text.sortingOrder = flyingBubbleTextSortingLayer;
+        }
+
         public void Setup(Vector3[] path, int value, Color color, float duration, Action onFlyFinish)
         {
             _spriteRenderer.color = color;
