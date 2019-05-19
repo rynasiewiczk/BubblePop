@@ -14,7 +14,7 @@ namespace View.Aiming
         [Inject] private readonly IBubbleDestinationFinder _bubbleDestinationFinder = null;
         [Inject] private readonly IGameStateController _gameStateController = null;
 
-        [SerializeField] private LineRenderer _line;
+        [SerializeField] private LineRenderer _line = null;
 
         private void Awake()
         {

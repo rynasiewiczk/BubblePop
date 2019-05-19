@@ -972,6 +972,10 @@
             <e p="Aiming" t="Include">
               <e p="LineDrawer.cs" t="Include" />
               <e p="LineDrawerController.cs" t="Include" />
+              <e p="TargetPlaceDisplay" t="Include">
+                <e p="TargetBubbleDisplay.cs" t="Include" />
+                <e p="TargetBubbleDisplayController.cs" t="Include" />
+              </e>
             </e>
             <e p="Bubble" t="Include">
               <e p="BounceOnHit" t="Include">
