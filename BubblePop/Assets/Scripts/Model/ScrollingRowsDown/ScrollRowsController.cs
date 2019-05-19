@@ -37,7 +37,7 @@ namespace Model.ScrollingRowsDown
 
             if (lowestToken >= bottomEdge && lowestToken < topEdge)
             {
-                _gameStateController.ChangeGamePlayState(GamePlayState.Idle);
+                _gameStateController.ChangeGamePlayState(GamePlayState.FillBubblesAboveTop);
                 return;
             }
 
@@ -47,7 +47,7 @@ namespace Model.ScrollingRowsDown
 
                 FireScrollRowsSignal(1);
 
-                DOVirtual.DelayedCall(_gridSettings.ScrollOneRowDuration, () => _gameStateController.ChangeGamePlayState(GamePlayState.Idle));
+                DOVirtual.DelayedCall(_gridSettings.ScrollOneRowDuration, () => _gameStateController.ChangeGamePlayState(GamePlayState.FillBubblesAboveTop));
                 return;
             }
 
@@ -57,8 +57,8 @@ namespace Model.ScrollingRowsDown
 
                 FireScrollRowsSignal(-1);
 
-                DOVirtual.DelayedCall(_gridSettings.ScrollOneRowDuration ,
-                    () => _gameStateController.ChangeGamePlayState(GamePlayState.Idle));
+                DOVirtual.DelayedCall(_gridSettings.ScrollOneRowDuration,
+                    () => _gameStateController.ChangeGamePlayState(GamePlayState.FillBubblesAboveTop));
             }
         }
 

@@ -12,7 +12,7 @@ namespace Model.Progress.PlayerLevelController
 
         public PlayerLevelController(IScoreController scoreController, PlayerLevelSettings playerLevelSettings)
         {
-            PlayerLevel = new ReactiveProperty<int>();
+            PlayerLevel = new ReactiveProperty<int>(1);
             _playerLevelSettings = playerLevelSettings;
             
             scoreController.Score.Subscribe(UpdateLevelIfRequirementMet);

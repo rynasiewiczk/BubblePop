@@ -5,11 +5,9 @@ using UnityEngine;
 
 namespace Model.Progress.PlayerLevelController
 {
-    [Serializable]
-    public class PlayerLevelSettings
+    [Serializable] public class PlayerLevelSettings
     {
         private const int EXTRA_PERCENTAGE_TO_ADD_WHEN_SCORE_NOT_SPEFICIED = 200;
-
         [SerializeField] private List<int> _scoreRequirementsForLevels = null;
 
         public int GetRequirementForLevel(int level)

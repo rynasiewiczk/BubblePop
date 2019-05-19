@@ -6,13 +6,20 @@ using Random = UnityEngine.Random;
 
 [Serializable] public class BubbleData
 {
-    public int InitialMaxBubblesLevel = 4;
-    [SerializeField] private int _differenceBetweenAvailableColorsAndSpawningColors = 3;
+    //todo: it should go to struct that describes player level range for bubble level
+    [SerializeField] private List<int> _minBubbleSpawnLevelsForPlayerLevel;
+    [SerializeField] private List<int> _maxBubbleSpawnLevelsForPlayerLevel;
+
+    [SerializeField] private int _bubbleLevelAvailableToSpawnAtstart = 3;
+    
+    public int InitialMaxBubblesLevel = 5;
     [SerializeField] private float _flySpeed = 15f;
-    [FormerlySerializedAs("_combiningSpeed")] [SerializeField] private float combiningDuration = 13f;
+
+    [FormerlySerializedAs("_combiningSpeed")] [SerializeField]
+    private float combiningDuration = 13f;
+
     [Space, SerializeField] private List<Color> _listOfColors = null;
 
-    public int MaxBubbleLevelToSpawn => _listOfColors.Count - _differenceBetweenAvailableColorsAndSpawningColors;
     public float FlySpeed => _flySpeed;
     public float CombiningDuration => combiningDuration;
     public float AfterCombiningDelay = .1f;
@@ -68,9 +75,57 @@ using Random = UnityEngine.Random;
         colorValues[colorIndexToBeMax] = 1f;
 
         var randomColor = new Color(colorValues[0], colorValues[1], colorValues[2], 1);
-
-        Debug.Log("RANDOM COLOR: " + randomColor);
-
         return randomColor;
+    }
+
+    public int GetRandomBubbleLevelBasedOnPlayerLevel(int playerLevel)
+    {
+        var minLevel = GetMinBubbleLevelByPlayerLevel(playerLevel);
+        var maxLevel = GetMaxBubbleLevelByPlayerLevel(playerLevel);
+
+        if (minLevel > maxLevel)
+        {
+            Debug.LogError("Minimal bubble level formula returned biggest value than formula for maximal bubble level. Returning bigger value");
+            return minLevel;
+        }
+
+        var result = Random.Range(minLevel, maxLevel + 1);
+        return result;
+    }
+
+    private int GetMinBubbleLevelByPlayerLevel(int playerLevel)
+    {
+        if (_minBubbleSpawnLevelsForPlayerLevel.Count > playerLevel)
+        {
+            return _minBubbleSpawnLevelsForPlayerLevel[playerLevel];
+        }
+
+        var minLevel = (playerLevel / 5) + 1;
+        
+        if (minLevel < 1)
+        {
+            Debug.LogError("Calculated mix bubble level is smaller than minimal possible value.");
+        }
+        
+        var result = Mathf.Max(1, minLevel);
+        return result;
+    }
+
+    private int GetMaxBubbleLevelByPlayerLevel(int playerLevel)
+    {
+        if (_maxBubbleSpawnLevelsForPlayerLevel.Count > playerLevel)
+        {
+            return _maxBubbleSpawnLevelsForPlayerLevel[playerLevel];
+        }
+
+        var maxLevel = (playerLevel / 2) - 1;
+
+        if (maxLevel < _bubbleLevelAvailableToSpawnAtstart)
+        {
+            Debug.LogError("Calculated max bubble level is smaller than one granted by start settings.");
+        }
+        
+        var result = Mathf.Max(_bubbleLevelAvailableToSpawnAtstart, maxLevel);
+        return result;
     }
 }

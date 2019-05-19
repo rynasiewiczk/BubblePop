@@ -1,6 +1,7 @@
 using Model;
 using Model.CombiningBubbles;
 using Model.CombiningBubbles.DroppingDisconnectedBubbles;
+using Model.FillingBubblesAbovePlayspace;
 using Model.FindingMatches;
 using Model.ScrollingRowsDown;
 using Project.Aiming;
@@ -32,5 +33,7 @@ public class GridActionsInstaller : Installer<GridActionsInstaller>
 
         Container.BindInterfacesTo<ScrollRowsController>().AsSingle().NonLazy();
         Container.DeclareSignal<ScrollRowsSignal>();
+
+        Container.BindInterfacesTo<FillingBubblesAbovePlayspaceController>().AsSingle().NonLazy();
     }
 }

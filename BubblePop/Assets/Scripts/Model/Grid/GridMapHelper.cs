@@ -91,6 +91,24 @@ namespace Project.Grid
             return list;
         }
 
+        public static List<ICell> GetAllEmptyCellsAboveTheGrid(this IGridMap gridMap, int gridTopLine)
+        {
+            var list = new List<ICell>();
+            foreach (var cell in gridMap.CellsRegistry)
+            {
+                if (cell != null && cell.Position.y >= gridTopLine)
+                {
+                    var bubbleAtPosition = gridMap.GetBubbleAtPositionOrNull(cell.Position);
+                    if (bubbleAtPosition == null)
+                    {
+                        list.Add(cell);
+                    }
+                }
+            }
+
+            return list;
+        }
+
         public static List<IBubble> GetAllBubblesOnGrid(this IGridMap gridMap)
         {
             var list = new List<IBubble>();
@@ -105,7 +123,7 @@ namespace Project.Grid
             return list;
         }
 
-        public static float GetHeightOfRows(this IGridMap gridMap,int rows)
+        public static float GetHeightOfRows(this IGridMap gridMap, int rows)
         {
             var heightBetweenRows = Mathf.Pow(Mathf.Pow(DISTANCE_BETWEEN_BUBBLES, 2) - Mathf.Pow(HALF_OF_DISTANCE_BETWEEN_BUBBLES, 2), .5f);
 

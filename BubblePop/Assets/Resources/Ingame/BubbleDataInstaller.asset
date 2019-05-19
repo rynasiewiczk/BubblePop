@@ -13,14 +13,25 @@ MonoBehaviour:
   m_Name: BubbleDataInstaller
   m_EditorClassIdentifier: 
   _bubbleData:
-    InitialMaxBubblesLevel: 3
-    _differenceBetweenAvailableColorsAndSpawningColors: 3
+    _minBubbleSpawnLevelsForPlayerLevel: 010000000100000001000000010000000100000002000000020000000200000002000000020000000300000003000000030000000300000003000000
+    _maxBubbleSpawnLevelsForPlayerLevel: 030000000300000003000000030000000300000004000000040000000400000004000000040000000500000005000000050000000500000005000000
+    _bubbleLevelAvailableToSpawnAtstart: 3
+    InitialMaxBubblesLevel: 6
     _flySpeed: 15
-    combiningDuration: 0.25
+    combiningDuration: 0.18
     _listOfColors:
     - {r: 0.9622642, g: 0.27687788, b: 0.27687788, a: 1}
     - {r: 0, g: 0.81960785, b: 0, a: 1}
     - {r: 0.25, g: 0.5046797, b: 1, a: 1}
     - {r: 0.9355841, g: 0.2216981, b: 1, a: 1}
     - {r: 0.86904603, g: 1, b: 0.24056602, a: 1}
+    - {r: 1, g: 0.8754562, b: 0.6963738, a: 1}
+    - {r: 0.27017397, g: 1, b: 0.24038959, a: 1}
+    - {r: 1, g: 0.000019550323, b: 0.3972302, a: 1}
+    - {r: 1, g: 0.7835145, b: 0.21014977, a: 1}
+    - {r: 0.9264053, g: 1, b: 0.14183736, a: 1}
+    - {r: 0.43832475, g: 1, b: 0.94451845, a: 1}
+    - {r: 0.5057073, g: 0.34710222, b: 1, a: 1}
+    - {r: 1, g: 0.4078067, b: 0.12369144, a: 1}
+    - {r: 0.3025772, g: 0.534532, b: 1, a: 1}
     AfterCombiningDelay: 0.1

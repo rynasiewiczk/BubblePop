@@ -911,6 +911,10 @@
               </e>
               <e p="ICombineBubbles.cs" t="Include" />
             </e>
+            <e p="FillingBubblesAbovePlayspace" t="Include">
+              <e p="FillingBubblesAbovePlayspaceController.cs" t="Include" />
+              <e p="IFillingBubblesAbovePlayspaceController.cs" t="Include" />
+            </e>
             <e p="FindingMatches" t="Include">
               <e p="FindConnectedBubblesWithSameLevelController.cs" t="Include" />
               <e p="IFindConnectedBubblesWithSameLevelController.cs" t="Include" />
