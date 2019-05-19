@@ -1,4 +1,3 @@
-using System;
 using DG.Tweening;
 using Model.CombiningBubbles;
 using Project.Grid;
@@ -9,11 +8,11 @@ namespace View
 {
     public class BubbleViewCollapseComponent : MonoBehaviour
     {
-        [SerializeField] private BubbleView _view;
+        [SerializeField] private BubbleView _view = null;
 
-        [Inject] private IGridMap _gridMap = null;
-        [Inject] private SignalBus _signalBus = null;
-        [Inject] private BubbleData _bubbleData = null;
+        [Inject] private readonly IGridMap _gridMap = null;
+        [Inject] private readonly SignalBus _signalBus = null;
+        [Inject] private readonly BubbleData _bubbleData = null;
 
         private void Awake()
         {

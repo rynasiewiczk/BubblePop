@@ -1,10 +1,8 @@
 using System.Collections.Generic;
-using System.Linq;
 using Enums;
 using Project.Bubbles;
 using Project.Grid;
 using UniRx;
-using UnityEngine;
 using Zenject;
 
 namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
@@ -15,6 +13,9 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
         private readonly IGameStateController _gameStateController = null;
         private readonly ICombineBubbles _combineBubbles = null;
         private readonly GridSettings _gridSettings = null;
+        private readonly SignalBus _signalBus = null;
+        
+        private DroppingUnlinkedBubbleSignal _droppingUnlinkedBubbleSignal = new DroppingUnlinkedBubbleSignal();
 
         private List<IBubble> _allBubbles = new List<IBubble>();
         private List<IBubble> _bubblestToFall = new List<IBubble>();
@@ -23,12 +24,13 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
         private List<IBubble> _allConnectedBubbles = new List<IBubble>();
 
         public DropUnlinkedBubblesController(IGridMap gridMap, IGameStateController gameStateController, ICombineBubbles combineBubbles,
-            GridSettings gridSettings)
+            GridSettings gridSettings, SignalBus signalBus)
         {
             _gridMap = gridMap;
             _gridSettings = gridSettings;
             _gameStateController = gameStateController;
             _combineBubbles = combineBubbles;
+            _signalBus = signalBus;
 
             _gameStateController.GamePlayState.Where(x => x == GamePlayState.DropBubblesAfterCombining).Subscribe(x => DropUnlinkedBubbles());
         }
@@ -66,6 +68,10 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
             {
                 if (_bubblestToFall[i].IsPlayable())
                 {
+                    _droppingUnlinkedBubbleSignal.Position = _bubblestToFall[i].Position.Value;
+                    _droppingUnlinkedBubbleSignal.Level = _bubblestToFall[i].Level.Value;
+                    _signalBus.Fire(_droppingUnlinkedBubbleSignal);
+                    
                     _bubblestToFall[i].Destroy();
                 }
             }

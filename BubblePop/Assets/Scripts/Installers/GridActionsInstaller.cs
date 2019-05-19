@@ -28,8 +28,8 @@ public class GridActionsInstaller : Installer<GridActionsInstaller>
         Container.BindInterfacesTo<CombineBubbles>().AsSingle().NonLazy();
         Container.DeclareSignal<CombineBubbleSignal>();
 
-        Container.BindInterfacesTo<WaitAfterCombiningController>().AsSingle().NonLazy();
         Container.BindInterfacesTo<DropUnlinkedBubblesController>().AsSingle().NonLazy();
+        Container.DeclareSignal<DroppingUnlinkedBubbleSignal>();
 
         Container.BindInterfacesTo<ScrollRowsController>().AsSingle().NonLazy();
         Container.DeclareSignal<ScrollRowsSignal>();

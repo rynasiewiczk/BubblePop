@@ -21,3 +21,11 @@ MonoBehaviour:
     AimingBubbleOverscale: 1.1
     AimingBubbleFromOverscaleToNormalDuration: 0.3
     AimingBubbleTransitionDuration: 0.13
+    DropBubbleMinStartVerticalVelocity: 4
+    DropBubbleMaxStartVerticalVelocity: 7
+    DropBubbleMaxHorizontalVelocity: 7
+    DropBubbleGravity: -30
+    DropBubbleRotationSpeed: 8
+    DropBubbleScaleReduceSpeed: 1
+    DropBubbleTransparencyLossSpeed: 1
+    DroppBubbleHeightToDespawn: -3

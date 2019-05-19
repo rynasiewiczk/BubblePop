@@ -2,7 +2,6 @@ using System;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
-using Zenject;
 
 namespace View.FlyingAfterAiming
 {
@@ -11,8 +10,6 @@ namespace View.FlyingAfterAiming
         [SerializeField] private SpriteRenderer _spriteRenderer = null;
         [SerializeField] private TextMeshPro _text = null;
         
-        [Inject] private AimingSettings _aimingSettings = null;
-
         private Vector2[] _path;
         private int _value;
 

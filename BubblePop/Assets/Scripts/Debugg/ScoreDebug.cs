@@ -4,7 +4,7 @@ using Zenject;
 
 public class ScoreDebug : MonoBehaviour
 {
-    [Inject] private IScoreController _scoreController;
+    [Inject] private readonly IScoreController _scoreController = null;
 
     private void OnGUI()
     {
