@@ -21,7 +21,7 @@ namespace Project.Aiming
         private readonly Camera _camera = null;
 
         private readonly LayerMask _layerMask;
-        private readonly List<Vector2> _aimPath = new List<Vector2>();
+        public List<Vector2> AimPath { get; private set; } = new List<Vector2>();
 
         private Vector2 AimingPositionInWorldPoint => _camera.ViewportToWorldPoint(_aimingSettings.GetAimingPositionInViewPortPosition());
 
@@ -38,6 +38,8 @@ namespace Project.Aiming
 
             inputEventsNotifier.OnInputMove.Where(x => gameStateController.GamePlayState.Value == GamePlayState.Aiming && AimingAboveStartingPoint())
                 .Subscribe(x => FireRaycastToFindPositionForBubble(AimingPositionInWorldPoint, 0));
+
+            inputEventsNotifier.OnInputEnd.Subscribe(x => ResetAimData());
         }
 
         private bool AimingAboveStartingPoint()
@@ -51,7 +53,7 @@ namespace Project.Aiming
             {
                 ResetAimData();
             }
-            
+
             startPoint = AdjustStartPointToAvoidHitSameObject(startPoint);
 
             var aimingDirection = SetAimingDirection(reflections);
@@ -63,8 +65,6 @@ namespace Project.Aiming
 
                 return;
             }
-
-            Debug.DrawLine(startPoint, raycastHit.point, Color.magenta);
 
             if (collider.gameObject.layer == LayerMask.NameToLayer(_wallLayerName))
             {
@@ -78,7 +78,7 @@ namespace Project.Aiming
 
                 var hitPosition = raycastHit.point;
 
-                _aimPath.Add(hitPosition);
+                AimPath.Add(hitPosition);
 
                 reflections++;
                 FireRaycastToFindPositionForBubble(hitPosition, reflections);
@@ -90,8 +90,9 @@ namespace Project.Aiming
                 //todo: get position on row for the collider and get bubble from GridMap
                 var bubbleView = collider.gameObject.GetComponentInParent<BubbleView>();
 
-                _aimPath.Add(_gridMap.GetPositionToSpawnBubble(bubbleView.Model, aimedSide));
-                AimedBubbleData = new BubbleAimedData(bubbleView.Model, aimedSide, _aimPath.ToArray());
+//                AimPath.Add(_gridMap.GetPositionToSpawnBubble(bubbleView.Model, aimedSide));
+                AimPath.Add(raycastHit.point);
+                AimedBubbleData = new BubbleAimedData(bubbleView.Model, aimedSide, AimPath.ToArray());
             }
             else
             {
@@ -103,7 +104,7 @@ namespace Project.Aiming
         private void ResetAimData()
         {
             AimedBubbleData = null;
-            _aimPath.Clear();
+            AimPath.Clear();
         }
 
         private BubbleSide GetBubbleAimedSide(Vector2 hitPoint, Vector2 bubblePosition)

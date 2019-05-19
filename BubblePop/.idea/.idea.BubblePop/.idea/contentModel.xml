@@ -840,6 +840,7 @@
         </e>
         <e p="Scripts" t="Include">
           <e p="Debugg" t="Include">
+            <e p="GameStateDebugger.cs" t="Include" />
             <e p="NextBubbleDebug.cs" t="Include" />
             <e p="PlayerLevelDebugger.cs" t="Include" />
             <e p="ScoreDebug.cs" t="Include" />
@@ -968,6 +969,10 @@
             </e>
           </e>
           <e p="View" t="Include">
+            <e p="Aiming" t="Include">
+              <e p="LineDrawer.cs" t="Include" />
+              <e p="LineDrawerController.cs" t="Include" />
+            </e>
             <e p="Bubble" t="Include">
               <e p="BounceOnHit" t="Include">
                 <e p="IViewBounceAfterBubbleArriveController.cs" t="Include" />
