@@ -321,9 +321,15 @@ public sealed class SRResources {
             }
         }
         
+        public static global::TypeSafe.Resource<global::UiDataInstaller> UiDataInstaller {
+            get {
+                return ((global::TypeSafe.Resource<global::UiDataInstaller>)(@__ts_internal_resources[4]));
+            }
+        }
+        
         public static global::TypeSafe.Resource<global::PlayerLevelSettingsInstaller> PlayerLevelSettingsInstaller {
             get {
-                return ((global::TypeSafe.Resource<global::PlayerLevelSettingsInstaller>)(@__ts_internal_resources[4]));
+                return ((global::TypeSafe.Resource<global::PlayerLevelSettingsInstaller>)(@__ts_internal_resources[5]));
             }
         }
         
@@ -332,6 +338,7 @@ public sealed class SRResources {
                     new global::TypeSafe.Resource<global::GridSettingsInstaller>("GridSettingsInstaller", "Ingame/GridSettingsInstaller"),
                     new global::TypeSafe.Resource<global::Project.Aiming.AimingInstaller>("AimingInstaller", "Ingame/AimingInstaller"),
                     new global::TypeSafe.Resource<global::BubbleViewSettingsInstaller>("BubbleViewSettingsInstaller", "Ingame/BubbleViewSettingsInstaller"),
+                    new global::TypeSafe.Resource<global::UiDataInstaller>("UiDataInstaller", "Ingame/UiDataInstaller"),
                     new global::TypeSafe.Resource<global::PlayerLevelSettingsInstaller>("PlayerLevelSettingsInstaller", "Ingame/PlayerLevelSettingsInstaller")});
         
         /// <summary>
@@ -406,14 +413,21 @@ public sealed class SRResources {
             }
         }
         
-        public static global::TypeSafe.Resource<global::UnityEngine.Material> LiberationSans_SDF_Outline {
+        public static global::TypeSafe.Resource<global::UnityEngine.Material> LiberationSans_SDF {
             get {
                 return ((global::TypeSafe.Resource<global::UnityEngine.Material>)(@__ts_internal_resources[1]));
             }
         }
         
+        public static global::TypeSafe.Resource<global::UnityEngine.Material> LiberationSans_SDF_Outline {
+            get {
+                return ((global::TypeSafe.Resource<global::UnityEngine.Material>)(@__ts_internal_resources[2]));
+            }
+        }
+        
         private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_resources = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.IResource>(new global::TypeSafe.IResource[] {
                     new global::TypeSafe.Resource<global::UnityEngine.Material>("LiberationSans SDF - Drop Shadow", "Fonts & Materials/LiberationSans SDF - Drop Shadow"),
+                    new global::TypeSafe.Resource<global::UnityEngine.Material>("LiberationSans SDF", "Fonts & Materials/LiberationSans SDF"),
                     new global::TypeSafe.Resource<global::UnityEngine.Material>("LiberationSans SDF - Outline", "Fonts & Materials/LiberationSans SDF - Outline")});
         
         /// <summary>

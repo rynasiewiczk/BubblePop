@@ -3,10 +3,10 @@ using Zenject;
 
 namespace View.FlyingAfterAiming
 {
-    public class FlyingBubbleViewPool : MonoMemoryPool< /*Vector2[], int,*/ FlyingBubbleView>
+    public class FlyingBubbleViewPool : MonoMemoryPool<FlyingBubbleView>
     {
-        private AimingSettings _aimingSettings = null;
-        private Camera _camera = null;
+        private readonly AimingSettings _aimingSettings = null;
+        private readonly Camera _camera = null;
 
         public FlyingBubbleViewPool(AimingSettings aimingSettings, Camera camera)
         {

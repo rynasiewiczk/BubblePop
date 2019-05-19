@@ -7,6 +7,7 @@ using Model.ScrollingRowsDown;
 using Project.Aiming;
 using Project.Bubbles;
 using Project.Bubbles.PlacingOnGrid;
+using View.GridScoresDisplay;
 using Zenject;
 
 public class GridActionsInstaller : Installer<GridActionsInstaller>
@@ -27,6 +28,7 @@ public class GridActionsInstaller : Installer<GridActionsInstaller>
 
         Container.BindInterfacesTo<CombineBubbles>().AsSingle().NonLazy();
         Container.DeclareSignal<CombineBubbleSignal>();
+        Container.DeclareSignal<BubblesCombiningDoneSignal>();
 
         Container.BindInterfacesTo<DropUnlinkedBubblesController>().AsSingle().NonLazy();
         Container.DeclareSignal<DroppingUnlinkedBubbleSignal>();

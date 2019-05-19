@@ -23,7 +23,6 @@ namespace Project.Bubbles
             Level = new IntReactiveProperty(level);
         }
 
-
         public void Destroy()
         {
             if (Destroyed.IsDisposed)
@@ -44,6 +43,7 @@ namespace Project.Bubbles
         {
             Position.Value = new Vector2Int(Position.Value.x, Position.Value.y - 1);
         }
+
 
         public bool IsPlayable()
         {

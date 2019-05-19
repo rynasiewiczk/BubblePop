@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bb517fd83d79924c81f408361443695, type: 3}
+  m_Name: UiDataInstaller
+  m_EditorClassIdentifier: 
+  _uiData:
+    GridScoreText_MinFontSize: 50
+    GridScoreText_MaxFontSize: 150
+    GridScoreText_MaxScoreForTopSize: 4096
+    GridScoreText_FadeOutSpeed: 2
+    GridScoreText_ScaleupSpeed: 5
+    GridScoreText_LifeTime: 0.35
+    MoveUpSpeed: 1.5

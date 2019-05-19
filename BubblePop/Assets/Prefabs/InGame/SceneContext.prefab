@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 995091664302746567}
   - component: {fileID: 995091664302746566}
   - component: {fileID: 995091664302746553}
+  - component: {fileID: 8928784692173416046}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -53,11 +54,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a85625d424f782e4487efd24748e6429, type: 2}
   - {fileID: 11400000, guid: 958e9f1e825b11f479a70edc50f19ae9, type: 2}
   - {fileID: 11400000, guid: 64f377973e8e86e42bb4bba2951e85f4, type: 2}
+  - {fileID: 11400000, guid: 0b04bbfaa8d34ba468c07528650f479e, type: 2}
   _monoInstallers:
   - {fileID: 995091664302746562}
   - {fileID: 995091664302746567}
   - {fileID: 995091664302746566}
   - {fileID: 995091664302746553}
+  - {fileID: 8928784692173416046}
   _installerPrefabs: []
   _autoRun: 1
   _parentNewObjectsUnderSceneContext: 0
@@ -104,6 +107,7 @@ MonoBehaviour:
     type: 3}
   _flyingBubbleView: {fileID: 1701969752452525197, guid: 127dc989ad8176f45a8a4c55f1872264,
     type: 3}
+  _droppingBubbleView: {fileID: 0}
 --- !u!114 &995091664302746553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,3 +120,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a24b72052b6c39e42bd7de4b8f11f5ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8928784692173416046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995091664302746563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a9bae77663c2e4c9ee2de94622eed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gridScoreDisplayText: {fileID: 2181037819287165774, guid: 4d09d6fd6e7470a4b9c26f8fc962e193,
+    type: 3}

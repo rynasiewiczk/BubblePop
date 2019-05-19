@@ -860,6 +860,11 @@
             <e p="PlayerLevelSettingsInstaller.cs" t="Include" />
             <e p="ProgressInstaller.cs" t="Include" />
             <e p="SignalBusInstaller.cs" t="Include" />
+            <e p="Ui" t="Include">
+              <e p="UiData.cs" t="Include" />
+              <e p="UiDataInstaller.cs" t="Include" />
+              <e p="UiInstaller.cs" t="Include" />
+            </e>
             <e p="ViewInstaller.cs" t="Include" />
           </e>
           <e p="Model" t="Include">
@@ -1009,6 +1014,12 @@
                 <e p="BubbleViewPool.cs" t="Include" />
                 <e p="BubbleViewSettings.cs" t="Include" />
               </e>
+            </e>
+            <e p="GridScoresDisplay" t="Include">
+              <e p="BubblesCombiningDoneSignal.cs" t="Include" />
+              <e p="GridScoreDisplayText.cs" t="Include" />
+              <e p="GridScoreDisplayTextPool.cs" t="Include" />
+              <e p="GridScoresDisplayController.cs" t="Include" />
             </e>
           </e>
         </e>

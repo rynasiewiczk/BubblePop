@@ -34,9 +34,6 @@ MonoBehaviour:
   - Path: Assets/TextMesh Pro/Resources/Shaders/TMPro_Properties.cginc
     Type: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - Path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
-    Type: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
   - Path: Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt
     Type: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
@@ -61,3 +58,8 @@ MonoBehaviour:
   - Path: Assets/Resources/Ingame/BubbleViewSettingsInstaller.asset
     Type: BubbleViewSettingsInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  - Path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
+    Type: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  - Path: Assets/Resources/Ingame/UiDataInstaller.asset
+    Type: UiDataInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
