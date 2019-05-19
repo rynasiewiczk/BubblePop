@@ -188,5 +188,22 @@ namespace Project.Grid
 
             return list;
         }
+
+        public static List<IBubble> GetBubblesAroundPosition(this IGridMap gridMap, Vector2Int position, List<IBubble> bufferList)
+        {
+            var rowSide = gridMap.GetGridSideForRow(position.y);
+            var checkVectors = rowSide == GridRowSide.Left ? _leftRowCheckVectors : _rightRowCheckVectors;
+
+            foreach (var checkVector in checkVectors)
+            {
+                var bubble = gridMap.GetBubbleAtPositionOrNull(position + checkVector);
+                if (bubble != null)
+                {
+                    bufferList.Add(bubble);
+                }
+            }
+
+            return bufferList;
+        }
     }
 }

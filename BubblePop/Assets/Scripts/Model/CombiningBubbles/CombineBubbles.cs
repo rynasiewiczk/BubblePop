@@ -7,6 +7,7 @@ using Project.Bubbles;
 using Project.Grid;
 using UniRx;
 using UnityEngine;
+using View;
 using Zenject;
 
 namespace Model.CombiningBubbles
@@ -21,6 +22,7 @@ namespace Model.CombiningBubbles
         private SignalBus _signalBus = null;
         private IGameStateController _gameStateController = null;
         public int LastCombinedBubbleNeighboursWithSameLevelAmount { get; private set; }
+        
 
         public CombineBubbles(IGridMap gridMap, IFindConnectedBubblesWithSameLevelController bubblesWithSameLevelController, BubbleData bubbleData,
             IGameStateController gameStateController, SignalBus signalBus)

@@ -315,9 +315,15 @@ public sealed class SRResources {
             }
         }
         
+        public static global::TypeSafe.Resource<global::BubbleViewSettingsInstaller> BubbleViewSettingsInstaller {
+            get {
+                return ((global::TypeSafe.Resource<global::BubbleViewSettingsInstaller>)(@__ts_internal_resources[3]));
+            }
+        }
+        
         public static global::TypeSafe.Resource<global::PlayerLevelSettingsInstaller> PlayerLevelSettingsInstaller {
             get {
-                return ((global::TypeSafe.Resource<global::PlayerLevelSettingsInstaller>)(@__ts_internal_resources[3]));
+                return ((global::TypeSafe.Resource<global::PlayerLevelSettingsInstaller>)(@__ts_internal_resources[4]));
             }
         }
         
@@ -325,6 +331,7 @@ public sealed class SRResources {
                     new global::TypeSafe.Resource<global::BubbleDataInstaller>("BubbleDataInstaller", "Ingame/BubbleDataInstaller"),
                     new global::TypeSafe.Resource<global::GridSettingsInstaller>("GridSettingsInstaller", "Ingame/GridSettingsInstaller"),
                     new global::TypeSafe.Resource<global::Project.Aiming.AimingInstaller>("AimingInstaller", "Ingame/AimingInstaller"),
+                    new global::TypeSafe.Resource<global::BubbleViewSettingsInstaller>("BubbleViewSettingsInstaller", "Ingame/BubbleViewSettingsInstaller"),
                     new global::TypeSafe.Resource<global::PlayerLevelSettingsInstaller>("PlayerLevelSettingsInstaller", "Ingame/PlayerLevelSettingsInstaller")});
         
         /// <summary>

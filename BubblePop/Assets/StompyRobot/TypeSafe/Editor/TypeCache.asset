@@ -58,3 +58,6 @@ MonoBehaviour:
   - Path: Assets/Resources/Ingame/PlayerLevelSettingsInstaller.asset
     Type: PlayerLevelSettingsInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  - Path: Assets/Resources/Ingame/BubbleViewSettingsInstaller.asset
+    Type: BubbleViewSettingsInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null

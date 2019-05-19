@@ -12,5 +12,8 @@ public class ViewInstaller : MonoInstaller
             .WithInitialSize(70)
             .FromComponentInNewPrefab(_bubbleView)
             .UnderTransformGroup("BubbleViews");
+
+        Container.DeclareSignal<OnBubbleHitSignal>();
+        Container.BindInterfacesTo<ViewBounceAfterBubbleArriveController>().AsSingle().NonLazy();
     }
 }

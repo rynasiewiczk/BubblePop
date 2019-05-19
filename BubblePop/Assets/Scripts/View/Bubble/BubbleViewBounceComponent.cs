@@ -1,13 +1,16 @@
-﻿using System;
+﻿using DG.Tweening;
 using UnityEngine;
 using View;
 using Zenject;
 
 public class BubbleViewBounceComponent : MonoBehaviour
 {
-    [Inject] private SignalBus _signalBus = null;
+    [Inject] private readonly SignalBus _signalBus = null;
+    [Inject] private readonly BubbleViewSettings _bubbleViewSettings = null;
 
     [SerializeField] private BubbleView _view = null;
+
+    private Tween _tween = null;
 
     private void Awake()
     {
@@ -30,7 +33,12 @@ public class BubbleViewBounceComponent : MonoBehaviour
         {
             return;
         }
-        
-        
+
+        var direction = ((Vector2) transform.position - signal.SoucrePosition).normalized;
+        _tween?.Kill();
+        _tween = transform.DOLocalMove(direction * _bubbleViewSettings.OnHitBounceDistance, _bubbleViewSettings.OnHidBounceHalfDuration).OnComplete(() =>
+        {
+            _tween = transform.DOLocalMove(Vector2.zero, _bubbleViewSettings.OnHidBounceHalfDuration);
+        });
     }
 }
