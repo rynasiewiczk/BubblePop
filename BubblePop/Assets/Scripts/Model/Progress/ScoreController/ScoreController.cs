@@ -37,7 +37,8 @@ namespace Model.ScoreController
 
         private void GetScoreOnBubbleCombine(int level)
         {
-            if (_gameStateController.GamePlayState.Value < GamePlayState.BubblesCombining)
+            if (_gameStateController.GamePlayState.Value < GamePlayState.BubblesCombining ||
+                _gameStateController.GamePlayState.Value >= GamePlayState.FillBubblesAboveTop)
             {
                 return;
             }

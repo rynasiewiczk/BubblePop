@@ -28,7 +28,9 @@ public class ScoreDisplayController : MonoBehaviour
     private void Start()
     {
         _text.text = _scoreController.Score.Value.ToString();
-        _scoreController.Score.Subscribe(UpdateScore);
+        _scoreController.Score.Skip(1).Subscribe(UpdateScore);
+
+        _text.text = 0.ToString();
     }
 
     private void UpdateScore(int x)

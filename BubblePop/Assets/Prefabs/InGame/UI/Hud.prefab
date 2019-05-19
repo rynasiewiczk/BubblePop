@@ -765,5 +765,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 736460264506432323}
-  _textTweenSizeGrow: 1.5
+  _textTweenSizeGrow: 1.05
   _textGrowDuration: 0.2
