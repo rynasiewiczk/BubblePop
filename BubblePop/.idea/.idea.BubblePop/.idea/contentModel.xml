@@ -876,8 +876,8 @@
               <e p="IAimingDirectionObserver.cs" t="Include" />
               <e p="IBubbleDestinationFinder.cs" t="Include" />
               <e p="StateObservers" t="Include">
-                <e p="EndAimingStateObserver.cs" t="Include" />
-                <e p="IEndAimingStateObserver.cs" t="Include" />
+                <e p="FindingCellToShootBubbleController.cs" t="Include" />
+                <e p="IFindingCellToShootBubbleController.cs" t="Include" />
                 <e p="IStartAimingStateObserver.cs" t="Include" />
                 <e p="StartAimingStateObserver.cs" t="Include" />
               </e>
@@ -892,8 +892,8 @@
               </e>
               <e p="IBubble.cs" t="Include" />
               <e p="PlacingOnGrid" t="Include">
-                <e p="IPlacerOfBubbleOnGrid.cs" t="Include" />
-                <e p="PlacerOfBubbleOnGrid.cs" t="Include" />
+                <e p="ISpawnShotBubbleOnGridController.cs" t="Include" />
+                <e p="SpawnShotBubbleOnGridController.cs" t="Include" />
               </e>
               <e p="SpawnBubbleOnGridSignal.cs" t="Include" />
               <e p="Spawning" t="Include">

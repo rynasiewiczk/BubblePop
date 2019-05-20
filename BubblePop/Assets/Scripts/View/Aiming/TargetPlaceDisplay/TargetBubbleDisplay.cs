@@ -35,7 +35,7 @@ namespace View.Aiming.TargetPlaceDisplay
             EnableRenderer();
 
 
-            var destination = aimedBubbleData.Path[aimedBubbleData.Path.Length - 1];
+            var destination = aimedBubbleData.PathFromAimingPosition[aimedBubbleData.PathFromAimingPosition.Length - 1];
             destination = _gridMap.GetGridViewPosition(new Vector2Int((int) destination.x, (int) destination.y));
             transform.position = destination;
         }

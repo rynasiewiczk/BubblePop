@@ -79,7 +79,7 @@ namespace Project.Grid
                 return;
             }
 
-            if (!BubbleIsMatch(bubbleAtPosition, map.GetCellAtPositionOrNull(posToCheck), level))
+            if (!BubbleIsMatch(map, bubbleAtPosition, level))
             {
                 return;
             }
@@ -125,40 +125,14 @@ namespace Project.Grid
             return dir;
         }
 
-        private static bool BubbleIsMatch(IBubble bubble, ICell cellAtPosition, int level)
+        private static bool BubbleIsMatch(IGridMap gridMap, IBubble bubble, int level)
         {
             var result = bubble != null
                          && (bubble.Level.Value == level || BUBBLE_LEVEL_TO_PROVIDE_TO_IFNORE_LEVEL_CHECK == level)
-                         && bubble.IsPlayable();
+                         && gridMap.IsBubblePlayable(bubble);
             return result;
         }
-
-        public static bool HasBubbleConnectionFromTop(this IGridMap gridMap, IBubble bubble)
-        {
-            var bubblesInRow = new List<IBubble>();
-            IBubble bubbleOnTop = null;
-
-            var rowSide = gridMap.GetGridSideForRow(bubble.Position.Value.y);
-
-            var posToCheck = bubble.Position.Value;
-            posToCheck += rowSide == GridRowSide.Left ? new Vector2Int(-1, 1) : new Vector2Int(0, 1);
-            bubbleOnTop = gridMap.GetBubbleAtPositionOrNull(posToCheck);
-            if (bubbleOnTop != null && bubble.IsPlayable())
-            {
-                return true;
-            }
-
-            posToCheck = bubble.Position.Value;
-            posToCheck += rowSide == GridRowSide.Left ? new Vector2Int(0, 1) : new Vector2Int(1, 1);
-            bubbleOnTop = gridMap.GetBubbleAtPositionOrNull(posToCheck);
-            if (bubbleOnTop != null && bubble.IsPlayable())
-            {
-                return true;
-            }
-
-            return false;
-        }
-
+        
         public static void GetAllConnectedBubbles(this IGridMap gridMap, IBubble startBubble, List<IBubble> bubblesToStay,
             List<IBubble> bufferListClearedOnEntry)
         {
@@ -206,13 +180,7 @@ namespace Project.Grid
             return bufferList;
         }
 
-        public static int GetLowestRowWithBubble(this IGridMap gridMap)
-        {
-            var allPlayableBubbles = gridMap.GetAllPlayableBubblesOnGrid();
-            return GetLowestRowWithBubble(gridMap, allPlayableBubbles);
-        }
-        
-        public static int GetLowestRowWithBubble(this IGridMap gridMap, List<IBubble> listOfBubbles)
+        public static int GetLowestRowWithBubble(List<IBubble> listOfBubbles)
         {
             var lowestRow = int.MaxValue;
 
@@ -225,6 +193,18 @@ namespace Project.Grid
             }
 
             return lowestRow;
+        }
+
+        public static bool IsBubblePlayable(this IGridMap gridMap, IBubble bubble)
+        {
+            var disposed = bubble.Destroyed.IsDisposed;
+            if (disposed)
+            {
+                return false;
+            }
+
+            var bubbleIsBelowTopOfPlayableGrid = bubble.Position.Value.y < gridMap.Size.Value.y;
+            return bubbleIsBelowTopOfPlayableGrid;
         }
     }
 }

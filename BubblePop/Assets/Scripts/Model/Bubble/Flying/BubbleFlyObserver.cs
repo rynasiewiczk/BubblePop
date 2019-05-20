@@ -16,14 +16,14 @@ namespace Project.Bubbles
         private readonly Camera _camera = null;
 
         public BubbleFlyObserver(IGameStateController gameStateController, BubbleData bubbleData, AimingSettings aimingSettings, Camera camera,
-            IEndAimingStateObserver endAimingStateObserver)
+            IFindingCellToShootBubbleController findingCellToShootBubbleController)
         {
             _gameStateController = gameStateController;
             _bubbleData = bubbleData;
             _aimingSettings = aimingSettings;
             _camera = camera;
 
-            endAimingStateObserver.BubbleFlyPath.Skip(1).Where(x => x.Length > 0).Subscribe(x =>
+            findingCellToShootBubbleController.BubbleFlyPath.Skip(1).Where(x => x.Length > 0).Subscribe(x =>
             {
                 _gameStateController.ChangeGamePlayState(GamePlayState.BubbleFlying);
                 ChangeStateAfterFlyDuration(x);

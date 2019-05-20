@@ -8,23 +8,24 @@ using UnityEngine;
 
 namespace Project.Aiming
 {
-    public class EndAimingStateObserver : IEndAimingStateObserver
+    public class FindingCellToShootBubbleController : IFindingCellToShootBubbleController
     {
         private readonly IBubbleDestinationFinder _bubbleDestinationFinder = null;
         private readonly IGameStateController _gameStateController = null;
         private readonly IGridMap _gridMap = null;
 
         public ReactiveProperty<Vector2[]> BubbleFlyPath { get; }
-        public Vector2Int BubbleDestination 
+
+        public Vector2Int BubbleDestination
         {
             get
             {
                 var lastPathPosition = BubbleFlyPath.Value.Last();
-                return new Vector2Int((int)lastPathPosition.x, (int)lastPathPosition.y);
+                return new Vector2Int((int) lastPathPosition.x, (int) lastPathPosition.y);
             }
         }
 
-        public EndAimingStateObserver(IInputEventsNotifier inputEventsNotifier, IBubbleDestinationFinder bubbleDestinationFinder,
+        public FindingCellToShootBubbleController(IInputEventsNotifier inputEventsNotifier, IBubbleDestinationFinder bubbleDestinationFinder,
             IGameStateController gameStateController, IGridMap gridMap)
         {
             BubbleFlyPath = new ReactiveProperty<Vector2[]>();
@@ -56,7 +57,7 @@ namespace Project.Aiming
                 }
                 else
                 {
-                    BubbleFlyPath.Value = _bubbleDestinationFinder.AimedBubbleData.Path;
+                    BubbleFlyPath.Value = _bubbleDestinationFinder.AimedBubbleData.PathFromAimingPosition;
                 }
             }
             else

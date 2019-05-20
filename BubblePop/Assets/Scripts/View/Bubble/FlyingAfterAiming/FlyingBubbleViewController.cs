@@ -10,21 +10,21 @@ namespace View.FlyingAfterAiming
 {
     public class FlyingBubbleViewController : IFlyingBubbleViewController
     {
-        private const float DELAY_FOR_SMOOTHNESS = 0.07f;
-        private readonly IEndAimingStateObserver _endAimingStateObserver = null;
+        private const float DELAY_TO_KILL_AFTER_GRID_VIEW_IS_VISIBLE = 0.01f;
+        private readonly IFindingCellToShootBubbleController _findingCellToShootBubbleController = null;
         private readonly INextBubbleLevelToSpawnController _nextBubbleLevelToSpawnController = null;
         private readonly BubbleData _bubbleData = null;
         private readonly IGridMap _gridMap = null;
         private readonly AimingSettings _aimingSettings = null;
-        private readonly Camera _camera;
+        private readonly Camera _camera = null;
 
         private readonly FlyingBubbleViewPool _flyingBubbleViewPool = null;
         private readonly List<Vector2> _pathCopyList = new List<Vector2>();
 
-        public FlyingBubbleViewController(IEndAimingStateObserver endAimingStateObserver, INextBubbleLevelToSpawnController nextBubbleLevelToSpawnController,
+        public FlyingBubbleViewController(IFindingCellToShootBubbleController findingCellToShootBubbleController, INextBubbleLevelToSpawnController nextBubbleLevelToSpawnController,
             FlyingBubbleViewPool flyingBubbleViewPool, BubbleData bubbleData, IGridMap gridMap, AimingSettings aimingSettings, Camera camera)
         {
-            _endAimingStateObserver = endAimingStateObserver;
+            _findingCellToShootBubbleController = findingCellToShootBubbleController;
             _nextBubbleLevelToSpawnController = nextBubbleLevelToSpawnController;
             _flyingBubbleViewPool = flyingBubbleViewPool;
             _bubbleData = bubbleData;
@@ -32,7 +32,7 @@ namespace View.FlyingAfterAiming
             _aimingSettings = aimingSettings;
             _camera = camera;
 
-            _endAimingStateObserver.BubbleFlyPath.Where(x => x != null && x.Length > 0).Subscribe(SpawnView);
+            _findingCellToShootBubbleController.BubbleFlyPath.Where(x => x != null && x.Length > 0).Subscribe(SpawnView);
         }
 
         private void SpawnView(Vector2[] path)
@@ -52,7 +52,7 @@ namespace View.FlyingAfterAiming
             {
                 if (i == _pathCopyList.Count - 1)
                 {
-                    _pathCopyList[i] = _gridMap.GetGridViewPosition(_endAimingStateObserver.BubbleDestination);
+                    _pathCopyList[i] = _gridMap.GetGridViewPosition(_findingCellToShootBubbleController.BubbleDestination);
                 }
 
                 path3d[i] = _pathCopyList[i];
@@ -63,7 +63,7 @@ namespace View.FlyingAfterAiming
             var color = _bubbleData.GetColorForLevel(level);
 
             flyingBubbleView.Setup(path3d, bubbleValue, color, duration,
-                () => { DOVirtual.DelayedCall(DELAY_FOR_SMOOTHNESS, () => { _flyingBubbleViewPool.Despawn(flyingBubbleView); }); });
+                () => { DOVirtual.DelayedCall(DELAY_TO_KILL_AFTER_GRID_VIEW_IS_VISIBLE, () => { _flyingBubbleViewPool.Despawn(flyingBubbleView); }); });
         }
 
         private float GetFlyDuration(Vector2[] path, Vector3[] path3d)

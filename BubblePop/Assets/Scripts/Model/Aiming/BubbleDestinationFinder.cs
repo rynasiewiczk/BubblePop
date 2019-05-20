@@ -22,6 +22,7 @@ namespace Project.Aiming
         private readonly Camera _camera = null;
 
         private readonly LayerMask _layerMask;
+        private const float ADDITION_TO_REFLECTION_POINT_TO_AVOID_CURRENT_WALL_HIT = .1f;
         public List<Vector2> AimPath { get; private set; } = new List<Vector2>();
 
         private Vector2 AimingPositionInWorldPoint => _camera.ViewportToWorldPoint(_aimingSettings.GetAimingPositionInViewPortPosition());
@@ -167,14 +168,18 @@ namespace Project.Aiming
 
         private Vector2 AdjustStartPointToAvoidHitSameObject(Vector2 startPoint)
         {
-            if (Math.Abs(startPoint.x - _aimingDirectionObserver.AimingStartPosition.x) < .1f) { }
-            else if (startPoint.x - _aimingDirectionObserver.AimingStartPosition.x < 0)
+            if (Math.Abs(startPoint.x - _aimingDirectionObserver.AimingStartPosition.x) < ADDITION_TO_REFLECTION_POINT_TO_AVOID_CURRENT_WALL_HIT)
             {
-                startPoint = new Vector2(startPoint.x + .1f, startPoint.y);
+                return startPoint;
+            }
+            
+            if (startPoint.x - _aimingDirectionObserver.AimingStartPosition.x < 0)
+            {
+                startPoint = new Vector2(startPoint.x + ADDITION_TO_REFLECTION_POINT_TO_AVOID_CURRENT_WALL_HIT, startPoint.y);
             }
             else if (startPoint.x - _aimingDirectionObserver.AimingStartPosition.x > 0)
             {
-                startPoint = new Vector2(startPoint.x + -.1f, startPoint.y);
+                startPoint = new Vector2(startPoint.x - ADDITION_TO_REFLECTION_POINT_TO_AVOID_CURRENT_WALL_HIT, startPoint.y);
             }
 
             return startPoint;

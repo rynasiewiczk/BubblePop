@@ -45,9 +45,9 @@ namespace Project.Bubbles
         }
 
 
-        public bool IsPlayable()
-        {
-            return !Destroyed.IsDisposed && Position.Value.y < _gridSettings.StartGridSize.y;
-        }
+//        public bool IsPlayable()
+//        {
+//            return !Destroyed.IsDisposed && Position.Value.y < _gridSettings.StartGridSize.y;
+//        }
     }
 }

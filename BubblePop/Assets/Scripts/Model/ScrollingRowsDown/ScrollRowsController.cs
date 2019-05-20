@@ -31,7 +31,7 @@ namespace Model.ScrollingRowsDown
         {
             var allTokens = _gridMap.GetAllBubblesOnGrid();
 
-            var lowestToken = _gridMap.GetLowestRowWithBubble(allTokens);
+            var lowestToken = BubblesFindingHelper.GetLowestRowWithBubble(allTokens);
             var bottomEdge = _gridSettings.AlwasFreeBottomLines;
             var topEdge = _gridSettings.RowToScrollTokensDown;
 

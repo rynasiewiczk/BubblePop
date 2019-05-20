@@ -66,14 +66,15 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
 
             for (int i = _bubblestToFall.Count - 1; i >= 0; i--)
             {
-                if (_bubblestToFall[i].IsPlayable())
+                if (!_gridMap.IsBubblePlayable(_bubblestToFall[i]))
                 {
-                    _droppingUnlinkedBubbleSignal.Position = _bubblestToFall[i].Position.Value;
-                    _droppingUnlinkedBubbleSignal.Level = _bubblestToFall[i].Level.Value;
-                    _signalBus.Fire(_droppingUnlinkedBubbleSignal);
-                    
-                    _bubblestToFall[i].Destroy();
+                    continue;
                 }
+                _droppingUnlinkedBubbleSignal.Position = _bubblestToFall[i].Position.Value;
+                _droppingUnlinkedBubbleSignal.Level = _bubblestToFall[i].Level.Value;
+                _signalBus.Fire(_droppingUnlinkedBubbleSignal);
+                    
+                _bubblestToFall[i].Destroy();
             }
 
             var nextState = _combineBubbles.LastCombinedBubbleNeighboursWithSameLevelAmount <= 1 ? GamePlayState.ScrollRows : GamePlayState.BubblesCombining;

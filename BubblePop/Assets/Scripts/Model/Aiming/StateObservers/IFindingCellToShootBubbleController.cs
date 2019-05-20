@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Project.Aiming
 {
-    public interface IEndAimingStateObserver
+    public interface IFindingCellToShootBubbleController
     {
         ReactiveProperty<Vector2[]> BubbleFlyPath { get; }
         Vector2Int BubbleDestination { get; }

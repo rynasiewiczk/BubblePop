@@ -15,12 +15,12 @@ namespace View
 
         private readonly List<IBubble> _aroundList = new List<IBubble>();
 
-        public ViewBounceAfterBubbleArriveController(IGameStateController gameStateController, IEndAimingStateObserver endAimingStateObserver,
+        public ViewBounceAfterBubbleArriveController(IGameStateController gameStateController, IFindingCellToShootBubbleController findingCellToShootBubbleController,
             SignalBus signalBus, IGridMap gridMap)
         {
             gameStateController.GamePlayState.Where(x => x == GamePlayState.PlacingBubbleOnGrid).Subscribe(x =>
             {
-                var arrivePosition = endAimingStateObserver.BubbleDestination;
+                var arrivePosition = findingCellToShootBubbleController.BubbleDestination;
                 var targetPosition = gridMap.GetGridViewPosition(arrivePosition);
 
                 _aroundList.Clear();

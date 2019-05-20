@@ -6,15 +6,15 @@ namespace Project.Aiming
 {
     public class BubbleAimedData
     {
-        public IBubble Bubble;
-        public BubbleSide AimedSide;
-        public Vector2[] Path;
+        public readonly IBubble Bubble;
+        public readonly BubbleSide AimedSide;
+        public readonly Vector2[] PathFromAimingPosition;
 
-        public BubbleAimedData(IBubble bubble, BubbleSide aimedSide, Vector2[] path)
+        public BubbleAimedData(IBubble bubble, BubbleSide aimedSide, Vector2[] pathFromAimingPosition)
         {
             Bubble = bubble;
             AimedSide = aimedSide;
-            Path = path;
+            PathFromAimingPosition = pathFromAimingPosition;
         }
     }
 }

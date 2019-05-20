@@ -12,7 +12,7 @@ namespace Project.Bubbles
         private readonly BubblesPool _bubblesPool = null;
         private readonly BubbleData _bubbleData = null;
         private readonly GridSettings _gridSettings = null;
-        private SignalBus _signalBus = null;
+        private readonly SignalBus _signalBus = null;
 
         public BubblesSpawner(BubblesPool bubblesPool, BubbleData bubbleData, GridSettings gridSettings, SignalBus signalBus)
         {
@@ -26,7 +26,7 @@ namespace Project.Bubbles
 
         public void Dispose()
         {
-            _signalBus.Subscribe<SpawnBubbleOnGridSignal>(signal => { SpawnBubble(signal); });
+            _signalBus.Unsubscribe<SpawnBubbleOnGridSignal>(signal => { SpawnBubble(signal); });
         }
 
         public IBubble SpawnBubble(SpawnBubbleOnGridSignal signal)

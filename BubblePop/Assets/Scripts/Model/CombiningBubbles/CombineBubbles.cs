@@ -61,7 +61,7 @@ namespace Model.CombiningBubbles
             {
                 foreach (var bubble in bubbles)
                 {
-                    if (bubble.IsPlayable())
+                    if (_gridMap.IsBubblePlayable(bubble))
                     {
                         bubble.Destroy();
                     }

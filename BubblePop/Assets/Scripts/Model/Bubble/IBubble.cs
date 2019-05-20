@@ -11,7 +11,7 @@ namespace Project.Bubbles
         void MoveUpOneCell();
         void MoveDownOneCell();
         
-        bool IsPlayable();
+        //bool IsPlayable();
         
         void Destroy();
         ReactiveCommand<Bubble> Destroyed { get; }

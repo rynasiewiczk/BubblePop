@@ -15,7 +15,6 @@ namespace Project.Aiming
         private readonly Camera _camera = null;
         private bool _trackAimDirection;
 
-
         public AimingDirectionObserver(IGameStateController gameStateController, IInputEventsNotifier inputEventsNotifier, AimingSettings aimingSettings,
             Camera camera)
         {
