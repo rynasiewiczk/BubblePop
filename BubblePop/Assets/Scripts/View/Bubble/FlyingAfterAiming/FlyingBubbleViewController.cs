@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using Project.Aiming;
-using Project.Bubbles;
+using Project.Pieces;
 using Project.Grid;
 using UniRx;
 using UnityEngine;
@@ -13,7 +13,7 @@ namespace View.FlyingAfterAiming
         private const float DELAY_TO_KILL_AFTER_GRID_VIEW_IS_VISIBLE = 0.1f;
         private readonly IFindingCellToShootBubbleController _findingCellToShootBubbleController = null;
         private readonly INextBubbleLevelToSpawnController _nextBubbleLevelToSpawnController = null;
-        private readonly BubbleData _bubbleData = null;
+        private readonly PiecesData _piecesData = null;
         private readonly IGridMap _gridMap = null;
         private readonly AimingSettings _aimingSettings = null;
         private readonly Camera _camera = null;
@@ -22,12 +22,12 @@ namespace View.FlyingAfterAiming
         private readonly List<Vector2> _pathCopyList = new List<Vector2>();
 
         public FlyingBubbleViewController(IFindingCellToShootBubbleController findingCellToShootBubbleController, INextBubbleLevelToSpawnController nextBubbleLevelToSpawnController,
-            FlyingBubbleViewPool flyingBubbleViewPool, BubbleData bubbleData, IGridMap gridMap, AimingSettings aimingSettings, Camera camera)
+            FlyingBubbleViewPool flyingBubbleViewPool, PiecesData piecesData, IGridMap gridMap, AimingSettings aimingSettings, Camera camera)
         {
             _findingCellToShootBubbleController = findingCellToShootBubbleController;
             _nextBubbleLevelToSpawnController = nextBubbleLevelToSpawnController;
             _flyingBubbleViewPool = flyingBubbleViewPool;
-            _bubbleData = bubbleData;
+            _piecesData = piecesData;
             _gridMap = gridMap;
             _aimingSettings = aimingSettings;
             _camera = camera;
@@ -59,16 +59,16 @@ namespace View.FlyingAfterAiming
             }
 
             var duration = GetFlyDuration(path, path3d);
-            var bubbleValue = _bubbleData.GetValueForLevel(level);
-            var color = _bubbleData.GetColorForLevel(level);
+            var bubbleValueValueToDisplay = _piecesData.GetValueInDisplayFormatFromPieceLevel(level, 0);
+            var color = _piecesData.GetColorForLevel(level);
 
-            flyingBubbleView.Setup(path3d, bubbleValue, color, duration,
+            flyingBubbleView.Setup(path3d, bubbleValueValueToDisplay, color, duration,
                 () => { DOVirtual.DelayedCall(DELAY_TO_KILL_AFTER_GRID_VIEW_IS_VISIBLE, () => { _flyingBubbleViewPool.Despawn(flyingBubbleView); }); });
         }
 
         private float GetFlyDuration(Vector2[] path, Vector3[] path3d)
         {
-            var flySpeed = _bubbleData.FlySpeed;
+            var flySpeed = _piecesData.FlySpeed;
             var distance = GetDistanceToCover(path, path3d);
             var duration = distance / flySpeed;
             return duration;

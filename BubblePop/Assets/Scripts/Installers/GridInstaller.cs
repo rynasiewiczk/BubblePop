@@ -1,4 +1,4 @@
-using Project.Bubbles;
+using Project.Pieces;
 using Project.Grid;
 using Project.Grid.BuildingGrid;
 using UnityEngine;
@@ -12,7 +12,7 @@ public class GridInstaller : Installer<GridInstaller>
         Container.BindInterfacesTo<BubblesSpawner>().AsSingle().NonLazy();
 
         Container.BindInterfacesTo<GridCellsBuilder>().AsSingle().NonLazy();
-        Container.BindInterfacesTo<InitialBubblesBuilder>().AsSingle().NonLazy();
+        Container.BindInterfacesTo<InitialPiecesBuilder>().AsSingle().NonLazy();
 
         Container.BindMemoryPool<Bubble, BubblesPool>()
             .WithInitialSize(70);

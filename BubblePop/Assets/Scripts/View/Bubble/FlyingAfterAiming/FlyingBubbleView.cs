@@ -25,10 +25,10 @@ namespace View.FlyingAfterAiming
             _text.sortingOrder = flyingBubbleTextSortingLayer;
         }
 
-        public void Setup(Vector3[] path, int value, Color color, float duration, Action onFlyFinish)
+        public void Setup(Vector3[] path, string value, Color color, float duration, Action onFlyFinish)
         {
             _spriteRenderer.color = color;
-            _text.text = value.ToString();
+            _text.text = value;
 
             transform.DOPath(path, duration).OnComplete(() => onFlyFinish?.Invoke());
         }

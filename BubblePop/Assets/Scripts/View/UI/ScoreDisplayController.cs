@@ -8,6 +8,7 @@ using UniRx;
 public class ScoreDisplayController : MonoBehaviour
 {
     [Inject] private readonly IScoreController _scoreController = null;
+    [Inject] private PiecesData _piecesData = null;
 
     [SerializeField] private TextMeshProUGUI _text = null;
 
@@ -27,13 +28,13 @@ public class ScoreDisplayController : MonoBehaviour
 
     private void Start()
     {
-        _text.text = _scoreController.Score.Value.ToString();
+        _text.text = _piecesData.GetValueInDisplayFormat(_scoreController.Score.Value, 2);
         _scoreController.Score.Skip(1).Subscribe(UpdateScore);
 
         _text.text = 0.ToString();
     }
 
-    private void UpdateScore(int x)
+    private void UpdateScore(int score)
     {
         if (_firstRun)
         {
@@ -42,7 +43,7 @@ public class ScoreDisplayController : MonoBehaviour
             _firstRun = false;
         }
 
-        _text.text = x.ToString();
+        _text.text = _piecesData.GetValueInDisplayFormat(score, 2);
 
         _textTween?.Kill();
 

@@ -1,7 +1,7 @@
 using System;
 using Enums;
 using Model.CombiningBubbles.DroppingDisconnectedBubbles;
-using Project.Bubbles;
+using Project.Pieces;
 using UniRx;
 using Zenject;
 
@@ -11,26 +11,26 @@ namespace Model.ScoreController
     {
         public ReactiveProperty<int> Score { get; }
 
-        private readonly BubbleData _bubbleData = null;
+        private readonly PiecesData _piecesData = null;
         private readonly IGameStateController _gameStateController = null;
         private readonly SignalBus _signalBus = null;
 
-        public ScoreController(IGameStateController gameStateController, SignalBus signalBus, BubbleData bubbleData)
+        public ScoreController(IGameStateController gameStateController, SignalBus signalBus, PiecesData piecesData)
         {
             Score = new ReactiveProperty<int>();
 
             _gameStateController = gameStateController;
             _signalBus = signalBus;
 
-            _signalBus.Subscribe<SpawnBubbleOnGridSignal>(signal => GetScoreOnBubbleCombine(signal.Level));
+            _signalBus.Subscribe<SpawnPieceOnGridSignal>(signal => GetScoreOnBubbleCombine(signal.Level));
             _signalBus.Subscribe<DroppingUnlinkedBubbleSignal>(signal => GetScoreOnBubbleDrop(signal.Level));
 
-            _bubbleData = bubbleData;
+            _piecesData = piecesData;
         }
 
         public void Dispose()
         {
-            _signalBus.TryUnsubscribe<SpawnBubbleOnGridSignal>(signal => GetScoreOnBubbleCombine(signal.Level));
+            _signalBus.TryUnsubscribe<SpawnPieceOnGridSignal>(signal => GetScoreOnBubbleCombine(signal.Level));
             _signalBus.TryUnsubscribe<DroppingUnlinkedBubbleSignal>(signal => GetScoreOnBubbleDrop(signal.Level));
         }
 
@@ -42,12 +42,12 @@ namespace Model.ScoreController
                 return;
             }
 
-            Score.Value += _bubbleData.GetValueForLevel(level);
+            Score.Value += _piecesData.GetValueForLevel(level);
         }
 
         private void GetScoreOnBubbleDrop(int level)
         {
-            Score.Value += _bubbleData.GetValueForLevel(level);
+            Score.Value += _piecesData.GetValueForLevel(level);
         }
     }
 }

@@ -1,4 +1,4 @@
-namespace Project.Bubbles.PlacingOnGrid
+namespace Project.Pieces.PlacingOnGrid
 {
     public interface ISpawnShotBubbleOnGridController { }
 }

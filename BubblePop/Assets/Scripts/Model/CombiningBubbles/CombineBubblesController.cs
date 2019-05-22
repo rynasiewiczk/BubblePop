@@ -3,7 +3,7 @@ using System.Linq;
 using DG.Tweening;
 using Enums;
 using Model.FindingMatches;
-using Project.Bubbles;
+using Project.Pieces;
 using Project.Grid;
 using UniRx;
 using View.GridScoresDisplay;
@@ -16,7 +16,7 @@ namespace Model.CombiningBubbles
         private readonly IGridMap _gridMap = null;
         private readonly List<IBubble> _bubblesToCollapseBufferList = new List<IBubble>(10);
         private readonly CombineBubbleSignal _combineBubbleSignal = new CombineBubbleSignal();
-        private readonly SpawnBubbleOnGridSignal _spawnBubbleOnGridSignal = new SpawnBubbleOnGridSignal();
+        private readonly SpawnPieceOnGridSignal _spawnPieceOnGridSignal = new SpawnPieceOnGridSignal();
         private readonly SignalBus _signalBus = null;
         private readonly IGameStateController _gameStateController = null;
         public int LastCombinedBubbleNeighboursWithSameLevelAmount { get; private set; }
@@ -25,11 +25,11 @@ namespace Model.CombiningBubbles
 
         private readonly float _bubblesCombineDuration;
         
-        public CombineBubblesController(IGridMap gridMap, IFindConnectedBubblesWithSameLevelController bubblesWithSameLevelController, BubbleData bubbleData,
+        public CombineBubblesController(IGridMap gridMap, IFindConnectedBubblesWithSameLevelController bubblesWithSameLevelController, PiecesData piecesData,
             IGameStateController gameStateController, SignalBus signalBus)
         {
             _gridMap = gridMap;
-            _bubblesCombineDuration = bubbleData.CombiningDuration;
+            _bubblesCombineDuration = piecesData.CombiningDuration;
             _gameStateController = gameStateController;
             _signalBus = signalBus;
             bubblesWithSameLevelController.BubblesToCombine.Where(x => x != null && x.Count > 1).Subscribe(CollapseBubbles);
@@ -68,9 +68,9 @@ namespace Model.CombiningBubbles
                     }
                 }
 
-                _spawnBubbleOnGridSignal.Level = levelAfterCombination;
-                _spawnBubbleOnGridSignal.Position = positionOfCollapse;
-                _signalBus.Fire(_spawnBubbleOnGridSignal);
+                _spawnPieceOnGridSignal.Level = levelAfterCombination;
+                _spawnPieceOnGridSignal.Position = positionOfCollapse;
+                _signalBus.Fire(_spawnPieceOnGridSignal);
 
                 _bubblesCombiningDoneSignal.ResultLevel = levelAfterCombination;
                 _bubblesCombiningDoneSignal.Position = positionOfCollapse;

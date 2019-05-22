@@ -2,7 +2,7 @@ using System;
 using UniRx;
 using UnityEngine;
 
-namespace Project.Bubbles
+namespace Project.Pieces
 {
     [Serializable] public class Bubble : IBubble
     {

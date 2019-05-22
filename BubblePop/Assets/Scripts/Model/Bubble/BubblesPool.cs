@@ -1,6 +1,6 @@
 using Zenject;
 
-namespace Project.Bubbles
+namespace Project.Pieces
 {
-    public class BubblesPool : MemoryPool<BubbleData, Bubble> { }
+    public class BubblesPool : MemoryPool<PiecesData, Bubble> { }
 }

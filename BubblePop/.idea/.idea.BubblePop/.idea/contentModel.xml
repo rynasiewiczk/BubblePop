@@ -852,11 +852,11 @@
           </e>
           <e p="Installers" t="Include">
             <e p="AimingInstaller.cs" t="Include" />
-            <e p="BubbleDataInstaller.cs" t="Include" />
             <e p="BubbleViewSettingsInstaller.cs" t="Include" />
             <e p="GridActionsInstaller.cs" t="Include" />
             <e p="GridInstaller.cs" t="Include" />
             <e p="InGameInstaller.cs" t="Include" />
+            <e p="PieceDataInstaller.cs" t="Include" />
             <e p="PlayerLevelSettingsInstaller.cs" t="Include" />
             <e p="ProgressInstaller.cs" t="Include" />
             <e p="SignalBusInstaller.cs" t="Include" />
@@ -884,24 +884,24 @@
             </e>
             <e p="Bubble" t="Include">
               <e p="Bubble.cs" t="Include" />
-              <e p="BubbleData.cs" t="Include" />
               <e p="BubblesPool.cs" t="Include" />
               <e p="Flying" t="Include">
                 <e p="BubbleFlyObserver.cs" t="Include" />
                 <e p="IBubbleFlyObserver.cs" t="Include" />
               </e>
               <e p="IBubble.cs" t="Include" />
+              <e p="PiecesData.cs" t="Include" />
               <e p="PlacingOnGrid" t="Include">
                 <e p="ISpawnShotBubbleOnGridController.cs" t="Include" />
                 <e p="SpawnShotBubbleOnGridController.cs" t="Include" />
               </e>
-              <e p="SpawnBubbleOnGridSignal.cs" t="Include" />
               <e p="Spawning" t="Include">
                 <e p="BubblesSpawner.cs" t="Include" />
                 <e p="IBubblesSpawner.cs" t="Include" />
                 <e p="INextBubbleLevelToSpawnController.cs" t="Include" />
                 <e p="NextBubbleLevelToSpawnController.cs" t="Include" />
               </e>
+              <e p="SpawnPieceOnGridSignal.cs" t="Include" />
               <e p="Test" t="Include">
                 <e p="BubblesDebugger.cs" t="Include" />
               </e>
@@ -933,8 +933,8 @@
               <e p="BuildingGrid" t="Include">
                 <e p="GridCellsBuilder.cs" t="Include" />
                 <e p="IGridCellsBuilder.cs" t="Include" />
-                <e p="IInitialBubblesBuilder.cs" t="Include" />
-                <e p="InitialBubblesBuilder.cs" t="Include" />
+                <e p="IInitialPiecesBuilder.cs" t="Include" />
+                <e p="InitialPiecesBuilder.cs" t="Include" />
               </e>
               <e p="Cell.cs" t="Include" />
               <e p="GridMap.cs" t="Include" />

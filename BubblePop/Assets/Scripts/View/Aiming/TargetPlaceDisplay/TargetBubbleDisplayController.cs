@@ -1,6 +1,6 @@
 using Enums;
 using Model;
-using Project.Bubbles;
+using Project.Pieces;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -11,7 +11,7 @@ namespace View.Aiming.TargetPlaceDisplay
     {
         [Inject] private readonly IGameStateController _gameStateController = null;
         [Inject] private readonly INextBubbleLevelToSpawnController _nextBubbleLevelToSpawnController = null;
-        [Inject] private readonly BubbleData _bubbleData = null;
+        [Inject] private readonly PiecesData _piecesData = null;
 
         [SerializeField] private TargetBubbleDisplay _display = null;
 
@@ -30,7 +30,7 @@ namespace View.Aiming.TargetPlaceDisplay
 
         private void UpdateTargetDisplayColor(int level)
         {
-            var color = _bubbleData.GetColorForLevel(level);
+            var color = _piecesData.GetColorForLevel(level);
             _display.SetColor(color);
         }
 

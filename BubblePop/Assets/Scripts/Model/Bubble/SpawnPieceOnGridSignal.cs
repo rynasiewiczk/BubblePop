@@ -1,8 +1,8 @@
  using UnityEngine;
 
- namespace Project.Bubbles
+ namespace Project.Pieces
  {
-     public class SpawnBubbleOnGridSignal
+     public class SpawnPieceOnGridSignal
      {
          public Vector2Int Position;
          public int Level;

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using Enums;
-using Project.Bubbles;
+using Project.Pieces;
 using Project.Grid;
 using UniRx;
 using UnityEngine;
@@ -12,15 +12,15 @@ namespace Model.FindingMatches
     {
         private readonly IGridMap _gridMap = null;
         private readonly IGameStateController _gameStateController = null;
-        private readonly BubbleData _bubbleData = null;
+        private readonly PiecesData _piecesData = null;
         public ReactiveProperty<List<IBubble>> BubblesToCombine { get; private set; } = new ReactiveProperty<List<IBubble>>();
 
         public FindConnectedBubblesWithSameLevelController(IGridMap gridMap, IGameStateController gameStateController, IBubblesSpawner bubblesSpawner,
-            BubbleData bubbleData)
+            PiecesData piecesData)
         {
             _gridMap = gridMap;
             _gameStateController = gameStateController;
-            _bubbleData = bubbleData;
+            _piecesData = piecesData;
 
             gameStateController.GamePlayState.Where(x => x == GamePlayState.BubblesCombining)
                 .Subscribe(x => CombineBubbles(bubblesSpawner.LatestSpawnedBubble.Value));
@@ -28,7 +28,7 @@ namespace Model.FindingMatches
 
         private void CombineBubbles(IBubble bubble)
         {
-            DOVirtual.DelayedCall(_bubbleData.AfterCombiningDelay, () =>
+            DOVirtual.DelayedCall(_piecesData.AfterCombiningDelay, () =>
             {
                 var list = new List<IBubble>();
                 list = _gridMap.FindBubblesToCollapse(bubble, list);

@@ -658,12 +658,6 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 710813747}
-    - target: {fileID: 995091664302746566, guid: 03294f4e14c8ff54ca69ab1181c86463,
-        type: 3}
-      propertyPath: _droppingBubbleView
-      value: 
-      objectReference: {fileID: 43958752895433989, guid: 996203a310aa63941812ce7849187591,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03294f4e14c8ff54ca69ab1181c86463, type: 3}
 --- !u!1001 &1460462153646308423

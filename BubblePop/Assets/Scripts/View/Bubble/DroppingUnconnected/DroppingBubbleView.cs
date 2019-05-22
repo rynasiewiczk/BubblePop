@@ -56,11 +56,11 @@ namespace View.DroppingUnconnected
             }
         }
 
-        public void Setup(Vector2 position, Color color, int value, int direction)
+        public void Setup(Vector2 position, Color color, string value, int direction)
         {
             transform.position = position;
             _spriteRenderer.color = color;
-            _text.text = value.ToString();
+            _text.text = value;
 
             _horizontalDirection = direction;
             _horizontalVelocity = _horizontalDirection * Random.Range(0, _bubbleViewSettings.DropBubbleMaxHorizontalVelocity);

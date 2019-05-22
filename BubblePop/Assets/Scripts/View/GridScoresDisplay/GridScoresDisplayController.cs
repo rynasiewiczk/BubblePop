@@ -8,12 +8,11 @@ public class GridScoresDisplayController : MonoBehaviour
 {
     [Inject] private readonly GridScoreDisplayTextPool _gridScoreDisplayTextPool = null;
     [Inject] private readonly SignalBus _signalBus = null;
-    [Inject] private readonly BubbleData _bubbleData = null;
+    [Inject] private readonly PiecesData _piecesData = null;
     [Inject] private readonly UiData _uiData = null;
 
     [Inject] private readonly IGridMap _gridMap = null;
 
-    //[SerializeField] private Camera _camera = null;
     [SerializeField] private Transform _container = null;
 
     private void Awake()
@@ -46,11 +45,12 @@ public class GridScoresDisplayController : MonoBehaviour
     private void ShowText(Vector2 gridPosition, int level)
     {
         var text = _gridScoreDisplayTextPool.Spawn(_container);
-        var score = _bubbleData.GetValueForLevel(level);
-        var color = _bubbleData.GetColorForLevel(level);
+        var score = _piecesData.GetRandomPieceLevelBasedOnPlayerLevel(level);
         var fontSize = _uiData.GetFontSizeForScore(score);
+        var scoreInFormatToDisplay = _piecesData.GetValueInDisplayFormat(score, 0);
+        var color = _piecesData.GetColorForLevel(level);
 
         var position = new Vector2(gridPosition.x, _gridMap.GetHeightOfRows((int) gridPosition.y));
-        text.Setup(position, score, fontSize, color);
+        text.Setup(position, scoreInFormatToDisplay, fontSize, color);
     }
 }

@@ -1,10 +1,10 @@
 using UniRx;
 
-namespace Project.Bubbles
+namespace Project.Pieces
 {
     public interface IBubblesSpawner
     {
         ReactiveProperty<IBubble> LatestSpawnedBubble { get; }
-        IBubble SpawnBubble(SpawnBubbleOnGridSignal signal);
+        IBubble SpawnBubble(SpawnPieceOnGridSignal signal);
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -16,7 +15,6 @@ namespace View.GridScoresDisplay
         private float _moveUpSpeed = 0;
         private float _fadeOutSpeed = 0;
         private float _scaleUpSpeed = 0;
-
 
         private void Awake()
         {
@@ -44,12 +42,12 @@ namespace View.GridScoresDisplay
             _text.alpha -= _fadeOutSpeed;
         }
 
-        public void Setup(Vector2 position, int score, float fontSize, Color color)
+        public void Setup(Vector2 position, string score, float fontSize, Color color)
         {
             transform.localScale = Vector3.one;
             transform.position = position;
 
-            _text.text = score.ToString();
+            _text.text = score;
             _text.fontSize = fontSize;
             _text.color = color;
 

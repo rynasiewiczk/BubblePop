@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Enums;
-using Project.Bubbles;
+using Project.Pieces;
 using UnityEngine;
 
 namespace Project.Grid

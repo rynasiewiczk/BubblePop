@@ -5,7 +5,7 @@ using Zenject;
 public class BubblesDebugger : MonoBehaviour
 {
     [Inject] private readonly IGridMap _gridMap = null;
-    [Inject] private readonly BubbleData _bubbleData = null;
+    [Inject] private readonly PiecesData _piecesData = null;
 
     private void OnDrawGizmos()
     {
@@ -19,7 +19,7 @@ public class BubblesDebugger : MonoBehaviour
         {
             try
             {
-                var color = _bubbleData.GetColorForLevel(bubble.Level.Value);
+                var color = _piecesData.GetColorForLevel(bubble.Level.Value);
                 var viewPosition = _gridMap.GetCellsViewPosition(bubble.Position.Value);
 
                 Gizmos.color = color;

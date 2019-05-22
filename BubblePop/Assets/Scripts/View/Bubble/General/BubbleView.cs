@@ -1,4 +1,4 @@
-﻿using Project.Bubbles;
+﻿using Project.Pieces;
 using Project.Grid;
 using TMPro;
 using UnityEngine;
@@ -6,7 +6,7 @@ using Zenject;
 
 public class BubbleView : MonoBehaviour
 {
-    [Inject] private readonly BubbleData _bubbleData = null;
+    [Inject] private readonly PiecesData _piecesData = null;
     [Inject] private readonly IGridMap _gridMap = null;
     
     [SerializeField] private SpriteRenderer _spriteRenderer = null;
@@ -36,15 +36,13 @@ public class BubbleView : MonoBehaviour
 
     private void SetColor(int level)
     {
-        var color = _bubbleData.GetColorForLevel(level);
+        var color = _piecesData.GetColorForLevel(level);
         _spriteRenderer.color = color;
     }
 
     private void SetValue(int level)
     {
         _text.sortingOrder = 50;
-        _text.text = _bubbleData.GetValueForLevel(level).ToString();
+        _text.text = _piecesData.GetValueInDisplayFormatFromPieceLevel(level, 0);
     }
-
-    //private void Update() { }
 }

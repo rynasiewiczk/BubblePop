@@ -6,20 +6,20 @@ using UnityEngine;
 using DG.Tweening;
 using Enums;
 
-namespace Project.Bubbles
+namespace Project.Pieces
 {
     public class BubbleFlyObserver : IBubbleFlyObserver
     {
         private readonly IGameStateController _gameStateController = null;
-        private readonly BubbleData _bubbleData = null;
+        private readonly PiecesData _piecesData = null;
         private readonly AimingSettings _aimingSettings = null;
         private readonly Camera _camera = null;
 
-        public BubbleFlyObserver(IGameStateController gameStateController, BubbleData bubbleData, AimingSettings aimingSettings, Camera camera,
+        public BubbleFlyObserver(IGameStateController gameStateController, PiecesData piecesData, AimingSettings aimingSettings, Camera camera,
             IFindingCellToShootBubbleController findingCellToShootBubbleController)
         {
             _gameStateController = gameStateController;
-            _bubbleData = bubbleData;
+            _piecesData = piecesData;
             _aimingSettings = aimingSettings;
             _camera = camera;
 
@@ -33,7 +33,7 @@ namespace Project.Bubbles
         private void ChangeStateAfterFlyDuration(Vector2[] flyPath)
         {
             var distance = CalculateDistanceOfFly(flyPath);
-            var flySpeed = _bubbleData.FlySpeed;
+            var flySpeed = _piecesData.FlySpeed;
             var flyDuration = distance / flySpeed;
 
             DOVirtual.DelayedCall(flyDuration, () => { _gameStateController.ChangeGamePlayState(GamePlayState.PlacingBubbleOnGrid); });

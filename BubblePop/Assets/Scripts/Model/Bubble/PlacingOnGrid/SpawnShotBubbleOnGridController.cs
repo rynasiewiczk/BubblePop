@@ -4,11 +4,11 @@ using Project.Aiming;
 using UniRx;
 using Zenject;
 
-namespace Project.Bubbles.PlacingOnGrid
+namespace Project.Pieces.PlacingOnGrid
 {
     public class SpawnShotBubbleOnGridController : ISpawnShotBubbleOnGridController
     {
-        private readonly SpawnBubbleOnGridSignal _spawnBubbleOnGridSignal = new SpawnBubbleOnGridSignal();
+        private readonly SpawnPieceOnGridSignal _spawnPieceOnGridSignal = new SpawnPieceOnGridSignal();
 
         public SpawnShotBubbleOnGridController(IGameStateController gameStateController, IFindingCellToShootBubbleController findingCellToShootBubbleController,
             INextBubbleLevelToSpawnController nextBubbleLevelToSpawnController, SignalBus signalBus)
@@ -17,9 +17,9 @@ namespace Project.Bubbles.PlacingOnGrid
 
             gameStateController1.GamePlayState.Where(x => x == GamePlayState.PlacingBubbleOnGrid).Subscribe(x =>
             {
-                _spawnBubbleOnGridSignal.Position = findingCellToShootBubbleController.BubbleDestination;
-                _spawnBubbleOnGridSignal.Level = nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Value;
-                signalBus.Fire(_spawnBubbleOnGridSignal);
+                _spawnPieceOnGridSignal.Position = findingCellToShootBubbleController.BubbleDestination;
+                _spawnPieceOnGridSignal.Level = nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Value;
+                signalBus.Fire(_spawnPieceOnGridSignal);
                 
                 gameStateController1.ChangeGamePlayState(GamePlayState.BubblesCombining);
             });

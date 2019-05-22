@@ -1,4 +1,4 @@
-namespace Project.Bubbles
+namespace Project.Pieces
 {
     public interface IBubbleFlyObserver { }
 }

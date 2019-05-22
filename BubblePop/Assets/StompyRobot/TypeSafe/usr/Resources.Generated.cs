@@ -297,9 +297,9 @@ public sealed class SRResources {
         private Ingame() {
         }
         
-        public static global::TypeSafe.Resource<global::BubbleDataInstaller> BubbleDataInstaller {
+        public static global::TypeSafe.Resource<global::PieceDataInstaller> BubbleDataInstaller {
             get {
-                return ((global::TypeSafe.Resource<global::BubbleDataInstaller>)(@__ts_internal_resources[0]));
+                return ((global::TypeSafe.Resource<global::PieceDataInstaller>)(@__ts_internal_resources[0]));
             }
         }
         
@@ -334,7 +334,7 @@ public sealed class SRResources {
         }
         
         private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_resources = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.IResource>(new global::TypeSafe.IResource[] {
-                    new global::TypeSafe.Resource<global::BubbleDataInstaller>("BubbleDataInstaller", "Ingame/BubbleDataInstaller"),
+                    new global::TypeSafe.Resource<global::PieceDataInstaller>("BubbleDataInstaller", "Ingame/BubbleDataInstaller"),
                     new global::TypeSafe.Resource<global::GridSettingsInstaller>("GridSettingsInstaller", "Ingame/GridSettingsInstaller"),
                     new global::TypeSafe.Resource<global::Project.Aiming.AimingInstaller>("AimingInstaller", "Ingame/AimingInstaller"),
                     new global::TypeSafe.Resource<global::BubbleViewSettingsInstaller>("BubbleViewSettingsInstaller", "Ingame/BubbleViewSettingsInstaller"),

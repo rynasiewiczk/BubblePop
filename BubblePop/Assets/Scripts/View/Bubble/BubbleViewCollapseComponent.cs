@@ -12,7 +12,7 @@ namespace View
 
         [Inject] private readonly IGridMap _gridMap = null;
         [Inject] private readonly SignalBus _signalBus = null;
-        [Inject] private readonly BubbleData _bubbleData = null;
+        [Inject] private readonly PiecesData _piecesData = null;
 
         private void Awake()
         {
@@ -37,7 +37,7 @@ namespace View
             }
 
             var viewCombinePosition = _gridMap.GetCellsViewPosition(signal.CombinePosition);
-            transform.DOMove(viewCombinePosition, _bubbleData.CombiningDuration);
+            transform.DOMove(viewCombinePosition, _piecesData.CombiningDuration);
         }
     }
 }

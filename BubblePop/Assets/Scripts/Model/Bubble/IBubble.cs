@@ -1,7 +1,7 @@
 using UniRx;
 using UnityEngine;
 
-namespace Project.Bubbles
+namespace Project.Pieces
 {
     public interface IBubble
     {

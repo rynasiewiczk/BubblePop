@@ -5,8 +5,8 @@ using Model.FillingBubblesAbovePlayspace;
 using Model.FindingMatches;
 using Model.ScrollingRowsDown;
 using Project.Aiming;
-using Project.Bubbles;
-using Project.Bubbles.PlacingOnGrid;
+using Project.Pieces;
+using Project.Pieces.PlacingOnGrid;
 using View.GridScoresDisplay;
 using Zenject;
 
@@ -14,7 +14,7 @@ public class GridActionsInstaller : Installer<GridActionsInstaller>
 {
     public override void InstallBindings()
     {
-        Container.DeclareSignal<SpawnBubbleOnGridSignal>();
+        Container.DeclareSignal<SpawnPieceOnGridSignal>();
 
         Container.BindInterfacesTo<SpawnShotBubbleOnGridController>().AsSingle().NonLazy();
         Container.BindInterfacesTo<NextBubbleLevelToSpawnController>().AsSingle().NonLazy();

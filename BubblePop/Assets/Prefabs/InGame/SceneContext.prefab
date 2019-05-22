@@ -107,7 +107,8 @@ MonoBehaviour:
     type: 3}
   _flyingBubbleView: {fileID: 1701969752452525197, guid: 127dc989ad8176f45a8a4c55f1872264,
     type: 3}
-  _droppingBubbleView: {fileID: 0}
+  _droppingBubbleView: {fileID: 43958752895433989, guid: 996203a310aa63941812ce7849187591,
+    type: 3}
 --- !u!114 &995091664302746553
 MonoBehaviour:
   m_ObjectHideFlags: 0

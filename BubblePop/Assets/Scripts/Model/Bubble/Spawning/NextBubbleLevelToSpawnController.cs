@@ -4,7 +4,7 @@ using Model.Progress.PlayerLevelController;
 using UniRx;
 using UnityEngine;
 
-namespace Project.Bubbles
+namespace Project.Pieces
 {
     public class NextBubbleLevelToSpawnController : INextBubbleLevelToSpawnController
     {
@@ -17,16 +17,16 @@ namespace Project.Bubbles
 
 
         private readonly IPlayerLevelController _playerLevelController = null;
-        private readonly BubbleData _bubbleData = null;
+        private readonly PiecesData _piecesData = null;
 
-        public NextBubbleLevelToSpawnController(IGameStateController gameStateController, BubbleData bubbleData, IPlayerLevelController playerLevelController,
+        public NextBubbleLevelToSpawnController(IGameStateController gameStateController, PiecesData piecesData, IPlayerLevelController playerLevelController,
             IBubblesSpawner bubblesSpawner)
         {
             BubblesToSpawnUpdated = new ReactiveCommand();
             NextBubbleLevelToSpawn = new ReactiveProperty<int>(FIRST_LEVEL_TO_SPAWN);
             PreWarmedBubbleLevelToSpawn = new ReactiveProperty<int>(FIRST_PREWARMED_BUBBLE_LEVEL);
 
-            _bubbleData = bubbleData;
+            _piecesData = piecesData;
             _playerLevelController = playerLevelController;
 
             bubblesSpawner.LatestSpawnedBubble.Where(x => gameStateController.GamePlayState.Value < GamePlayState.BubblesCombining)
@@ -36,7 +36,7 @@ namespace Project.Bubbles
 
         private void FindNextLevelToSpawn()
         {
-            var maxLevelToSpawn = _bubbleData.GetRandomBubbleLevelBasedOnPlayerLevel(_playerLevelController.PlayerLevel.Value);
+            var maxLevelToSpawn = _piecesData.GetRandomPieceLevelBasedOnPlayerLevel(_playerLevelController.PlayerLevel.Value);
             var levelToSpawn = Random.Range(1, maxLevelToSpawn + 1);
 
             NextBubbleLevelToSpawn.Value = PreWarmedBubbleLevelToSpawn.Value;
