@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Project.Bubbles;
-using Project.Bubbles.PlacingOnGrid;
 using UnityEngine;
 
 namespace Project.Grid

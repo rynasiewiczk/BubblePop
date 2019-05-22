@@ -907,14 +907,14 @@
               </e>
             </e>
             <e p="CombiningBubbles" t="Include">
-              <e p="CombineBubbles.cs" t="Include" />
+              <e p="CombineBubblesController.cs" t="Include" />
               <e p="CombineBubbleSignal.cs" t="Include" />
               <e p="DroppingDisconnectedBubbles" t="Include">
                 <e p="DroppingUnlinkedBubbleSignal.cs" t="Include" />
                 <e p="DropUnlinkedBubblesController.cs" t="Include" />
                 <e p="IDropUnlinkedBubblesController.cs" t="Include" />
               </e>
-              <e p="ICombineBubbles.cs" t="Include" />
+              <e p="ICombineBubblesController.cs" t="Include" />
             </e>
             <e p="FillingBubblesAbovePlayspace" t="Include">
               <e p="FillingBubblesAbovePlayspaceController.cs" t="Include" />

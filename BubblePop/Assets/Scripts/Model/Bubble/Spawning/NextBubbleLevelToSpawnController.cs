@@ -29,7 +29,7 @@ namespace Project.Bubbles
             _bubbleData = bubbleData;
             _playerLevelController = playerLevelController;
 
-            bubblesSpawner.JustSpawned.Where(x => gameStateController.GamePlayState.Value < GamePlayState.BubblesCombining)
+            bubblesSpawner.LatestSpawnedBubble.Where(x => gameStateController.GamePlayState.Value < GamePlayState.BubblesCombining)
                 .Subscribe(x => FindNextLevelToSpawn());
             FindNextLevelToSpawn();
         }

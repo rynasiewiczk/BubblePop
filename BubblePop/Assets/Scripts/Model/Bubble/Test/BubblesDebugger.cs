@@ -20,7 +20,7 @@ public class BubblesDebugger : MonoBehaviour
             try
             {
                 var color = _bubbleData.GetColorForLevel(bubble.Level.Value);
-                var viewPosition = _gridMap.GetGridViewPosition(bubble.Position.Value);
+                var viewPosition = _gridMap.GetCellsViewPosition(bubble.Position.Value);
 
                 Gizmos.color = color;
                 Gizmos.DrawSphere(viewPosition, .5f);

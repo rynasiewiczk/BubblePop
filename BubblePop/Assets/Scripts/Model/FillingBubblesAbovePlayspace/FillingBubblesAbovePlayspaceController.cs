@@ -9,37 +9,38 @@ namespace Model.FillingBubblesAbovePlayspace
 {
     public class FillingBubblesAbovePlayspaceController : IFillingBubblesAbovePlayspaceController
     {
-        private IGridMap _gridMap = null;
-        private GridSettings _gridSettings = null;
-        private BubbleData _bubbleData = null;
-        private PlayerLevelSettings _playerLevelSettings;
-        private SignalBus _signalBus = null;
-        private IGameStateController _gameStateController = null;
-        private SpawnBubbleOnGridSignal _spawnBubbleOnGridSignal = new SpawnBubbleOnGridSignal();
-        private IPlayerLevelController _playerLevelController = null;
+        private readonly IGridMap _gridMap = null;
+        private readonly BubbleData _bubbleData = null;
+        private readonly IGameStateController _gameStateController = null;
+        
+        private readonly SignalBus _signalBus = null;
+        private readonly SpawnBubbleOnGridSignal _spawnBubbleOnGridSignal = new SpawnBubbleOnGridSignal();
 
+        private readonly int _gridHeight;
+        private readonly ReadOnlyReactiveProperty<int> _playerLevel;
 
         public FillingBubblesAbovePlayspaceController(IGridMap gridMap, GridSettings gridSettings, BubbleData bubbleData, SignalBus signalBus,
             IGameStateController gameStateController, IPlayerLevelController playerLevelController)
         {
             _gridMap = gridMap;
-            _gridSettings = gridSettings;
+            _gridHeight = gridSettings.StartGridSize.y;
+            
             _bubbleData = bubbleData;
             _signalBus = signalBus;
             _gameStateController = gameStateController;
-            _playerLevelController = playerLevelController;
+            _playerLevel = new ReadOnlyReactiveProperty<int>(playerLevelController.PlayerLevel);
 
             gameStateController.GamePlayState.Where(x => x == GamePlayState.FillBubblesAboveTop).Subscribe(x => FillBubbles());
         }
 
         private void FillBubbles()
         {
-            var allEmptyCellsAboveTheGrid = _gridMap.GetAllEmptyCellsAboveTheGrid(_gridSettings.StartGridSize.y);
+            var allEmptyCellsAboveTheGrid = _gridMap.GetAllEmptyCellsAboveTheGrid(_gridHeight);
 
             foreach (var cell in allEmptyCellsAboveTheGrid)
             {
                 _spawnBubbleOnGridSignal.Position = cell.Position;
-                _spawnBubbleOnGridSignal.Level = _bubbleData.GetRandomBubbleLevelBasedOnPlayerLevel(_playerLevelController.PlayerLevel.Value);
+                _spawnBubbleOnGridSignal.Level = _bubbleData.GetRandomBubbleLevelBasedOnPlayerLevel(_playerLevel.Value);
                 _signalBus.Fire(_spawnBubbleOnGridSignal);
             }
 

@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using Project.Aiming;
 using Project.Bubbles;
-using Sirenix.Utilities;
 using UniRx;
 using UnityEngine;
 
@@ -18,7 +16,7 @@ namespace Project.Grid
 
         public GridMap(GridSettings gridSettings, IBubblesSpawner bubblesSpawner)
         {
-            bubblesSpawner.JustSpawned.Where(x => x != null).Subscribe(AddBubbleToRegistry);
+            bubblesSpawner.LatestSpawnedBubble.Where(x => x != null).Subscribe(AddBubbleToRegistry);
 
             Size = new ReactiveProperty<Vector2Int>(gridSettings.StartGridSize);
             CellsRegistry = new ReactiveCollection<ICell>();
@@ -43,12 +41,6 @@ namespace Project.Grid
                 }                
             }
             return null;
-        }
-
-        public IBubble GetBubbleAtPositionOrNull(int x, int y)
-        {
-            var position = new Vector2Int(x, y);
-            return GetBubbleAtPositionOrNull(position);
         }
 
         public void CreateCellsRegistry(List<ICell> cells)
@@ -79,13 +71,14 @@ namespace Project.Grid
 
         public GridRowSide GetGridSideForRow(int row)
         {
-            if (!GridRowSidesMap.ContainsKey(row))
+            if (GridRowSidesMap.ContainsKey(row))
             {
-                Debug.LogError("GridRowSidesMap does not contain provided row. Provided row: " + row + ". Returning GridRowSide.Left");
-                return GridRowSide.Left;
+                return GridRowSidesMap[row];
             }
+            
+            Debug.LogError("GridRowSidesMap does not contain provided row. Provided row: " + row + ". Returning GridRowSide.Left");
+            return GridRowSide.Left;
 
-            return GridRowSidesMap[row];
         }
 
         private void AddBubbleToRegistry(IBubble bubble)

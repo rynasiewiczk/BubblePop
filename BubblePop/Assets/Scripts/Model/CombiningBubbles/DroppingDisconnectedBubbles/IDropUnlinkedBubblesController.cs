@@ -1,7 +1,4 @@
 namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
 {
-    public interface IDropUnlinkedBubblesController
-    {
-        
-    }
+    public interface IDropUnlinkedBubblesController { }
 }

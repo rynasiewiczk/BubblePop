@@ -5,18 +5,17 @@ using Enums;
 using Project.Bubbles;
 using Project.Grid;
 using UniRx;
-using UnityEngine;
 using Zenject;
 
 namespace Model.ScrollingRowsDown
 {
     public class ScrollRowsController : IScrollRowsController
     {
-        private IGameStateController _gameStateController = null;
+        private readonly IGameStateController _gameStateController = null;
         private readonly IGridMap _gridMap = null;
         private readonly GridSettings _gridSettings = null;
         private readonly SignalBus _signalBus = null;
-        private ScrollRowsSignal _scrollRowsSignal = new ScrollRowsSignal();
+        private readonly ScrollRowsSignal _scrollRowsSignal = new ScrollRowsSignal();
 
         public ScrollRowsController(IGameStateController gameStateController, IGridMap gridMap, SignalBus signalBus, GridSettings gridSettings)
         {
@@ -24,7 +23,7 @@ namespace Model.ScrollingRowsDown
             _gridMap = gridMap;
             _signalBus = signalBus;
             _gridSettings = gridSettings;
-            gameStateController.GamePlayState.Where(x => x == GamePlayState.ScrollRows).Subscribe(x => ScrollRowsIfNeeded());
+            _gameStateController.GamePlayState.Where(x => x == GamePlayState.ScrollRows).Subscribe(x => ScrollRowsIfNeeded());
         }
 
         private void ScrollRowsIfNeeded()

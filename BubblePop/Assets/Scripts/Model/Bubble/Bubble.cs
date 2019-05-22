@@ -1,5 +1,4 @@
 using System;
-using Project.Grid;
 using UniRx;
 using UnityEngine;
 
@@ -7,17 +6,13 @@ namespace Project.Bubbles
 {
     [Serializable] public class Bubble : IBubble
     {
-        private GridSettings _gridSettings;
-
         public ReactiveProperty<Vector2Int> Position { get; private set; }
         public ReactiveProperty<int> Level { get; private set; }
-        public ReactiveCommand<Bubble> Destroyed { get; private set; }
+        public ReactiveCommand<IBubble> Destroyed { get; private set; }
 
-        public void Setup(Vector2Int position, int level, GridSettings gridSettings)
+        public void Setup(Vector2Int position, int level)
         {
-            _gridSettings = gridSettings;
-
-            Destroyed = new ReactiveCommand<Bubble>();
+            Destroyed = new ReactiveCommand<IBubble>();
 
             Position = new ReactiveProperty<Vector2Int>(position);
             Level = new IntReactiveProperty(level);
@@ -43,11 +38,5 @@ namespace Project.Bubbles
         {
             Position.Value = new Vector2Int(Position.Value.x, Position.Value.y - 1);
         }
-
-
-//        public bool IsPlayable()
-//        {
-//            return !Destroyed.IsDisposed && Position.Value.y < _gridSettings.StartGridSize.y;
-//        }
     }
 }

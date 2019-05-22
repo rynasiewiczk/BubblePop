@@ -11,15 +11,15 @@ namespace Project.Grid.BuildingGrid
         private readonly SignalBus _signalBus = null;
         private readonly SpawnBubbleOnGridSignal _spawnBubbleOnGridSignal = new SpawnBubbleOnGridSignal();
 
-        public InitialBubblesBuilder(IGridMap gridMap, GridSettings gridSettings, BubbleData bubbleData, SignalBus signalBus)
+        public InitialBubblesBuilder(GridSettings gridSettings, BubbleData bubbleData, SignalBus signalBus)
         {
             _bubbleData = bubbleData;
             _signalBus = signalBus;
 
-            CreateInitialBubbles(gridMap, gridSettings);
+            CreateInitialBubbles(gridSettings);
         }
 
-        private void CreateInitialBubbles(IGridMap gridMap, GridSettings gridSettings)
+        private void CreateInitialBubbles(GridSettings gridSettings)
         {
             var gridSize = gridSettings.StartGridSize;
 

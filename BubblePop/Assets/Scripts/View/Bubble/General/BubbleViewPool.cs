@@ -9,7 +9,7 @@ namespace View
     {
         public BubbleViewPool(IBubblesSpawner bubblesSpawner)
         {
-            bubblesSpawner.JustSpawned.Where(x => x != null).Subscribe(x => Spawn(x));
+            bubblesSpawner.LatestSpawnedBubble.Where(x => x != null).Subscribe(x => Spawn(x));
         }
 
         protected override void Reinitialize(IBubble bubble, BubbleView view)

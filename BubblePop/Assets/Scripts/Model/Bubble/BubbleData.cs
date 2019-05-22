@@ -15,8 +15,7 @@ using Random = UnityEngine.Random;
     public int InitialMaxBubblesLevel = 5;
     [SerializeField] private float _flySpeed = 15f;
 
-    [FormerlySerializedAs("_combiningSpeed")] [SerializeField]
-    private float combiningDuration = 13f;
+    [SerializeField] private float combiningDuration = 13f;
 
     [Space, SerializeField] private List<Color> _listOfColors = null;
 
@@ -37,7 +36,7 @@ using Random = UnityEngine.Random;
 
         if (_listOfColors.Count <= level)
         {
-            UpdateListOfColorsWithNew(level);
+            UpdateListOfColorsUpToRequestedLevel(level);
         }
 
         return _listOfColors[level];
@@ -52,7 +51,7 @@ using Random = UnityEngine.Random;
         }
     }
 
-    private void UpdateListOfColorsWithNew(int level)
+    private void UpdateListOfColorsUpToRequestedLevel(int level)
     {
         var randomColors = new List<Color>();
 
@@ -85,7 +84,7 @@ using Random = UnityEngine.Random;
 
         if (minLevel > maxLevel)
         {
-            Debug.LogError("Minimal bubble level formula returned biggest value than formula for maximal bubble level. Returning bigger value");
+            Debug.LogError("Minimal bubble level formula returned biggest value than formula for maximal bubble level. Returning value that is bigger");
             return minLevel;
         }
 

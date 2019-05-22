@@ -36,7 +36,7 @@ namespace View
                 return;
             }
 
-            var viewCombinePosition = _gridMap.GetGridViewPosition(signal.CombinePosition);
+            var viewCombinePosition = _gridMap.GetCellsViewPosition(signal.CombinePosition);
             transform.DOMove(viewCombinePosition, _bubbleData.CombiningDuration);
         }
     }

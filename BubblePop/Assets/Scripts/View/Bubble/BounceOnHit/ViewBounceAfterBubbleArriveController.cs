@@ -21,7 +21,7 @@ namespace View
             gameStateController.GamePlayState.Where(x => x == GamePlayState.PlacingBubbleOnGrid).Subscribe(x =>
             {
                 var arrivePosition = findingCellToShootBubbleController.BubbleDestination;
-                var targetPosition = gridMap.GetGridViewPosition(arrivePosition);
+                var targetPosition = gridMap.GetCellsViewPosition(arrivePosition);
 
                 _aroundList.Clear();
                 var bubblesAround = gridMap.GetBubblesAroundPosition(arrivePosition, _aroundList);

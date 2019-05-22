@@ -1,5 +1,4 @@
 using System;
-using Project.Grid;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -8,17 +7,16 @@ namespace Project.Bubbles
 {
     public class BubblesSpawner : IBubblesSpawner, IDisposable
     {
-        public ReactiveProperty<IBubble> JustSpawned { get; private set; } = new ReactiveProperty<IBubble>();
+        public ReactiveProperty<IBubble> LatestSpawnedBubble { get; private set; } = new ReactiveProperty<IBubble>();
+
         private readonly BubblesPool _bubblesPool = null;
         private readonly BubbleData _bubbleData = null;
-        private readonly GridSettings _gridSettings = null;
         private readonly SignalBus _signalBus = null;
 
-        public BubblesSpawner(BubblesPool bubblesPool, BubbleData bubbleData, GridSettings gridSettings, SignalBus signalBus)
+        public BubblesSpawner(BubblesPool bubblesPool, BubbleData bubbleData, SignalBus signalBus)
         {
             _bubblesPool = bubblesPool;
             _bubbleData = bubbleData;
-            _gridSettings = gridSettings;
 
             _signalBus = signalBus;
             _signalBus.Subscribe<SpawnBubbleOnGridSignal>(signal => { SpawnBubble(signal); });
@@ -26,7 +24,7 @@ namespace Project.Bubbles
 
         public void Dispose()
         {
-            _signalBus.Unsubscribe<SpawnBubbleOnGridSignal>(signal => { SpawnBubble(signal); });
+            _signalBus.TryUnsubscribe<SpawnBubbleOnGridSignal>(signal => { SpawnBubble(signal); });
         }
 
         public IBubble SpawnBubble(SpawnBubbleOnGridSignal signal)
@@ -37,9 +35,9 @@ namespace Project.Bubbles
         private IBubble SpawnBubble(Vector2Int position, int level)
         {
             var bubble = _bubblesPool.Spawn(_bubbleData);
-            bubble.Setup(position, level, _gridSettings);
+            bubble.Setup(position, level);
 
-            JustSpawned.Value = bubble;
+            LatestSpawnedBubble.Value = bubble;
 
             return bubble;
         }

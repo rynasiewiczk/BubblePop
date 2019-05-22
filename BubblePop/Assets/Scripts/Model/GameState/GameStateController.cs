@@ -1,6 +1,5 @@
 using Enums;
 using UniRx;
-using UnityEngine;
 
 namespace Model
 {

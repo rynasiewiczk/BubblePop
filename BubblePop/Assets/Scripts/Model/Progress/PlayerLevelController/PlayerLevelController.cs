@@ -1,6 +1,5 @@
 using Model.ScoreController;
 using UniRx;
-using UnityEngine;
 
 namespace Model.Progress.PlayerLevelController
 {

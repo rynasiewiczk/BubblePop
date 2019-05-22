@@ -38,6 +38,9 @@ namespace Project.Aiming
             _gridMap = gridMap;
             _camera = camera;
 
+            inputEventsNotifier.OnInputStart.Where(x => /*gameStateController.GamePlayState.Value == GamePlayState.Aiming &&*/ AimingAboveStartingPoint())
+                .Subscribe(x => FireRaycastToFindPositionForBubble(AimingPositionInWorldPoint, 0));
+            
             inputEventsNotifier.OnInputMove.Where(x => gameStateController.GamePlayState.Value == GamePlayState.Aiming && AimingAboveStartingPoint())
                 .Subscribe(x => FireRaycastToFindPositionForBubble(AimingPositionInWorldPoint, 0));
         }

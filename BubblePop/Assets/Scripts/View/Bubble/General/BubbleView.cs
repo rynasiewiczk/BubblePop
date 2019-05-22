@@ -30,7 +30,7 @@ public class BubbleView : MonoBehaviour
 
     private void SetPosition(Vector2Int position)
     {
-        var viewPosition = _gridMap.GetGridViewPosition(position);
+        var viewPosition = _gridMap.GetCellsViewPosition(position);
         transform.position = viewPosition;
     }
 

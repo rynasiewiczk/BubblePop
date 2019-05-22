@@ -1,7 +1,4 @@
 namespace Model.ScrollingRowsDown
 {
-    public interface IScrollRowsController
-    {
-        
-    }
+    public interface IScrollRowsController { }
 }

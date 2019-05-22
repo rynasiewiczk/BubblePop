@@ -8,7 +8,6 @@ public class InputInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container.Bind<Camera>().FromInstance(_camera).AsSingle();
-
         Container.BindInterfacesTo<MouseInputEventsNotifier>().AsSingle().NonLazy();
     }
 }

@@ -58,7 +58,7 @@ namespace Project.Grid
             return result;
         }
 
-        public static Vector2 GetGridViewPosition(this IGridMap gridMap, Vector2Int position)
+        public static Vector2 GetCellsViewPosition(this IGridMap gridMap, Vector2Int position)
         {
             var offsetX = 0f;
             if (gridMap.GridRowSidesMap[position.y] == GridRowSide.Right)

@@ -10,7 +10,7 @@ namespace View.FlyingAfterAiming
 {
     public class FlyingBubbleViewController : IFlyingBubbleViewController
     {
-        private const float DELAY_TO_KILL_AFTER_GRID_VIEW_IS_VISIBLE = 0.01f;
+        private const float DELAY_TO_KILL_AFTER_GRID_VIEW_IS_VISIBLE = 0.1f;
         private readonly IFindingCellToShootBubbleController _findingCellToShootBubbleController = null;
         private readonly INextBubbleLevelToSpawnController _nextBubbleLevelToSpawnController = null;
         private readonly BubbleData _bubbleData = null;
@@ -52,7 +52,7 @@ namespace View.FlyingAfterAiming
             {
                 if (i == _pathCopyList.Count - 1)
                 {
-                    _pathCopyList[i] = _gridMap.GetGridViewPosition(_findingCellToShootBubbleController.BubbleDestination);
+                    _pathCopyList[i] = _gridMap.GetCellsViewPosition(_findingCellToShootBubbleController.BubbleDestination);
                 }
 
                 path3d[i] = _pathCopyList[i];

@@ -26,7 +26,7 @@ public class GridActionsInstaller : Installer<GridActionsInstaller>
         Container.BindInterfacesTo<BubbleFlyObserver>().AsSingle().NonLazy();
         Container.BindInterfacesTo<FindConnectedBubblesWithSameLevelController>().AsSingle().NonLazy();
 
-        Container.BindInterfacesTo<CombineBubbles>().AsSingle().NonLazy();
+        Container.BindInterfacesTo<CombineBubblesController>().AsSingle().NonLazy();
         Container.DeclareSignal<CombineBubbleSignal>();
         Container.DeclareSignal<BubblesCombiningDoneSignal>();
 

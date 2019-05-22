@@ -1,11 +1,10 @@
 using UniRx;
-using UnityEngine;
 
 namespace Project.Bubbles
 {
     public interface IBubblesSpawner
     {
-        ReactiveProperty<IBubble> JustSpawned { get; }
+        ReactiveProperty<IBubble> LatestSpawnedBubble { get; }
         IBubble SpawnBubble(SpawnBubbleOnGridSignal signal);
     }
 }

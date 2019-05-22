@@ -9,27 +9,27 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
 {
     public class DropUnlinkedBubblesController : IDropUnlinkedBubblesController
     {
-        private IGridMap _gridMap = null;
+        private readonly IGridMap _gridMap = null;
         private readonly IGameStateController _gameStateController = null;
-        private readonly ICombineBubbles _combineBubbles = null;
+        private readonly ICombineBubblesController _combineBubblesController = null;
         private readonly GridSettings _gridSettings = null;
         private readonly SignalBus _signalBus = null;
         
-        private DroppingUnlinkedBubbleSignal _droppingUnlinkedBubbleSignal = new DroppingUnlinkedBubbleSignal();
+        private readonly DroppingUnlinkedBubbleSignal _droppingUnlinkedBubbleSignal = new DroppingUnlinkedBubbleSignal();
 
         private List<IBubble> _allBubbles = new List<IBubble>();
-        private List<IBubble> _bubblestToFall = new List<IBubble>();
-        private List<IBubble> _bubblesToStay = new List<IBubble>();
+        private readonly List<IBubble> _bubblesToFall = new List<IBubble>();
+        private readonly List<IBubble> _bubblesToStay = new List<IBubble>();
         private List<IBubble> _topRowBubbles = new List<IBubble>();
-        private List<IBubble> _allConnectedBubbles = new List<IBubble>();
+        private readonly List<IBubble> _allConnectedBubbles = new List<IBubble>();
 
-        public DropUnlinkedBubblesController(IGridMap gridMap, IGameStateController gameStateController, ICombineBubbles combineBubbles,
+        public DropUnlinkedBubblesController(IGridMap gridMap, IGameStateController gameStateController, ICombineBubblesController combineBubblesController,
             GridSettings gridSettings, SignalBus signalBus)
         {
             _gridMap = gridMap;
             _gridSettings = gridSettings;
             _gameStateController = gameStateController;
-            _combineBubbles = combineBubbles;
+            _combineBubblesController = combineBubblesController;
             _signalBus = signalBus;
 
             _gameStateController.GamePlayState.Where(x => x == GamePlayState.DropBubblesAfterCombining).Subscribe(x => DropUnlinkedBubbles());
@@ -39,12 +39,12 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
         {
             _topRowBubbles.Clear();
             _topRowBubbles = _gridMap.GetAllTopPlayableRowBubblesOnGrid(_gridSettings, _topRowBubbles);
-            _bubblestToFall.Clear();
+            _bubblesToFall.Clear();
             _bubblesToStay.Clear();
 
             foreach (var topBubble in _topRowBubbles)
             {
-                if (_bubblesToStay.Contains(topBubble) || _bubblestToFall.Contains(topBubble))
+                if (_bubblesToStay.Contains(topBubble) || _bubblesToFall.Contains(topBubble))
                 {
                     continue;
                 }
@@ -61,23 +61,23 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
                     continue;
                 }
 
-                _bubblestToFall.Add(bubble);
+                _bubblesToFall.Add(bubble);
             }
 
-            for (int i = _bubblestToFall.Count - 1; i >= 0; i--)
+            for (int i = _bubblesToFall.Count - 1; i >= 0; i--)
             {
-                if (!_gridMap.IsBubblePlayable(_bubblestToFall[i]))
+                if (!_gridMap.IsBubblePlayable(_bubblesToFall[i]))
                 {
                     continue;
                 }
-                _droppingUnlinkedBubbleSignal.Position = _bubblestToFall[i].Position.Value;
-                _droppingUnlinkedBubbleSignal.Level = _bubblestToFall[i].Level.Value;
+                _droppingUnlinkedBubbleSignal.Position = _bubblesToFall[i].Position.Value;
+                _droppingUnlinkedBubbleSignal.Level = _bubblesToFall[i].Level.Value;
                 _signalBus.Fire(_droppingUnlinkedBubbleSignal);
                     
-                _bubblestToFall[i].Destroy();
+                _bubblesToFall[i].Destroy();
             }
 
-            var nextState = _combineBubbles.LastCombinedBubbleNeighboursWithSameLevelAmount <= 1 ? GamePlayState.ScrollRows : GamePlayState.BubblesCombining;
+            var nextState = _combineBubblesController.LastCombinedBubbleNeighboursWithSameLevelAmount <= 1 ? GamePlayState.ScrollRows : GamePlayState.BubblesCombining;
             _gameStateController.ChangeGamePlayState(nextState);
         }
     }

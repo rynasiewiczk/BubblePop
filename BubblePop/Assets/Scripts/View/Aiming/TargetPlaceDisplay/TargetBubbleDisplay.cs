@@ -19,11 +19,11 @@ namespace View.Aiming.TargetPlaceDisplay
 
         private void Update()
         {
-            if (Time.time < 1f)
-            {
-                DisableRenderer();
-                return;
-            }
+//            if (Time.time < .2f)
+//            {
+//                DisableRenderer();
+//                return;
+//            }
 
             var aimedBubbleData = _bubbleDestinationFinder.AimedBubbleData;
             if (aimedBubbleData == null)
@@ -36,7 +36,7 @@ namespace View.Aiming.TargetPlaceDisplay
 
 
             var destination = aimedBubbleData.PathFromAimingPosition[aimedBubbleData.PathFromAimingPosition.Length - 1];
-            destination = _gridMap.GetGridViewPosition(new Vector2Int((int) destination.x, (int) destination.y));
+            destination = _gridMap.GetCellsViewPosition(new Vector2Int((int) destination.x, (int) destination.y));
             transform.position = destination;
         }
 

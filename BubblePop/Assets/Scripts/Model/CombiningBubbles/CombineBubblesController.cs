@@ -11,11 +11,10 @@ using Zenject;
 
 namespace Model.CombiningBubbles
 {
-    public class CombineBubbles : ICombineBubbles
+    public class CombineBubblesController : ICombineBubblesController
     {
         private readonly IGridMap _gridMap = null;
         private readonly List<IBubble> _bubblesToCollapseBufferList = new List<IBubble>(10);
-        private readonly BubbleData _bubbleData = null;
         private readonly CombineBubbleSignal _combineBubbleSignal = new CombineBubbleSignal();
         private readonly SpawnBubbleOnGridSignal _spawnBubbleOnGridSignal = new SpawnBubbleOnGridSignal();
         private readonly SignalBus _signalBus = null;
@@ -24,11 +23,13 @@ namespace Model.CombiningBubbles
 
         private readonly BubblesCombiningDoneSignal _bubblesCombiningDoneSignal = new BubblesCombiningDoneSignal();
 
-        public CombineBubbles(IGridMap gridMap, IFindConnectedBubblesWithSameLevelController bubblesWithSameLevelController, BubbleData bubbleData,
+        private readonly float _bubblesCombineDuration;
+        
+        public CombineBubblesController(IGridMap gridMap, IFindConnectedBubblesWithSameLevelController bubblesWithSameLevelController, BubbleData bubbleData,
             IGameStateController gameStateController, SignalBus signalBus)
         {
             _gridMap = gridMap;
-            _bubbleData = bubbleData;
+            _bubblesCombineDuration = bubbleData.CombiningDuration;
             _gameStateController = gameStateController;
             _signalBus = signalBus;
             bubblesWithSameLevelController.BubblesToCombine.Where(x => x != null && x.Count > 1).Subscribe(CollapseBubbles);
@@ -46,7 +47,7 @@ namespace Model.CombiningBubbles
 
             var positionOfCollapse = bubbleWithMaxNeighboursWithResultLevel.Position.Value;
 
-            var collapseDuration = _bubbleData.CombiningDuration;
+            var collapseDuration = _bubblesCombineDuration;
 
             foreach (var bubble in bubbles)
             {
@@ -88,12 +89,14 @@ namespace Model.CombiningBubbles
             {
                 _bubblesToCollapseBufferList.Clear();
                 var bubblesToCollect = _gridMap.FindBubblesToCollapse(level, bubble.Position.Value, _bubblesToCollapseBufferList);
-                int bubblesToCollapseCount = bubblesToCollect.Count;
-                if (ShouldUpdateBetterFitBubble(bubblesToCollapseCount, maxNumberOfConnections, bubble, bubbleToCollapseTo))
+                var bubblesToCollapseCount = bubblesToCollect.Count;
+                if (!ShouldUpdateBetterFitBubble(bubblesToCollapseCount, maxNumberOfConnections, bubble, bubbleToCollapseTo))
                 {
-                    maxNumberOfConnections = bubblesToCollapseCount;
-                    bubbleToCollapseTo = bubble;
+                    continue;
                 }
+                
+                maxNumberOfConnections = bubblesToCollapseCount;
+                bubbleToCollapseTo = bubble;
             }
 
             if (bubbleToCollapseTo == null)
