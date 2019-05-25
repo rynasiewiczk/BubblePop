@@ -11,8 +11,12 @@ namespace Project.Grid
         private const float DISTANCE_BETWEEN_BUBBLES = 1f;
         private const float HALF_OF_DISTANCE_BETWEEN_BUBBLES = DISTANCE_BETWEEN_BUBBLES / 2;
 
-        public static Vector2Int GetPositionToSpawnPiece(this IGridMap gridMap, IBubble bubble, PieceSide aimedSide)
+        public static Vector2Int GetPositionToSpawnPiece(this IGridMap gridMap, IBubble bubble, PieceSide aimedSide, Vector2 hitPointRelativeToPiecesCenter)
         {
+            const int EDGE_ANGLE = 45;
+
+            var angle = GetAngleOfPieceHit(hitPointRelativeToPiecesCenter);
+
             var position = bubble.Position.Value;
             Vector2Int direction;
 
@@ -30,10 +34,13 @@ namespace Project.Grid
                     direction = rowSideOfHit == GridRowSide.Left ? new Vector2Int(-1, -1) : new Vector2Int(0, -1);
                     if (BubbleExistsAtPosition(gridMap, bubble.Position.Value + direction))
                     {
-                        direction = direction.x == 0 ? new Vector2Int(1, direction.y) : new Vector2Int(0, direction.y);
-                        if (BubbleExistsAtPosition(gridMap, bubble.Position.Value + direction))
+                        if (rowSideOfHit == GridRowSide.Left)
                         {
-                            direction = new Vector2Int(-1, 0);
+                            direction = angle <= EDGE_ANGLE ? new Vector2Int(-1, 0) : new Vector2Int(0, -1);
+                        }
+                        else
+                        {
+                            direction = angle <= EDGE_ANGLE ? new Vector2Int(-1, 0) : new Vector2Int(1, -1);
                         }
                     }
 
@@ -42,10 +49,13 @@ namespace Project.Grid
                     direction = rowSideOfHit == GridRowSide.Left ? new Vector2Int(0, -1) : new Vector2Int(1, -1);
                     if (BubbleExistsAtPosition(gridMap, bubble.Position.Value + direction))
                     {
-                        direction = direction.x == 0 ? new Vector2Int(-1, direction.y) : new Vector2Int(0, direction.y);
-                        if (BubbleExistsAtPosition(gridMap, bubble.Position.Value + direction))
+                        if (rowSideOfHit == GridRowSide.Left)
                         {
-                            direction = new Vector2Int(1, 0);
+                            direction = angle <= EDGE_ANGLE ? new Vector2Int(1, 0) : new Vector2Int(-1, -1);
+                        }
+                        else
+                        {
+                            direction = angle <= EDGE_ANGLE ? new Vector2Int(1, 0) : new Vector2Int(0, -1);
                         }
                     }
 
@@ -58,6 +68,16 @@ namespace Project.Grid
             return result;
         }
 
+        private static float GetAngleOfPieceHit(Vector2 hitPointRelativeToPiecesCenter)
+        {
+            const float RADUIS = .5f;
+            
+            var sinus = Mathf.Abs(hitPointRelativeToPiecesCenter.y) / RADUIS;
+            var radians = Mathf.Asin(sinus);
+            var angles = Mathf.Rad2Deg * radians;
+            return angles;
+        }
+
         public static Vector2 GetCellsViewPosition(this IGridMap gridMap, Vector2Int position)
         {
             var offsetX = 0f;
@@ -67,7 +87,7 @@ namespace Project.Grid
             }
 
             var viewPositionInX = position.x + offsetX;
-            var viewPositionInY = GetHeightOfRows(gridMap, position.y);
+            var viewPositionInY = GetHeightOfRows(position.y);
             return new Vector2(viewPositionInX, viewPositionInY);
         }
 
@@ -117,7 +137,7 @@ namespace Project.Grid
             return list;
         }
 
-        public static float GetHeightOfRows(this IGridMap gridMap, int rows)
+        public static float GetHeightOfRows(int rows)
         {
             var heightBetweenRows = Mathf.Pow(Mathf.Pow(DISTANCE_BETWEEN_BUBBLES, 2) - Mathf.Pow(HALF_OF_DISTANCE_BETWEEN_BUBBLES, 2), .5f);
 

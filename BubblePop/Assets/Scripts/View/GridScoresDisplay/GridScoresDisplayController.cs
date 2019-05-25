@@ -11,8 +11,6 @@ public class GridScoresDisplayController : MonoBehaviour
     [Inject] private readonly PiecesData _piecesData = null;
     [Inject] private readonly UiData _uiData = null;
 
-    [Inject] private readonly IGridMap _gridMap = null;
-
     [SerializeField] private Transform _container = null;
 
     private void Awake()
@@ -50,7 +48,7 @@ public class GridScoresDisplayController : MonoBehaviour
         var scoreInFormatToDisplay = _piecesData.GetValueInDisplayFormat(score, 0);
         var color = _piecesData.GetColorForLevel(level);
 
-        var position = new Vector2(gridPosition.x, _gridMap.GetHeightOfRows((int) gridPosition.y));
+        var position = new Vector2(gridPosition.x, GridMapHelper.GetHeightOfRows((int) gridPosition.y));
         text.Setup(position, scoreInFormatToDisplay, fontSize, color);
     }
 }

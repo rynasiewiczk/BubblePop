@@ -30,7 +30,8 @@ namespace Project.Aiming
         public PieceAimedData AimedPieceData { get; private set; }
 
         public AimEndPointFinder(IGameStateController gameStateController, IInputEventsNotifier inputEventsNotifier,
-            IAimingDirectionObserver aimingDirectionObserver, IGridMap gridMap, IAimingStartPointProvider aimingStartPointProvider, AimingSettings aimingSettings)
+            IAimingDirectionObserver aimingDirectionObserver, IGridMap gridMap, IAimingStartPointProvider aimingStartPointProvider,
+            AimingSettings aimingSettings)
         {
             _layerMask = LayerMask.GetMask(_bubbleLayerName, _wallLayerName, _topWallLayerName);
             _aimingDirectionObserver = aimingDirectionObserver;
@@ -100,7 +101,8 @@ namespace Project.Aiming
 
                 AimPath.Add(raycastHit.point);
 
-                var finalPositionOnGrid = _gridMap.GetPositionToSpawnPiece(pieceView.Model, aimedSide);
+                var hitPointRelativeToPiecesCenter = raycastHit.point - (Vector2) collider.transform.position;
+                var finalPositionOnGrid = _gridMap.GetPositionToSpawnPiece(pieceView.Model, aimedSide, hitPointRelativeToPiecesCenter);
                 var copyOfAimPathWithFinalPositionOnGrid = AimPath.ToArray();
                 copyOfAimPathWithFinalPositionOnGrid[AimPath.Count - 1] = finalPositionOnGrid;
                 AimedPieceData = new PieceAimedData(pieceView.Model, aimedSide, copyOfAimPathWithFinalPositionOnGrid);

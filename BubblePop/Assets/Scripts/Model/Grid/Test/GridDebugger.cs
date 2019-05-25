@@ -46,7 +46,7 @@ public class GridDebugger : MonoBehaviour
 
     private void DrawLineForBubblesAbovePlayableArea()
     {
-        var height = _gridMap.GetHeightOfRows(_gridSettings.StartGridSize.y)- .5f;
+        var height = GridMapHelper.GetHeightOfRows(_gridSettings.StartGridSize.y)- .5f;
         
         Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector2(-30, height), new Vector2(30, height));
@@ -54,7 +54,7 @@ public class GridDebugger : MonoBehaviour
 
     private void DrawLineForTopRowAvailableForBubbles()
     {
-        var level = _gridMap.GetHeightOfRows(_gridSettings.RowToScrollTokensDown)- .5f;
+        var level = GridMapHelper.GetHeightOfRows(_gridSettings.RowToScrollTokensDown)- .5f;
 
         Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector2(-30, level), new Vector2(30, level));
@@ -62,7 +62,7 @@ public class GridDebugger : MonoBehaviour
 
     private void DrawLineForBottomRowAvailableForBubbles()
     {
-        var level = _gridMap.GetHeightOfRows(_gridSettings.AlwasFreeBottomLines) - .5f;
+        var level = GridMapHelper.GetHeightOfRows(_gridSettings.AlwasFreeBottomLines) - .5f;
 
         Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector2(-30, level), new Vector2(30, level));
@@ -77,7 +77,7 @@ public class GridDebugger : MonoBehaviour
         for (int i = 0; i < cellsRegistry.Count; i++)
         {
             var viewPosition = _gridMap.GetCellsViewPosition(cellsRegistry[i].Position);
-            Gizmos.DrawWireSphere(_gridMap.GetCellsViewPosition(cellsRegistry[i].Position), .5f);
+            Gizmos.DrawWireSphere(viewPosition, .5f);
         }
     }
 

@@ -42,12 +42,15 @@ namespace Project.Aiming
         {
             if (_aimEndPointFinder.AimedPieceData != null)
             {
+                var piecesViewPosition = _gridMap.GetCellsViewPosition(_aimEndPointFinder.AimedPieceData.Piece.Position.Value);
+                var hitPointRelativeToBubblesPosition = _aimEndPointFinder.AimPath.Last() - piecesViewPosition;
                 var positionToSpawnPiece = _gridMap.GetPositionToSpawnPiece(_aimEndPointFinder.AimedPieceData.Piece,
-                    _aimEndPointFinder.AimedPieceData.AimedSide);
+                    _aimEndPointFinder.AimedPieceData.AimedSide, hitPointRelativeToBubblesPosition);
+
                 var cellToSpawnPiece = _gridMap.CellsRegistry.FirstOrDefault(x => x.Position == positionToSpawnPiece);
                 if (cellToSpawnPiece == null)
                 {
-                    Debug.LogError("Trying to spawn pieceoutside of grid. Ignoring the try. Provided position: " + positionToSpawnPiece);
+                    Debug.LogError("Trying to spawn piece outside of grid. Ignoring the try. Provided position: " + positionToSpawnPiece);
                     _gameStateController.ChangeGamePlayState(GamePlayState.Idle);
                 }
                 else if (_gridMap.PiecesRegistry.FirstOrDefault(x => x.Position.Value == positionToSpawnPiece) != null)

@@ -10,7 +10,6 @@ namespace View
     {
         [SerializeField] private BubbleView _view = null;
 
-        [Inject] private readonly IGridMap _gridMap = null;
         [Inject] private readonly SignalBus _signalBus = null;
         [Inject] private readonly GridSettings _gridSettings = null;
 
@@ -26,10 +25,15 @@ namespace View
             _signalBus.Subscribe<ScrollRowsSignal>(Scroll);
         }
 
+        private void OnDestroy()
+        {
+            _signalBus.TryUnsubscribe<ScrollRowsSignal>(Scroll);
+        }
+
         private void Scroll(ScrollRowsSignal signal)
         {
             var rowsToScroll = signal.RowsToScroll;
-            var distanceToScroll = _gridMap.GetHeightOfRows(rowsToScroll);
+            var distanceToScroll = GridMapHelper.GetHeightOfRows(rowsToScroll);
 
             _tween?.Kill();
 
