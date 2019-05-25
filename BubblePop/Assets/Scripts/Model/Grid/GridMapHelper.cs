@@ -11,7 +11,7 @@ namespace Project.Grid
         private const float DISTANCE_BETWEEN_BUBBLES = 1f;
         private const float HALF_OF_DISTANCE_BETWEEN_BUBBLES = DISTANCE_BETWEEN_BUBBLES / 2;
 
-        public static Vector2Int GetPositionToSpawnBubble(this IGridMap gridMap, IBubble bubble, BubbleSide aimedSide)
+        public static Vector2Int GetPositionToSpawnPiece(this IGridMap gridMap, IBubble bubble, PieceSide aimedSide)
         {
             var position = bubble.Position.Value;
             Vector2Int direction;
@@ -20,13 +20,13 @@ namespace Project.Grid
 
             switch (aimedSide)
             {
-                case BubbleSide.TopLeft:
+                case PieceSide.TopLeft:
                     direction = new Vector2Int(-1, 0);
                     break;
-                case BubbleSide.TopRight:
+                case PieceSide.TopRight:
                     direction = new Vector2Int(1, 0);
                     break;
-                case BubbleSide.BottomLeft:
+                case PieceSide.BottomLeft:
                     direction = rowSideOfHit == GridRowSide.Left ? new Vector2Int(-1, -1) : new Vector2Int(0, -1);
                     if (BubbleExistsAtPosition(gridMap, bubble.Position.Value + direction))
                     {
@@ -38,7 +38,7 @@ namespace Project.Grid
                     }
 
                     break;
-                case BubbleSide.BottomRight:
+                case PieceSide.BottomRight:
                     direction = rowSideOfHit == GridRowSide.Left ? new Vector2Int(0, -1) : new Vector2Int(1, -1);
                     if (BubbleExistsAtPosition(gridMap, bubble.Position.Value + direction))
                     {
@@ -74,7 +74,7 @@ namespace Project.Grid
         public static List<IBubble> GetAllPlayableBubblesOnGrid(this IGridMap gridMap)
         {
             var list = new List<IBubble>();
-            foreach (var bubble in gridMap.BubblesRegistry)
+            foreach (var bubble in gridMap.PiecesRegistry)
             {
                 if (gridMap.IsBubblePlayable(bubble))
                 {
@@ -106,7 +106,7 @@ namespace Project.Grid
         public static List<IBubble> GetAllBubblesOnGrid(this IGridMap gridMap)
         {
             var list = new List<IBubble>();
-            foreach (var bubble in gridMap.BubblesRegistry)
+            foreach (var bubble in gridMap.PiecesRegistry)
             {
                 if (bubble != null)
                 {

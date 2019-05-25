@@ -11,7 +11,7 @@ namespace View.FlyingAfterAiming
     public class FlyingBubbleViewController : IFlyingBubbleViewController
     {
         private const float DELAY_TO_KILL_AFTER_GRID_VIEW_IS_VISIBLE = 0.1f;
-        private readonly IFindingCellToShootBubbleController _findingCellToShootBubbleController = null;
+        private readonly IFindingCellToShootPieceController _findingCellToShootPieceController = null;
         private readonly INextBubbleLevelToSpawnController _nextBubbleLevelToSpawnController = null;
         private readonly PiecesData _piecesData = null;
         private readonly IGridMap _gridMap = null;
@@ -20,17 +20,17 @@ namespace View.FlyingAfterAiming
         private readonly FlyingBubbleViewPool _flyingBubbleViewPool = null;
         private readonly List<Vector2> _pathCopyList = new List<Vector2>();
 
-        public FlyingBubbleViewController(IFindingCellToShootBubbleController findingCellToShootBubbleController, INextBubbleLevelToSpawnController nextBubbleLevelToSpawnController,
+        public FlyingBubbleViewController(IFindingCellToShootPieceController findingCellToShootPieceController, INextBubbleLevelToSpawnController nextBubbleLevelToSpawnController,
             FlyingBubbleViewPool flyingBubbleViewPool, PiecesData piecesData, IGridMap gridMap, IAimingStartPointProvider aimingStartPointProvider)
         {
-            _findingCellToShootBubbleController = findingCellToShootBubbleController;
+            _findingCellToShootPieceController = findingCellToShootPieceController;
             _nextBubbleLevelToSpawnController = nextBubbleLevelToSpawnController;
             _flyingBubbleViewPool = flyingBubbleViewPool;
             _piecesData = piecesData;
             _gridMap = gridMap;
             _aimingStartPointProvider = aimingStartPointProvider;
 
-            _findingCellToShootBubbleController.BubbleFlyPath.Where(x => x != null && x.Length > 0).Subscribe(SpawnView);
+            _findingCellToShootPieceController.PieceFlyPath.Where(x => x != null && x.Length > 0).Subscribe(SpawnView);
         }
 
         private void SpawnView(Vector2[] path)
@@ -50,7 +50,7 @@ namespace View.FlyingAfterAiming
             {
                 if (i == _pathCopyList.Count - 1)
                 {
-                    _pathCopyList[i] = _gridMap.GetCellsViewPosition(_findingCellToShootBubbleController.BubbleDestination);
+                    _pathCopyList[i] = _gridMap.GetCellsViewPosition(_findingCellToShootPieceController.PieceDestinationPosition);
                 }
 
                 path3d[i] = _pathCopyList[i];

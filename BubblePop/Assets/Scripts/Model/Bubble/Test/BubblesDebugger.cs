@@ -15,7 +15,7 @@ public class BubblesDebugger : MonoBehaviour
         }
 
         
-        foreach (var bubble in _gridMap.BubblesRegistry)
+        foreach (var bubble in _gridMap.PiecesRegistry)
         {
             try
             {

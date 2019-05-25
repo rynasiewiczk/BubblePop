@@ -1,6 +1,6 @@
 namespace Enums
 {
-    public enum BubbleSide
+    public enum PieceSide
     {
         None,
         

@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace Project.Aiming
 {
-    public interface IBubbleDestinationFinder
+    public interface IAimEndPointFinder
     {
-        BubbleAimedData AimedBubbleData { get; }
+        PieceAimedData AimedPieceData { get; }
         List<Vector2> AimPath { get; }
     }
 }

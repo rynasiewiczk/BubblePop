@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace Project.Aiming
 {
-    public class BubbleAimedData
+    public class PieceAimedData
     {
-        public readonly IBubble Bubble;
-        public readonly BubbleSide AimedSide;
+        public readonly IBubble Piece;
+        public readonly PieceSide AimedSide;
         public readonly Vector2[] PathFromAimingPosition;
 
-        public BubbleAimedData(IBubble bubble, BubbleSide aimedSide, Vector2[] pathFromAimingPosition)
+        public PieceAimedData(IBubble piece, PieceSide aimedSide, Vector2[] pathFromAimingPosition)
         {
-            Bubble = bubble;
+            Piece = piece;
             AimedSide = aimedSide;
             PathFromAimingPosition = pathFromAimingPosition;
         }

@@ -846,9 +846,9 @@
             <e p="ScoreDebug.cs" t="Include" />
           </e>
           <e p="Enums" t="Include">
-            <e p="BubbleSide.cs" t="Include" />
             <e p="GamePlayState.cs" t="Include" />
             <e p="GridRowSide.cs" t="Include" />
+            <e p="PieceSide.cs" t="Include" />
           </e>
           <e p="Installers" t="Include">
             <e p="AimingInstaller.cs" t="Include" />
@@ -869,17 +869,17 @@
           </e>
           <e p="Model" t="Include">
             <e p="Aiming" t="Include">
+              <e p="AimEndPointFinder.cs" t="Include" />
               <e p="AimingDirectionObserver.cs" t="Include" />
               <e p="AimingSettings.cs" t="Include" />
               <e p="AimingStartPointProvider.cs" t="Include" />
-              <e p="BubbleAimedData.cs" t="Include" />
-              <e p="BubbleDestinationFinder.cs" t="Include" />
+              <e p="IAimEndPointFinder.cs" t="Include" />
               <e p="IAimingDirectionObserver.cs" t="Include" />
               <e p="IAimingStartPointProvider.cs" t="Include" />
-              <e p="IBubbleDestinationFinder.cs" t="Include" />
+              <e p="PieceAimedData.cs" t="Include" />
               <e p="StateObservers" t="Include">
-                <e p="FindingCellToShootBubbleController.cs" t="Include" />
-                <e p="IFindingCellToShootBubbleController.cs" t="Include" />
+                <e p="FindingCellToShootPieceController.cs" t="Include" />
+                <e p="IFindingCellToShootPieceController.cs" t="Include" />
                 <e p="IStartAimingStateObserver.cs" t="Include" />
                 <e p="StartAimingStateObserver.cs" t="Include" />
               </e>

@@ -7,7 +7,7 @@ namespace View.Aiming.TargetPlaceDisplay
 {
     public class TargetBubbleDisplay : MonoBehaviour
     {
-        [Inject] private readonly IBubbleDestinationFinder _bubbleDestinationFinder = null;
+        [Inject] private readonly IAimEndPointFinder _aimEndPointFinder = null;
         [Inject] private readonly IGridMap _gridMap = null;
 
         [SerializeField] private SpriteRenderer _spriteRenderer = null;
@@ -25,7 +25,7 @@ namespace View.Aiming.TargetPlaceDisplay
 //                return;
 //            }
 
-            var aimedBubbleData = _bubbleDestinationFinder.AimedBubbleData;
+            var aimedBubbleData = _aimEndPointFinder.AimedPieceData;
             if (aimedBubbleData == null)
             {
                 DisableRenderer();

@@ -21,7 +21,7 @@ public class GridActionsInstaller : Installer<GridActionsInstaller>
 
         Container.BindInterfacesTo<GameStateController>().AsSingle().NonLazy();
         Container.BindInterfacesTo<StartAimingStateObserver>().AsSingle().NonLazy();
-        Container.BindInterfacesTo<FindingCellToShootBubbleController>().AsSingle().NonLazy();
+        Container.BindInterfacesTo<FindingCellToShootPieceController>().AsSingle().NonLazy();
 
         Container.BindInterfacesTo<BubbleFlyObserver>().AsSingle().NonLazy();
         Container.BindInterfacesTo<FindConnectedBubblesWithSameLevelController>().AsSingle().NonLazy();

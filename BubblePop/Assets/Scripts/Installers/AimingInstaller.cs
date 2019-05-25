@@ -14,7 +14,7 @@ namespace Project.Aiming
             Container.BindInterfacesTo<AimingStartPointProvider>().AsSingle().NonLazy();
             
             Container.BindInterfacesTo<AimingDirectionObserver>().AsSingle().NonLazy();
-            Container.BindInterfacesTo<BubbleDestinationFinder>().AsSingle().NonLazy();
+            Container.BindInterfacesTo<AimEndPointFinder>().AsSingle().NonLazy();
         }
     }
 }

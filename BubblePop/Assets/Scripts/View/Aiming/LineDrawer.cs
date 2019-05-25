@@ -9,7 +9,7 @@ namespace View.Aiming
 {
     public class LineDrawer : MonoBehaviour
     {
-        [Inject] private readonly IBubbleDestinationFinder _bubbleDestinationFinder = null;
+        [Inject] private readonly IAimEndPointFinder _aimEndPointFinder = null;
         [Inject] private readonly IGameStateController _gameStateController = null;
         [Inject] private readonly IAimingStartPointProvider _aimingStartPointProvider = null;
 
@@ -28,7 +28,7 @@ namespace View.Aiming
                 return;
             }
 
-            DrawLine(_bubbleDestinationFinder.AimPath);
+            DrawLine(_aimEndPointFinder.AimPath);
         }
 
         private void DrawLine(List<Vector2> path)

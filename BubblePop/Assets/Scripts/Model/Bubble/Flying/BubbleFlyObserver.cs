@@ -14,13 +14,13 @@ namespace Project.Pieces
         private readonly IAimingStartPointProvider _aimingStartPointProvider = null;
         
         public BubbleFlyObserver(IGameStateController gameStateController, PiecesData piecesData, IAimingStartPointProvider aimingStartPointProvider,
-            IFindingCellToShootBubbleController findingCellToShootBubbleController)
+            IFindingCellToShootPieceController findingCellToShootPieceController)
         {
             _gameStateController = gameStateController;
             _piecesData = piecesData;
             _aimingStartPointProvider = aimingStartPointProvider;
             
-            findingCellToShootBubbleController.BubbleFlyPath.Skip(1).Where(x => x.Length > 0).Subscribe(x =>
+            findingCellToShootPieceController.PieceFlyPath.Skip(1).Where(x => x.Length > 0).Subscribe(x =>
             {
                 _gameStateController.ChangeGamePlayState(GamePlayState.BubbleFlying);
                 ChangeStateAfterFlyDuration(x);

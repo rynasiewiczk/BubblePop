@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Project.Aiming
 {
     //TODO: it has way to many responsibilities. break it down
-    public class BubbleDestinationFinder : IBubbleDestinationFinder
+    public class AimEndPointFinder : IAimEndPointFinder
     {
         private readonly string _topWallLayerName = SRLayers.TopWall.name;
         private readonly string _wallLayerName = SRLayers.Wall.name;
@@ -27,9 +27,9 @@ namespace Project.Aiming
 
         private Vector2 AimingPositionInWorldPoint => _aimingStartPointProvider.GetAimingStartPoint();
 
-        public BubbleAimedData AimedBubbleData { get; private set; }
+        public PieceAimedData AimedPieceData { get; private set; }
 
-        public BubbleDestinationFinder(IGameStateController gameStateController, IInputEventsNotifier inputEventsNotifier,
+        public AimEndPointFinder(IGameStateController gameStateController, IInputEventsNotifier inputEventsNotifier,
             IAimingDirectionObserver aimingDirectionObserver, IGridMap gridMap, IAimingStartPointProvider aimingStartPointProvider, AimingSettings aimingSettings)
         {
             _layerMask = LayerMask.GetMask(_bubbleLayerName, _wallLayerName, _topWallLayerName);
@@ -39,10 +39,10 @@ namespace Project.Aiming
             _aimingSettings = aimingSettings;
 
             inputEventsNotifier.OnInputStart.Where(x => /*gameStateController.GamePlayState.Value == GamePlayState.Aiming &&*/ AimingAboveStartingPoint())
-                .Subscribe(x => FireRaycastToFindPositionForBubble(AimingPositionInWorldPoint, 0));
+                .Subscribe(x => FireRaycastToFindPositionForPiece(AimingPositionInWorldPoint, 0));
 
             inputEventsNotifier.OnInputMove.Where(x => gameStateController.GamePlayState.Value == GamePlayState.Aiming && AimingAboveStartingPoint())
-                .Subscribe(x => FireRaycastToFindPositionForBubble(AimingPositionInWorldPoint, 0));
+                .Subscribe(x => FireRaycastToFindPositionForPiece(AimingPositionInWorldPoint, 0));
         }
 
         private bool AimingAboveStartingPoint()
@@ -50,7 +50,7 @@ namespace Project.Aiming
             return _aimingDirectionObserver.AimingDirection.Value.y > 0;
         }
 
-        private void FireRaycastToFindPositionForBubble(Vector2 startPoint, int reflections = 0)
+        private void FireRaycastToFindPositionForPiece(Vector2 startPoint, int reflections = 0)
         {
             if (reflections == 0)
             {
@@ -89,21 +89,21 @@ namespace Project.Aiming
                 AimPath.Add(hitPosition);
 
                 reflections++;
-                FireRaycastToFindPositionForBubble(hitPosition, reflections);
+                FireRaycastToFindPositionForPiece(hitPosition, reflections);
             }
             else if (collider.gameObject.layer == LayerMask.NameToLayer(_bubbleLayerName))
             {
-                var bubblePosition = collider.gameObject.transform.position;
-                var aimedSide = GetBubbleAimedSide(raycastHit.point, bubblePosition);
+                var piecePosition = collider.gameObject.transform.position;
+                var aimedSide = GetPieceAimedSide(raycastHit.point, piecePosition);
                 //todo: get position on row for the collider and get bubble from GridMap
-                var bubbleView = collider.gameObject.GetComponentInParent<BubbleView>();
+                var pieceView = collider.gameObject.GetComponentInParent<BubbleView>();
 
                 AimPath.Add(raycastHit.point);
 
-                var finalPositionOnGrid = _gridMap.GetPositionToSpawnBubble(bubbleView.Model, aimedSide);
+                var finalPositionOnGrid = _gridMap.GetPositionToSpawnPiece(pieceView.Model, aimedSide);
                 var copyOfAimPathWithFinalPositionOnGrid = AimPath.ToArray();
                 copyOfAimPathWithFinalPositionOnGrid[AimPath.Count - 1] = finalPositionOnGrid;
-                AimedBubbleData = new BubbleAimedData(bubbleView.Model, aimedSide, copyOfAimPathWithFinalPositionOnGrid);
+                AimedPieceData = new PieceAimedData(pieceView.Model, aimedSide, copyOfAimPathWithFinalPositionOnGrid);
             }
             else
             {
@@ -114,36 +114,36 @@ namespace Project.Aiming
 
         private void ResetAimData()
         {
-            AimedBubbleData = null;
+            AimedPieceData = null;
             AimPath.Clear();
         }
 
-        private BubbleSide GetBubbleAimedSide(Vector2 hitPoint, Vector2 bubblePosition)
+        private PieceSide GetPieceAimedSide(Vector2 hitPoint, Vector2 piecePosition)
         {
-            var result = BubbleSide.None;
+            var result = PieceSide.None;
 
-            var hitOffset = hitPoint - bubblePosition;
+            var hitOffset = hitPoint - piecePosition;
             if (hitOffset.x < 0 && hitOffset.y < 0)
             {
-                result = BubbleSide.BottomLeft;
+                result = PieceSide.BottomLeft;
             }
             else if (hitOffset.x < 0 && hitOffset.y >= 0)
             {
-                result = BubbleSide.TopLeft;
+                result = PieceSide.TopLeft;
             }
             else if (hitOffset.x >= 0 && hitOffset.y < 0)
             {
-                result = BubbleSide.BottomRight;
+                result = PieceSide.BottomRight;
             }
             else if (hitOffset.x >= 0 && hitOffset.y >= 0)
             {
-                result = BubbleSide.TopRight;
+                result = PieceSide.TopRight;
             }
 
-            if (result == BubbleSide.None)
+            if (result == PieceSide.None)
             {
-                Debug.LogError("Side of bubble hit was not calculated properly. Returning BottmLeft");
-                return BubbleSide.BottomLeft;
+                Debug.LogError("Side of piece hit was not calculated properly. Returning BottmLeft");
+                return PieceSide.BottomLeft;
             }
 
             return result;

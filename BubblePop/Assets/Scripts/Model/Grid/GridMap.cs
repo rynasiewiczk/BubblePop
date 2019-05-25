@@ -9,7 +9,7 @@ namespace Project.Grid
     public class GridMap : IGridMap
     {
         public ReactiveProperty<Vector2Int> Size { get; private set; }
-        public ReactiveCollection<IBubble> BubblesRegistry { get; private set; }
+        public ReactiveCollection<IBubble> PiecesRegistry { get; private set; }
         public ReactiveCollection<ICell> CellsRegistry { get; private set; }
 
         public ReactiveDictionary<int, GridRowSide> GridRowSidesMap { get; private set; }
@@ -20,7 +20,7 @@ namespace Project.Grid
 
             Size = new ReactiveProperty<Vector2Int>(gridSettings.StartGridSize);
             CellsRegistry = new ReactiveCollection<ICell>();
-            BubblesRegistry = new ReactiveCollection<IBubble>();
+            PiecesRegistry = new ReactiveCollection<IBubble>();
 
             Size.Value = gridSettings.StartGridSize;
         }
@@ -33,7 +33,7 @@ namespace Project.Grid
 
         public IBubble GetBubbleAtPositionOrNull(Vector2Int position)
         {
-            foreach (var bubble in BubblesRegistry)
+            foreach (var bubble in PiecesRegistry)
             {
                 if (bubble.Position.Value == position)
                 {
@@ -83,24 +83,24 @@ namespace Project.Grid
 
         private void AddBubbleToRegistry(IBubble bubble)
         {
-            if (BubblesRegistry.FirstOrDefault(x => x.Position.Value == bubble.Position.Value) != null)
+            if (PiecesRegistry.FirstOrDefault(x => x.Position.Value == bubble.Position.Value) != null)
             {
                 Debug.LogError("BubblesRegistry already contains bubble at position " + bubble.Position.Value);
             }
 
             bubble.Destroyed.Subscribe(x => RemoveDestroyedBubbleFromRegistry(bubble));
-            BubblesRegistry.Add(bubble);
+            PiecesRegistry.Add(bubble);
         }
 
         private void RemoveDestroyedBubbleFromRegistry(IBubble bubble)
         {
-            if (!BubblesRegistry.Contains(bubble))
+            if (!PiecesRegistry.Contains(bubble))
             {
                 Debug.LogError("BubblesRegistry does not contain provided bubble! Position of provided bubble: " + bubble.Position + ". Returning.");
                 return;
             }
 
-            BubblesRegistry.Remove(bubble);
+            PiecesRegistry.Remove(bubble);
         }
     }
 }

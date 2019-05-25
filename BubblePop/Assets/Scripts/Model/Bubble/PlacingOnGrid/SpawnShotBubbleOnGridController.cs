@@ -10,14 +10,14 @@ namespace Project.Pieces.PlacingOnGrid
     {
         private readonly SpawnPieceOnGridSignal _spawnPieceOnGridSignal = new SpawnPieceOnGridSignal();
 
-        public SpawnShotBubbleOnGridController(IGameStateController gameStateController, IFindingCellToShootBubbleController findingCellToShootBubbleController,
+        public SpawnShotBubbleOnGridController(IGameStateController gameStateController, IFindingCellToShootPieceController findingCellToShootPieceController,
             INextBubbleLevelToSpawnController nextBubbleLevelToSpawnController, SignalBus signalBus)
         {
             var gameStateController1 = gameStateController;
 
             gameStateController1.GamePlayState.Where(x => x == GamePlayState.PlacingBubbleOnGrid).Subscribe(x =>
             {
-                _spawnPieceOnGridSignal.Position = findingCellToShootBubbleController.BubbleDestination;
+                _spawnPieceOnGridSignal.Position = findingCellToShootPieceController.PieceDestinationPosition;
                 _spawnPieceOnGridSignal.Level = nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Value;
                 signalBus.Fire(_spawnPieceOnGridSignal);
                 
