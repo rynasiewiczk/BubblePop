@@ -2,10 +2,8 @@
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
-using Zenject;
 
-[Serializable]
-public class AimingSettings
+[Serializable] public class AimingSettings
 {
     [OdinSerialize, ShowInInspector] private int _screenWidthAimPositionPercentage = 50;
     [OdinSerialize, ShowInInspector] private int _screenHeightAimPositionPercentage = 15;
@@ -14,6 +12,6 @@ public class AimingSettings
 
     public Vector2 GetAimingPositionInViewPortPosition()
     {
-        return new Vector2((float)_screenWidthAimPositionPercentage/100, (float)_screenHeightAimPositionPercentage/100);
+        return new Vector2((float) _screenWidthAimPositionPercentage / 100, (float) _screenHeightAimPositionPercentage / 100);
     }
 }

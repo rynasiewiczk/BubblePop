@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Project.Aiming;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -8,8 +9,7 @@ namespace View.Aiming.PrewarmBubbleDisplay
     public class AimingBubble : MonoBehaviour
     {
         [Inject] private readonly BubbleViewSettings _bubbleViewSettings = null;
-        [Inject] private readonly AimingSettings _aimingSettings = null;
-        [Inject] private readonly Camera _camera = null;
+        [Inject] private readonly IAimingStartPointProvider _aimingStartPointProvider = null;
 
         [SerializeField] private SpriteRenderer _spriteRenderer = null;
         [SerializeField] private TextMeshPro _text = null;
@@ -31,7 +31,7 @@ namespace View.Aiming.PrewarmBubbleDisplay
             _text.text = value.ToString();
 
             var startScale = _bubbleViewSettings.SmallPrewarmBubbleSize;
-            Vector2 targetPosition = _camera.ViewportToWorldPoint(_aimingSettings.GetAimingPositionInViewPortPosition());
+            var targetPosition = _aimingStartPointProvider.GetAimingStartPoint();
             var duration = _bubbleViewSettings.AimingBubbleTransitionDuration;
 
             _scalingTween?.Kill();

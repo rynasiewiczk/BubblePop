@@ -1,3 +1,4 @@
+using Project.Aiming;
 using UnityEngine;
 using Zenject;
 
@@ -5,21 +6,16 @@ namespace View.FlyingAfterAiming
 {
     public class FlyingBubbleViewPool : MonoMemoryPool<FlyingBubbleView>
     {
-        private readonly AimingSettings _aimingSettings = null;
-        private readonly Camera _camera = null;
+        private readonly IAimingStartPointProvider _aimingStartPointProvider = null;
 
-        public FlyingBubbleViewPool(AimingSettings aimingSettings, Camera camera)
+        public FlyingBubbleViewPool(IAimingStartPointProvider aimingStartPointProvider)
         {
-            _aimingSettings = aimingSettings;
-            _camera = camera;
+            _aimingStartPointProvider = aimingStartPointProvider;
         }
 
         protected override void Reinitialize(FlyingBubbleView item)
         {
-            var viewportPosition = _aimingSettings.GetAimingPositionInViewPortPosition();
-            var worldPosition = _camera.ViewportToWorldPoint(viewportPosition);
-
-            item.transform.position = worldPosition;
+            item.transform.position = _aimingStartPointProvider.GetAimingStartPoint();
         }
     }
 }

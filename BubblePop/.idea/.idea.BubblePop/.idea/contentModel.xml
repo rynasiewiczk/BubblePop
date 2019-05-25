@@ -871,9 +871,11 @@
             <e p="Aiming" t="Include">
               <e p="AimingDirectionObserver.cs" t="Include" />
               <e p="AimingSettings.cs" t="Include" />
+              <e p="AimingStartPointProvider.cs" t="Include" />
               <e p="BubbleAimedData.cs" t="Include" />
               <e p="BubbleDestinationFinder.cs" t="Include" />
               <e p="IAimingDirectionObserver.cs" t="Include" />
+              <e p="IAimingStartPointProvider.cs" t="Include" />
               <e p="IBubbleDestinationFinder.cs" t="Include" />
               <e p="StateObservers" t="Include">
                 <e p="FindingCellToShootBubbleController.cs" t="Include" />
@@ -924,6 +926,7 @@
               <e p="FindConnectedBubblesWithSameLevelController.cs" t="Include" />
               <e p="IFindConnectedBubblesWithSameLevelController.cs" t="Include" />
             </e>
+            <e p="GameplayCamera.cs" t="Include" />
             <e p="GameState" t="Include">
               <e p="GameStateController.cs" t="Include" />
               <e p="IGameStateController.cs" t="Include" />
@@ -947,6 +950,7 @@
                 <e p="GridDebugger.cs" t="Include" />
               </e>
             </e>
+            <e p="IGameplayCamera.cs" t="Include" />
             <e p="Input" t="Include">
               <e p="IInputEventsNotifier.cs" t="Include" />
               <e p="InputInstaller.cs" t="Include" />

@@ -15,22 +15,20 @@ namespace View.FlyingAfterAiming
         private readonly INextBubbleLevelToSpawnController _nextBubbleLevelToSpawnController = null;
         private readonly PiecesData _piecesData = null;
         private readonly IGridMap _gridMap = null;
-        private readonly AimingSettings _aimingSettings = null;
-        private readonly Camera _camera = null;
-
+        private readonly IAimingStartPointProvider _aimingStartPointProvider = null;
+        
         private readonly FlyingBubbleViewPool _flyingBubbleViewPool = null;
         private readonly List<Vector2> _pathCopyList = new List<Vector2>();
 
         public FlyingBubbleViewController(IFindingCellToShootBubbleController findingCellToShootBubbleController, INextBubbleLevelToSpawnController nextBubbleLevelToSpawnController,
-            FlyingBubbleViewPool flyingBubbleViewPool, PiecesData piecesData, IGridMap gridMap, AimingSettings aimingSettings, Camera camera)
+            FlyingBubbleViewPool flyingBubbleViewPool, PiecesData piecesData, IGridMap gridMap, IAimingStartPointProvider aimingStartPointProvider)
         {
             _findingCellToShootBubbleController = findingCellToShootBubbleController;
             _nextBubbleLevelToSpawnController = nextBubbleLevelToSpawnController;
             _flyingBubbleViewPool = flyingBubbleViewPool;
             _piecesData = piecesData;
             _gridMap = gridMap;
-            _aimingSettings = aimingSettings;
-            _camera = camera;
+            _aimingStartPointProvider = aimingStartPointProvider;
 
             _findingCellToShootBubbleController.BubbleFlyPath.Where(x => x != null && x.Length > 0).Subscribe(SpawnView);
         }
@@ -76,9 +74,9 @@ namespace View.FlyingAfterAiming
 
         private float GetDistanceToCover(Vector2[] path, Vector3[] path3d)
         {
-            var startPosition = _camera.ViewportToWorldPoint(_aimingSettings.GetAimingPositionInViewPortPosition());
+            var startPosition = _aimingStartPointProvider.GetAimingStartPoint();
             var distance = 0f;
-            distance = ((Vector2) path3d[0] - (Vector2) startPosition).magnitude;
+            distance = ((Vector2) path3d[0] - startPosition).magnitude;
             for (int i = 1; i < path.Length; i++)
             {
                 distance += (path[i] - path[i - 1]).magnitude;

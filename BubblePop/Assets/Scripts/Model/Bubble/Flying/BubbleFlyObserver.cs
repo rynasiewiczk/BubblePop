@@ -1,6 +1,5 @@
 using Model;
 using Project.Aiming;
-using Sirenix.Utilities;
 using UniRx;
 using UnityEngine;
 using DG.Tweening;
@@ -12,17 +11,15 @@ namespace Project.Pieces
     {
         private readonly IGameStateController _gameStateController = null;
         private readonly PiecesData _piecesData = null;
-        private readonly AimingSettings _aimingSettings = null;
-        private readonly Camera _camera = null;
-
-        public BubbleFlyObserver(IGameStateController gameStateController, PiecesData piecesData, AimingSettings aimingSettings, Camera camera,
+        private readonly IAimingStartPointProvider _aimingStartPointProvider = null;
+        
+        public BubbleFlyObserver(IGameStateController gameStateController, PiecesData piecesData, IAimingStartPointProvider aimingStartPointProvider,
             IFindingCellToShootBubbleController findingCellToShootBubbleController)
         {
             _gameStateController = gameStateController;
             _piecesData = piecesData;
-            _aimingSettings = aimingSettings;
-            _camera = camera;
-
+            _aimingStartPointProvider = aimingStartPointProvider;
+            
             findingCellToShootBubbleController.BubbleFlyPath.Skip(1).Where(x => x.Length > 0).Subscribe(x =>
             {
                 _gameStateController.ChangeGamePlayState(GamePlayState.BubbleFlying);
@@ -47,7 +44,7 @@ namespace Project.Pieces
             {
                 if (i == 0)
                 {
-                    var pathElement = flyPath[i] - (Vector2) _camera.ViewportToWorldPoint(_aimingSettings.GetAimingPositionInViewPortPosition());
+                    var pathElement = flyPath[i] - _aimingStartPointProvider.GetAimingStartPoint();
                     distance += pathElement.magnitude;
                 }
                 else

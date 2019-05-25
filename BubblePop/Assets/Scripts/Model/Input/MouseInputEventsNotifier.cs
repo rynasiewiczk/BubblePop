@@ -1,4 +1,5 @@
-﻿using Project.Input;
+﻿using Model;
+using Project.Input;
 using UniRx;
 using UnityEngine;
 using Zenject;
@@ -9,12 +10,12 @@ public class MouseInputEventsNotifier : ITickable, IInputEventsNotifier
     public ReactiveProperty<Vector2> OnInputEnd { get; private set; }
     public ReactiveProperty<Vector2> OnInputMove { get; private set; }
 
-    private readonly Camera _camera;
+    private readonly Camera _gameplayCamera;
 
-    public MouseInputEventsNotifier(Camera camera)
+    public MouseInputEventsNotifier(IGameplayCamera gameplayCamera)
     {
-        _camera = camera;
-        
+        _gameplayCamera = gameplayCamera.Camera;
+
         OnInputStart = new ReactiveProperty<Vector2>();
         OnInputMove = new ReactiveProperty<Vector2>();
         OnInputEnd = new ReactiveProperty<Vector2>();
@@ -31,7 +32,7 @@ public class MouseInputEventsNotifier : ITickable, IInputEventsNotifier
     {
         if (Input.GetMouseButtonDown(0))
         {
-            OnInputStart.Value = _camera.ScreenToWorldPoint(Input.mousePosition);
+            OnInputStart.Value = _gameplayCamera.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 
@@ -39,7 +40,7 @@ public class MouseInputEventsNotifier : ITickable, IInputEventsNotifier
     {
         if (Input.GetMouseButton(0))
         {
-            OnInputMove.Value = _camera.ScreenToWorldPoint(Input.mousePosition);
+            OnInputMove.Value = _gameplayCamera.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 
@@ -47,7 +48,7 @@ public class MouseInputEventsNotifier : ITickable, IInputEventsNotifier
     {
         if (Input.GetMouseButtonUp(0))
         {
-            OnInputEnd.Value = _camera.ScreenToWorldPoint(Input.mousePosition);
+            OnInputEnd.Value = _gameplayCamera.ScreenToWorldPoint(Input.mousePosition);
         }
     }
 }

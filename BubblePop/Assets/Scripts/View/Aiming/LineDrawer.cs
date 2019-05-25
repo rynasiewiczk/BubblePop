@@ -9,10 +9,9 @@ namespace View.Aiming
 {
     public class LineDrawer : MonoBehaviour
     {
-        [Inject] private readonly AimingSettings _aimingSettings = null;
-        [Inject] private readonly Camera _camera = null;
         [Inject] private readonly IBubbleDestinationFinder _bubbleDestinationFinder = null;
         [Inject] private readonly IGameStateController _gameStateController = null;
+        [Inject] private readonly IAimingStartPointProvider _aimingStartPointProvider = null;
 
         [SerializeField] private LineRenderer _line = null;
 
@@ -42,7 +41,7 @@ namespace View.Aiming
 
             EnableLine();
             _line.positionCount = path.Count + 1;
-            var startPoint = _camera.ViewportToWorldPoint(_aimingSettings.GetAimingPositionInViewPortPosition());
+            var startPoint = _aimingStartPointProvider.GetAimingStartPoint();
             startPoint = new Vector3(startPoint.x, startPoint.y, 0);
             _line.SetPosition(0, startPoint);
 

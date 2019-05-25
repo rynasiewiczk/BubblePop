@@ -18,29 +18,29 @@ namespace Project.Aiming
 
         private readonly IAimingDirectionObserver _aimingDirectionObserver = null;
         private readonly IGridMap _gridMap = null;
+        private readonly IAimingStartPointProvider _aimingStartPointProvider = null;
         private readonly AimingSettings _aimingSettings = null;
-        private readonly Camera _camera = null;
 
         private readonly LayerMask _layerMask;
         private const float ADDITION_TO_REFLECTION_POINT_TO_AVOID_CURRENT_WALL_HIT = .1f;
         public List<Vector2> AimPath { get; private set; } = new List<Vector2>();
 
-        private Vector2 AimingPositionInWorldPoint => _camera.ViewportToWorldPoint(_aimingSettings.GetAimingPositionInViewPortPosition());
+        private Vector2 AimingPositionInWorldPoint => _aimingStartPointProvider.GetAimingStartPoint();
 
         public BubbleAimedData AimedBubbleData { get; private set; }
 
         public BubbleDestinationFinder(IGameStateController gameStateController, IInputEventsNotifier inputEventsNotifier,
-            IAimingDirectionObserver aimingDirectionObserver, AimingSettings aimingSettings, IGridMap gridMap, Camera camera)
+            IAimingDirectionObserver aimingDirectionObserver, IGridMap gridMap, IAimingStartPointProvider aimingStartPointProvider, AimingSettings aimingSettings)
         {
             _layerMask = LayerMask.GetMask(_bubbleLayerName, _wallLayerName, _topWallLayerName);
             _aimingDirectionObserver = aimingDirectionObserver;
-            _aimingSettings = aimingSettings;
             _gridMap = gridMap;
-            _camera = camera;
+            _aimingStartPointProvider = aimingStartPointProvider;
+            _aimingSettings = aimingSettings;
 
             inputEventsNotifier.OnInputStart.Where(x => /*gameStateController.GamePlayState.Value == GamePlayState.Aiming &&*/ AimingAboveStartingPoint())
                 .Subscribe(x => FireRaycastToFindPositionForBubble(AimingPositionInWorldPoint, 0));
-            
+
             inputEventsNotifier.OnInputMove.Where(x => gameStateController.GamePlayState.Value == GamePlayState.Aiming && AimingAboveStartingPoint())
                 .Subscribe(x => FireRaycastToFindPositionForBubble(AimingPositionInWorldPoint, 0));
         }
@@ -175,7 +175,7 @@ namespace Project.Aiming
             {
                 return startPoint;
             }
-            
+
             if (startPoint.x - _aimingDirectionObserver.AimingStartPosition.x < 0)
             {
                 startPoint = new Vector2(startPoint.x + ADDITION_TO_REFLECTION_POINT_TO_AVOID_CURRENT_WALL_HIT, startPoint.y);

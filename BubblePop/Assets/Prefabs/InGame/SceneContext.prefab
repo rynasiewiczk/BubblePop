@@ -78,7 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b70e2c2bf28dab40b4530db65760e05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
 --- !u!114 &995091664302746567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3888e4092cd5ab4f8ef58d805da9be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameplayCamera: {fileID: 0}
 --- !u!114 &995091664302746566
 MonoBehaviour:
   m_ObjectHideFlags: 0

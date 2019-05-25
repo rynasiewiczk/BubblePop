@@ -9,19 +9,17 @@ namespace Project.Aiming
     public class AimingDirectionObserver : IAimingDirectionObserver
     {
         public ReactiveProperty<Vector2> AimingDirection { get; }
-        public Vector2 AimingStartPosition => _camera.ViewportToWorldPoint(_aimingSettings.GetAimingPositionInViewPortPosition());
 
-        private readonly AimingSettings _aimingSettings = null;
-        private readonly Camera _camera = null;
+        private readonly IAimingStartPointProvider _aimingStartPointProvider;
+        public Vector2 AimingStartPosition => _aimingStartPointProvider.GetAimingStartPoint();
         private bool _trackAimDirection;
 
-        public AimingDirectionObserver(IGameStateController gameStateController, IInputEventsNotifier inputEventsNotifier, AimingSettings aimingSettings,
-            Camera camera)
+        public AimingDirectionObserver(IGameStateController gameStateController, IInputEventsNotifier inputEventsNotifier,
+            IAimingStartPointProvider aimingStartPointProvider)
         {
             AimingDirection = new ReactiveProperty<Vector2>();
 
-            _aimingSettings = aimingSettings;
-            _camera = camera;
+            _aimingStartPointProvider = aimingStartPointProvider;
 
             gameStateController.GamePlayState.Where(x => x == GamePlayState.Aiming).Subscribe(x => _trackAimDirection = true);
             gameStateController.GamePlayState.Where(x => x != GamePlayState.Aiming).Subscribe(x => _trackAimDirection = false);
