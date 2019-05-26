@@ -6,6 +6,6 @@ namespace Model.FindingMatches
 {
     public interface IFindConnectedPiecesWithSameLevelController
     {
-        ReactiveProperty<List<IBubble>> PiecesToCombine { get; }
+        ReactiveCommand<List<IBubble>> CombinePieces { get; }
     }
 }

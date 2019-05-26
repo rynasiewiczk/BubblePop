@@ -32,7 +32,7 @@ namespace Model.CombiningBubbles
             _bubblesCombineDuration = piecesData.CombiningDuration;
             _gameStateController = gameStateController;
             _signalBus = signalBus;
-            piecesWithSameLevelController.PiecesToCombine.Where(x => x != null && x.Count > 1).Subscribe(CollapseBubbles);
+            piecesWithSameLevelController.CombinePieces.Where(x => x != null && x.Count > 1).Subscribe(CollapseBubbles);
         }
 
         private void CollapseBubbles(List<IBubble> bubbles)
