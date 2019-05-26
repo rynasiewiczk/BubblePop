@@ -13,9 +13,6 @@ MonoBehaviour:
   m_Name: TypeCache
   m_EditorClassIdentifier: 
   Contents:
-  - Path: Assets/Resources/Ingame/BubbleDataInstaller.asset
-    Type: BubbleDataInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
   - Path: Assets/Plugins/Sirenix/Odin Inspector/Config/Resources/Sirenix/GlobalSerializationConfig.asset
     Type: Sirenix.Serialization.GlobalSerializationConfig, Sirenix.Serialization.Config,
       Version=1.0.6.9, Culture=neutral, PublicKeyToken=null
@@ -61,5 +58,7 @@ MonoBehaviour:
   - Path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
     Type: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  - Path: Assets/Resources/Ingame/BubbleDataInstaller.asset
+    Type: PieceDataInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   - Path: Assets/Resources/Ingame/UiDataInstaller.asset
     Type: UiDataInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null

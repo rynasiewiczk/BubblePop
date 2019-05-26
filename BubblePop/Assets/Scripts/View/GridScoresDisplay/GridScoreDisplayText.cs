@@ -11,6 +11,8 @@ namespace View.GridScoresDisplay
 
         [SerializeField] private TextMeshProUGUI _text = null;
 
+        private RectTransform RectTransform => transform as RectTransform;
+        
         private float _lifeTimeLeft = 0;
         private float _moveUpSpeed = 0;
         private float _fadeOutSpeed = 0;
@@ -45,7 +47,7 @@ namespace View.GridScoresDisplay
         public void Setup(Vector2 position, string score, float fontSize, Color color)
         {
             transform.localScale = Vector3.one;
-            transform.position = position;
+            RectTransform.anchoredPosition = position;
 
             _text.text = score;
             _text.fontSize = fontSize;

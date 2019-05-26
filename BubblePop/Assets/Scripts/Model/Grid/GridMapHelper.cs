@@ -78,6 +78,12 @@ namespace Project.Grid
             return angles;
         }
 
+        public static Vector2 GetCellsViewPosition(this IGridMap gridMap, Vector2 position)
+        {
+            var intPosition = new Vector2Int((int)position.x, (int)position.y);
+            return gridMap.GetCellsViewPosition(intPosition);
+        }
+        
         public static Vector2 GetCellsViewPosition(this IGridMap gridMap, Vector2Int position)
         {
             var offsetX = 0f;
