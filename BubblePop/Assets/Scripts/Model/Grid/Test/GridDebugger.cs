@@ -46,7 +46,7 @@ public class GridDebugger : MonoBehaviour
 
     private void DrawLineForBubblesAbovePlayableArea()
     {
-        var height = GridMapHelper.GetHeightOfRows(_gridSettings.StartGridSize.y)- .5f;
+        var height = GridMapHelper.GetHeightOfRowsInWorldPosition(_gridSettings.StartGridSize.y)- .5f;
         
         Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector2(-30, height), new Vector2(30, height));
@@ -54,7 +54,7 @@ public class GridDebugger : MonoBehaviour
 
     private void DrawLineForTopRowAvailableForBubbles()
     {
-        var level = GridMapHelper.GetHeightOfRows(_gridSettings.RowToScrollTokensDown)- .5f;
+        var level = GridMapHelper.GetHeightOfRowsInWorldPosition(_gridSettings.RowToScrollTokensDown)- .5f;
 
         Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector2(-30, level), new Vector2(30, level));
@@ -62,7 +62,7 @@ public class GridDebugger : MonoBehaviour
 
     private void DrawLineForBottomRowAvailableForBubbles()
     {
-        var level = GridMapHelper.GetHeightOfRows(_gridSettings.AlwasFreeBottomLines) - .5f;
+        var level = GridMapHelper.GetHeightOfRowsInWorldPosition(_gridSettings.AlwasFreeBottomLines) - .5f;
 
         Gizmos.color = Color.red;
         Gizmos.DrawLine(new Vector2(-30, level), new Vector2(30, level));

@@ -33,7 +33,7 @@ namespace View
         private void Scroll(ScrollRowsSignal signal)
         {
             var rowsToScroll = signal.RowsToScroll;
-            var distanceToScroll = GridMapHelper.GetHeightOfRows(rowsToScroll);
+            var distanceToScroll = GridMapHelper.GetHeightOfRowsInWorldPosition(rowsToScroll);
 
             _tween?.Kill();
 

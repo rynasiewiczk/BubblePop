@@ -71,19 +71,27 @@ namespace Project.Grid
         private static float GetAngleOfPieceHit(Vector2 hitPointRelativeToPiecesCenter)
         {
             const float RADUIS = .5f;
-            
+
             var sinus = Mathf.Abs(hitPointRelativeToPiecesCenter.y) / RADUIS;
             var radians = Mathf.Asin(sinus);
             var angles = Mathf.Rad2Deg * radians;
             return angles;
         }
 
+
+        public static Vector2Int GetCellPositionByWorldPosition(this IGridMap gridMap, Vector2 position)
+        {
+            var column = Mathf.RoundToInt(position.x);
+            var row = GetRowByWorldHeight(position.y);
+            return new Vector2Int(column, row);
+        }
+
         public static Vector2 GetCellsViewPosition(this IGridMap gridMap, Vector2 position)
         {
-            var intPosition = new Vector2Int((int)position.x, (int)position.y);
+            var intPosition = new Vector2Int((int) position.x, (int) position.y);
             return gridMap.GetCellsViewPosition(intPosition);
         }
-        
+
         public static Vector2 GetCellsViewPosition(this IGridMap gridMap, Vector2Int position)
         {
             var offsetX = 0f;
@@ -93,7 +101,7 @@ namespace Project.Grid
             }
 
             var viewPositionInX = position.x + offsetX;
-            var viewPositionInY = GetHeightOfRows(position.y);
+            var viewPositionInY = GetHeightOfRowsInWorldPosition(position.y);
             return new Vector2(viewPositionInX, viewPositionInY);
         }
 
@@ -118,7 +126,7 @@ namespace Project.Grid
             {
                 if (cell != null && cell.Position.y >= gridTopLine)
                 {
-                    var bubbleAtPosition = gridMap.GetBubbleAtPositionOrNull(cell.Position);
+                    var bubbleAtPosition = gridMap.GetPieceAtPositionOrNull(cell.Position);
                     if (bubbleAtPosition == null)
                     {
                         list.Add(cell);
@@ -143,7 +151,7 @@ namespace Project.Grid
             return list;
         }
 
-        public static float GetHeightOfRows(int rows)
+        public static float GetHeightOfRowsInWorldPosition(int rows)
         {
             var heightBetweenRows = Mathf.Pow(Mathf.Pow(DISTANCE_BETWEEN_BUBBLES, 2) - Mathf.Pow(HALF_OF_DISTANCE_BETWEEN_BUBBLES, 2), .5f);
 
@@ -151,9 +159,24 @@ namespace Project.Grid
             return result;
         }
 
+        public static int GetRowByWorldHeight(float height)
+        {
+            var heightBetweenRows = Mathf.Pow(Mathf.Pow(DISTANCE_BETWEEN_BUBBLES, 2) - Mathf.Pow(HALF_OF_DISTANCE_BETWEEN_BUBBLES, 2), .5f);
+
+            int row = 0;
+
+            while (height > 0.1f)
+            {
+                row++;
+                height -= heightBetweenRows;
+            }
+
+            return row;
+        }
+
         private static bool BubbleExistsAtPosition(this IGridMap gridMap, Vector2Int position)
         {
-            var bubble = gridMap.GetBubbleAtPositionOrNull(position);
+            var bubble = gridMap.GetPieceAtPositionOrNull(position);
             return bubble != null;
         }
     }

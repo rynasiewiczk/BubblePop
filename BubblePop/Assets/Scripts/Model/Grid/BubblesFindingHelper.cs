@@ -43,7 +43,7 @@ namespace Project.Grid
 
         public static List<IBubble> FindBubblesToCollapse(this IGridMap gridMap, int level, Vector2Int position, List<IBubble> bufferList)
         {
-            var bubbleAtPosition = gridMap.GetBubbleAtPositionOrNull(position);
+            var bubbleAtPosition = gridMap.GetPieceAtPositionOrNull(position);
             if (bubbleAtPosition != null)
             {
                 bufferList.Add(bubbleAtPosition);
@@ -71,7 +71,7 @@ namespace Project.Grid
 
             var posToCheck = startPos + dirToCheck;
 
-            var bubbleAtPosition = map.GetBubbleAtPositionOrNull(posToCheck);
+            var bubbleAtPosition = map.GetPieceAtPositionOrNull(posToCheck);
 
             if (dirToCheck == dirToIgnore || bubbleAtPosition == null || bufferList.Contains(bubbleAtPosition))
             {
@@ -169,7 +169,7 @@ namespace Project.Grid
 
             foreach (var checkVector in checkVectors)
             {
-                var bubble = gridMap.GetBubbleAtPositionOrNull(position + checkVector);
+                var bubble = gridMap.GetPieceAtPositionOrNull(position + checkVector);
                 if (bubble != null)
                 {
                     bufferList.Add(bubble);

@@ -31,7 +31,7 @@ namespace Project.Grid
             return cell;
         }
 
-        public IBubble GetBubbleAtPositionOrNull(Vector2Int position)
+        public IBubble GetPieceAtPositionOrNull(Vector2Int position)
         {
             foreach (var bubble in PiecesRegistry)
             {

@@ -283,6 +283,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1628350729}
   - component: {fileID: 1628350730}
+  - component: {fileID: 1628350731}
   m_Layer: 0
   m_Name: Debugger
   m_TagString: Untagged
@@ -313,11 +314,29 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628350728}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0093c4a2fd1ba547abc1da3efd2854b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1628350731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628350728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7853d67a0cd8f240a498ba1ae8fabe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cellsColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  _switches: 1
+  _showGrid: 1
+  _showLineForBottomRowAvailableForBubbles: 0
+  _showLineForTopRowAvailableForBubbles: 1
+  _showLineForBubblesAbovePlayableArea: 0
 --- !u!1 &1805834169
 GameObject:
   m_ObjectHideFlags: 0

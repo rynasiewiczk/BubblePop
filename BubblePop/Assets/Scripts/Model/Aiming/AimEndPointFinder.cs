@@ -51,16 +51,16 @@ namespace Project.Aiming
             return _aimingDirectionObserver.AimingDirection.Value.y > 0;
         }
 
-        private void FireRaycastToFindPositionForPiece(Vector2 startPoint, int reflections = 0)
+        private void FireRaycastToFindPositionForPiece(Vector2 startPoint, int wallsReflections = 0)
         {
-            if (reflections == 0)
+            if (wallsReflections == 0)
             {
                 ResetAimData();
             }
 
             startPoint = AdjustStartPointToAvoidHitSameObject(startPoint);
 
-            var aimingDirection = SetAimingDirection(reflections);
+            var aimingDirection = SetAimingDirection(wallsReflections);
 
             var raycastHit = GetHitCollider(startPoint, aimingDirection, out var collider);
             if (collider == null)
@@ -69,15 +69,29 @@ namespace Project.Aiming
                 return;
             }
 
-            if (collider.gameObject.layer == LayerMask.NameToLayer(_topWallLayerName))
+            if (TopWallWasHit(collider))
             {
-                ResetAimData();
+                var cellPosition =
+                    _gridMap.GetCellPositionByWorldPosition(new Vector2(raycastHit.point.x, raycastHit.point.y + _gridMap.GetCellsViewPosition(Vector2.up).y));
+                var pieceAtPosition = _gridMap.GetPieceAtPositionOrNull(cellPosition);
+
+                var hitPointRelativeToPiecesCenter = raycastHit.point - cellPosition;
+                var aimedSide = hitPointRelativeToPiecesCenter.x > 0 ? PieceSide.BottomLeft : PieceSide.BottomRight;
+
+                AimPath.Add(raycastHit.point);
+
+                var invertedAimSide = aimedSide == PieceSide.BottomLeft ? PieceSide.BottomRight : PieceSide.BottomLeft;
+                var finalPositionOnGrid = _gridMap.GetPositionToSpawnPiece(pieceAtPosition, invertedAimSide, cellPosition - raycastHit.point);
+                var copyOfAimPathWithFinalPositionOnGrid = AimPath.ToArray();
+                copyOfAimPathWithFinalPositionOnGrid[AimPath.Count - 1] = finalPositionOnGrid;
+                AimedPieceData = new PieceAimedData(pieceAtPosition, aimedSide, copyOfAimPathWithFinalPositionOnGrid);
+
                 return;
             }
 
-            if (collider.gameObject.layer == LayerMask.NameToLayer(_wallLayerName))
+            if (SideWallWasHit(collider))
             {
-                if (reflections >= _aimingSettings.MaxAmountOfWallBounces)
+                if (wallsReflections >= _aimingSettings.MaxAmountOfWallBounces)
                 {
                     ResetAimData();
                     return;
@@ -89,10 +103,11 @@ namespace Project.Aiming
 
                 AimPath.Add(hitPosition);
 
-                reflections++;
-                FireRaycastToFindPositionForPiece(hitPosition, reflections);
+                wallsReflections++;
+                FireRaycastToFindPositionForPiece(hitPosition, wallsReflections);
             }
-            else if (collider.gameObject.layer == LayerMask.NameToLayer(_bubbleLayerName))
+
+            else if (PieceWasHit(collider))
             {
                 var piecePosition = collider.gameObject.transform.position;
                 var aimedSide = GetPieceAimedSide(raycastHit.point, piecePosition);
@@ -112,6 +127,21 @@ namespace Project.Aiming
                 ResetAimData();
                 Debug.LogWarning("Raycast hit not expected layer. Hit layer: " + collider.gameObject.layer);
             }
+        }
+
+        private bool TopWallWasHit(Collider2D collider)
+        {
+            return collider.gameObject.layer == LayerMask.NameToLayer(_topWallLayerName);
+        }
+
+        private bool SideWallWasHit(Collider2D collider)
+        {
+            return collider.gameObject.layer == LayerMask.NameToLayer(_wallLayerName);
+        }
+
+        private bool PieceWasHit(Collider2D collider)
+        {
+            return collider.gameObject.layer == LayerMask.NameToLayer(_bubbleLayerName);
         }
 
         private void ResetAimData()

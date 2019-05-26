@@ -13,7 +13,7 @@ namespace Project.Grid
         ICell GetCellAtPositionOrNull(Vector2Int position);
         ReactiveDictionary<int, GridRowSide> GridRowSidesMap { get; }
         
-        IBubble GetBubbleAtPositionOrNull(Vector2Int position);
+        IBubble GetPieceAtPositionOrNull(Vector2Int position);
         void CreateCellsRegistry(List<ICell> cells);
 
         void CreateGridRowSidesMap(Dictionary<int, GridRowSide> dictionary);
