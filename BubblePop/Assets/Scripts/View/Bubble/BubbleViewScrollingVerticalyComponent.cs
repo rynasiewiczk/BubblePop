@@ -3,6 +3,7 @@ using Model.ScrollingRowsDown;
 using Project.Grid;
 using UnityEngine;
 using Zenject;
+using UniRx;
 
 namespace View
 {
@@ -10,7 +11,7 @@ namespace View
     {
         [SerializeField] private BubbleView _view = null;
 
-        [Inject] private readonly SignalBus _signalBus = null;
+        [Inject] private readonly IScrollRowsController _scrollRowsController = null;
         [Inject] private readonly GridSettings _gridSettings = null;
 
         private Tween _tween;
@@ -22,22 +23,15 @@ namespace View
 
         private void Start()
         {
-            _signalBus.Subscribe<ScrollRowsSignal>(Scroll);
+            _scrollRowsController.RowsScrolled.Subscribe(Scroll);
         }
 
-        private void OnDestroy()
+        private void Scroll(int rowsToScroll)
         {
-            _signalBus.TryUnsubscribe<ScrollRowsSignal>(Scroll);
-        }
-
-        private void Scroll(ScrollRowsSignal signal)
-        {
-            var rowsToScroll = signal.RowsToScroll;
             var distanceToScroll = GridMapHelper.GetHeightOfRowsInWorldPosition(rowsToScroll);
-
             _tween?.Kill();
-
-            _tween = transform.DOMoveY(transform.position.y + distanceToScroll, _gridSettings.ScrollOneRowDuration * Mathf.Abs(rowsToScroll));
+            _tween = transform.DOMoveY(transform.position.y + distanceToScroll, _gridSettings.ScrollOneRowDuration * Mathf.Abs(rowsToScroll))
+                .SetEase(_gridSettings.ScrollAnimationCurve);
         }
     }
 }

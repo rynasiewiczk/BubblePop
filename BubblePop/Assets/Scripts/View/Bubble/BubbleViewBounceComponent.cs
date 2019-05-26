@@ -1,5 +1,4 @@
 ﻿using DG.Tweening;
-using Project.Grid;
 using UnityEngine;
 using View;
 using Zenject;
@@ -37,9 +36,7 @@ public class BubbleViewBounceComponent : MonoBehaviour
 
         var direction = ((Vector2) transform.position - signal.SoucrePosition).normalized;
         _tween?.Kill();
-        _tween = transform.DOLocalMove(direction * _bubbleViewSettings.OnHitBounceDistance, _bubbleViewSettings.OnHidBounceHalfDuration).OnComplete(() =>
-        {
-            _tween = transform.DOLocalMove(Vector2.zero, _bubbleViewSettings.OnHidBounceHalfDuration);
-        });
+        _tween = transform.DOLocalMove(direction * _bubbleViewSettings.OnHitBounceDistance, _bubbleViewSettings.OnHidBounceHalfDuration).SetEase(Ease.InOutSine)
+            .OnComplete(() => { _tween = transform.DOLocalMove(Vector2.zero, _bubbleViewSettings.OnHidBounceHalfDuration); });
     }
 }

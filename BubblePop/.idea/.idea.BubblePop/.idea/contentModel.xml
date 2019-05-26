@@ -976,7 +976,6 @@
             <e p="ScrollingRowsDown" t="Include">
               <e p="IScrollRowsController.cs" t="Include" />
               <e p="ScrollRowsController.cs" t="Include" />
-              <e p="ScrollRowsSignal.cs" t="Include" />
             </e>
           </e>
           <e p="View" t="Include">

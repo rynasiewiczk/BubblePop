@@ -19,5 +19,6 @@ namespace Project.Grid
         public int RowToScrollTokensDown = 6;
 
         public float ScrollOneRowDuration = .25f;
+        public AnimationCurve ScrollAnimationCurve = null;
     }
 }

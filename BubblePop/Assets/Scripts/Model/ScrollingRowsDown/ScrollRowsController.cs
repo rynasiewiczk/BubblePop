@@ -5,7 +5,6 @@ using Enums;
 using Project.Pieces;
 using Project.Grid;
 using UniRx;
-using Zenject;
 
 namespace Model.ScrollingRowsDown
 {
@@ -14,14 +13,15 @@ namespace Model.ScrollingRowsDown
         private readonly IGameStateController _gameStateController = null;
         private readonly IGridMap _gridMap = null;
         private readonly GridSettings _gridSettings = null;
-        private readonly SignalBus _signalBus = null;
-        private readonly ScrollRowsSignal _scrollRowsSignal = new ScrollRowsSignal();
+        
+        public ReactiveCommand<int> RowsScrolled { get; }
 
-        public ScrollRowsController(IGameStateController gameStateController, IGridMap gridMap, SignalBus signalBus, GridSettings gridSettings)
+        public ScrollRowsController(IGameStateController gameStateController, IGridMap gridMap, GridSettings gridSettings)
         {
+            RowsScrolled = new ReactiveCommand<int>();
+            
             _gameStateController = gameStateController;
             _gridMap = gridMap;
-            _signalBus = signalBus;
             _gridSettings = gridSettings;
             _gameStateController.GamePlayState.Where(x => x == GamePlayState.ScrollRows).Subscribe(x => ScrollRowsIfNeeded());
         }
@@ -44,7 +44,7 @@ namespace Model.ScrollingRowsDown
             {
                 ScrollRowsUp(allTokens);
 
-                FireScrollRowsSignal(1);
+                ExecuteRowScrolledCommand(1);
 
                 DOVirtual.DelayedCall(_gridSettings.ScrollOneRowDuration, () => _gameStateController.ChangeGamePlayState(GamePlayState.FillBubblesAboveTop), false);
                 return;
@@ -54,17 +54,16 @@ namespace Model.ScrollingRowsDown
             {
                 ScrollRowsDown(allTokens);
 
-                FireScrollRowsSignal(-1);
+                ExecuteRowScrolledCommand(-1);
 
                 DOVirtual.DelayedCall(_gridSettings.ScrollOneRowDuration,
                     () => _gameStateController.ChangeGamePlayState(GamePlayState.FillBubblesAboveTop), false);
             }
         }
 
-        private void FireScrollRowsSignal(int rowsToScroll)
+        private void ExecuteRowScrolledCommand(int rowsToScroll)
         {
-            _scrollRowsSignal.RowsToScroll = rowsToScroll;
-            _signalBus.Fire(_scrollRowsSignal);
+            RowsScrolled.Execute(rowsToScroll);
         }
 
         private void ScrollRowsUp(List<IBubble> list)
@@ -111,5 +110,6 @@ namespace Model.ScrollingRowsDown
                 }
             }
         }
+
     }
 }

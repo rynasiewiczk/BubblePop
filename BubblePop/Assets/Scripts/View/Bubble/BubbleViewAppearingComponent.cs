@@ -39,7 +39,8 @@ namespace View
             }
 
             if (View.Model == null)
-            {ScaleDown(true);
+            {
+                ScaleDown(true);
                 return;
             }
 
@@ -98,7 +99,7 @@ namespace View
             }
             else
             {
-                _tween = transform.DOScale(Vector3.one, _bubbleViewSettings.AppearScaleDuration);
+                _tween = transform.DOScale(Vector3.one, _bubbleViewSettings.AppearScaleDuration).SetEase(_bubbleViewSettings.AppearFromTopScaleEase);
             }
 
             _scaledUp = true;

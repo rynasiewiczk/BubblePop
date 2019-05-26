@@ -34,7 +34,6 @@ public class GridActionsInstaller : Installer<GridActionsInstaller>
         Container.DeclareSignal<DroppingUnlinkedBubbleSignal>();
 
         Container.BindInterfacesTo<ScrollRowsController>().AsSingle().NonLazy();
-        Container.DeclareSignal<ScrollRowsSignal>();
 
         Container.BindInterfacesTo<FillingBubblesAbovePlayspaceController>().AsSingle().NonLazy();
     }
