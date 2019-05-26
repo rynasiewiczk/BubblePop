@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - Bubble
-  - Wall
+  - Piece
+  - SideWall
   - GridText
   - TopWall
   - 

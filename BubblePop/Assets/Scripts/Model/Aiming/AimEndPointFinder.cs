@@ -13,8 +13,8 @@ namespace Project.Aiming
     public class AimEndPointFinder : IAimEndPointFinder
     {
         private readonly string _topWallLayerName = SRLayers.TopWall.name;
-        private readonly string _wallLayerName = SRLayers.Wall.name;
-        private readonly string _bubbleLayerName = SRLayers.Bubble.name;
+        private readonly string _sideWallLayerName = SRLayers.SideWall.name;
+        private readonly string _pieces = SRLayers.Piece.name;
 
         private readonly IAimingDirectionObserver _aimingDirectionObserver = null;
         private readonly IGridMap _gridMap = null;
@@ -33,7 +33,7 @@ namespace Project.Aiming
             IAimingDirectionObserver aimingDirectionObserver, IGridMap gridMap, IAimingStartPointProvider aimingStartPointProvider,
             AimingSettings aimingSettings)
         {
-            _layerMask = LayerMask.GetMask(_bubbleLayerName, _wallLayerName, _topWallLayerName);
+            _layerMask = LayerMask.GetMask(_pieces, _sideWallLayerName, _topWallLayerName);
             _aimingDirectionObserver = aimingDirectionObserver;
             _gridMap = gridMap;
             _aimingStartPointProvider = aimingStartPointProvider;
@@ -111,7 +111,7 @@ namespace Project.Aiming
             {
                 var piecePosition = collider.gameObject.transform.position;
                 var aimedSide = GetPieceAimedSide(raycastHit.point, piecePosition);
-                //todo: get position on row for the collider and get bubble from GridMap
+                //todo: get position on row for the collider and get piece from GridMap
                 var pieceView = collider.gameObject.GetComponentInParent<BubbleView>();
 
                 AimPath.Add(raycastHit.point);
@@ -136,12 +136,12 @@ namespace Project.Aiming
 
         private bool SideWallWasHit(Collider2D collider)
         {
-            return collider.gameObject.layer == LayerMask.NameToLayer(_wallLayerName);
+            return collider.gameObject.layer == LayerMask.NameToLayer(_sideWallLayerName);
         }
 
         private bool PieceWasHit(Collider2D collider)
         {
-            return collider.gameObject.layer == LayerMask.NameToLayer(_bubbleLayerName);
+            return collider.gameObject.layer == LayerMask.NameToLayer(_pieces);
         }
 
         private void ResetAimData()

@@ -46,7 +46,7 @@ namespace Model.ScrollingRowsDown
 
                 FireScrollRowsSignal(1);
 
-                DOVirtual.DelayedCall(_gridSettings.ScrollOneRowDuration, () => _gameStateController.ChangeGamePlayState(GamePlayState.FillBubblesAboveTop));
+                DOVirtual.DelayedCall(_gridSettings.ScrollOneRowDuration, () => _gameStateController.ChangeGamePlayState(GamePlayState.FillBubblesAboveTop), false);
                 return;
             }
 
@@ -57,7 +57,7 @@ namespace Model.ScrollingRowsDown
                 FireScrollRowsSignal(-1);
 
                 DOVirtual.DelayedCall(_gridSettings.ScrollOneRowDuration,
-                    () => _gameStateController.ChangeGamePlayState(GamePlayState.FillBubblesAboveTop));
+                    () => _gameStateController.ChangeGamePlayState(GamePlayState.FillBubblesAboveTop), false);
             }
         }
 

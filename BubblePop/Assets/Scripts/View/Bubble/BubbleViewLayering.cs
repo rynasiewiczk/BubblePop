@@ -1,5 +1,3 @@
-using System;
-using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -44,8 +42,7 @@ namespace View
         private void UpdateLayerOfRenderers(int row)
         {
             _spriteRenderer.sortingOrder = row * BubbleViewSettings.RENDER_LAYERS_MULTIPLAYER;
-            DOVirtual.DelayedCall(0,
-                () => { _text.sortingOrder = row * BubbleViewSettings.RENDER_LAYERS_MULTIPLAYER + BubbleViewSettings.TEXT_RENDER_LAYER_ADDITION; });
+            _text.sortingOrder = row * BubbleViewSettings.RENDER_LAYERS_MULTIPLAYER + BubbleViewSettings.TEXT_RENDER_LAYER_ADDITION;
         }
     }
 }

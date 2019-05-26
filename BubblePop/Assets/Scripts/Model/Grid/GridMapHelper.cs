@@ -159,11 +159,11 @@ namespace Project.Grid
             return result;
         }
 
-        public static int GetRowByWorldHeight(float height)
+        private static int GetRowByWorldHeight(float height)
         {
             var heightBetweenRows = Mathf.Pow(Mathf.Pow(DISTANCE_BETWEEN_BUBBLES, 2) - Mathf.Pow(HALF_OF_DISTANCE_BETWEEN_BUBBLES, 2), .5f);
 
-            int row = 0;
+            var row = 0;
 
             while (height > 0.1f)
             {

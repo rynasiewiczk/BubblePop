@@ -35,9 +35,9 @@ public sealed class SRLayerMask {
     
     public const int UI = 32;
     
-    public const int Bubble = 256;
+    public const int Piece = 256;
     
-    public const int Wall = 512;
+    public const int SideWall = 512;
     
     public const int GridText = 1024;
     

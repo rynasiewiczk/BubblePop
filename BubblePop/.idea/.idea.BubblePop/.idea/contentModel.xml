@@ -839,6 +839,9 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Calculations" t="Include">
+            <e p="VectorsHelper.cs" t="Include" />
+          </e>
           <e p="Debugg" t="Include">
             <e p="GameStateDebugger.cs" t="Include" />
             <e p="NextBubbleDebug.cs" t="Include" />
@@ -909,22 +912,22 @@
               </e>
             </e>
             <e p="CombiningBubbles" t="Include">
-              <e p="CombineBubblesController.cs" t="Include" />
               <e p="CombineBubbleSignal.cs" t="Include" />
+              <e p="CombinePiecesController.cs" t="Include" />
               <e p="DroppingDisconnectedBubbles" t="Include">
                 <e p="DroppingUnlinkedBubbleSignal.cs" t="Include" />
                 <e p="DropUnlinkedBubblesController.cs" t="Include" />
                 <e p="IDropUnlinkedBubblesController.cs" t="Include" />
               </e>
-              <e p="ICombineBubblesController.cs" t="Include" />
+              <e p="ICombinePiecesController.cs" t="Include" />
             </e>
             <e p="FillingBubblesAbovePlayspace" t="Include">
               <e p="FillingBubblesAbovePlayspaceController.cs" t="Include" />
               <e p="IFillingBubblesAbovePlayspaceController.cs" t="Include" />
             </e>
             <e p="FindingMatches" t="Include">
-              <e p="FindConnectedBubblesWithSameLevelController.cs" t="Include" />
-              <e p="IFindConnectedBubblesWithSameLevelController.cs" t="Include" />
+              <e p="FindConnectedPiecesWithSameLevelController.cs" t="Include" />
+              <e p="IFindConnectedPiecesWithSameLevelController.cs" t="Include" />
             </e>
             <e p="GameplayCamera.cs" t="Include" />
             <e p="GameState" t="Include">

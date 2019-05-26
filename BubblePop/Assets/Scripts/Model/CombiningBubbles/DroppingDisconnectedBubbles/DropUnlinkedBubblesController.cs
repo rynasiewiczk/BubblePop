@@ -11,7 +11,7 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
     {
         private readonly IGridMap _gridMap = null;
         private readonly IGameStateController _gameStateController = null;
-        private readonly ICombineBubblesController _combineBubblesController = null;
+        private readonly ICombinePiecesController _combinePiecesController = null;
         private readonly GridSettings _gridSettings = null;
         private readonly SignalBus _signalBus = null;
         
@@ -23,13 +23,13 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
         private List<IBubble> _topRowBubbles = new List<IBubble>();
         private readonly List<IBubble> _allConnectedBubbles = new List<IBubble>();
 
-        public DropUnlinkedBubblesController(IGridMap gridMap, IGameStateController gameStateController, ICombineBubblesController combineBubblesController,
+        public DropUnlinkedBubblesController(IGridMap gridMap, IGameStateController gameStateController, ICombinePiecesController combinePiecesController,
             GridSettings gridSettings, SignalBus signalBus)
         {
             _gridMap = gridMap;
             _gridSettings = gridSettings;
             _gameStateController = gameStateController;
-            _combineBubblesController = combineBubblesController;
+            _combinePiecesController = combinePiecesController;
             _signalBus = signalBus;
 
             _gameStateController.GamePlayState.Where(x => x == GamePlayState.DropBubblesAfterCombining).Subscribe(x => DropUnlinkedBubbles());
@@ -77,7 +77,7 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
                 _bubblesToFall[i].Destroy();
             }
 
-            var nextState = _combineBubblesController.LastCombinedBubbleNeighboursWithSameLevelAmount <= 1 ? GamePlayState.ScrollRows : GamePlayState.BubblesCombining;
+            var nextState = _combinePiecesController.LastCombinedBubbleNeighboursWithSameLevelAmount <= 1 ? GamePlayState.ScrollRows : GamePlayState.BubblesCombining;
             _gameStateController.ChangeGamePlayState(nextState);
         }
     }

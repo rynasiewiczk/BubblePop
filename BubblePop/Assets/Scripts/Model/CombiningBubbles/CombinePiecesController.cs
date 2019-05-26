@@ -11,7 +11,7 @@ using Zenject;
 
 namespace Model.CombiningBubbles
 {
-    public class CombineBubblesController : ICombineBubblesController
+    public class CombinePiecesController : ICombinePiecesController
     {
         private readonly IGridMap _gridMap = null;
         private readonly List<IBubble> _bubblesToCollapseBufferList = new List<IBubble>(10);
@@ -25,14 +25,14 @@ namespace Model.CombiningBubbles
 
         private readonly float _bubblesCombineDuration;
         
-        public CombineBubblesController(IGridMap gridMap, IFindConnectedBubblesWithSameLevelController bubblesWithSameLevelController, PiecesData piecesData,
+        public CombinePiecesController(IGridMap gridMap, IFindConnectedPiecesWithSameLevelController piecesWithSameLevelController, PiecesData piecesData,
             IGameStateController gameStateController, SignalBus signalBus)
         {
             _gridMap = gridMap;
             _bubblesCombineDuration = piecesData.CombiningDuration;
             _gameStateController = gameStateController;
             _signalBus = signalBus;
-            bubblesWithSameLevelController.BubblesToCombine.Where(x => x != null && x.Count > 1).Subscribe(CollapseBubbles);
+            piecesWithSameLevelController.PiecesToCombine.Where(x => x != null && x.Count > 1).Subscribe(CollapseBubbles);
         }
 
         private void CollapseBubbles(List<IBubble> bubbles)
@@ -77,7 +77,7 @@ namespace Model.CombiningBubbles
                 _signalBus.Fire(_bubblesCombiningDoneSignal);
 
                 _gameStateController.ChangeGamePlayState(GamePlayState.DropBubblesAfterCombining);
-            });
+            }, false);
         }
 
         private IBubble FindBubbleToCollapseTo(List<IBubble> bubbles, int level, out int nextNeighbours)

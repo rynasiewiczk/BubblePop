@@ -51,13 +51,13 @@ public sealed class SRLayers {
         }
     }
     
-    public static global::TypeSafe.Layer Bubble {
+    public static global::TypeSafe.Layer Piece {
         get {
             return @__all[5];
         }
     }
     
-    public static global::TypeSafe.Layer Wall {
+    public static global::TypeSafe.Layer SideWall {
         get {
             return @__all[6];
         }
@@ -81,8 +81,8 @@ public sealed class SRLayers {
                 new global::TypeSafe.Layer("Ignore Raycast", 2),
                 new global::TypeSafe.Layer("Water", 4),
                 new global::TypeSafe.Layer("UI", 5),
-                new global::TypeSafe.Layer("Bubble", 8),
-                new global::TypeSafe.Layer("Wall", 9),
+                new global::TypeSafe.Layer("Piece", 8),
+                new global::TypeSafe.Layer("SideWall", 9),
                 new global::TypeSafe.Layer("GridText", 10),
                 new global::TypeSafe.Layer("TopWall", 11)});
     
