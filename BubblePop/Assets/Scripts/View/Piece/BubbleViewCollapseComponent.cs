@@ -31,12 +31,12 @@ namespace View
 
         private void Combine(CombineBubbleSignal signal)
         {
-            if (signal.Bubble != _view.Model)
+            if (signal.Piece != _view.Model)
             {
                 return;
             }
 
-            var viewCombinePosition = _gridMap.GetCellsViewPosition(signal.CombinePosition);
+            var viewCombinePosition = _gridMap.GetViewPosition(signal.CombinePosition);
             transform.DOMove(viewCombinePosition, _piecesData.CombiningDuration);
         }
     }

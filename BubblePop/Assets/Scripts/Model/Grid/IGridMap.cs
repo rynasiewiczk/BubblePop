@@ -8,12 +8,12 @@ namespace Project.Grid
     public interface IGridMap
     {
         ReactiveProperty<Vector2Int> Size { get; }
-        ReactiveCollection<IBubble> PiecesRegistry { get; }
+        ReactiveCollection<IPiece> PiecesRegistry { get; }
         ReactiveCollection<ICell> CellsRegistry { get; }
         ICell GetCellAtPositionOrNull(Vector2Int position);
         ReactiveDictionary<int, GridRowSide> GridRowSidesMap { get; }
         
-        IBubble GetPieceAtPositionOrNull(Vector2Int position);
+        IPiece GetPieceAtPositionOrNull(Vector2Int position);
         void CreateCellsRegistry(List<ICell> cells);
 
         void CreateGridRowSidesMap(Dictionary<int, GridRowSide> dictionary);

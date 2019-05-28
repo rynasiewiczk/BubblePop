@@ -29,7 +29,7 @@ public class BubbleViewBounceComponent : MonoBehaviour
 
     private void BounceOnHit(OnBubbleHitSignal signal)
     {
-        if (signal.Bubble != _view.Model)
+        if (signal.Piece != _view.Model)
         {
             return;
         }

@@ -5,7 +5,7 @@ namespace Model.CombiningBubbles
 {
     public class CombineBubbleSignal
     {
-        public IBubble Bubble;
+        public IPiece Piece;
         public Vector2Int CombinePosition;
     }
 }

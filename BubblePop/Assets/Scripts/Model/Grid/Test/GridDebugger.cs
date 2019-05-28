@@ -76,7 +76,7 @@ public class GridDebugger : MonoBehaviour
 
         for (int i = 0; i < cellsRegistry.Count; i++)
         {
-            var viewPosition = _gridMap.GetCellsViewPosition(cellsRegistry[i].Position);
+            var viewPosition = _gridMap.GetViewPosition(cellsRegistry[i].Position);
             Gizmos.DrawWireSphere(viewPosition, .5f);
         }
     }

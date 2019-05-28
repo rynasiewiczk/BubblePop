@@ -11,9 +11,9 @@ namespace Model.FindingMatches
     {
         private readonly IGridMap _gridMap = null;
         private readonly IGameStateController _gameStateController = null;
-        public ReactiveCommand<List<IBubble>> CombinePieces { get; private set; } = new ReactiveCommand<List<IBubble>>();
+        public ReactiveCommand<List<IPiece>> CombinePieces { get; private set; } = new ReactiveCommand<List<IPiece>>();
 
-        private List<IBubble> _bubblesBufferList = new List<IBubble>(15);
+        private List<IPiece> _bubblesBufferList = new List<IPiece>(15);
 
         public FindConnectedPiecesWithSameLevelController(IGridMap gridMap, IGameStateController gameStateController, IBubblesSpawner bubblesSpawner)
         {
@@ -24,10 +24,10 @@ namespace Model.FindingMatches
                 .Subscribe(x => CombineBubbles(bubblesSpawner.LatestSpawnedBubble.Value));
         }
 
-        private void CombineBubbles(IBubble bubble)
+        private void CombineBubbles(IPiece piece)
         {
             _bubblesBufferList.Clear();
-            _bubblesBufferList = _gridMap.FindBubblesToCollapse(bubble, _bubblesBufferList);
+            _bubblesBufferList = _gridMap.FindBubblesToCollapse(piece, _bubblesBufferList);
 
             if (_bubblesBufferList.Count == 1)
             {

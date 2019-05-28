@@ -9,6 +9,11 @@
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Art" t="Include">
+          <e p="Shaders" t="Include">
+            <e p="DefaultParticleShader.shader" t="Include" />
+          </e>
+        </e>
         <e p="Demigiant" t="Include">
           <e p="DemiLib" t="Include">
             <e p="Core" t="Include">
@@ -888,13 +893,13 @@
               </e>
             </e>
             <e p="Bubble" t="Include">
-              <e p="Bubble.cs" t="Include" />
               <e p="BubblesPool.cs" t="Include" />
               <e p="Flying" t="Include">
                 <e p="BubbleFlyObserver.cs" t="Include" />
                 <e p="IBubbleFlyObserver.cs" t="Include" />
               </e>
-              <e p="IBubble.cs" t="Include" />
+              <e p="IPiece.cs" t="Include" />
+              <e p="Piece.cs" t="Include" />
               <e p="PiecesData.cs" t="Include" />
               <e p="PlacingOnGrid" t="Include">
                 <e p="ISpawnShotBubbleOnGridController.cs" t="Include" />
@@ -935,7 +940,6 @@
               <e p="IGameStateController.cs" t="Include" />
             </e>
             <e p="Grid" t="Include">
-              <e p="BubblesFindingHelper.cs" t="Include" />
               <e p="BuildingGrid" t="Include">
                 <e p="GridCellsBuilder.cs" t="Include" />
                 <e p="IGridCellsBuilder.cs" t="Include" />
@@ -949,6 +953,7 @@
               <e p="GridSettingsInstaller.cs" t="Include" />
               <e p="ICell.cs" t="Include" />
               <e p="IGridMap.cs" t="Include" />
+              <e p="PiecesFindingHelper.cs" t="Include" />
               <e p="Test" t="Include">
                 <e p="GridDebugger.cs" t="Include" />
               </e>
@@ -992,7 +997,13 @@
                 <e p="TargetBubbleDisplayController.cs" t="Include" />
               </e>
             </e>
-            <e p="Bubble" t="Include">
+            <e p="GridScoresDisplay" t="Include">
+              <e p="BubblesCombiningDoneSignal.cs" t="Include" />
+              <e p="GridScoreDisplayText.cs" t="Include" />
+              <e p="GridScoreDisplayTextPool.cs" t="Include" />
+              <e p="GridScoresDisplayController.cs" t="Include" />
+            </e>
+            <e p="Piece" t="Include">
               <e p="BounceOnHit" t="Include">
                 <e p="IViewBounceAfterBubbleArriveController.cs" t="Include" />
                 <e p="OnBubbleHitSignal.cs" t="Include" />
@@ -1003,6 +1014,12 @@
               <e p="BubbleViewCollapseComponent.cs" t="Include" />
               <e p="BubbleViewLayering.cs" t="Include" />
               <e p="BubbleViewScrollingVerticalyComponent.cs" t="Include" />
+              <e p="DestroyParticles" t="Include">
+                <e p="IPieceDestroyParticlesController.cs" t="Include" />
+                <e p="PieceDestroyParticles.cs" t="Include" />
+                <e p="PieceDestroyParticlesController.cs" t="Include" />
+                <e p="PieceDestroyParticlesPool.cs" t="Include" />
+              </e>
               <e p="DroppingUnconnected" t="Include">
                 <e p="DroppingBubbleView.cs" t="Include" />
                 <e p="DroppingBubbleViewPool.cs" t="Include" />
@@ -1020,12 +1037,6 @@
                 <e p="BubbleViewPool.cs" t="Include" />
                 <e p="BubbleViewSettings.cs" t="Include" />
               </e>
-            </e>
-            <e p="GridScoresDisplay" t="Include">
-              <e p="BubblesCombiningDoneSignal.cs" t="Include" />
-              <e p="GridScoreDisplayText.cs" t="Include" />
-              <e p="GridScoreDisplayTextPool.cs" t="Include" />
-              <e p="GridScoresDisplayController.cs" t="Include" />
             </e>
             <e p="Ui" t="Include">
               <e p="PlayerLevelDisplayController.cs" t="Include" />

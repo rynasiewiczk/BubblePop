@@ -61,7 +61,7 @@ public class GridScoresDisplayController : MonoBehaviour
 
     private Vector2 GetDisplayPoint(Vector2 gridPosition)
     {
-        var position = _gridMap.GetCellsViewPosition(gridPosition);
+        var position = _gridMap.GetViewPosition(gridPosition);
         var screenPoint = _gameplayCamera.Camera.WorldToScreenPoint(position);
         var referenceResolution = _canvasScaler.referenceResolution;
         var resolutionToCameraWidth = referenceResolution.x / _gameplayCamera.Camera.pixelWidth;

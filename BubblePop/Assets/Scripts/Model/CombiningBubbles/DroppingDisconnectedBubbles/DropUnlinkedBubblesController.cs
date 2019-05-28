@@ -17,11 +17,11 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
         
         private readonly DroppingUnlinkedBubbleSignal _droppingUnlinkedBubbleSignal = new DroppingUnlinkedBubbleSignal();
 
-        private List<IBubble> _allBubbles = new List<IBubble>();
-        private readonly List<IBubble> _bubblesToFall = new List<IBubble>();
-        private readonly List<IBubble> _bubblesToStay = new List<IBubble>();
-        private List<IBubble> _topRowBubbles = new List<IBubble>();
-        private readonly List<IBubble> _allConnectedBubbles = new List<IBubble>();
+        private List<IPiece> _allBubbles = new List<IPiece>();
+        private readonly List<IPiece> _bubblesToFall = new List<IPiece>();
+        private readonly List<IPiece> _bubblesToStay = new List<IPiece>();
+        private List<IPiece> _topRowBubbles = new List<IPiece>();
+        private readonly List<IPiece> _allConnectedBubbles = new List<IPiece>();
 
         public DropUnlinkedBubblesController(IGridMap gridMap, IGameStateController gameStateController, ICombinePiecesController combinePiecesController,
             GridSettings gridSettings, SignalBus signalBus)

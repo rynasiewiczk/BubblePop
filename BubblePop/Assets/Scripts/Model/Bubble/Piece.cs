@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace Project.Pieces
 {
-    [Serializable] public class Bubble : IBubble
+    [Serializable] public class Piece : IPiece
     {
         public ReactiveProperty<Vector2Int> Position { get; private set; }
         public ReactiveProperty<int> Level { get; private set; }
-        public ReactiveCommand<IBubble> Destroyed { get; private set; }
+        public ReactiveCommand<IPiece> Destroyed { get; private set; }
 
         public void Setup(Vector2Int position, int level)
         {
-            Destroyed = new ReactiveCommand<IBubble>();
+            Destroyed = new ReactiveCommand<IPiece>();
 
             Position = new ReactiveProperty<Vector2Int>(position);
             Level = new IntReactiveProperty(level);

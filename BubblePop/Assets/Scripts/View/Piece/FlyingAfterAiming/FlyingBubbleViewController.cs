@@ -51,7 +51,7 @@ namespace View.FlyingAfterAiming
             {
                 if (i == _pathCopyList.Count - 1)
                 {
-                    _pathCopyList[i] = _gridMap.GetCellsViewPosition(_findingCellToShootPieceController.PieceDestinationPosition);
+                    _pathCopyList[i] = _gridMap.GetViewPosition(_findingCellToShootPieceController.PieceDestinationPosition);
                 }
 
                 path3d[i] = _pathCopyList[i];

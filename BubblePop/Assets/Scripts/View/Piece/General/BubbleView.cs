@@ -1,4 +1,5 @@
-﻿using Project.Pieces;
+﻿using System;
+using Project.Pieces;
 using Project.Grid;
 using TMPro;
 using UnityEngine;
@@ -8,11 +9,13 @@ public class BubbleView : MonoBehaviour
 {
     [Inject] private readonly PiecesData _piecesData = null;
     [Inject] private readonly IGridMap _gridMap = null;
-    
+
     [SerializeField] private SpriteRenderer _spriteRenderer = null;
     [SerializeField] private TextMeshPro _text = null;
 
-    public IBubble Model { get; private set; }
+    public Action OnSetuped;
+
+    public IPiece Model { get; private set; }
 
     private void Awake()
     {
@@ -20,17 +23,24 @@ public class BubbleView : MonoBehaviour
         Debug.Assert(_text, "Missing reference: _text", this);
     }
 
-    public void Setup(IBubble model)
+    private void OnDisable()
+    {
+        Model = null;
+    }
+
+    public void Setup(IPiece model)
     {
         Model = model;
         SetPosition(model.Position.Value);
         SetColor(model.Level.Value);
         SetValue(model.Level.Value);
+
+        OnSetuped?.Invoke();
     }
 
     private void SetPosition(Vector2Int position)
     {
-        var viewPosition = _gridMap.GetCellsViewPosition(position);
+        var viewPosition = _gridMap.GetViewPosition(position);
         transform.position = viewPosition;
     }
 

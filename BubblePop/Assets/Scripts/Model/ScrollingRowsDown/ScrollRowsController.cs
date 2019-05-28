@@ -30,7 +30,7 @@ namespace Model.ScrollingRowsDown
         {
             var allTokens = _gridMap.GetAllBubblesOnGrid();
 
-            var lowestToken = BubblesFindingHelper.GetLowestRowWithBubble(allTokens);
+            var lowestToken = PiecesFindingHelper.GetLowestRowWithBubble(allTokens);
             var bottomEdge = _gridSettings.AlwasFreeBottomLines;
             var topEdge = _gridSettings.RowToScrollTokensDown;
 
@@ -66,7 +66,7 @@ namespace Model.ScrollingRowsDown
             RowsScrolled.Execute(rowsToScroll);
         }
 
-        private void ScrollRowsUp(List<IBubble> list)
+        private void ScrollRowsUp(List<IPiece> list)
         {
             list = list.OrderBy(x => x.Position.Value.y).ToList();
 
@@ -90,7 +90,7 @@ namespace Model.ScrollingRowsDown
             }
         }
 
-        private void ScrollRowsDown(List<IBubble> list)
+        private void ScrollRowsDown(List<IPiece> list)
         {
             list = list.OrderByDescending(x => x.Position.Value.y).ToList();
 

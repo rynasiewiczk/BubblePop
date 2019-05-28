@@ -9,7 +9,7 @@ namespace Project.Grid
     public class GridMap : IGridMap
     {
         public ReactiveProperty<Vector2Int> Size { get; private set; }
-        public ReactiveCollection<IBubble> PiecesRegistry { get; private set; }
+        public ReactiveCollection<IPiece> PiecesRegistry { get; private set; }
         public ReactiveCollection<ICell> CellsRegistry { get; private set; }
 
         public ReactiveDictionary<int, GridRowSide> GridRowSidesMap { get; private set; }
@@ -20,7 +20,7 @@ namespace Project.Grid
 
             Size = new ReactiveProperty<Vector2Int>(gridSettings.StartGridSize);
             CellsRegistry = new ReactiveCollection<ICell>();
-            PiecesRegistry = new ReactiveCollection<IBubble>();
+            PiecesRegistry = new ReactiveCollection<IPiece>();
 
             Size.Value = gridSettings.StartGridSize;
         }
@@ -31,7 +31,7 @@ namespace Project.Grid
             return cell;
         }
 
-        public IBubble GetPieceAtPositionOrNull(Vector2Int position)
+        public IPiece GetPieceAtPositionOrNull(Vector2Int position)
         {
             foreach (var bubble in PiecesRegistry)
             {
@@ -81,26 +81,26 @@ namespace Project.Grid
 
         }
 
-        private void AddBubbleToRegistry(IBubble bubble)
+        private void AddBubbleToRegistry(IPiece piece)
         {
-            if (PiecesRegistry.FirstOrDefault(x => x.Position.Value == bubble.Position.Value) != null)
+            if (PiecesRegistry.FirstOrDefault(x => x.Position.Value == piece.Position.Value) != null)
             {
-                Debug.LogError("BubblesRegistry already contains bubble at position " + bubble.Position.Value);
+                Debug.LogError("BubblesRegistry already contains bubble at position " + piece.Position.Value);
             }
 
-            bubble.Destroyed.Subscribe(x => RemoveDestroyedBubbleFromRegistry(bubble));
-            PiecesRegistry.Add(bubble);
+            piece.Destroyed.Subscribe(x => RemoveDestroyedBubbleFromRegistry(piece));
+            PiecesRegistry.Add(piece);
         }
 
-        private void RemoveDestroyedBubbleFromRegistry(IBubble bubble)
+        private void RemoveDestroyedBubbleFromRegistry(IPiece piece)
         {
-            if (!PiecesRegistry.Contains(bubble))
+            if (!PiecesRegistry.Contains(piece))
             {
-                Debug.LogError("BubblesRegistry does not contain provided bubble! Position of provided bubble: " + bubble.Position + ". Returning.");
+                Debug.LogError("BubblesRegistry does not contain provided bubble! Position of provided bubble: " + piece.Position + ". Returning.");
                 return;
             }
 
-            PiecesRegistry.Remove(bubble);
+            PiecesRegistry.Remove(piece);
         }
     }
 }

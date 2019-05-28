@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using Project.Grid;
 using UnityEngine;
@@ -14,8 +15,6 @@ namespace View
         private bool _scaledUp = true;
         private Tween _tween;
 
-        private bool _justEnabled = false;
-
         private BubbleView View
         {
             get
@@ -28,6 +27,17 @@ namespace View
         private void Awake()
         {
             Debug.Assert(_view, "Missing reference: _view", this);
+        }
+
+        private void Start()
+        {
+            View.OnSetuped += InitScale;
+            ScaleDown(true);
+        }
+
+        private void OnDestroy()
+        {
+            View.OnSetuped -= InitScale;
         }
 
         private void Update()
@@ -44,27 +54,16 @@ namespace View
                 return;
             }
 
-            if (_justEnabled)
-            {
-                InitScale();
-            }
-            else
-            {
-                ScaleIfNeeded(View.Model.Position.Value);
-            }
-
-            _justEnabled = false;
-        }
-
-        private void OnEnable()
-        {
-            ScaleDown(true);
-
-            _justEnabled = true;
+            ScaleIfNeeded(View.Model.Position.Value);
         }
 
         private void InitScale()
         {
+            if (View == null || View.Model == null)
+            {
+                return;
+            }
+
             if (View.Model.Position.Value.y >= _gridSettings.StartGridSize.y)
             {
                 ScaleDown(true);

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Project.Pieces
 {
-    public interface IBubble
+    public interface IPiece
     {
         ReactiveProperty<Vector2Int> Position { get; }
         ReactiveProperty<int> Level { get; }
@@ -12,6 +12,6 @@ namespace Project.Pieces
         void MoveDownOneCell();
         
         void Destroy();
-        ReactiveCommand<IBubble> Destroyed { get; }
+        ReactiveCommand<IPiece> Destroyed { get; }
     }
 }

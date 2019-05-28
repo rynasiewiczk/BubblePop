@@ -13,7 +13,7 @@ namespace View
     {
         private readonly OnBubbleHitSignal _onBubbleHitSignal = new OnBubbleHitSignal();
 
-        private readonly List<IBubble> _aroundList = new List<IBubble>();
+        private readonly List<IPiece> _aroundList = new List<IPiece>();
 
         public ViewBounceAfterBubbleArriveController(IGameStateController gameStateController, IFindingCellToShootPieceController findingCellToShootPieceController,
             SignalBus signalBus, IGridMap gridMap)
@@ -21,14 +21,14 @@ namespace View
             gameStateController.GamePlayState.Where(x => x == GamePlayState.PlacingBubbleOnGrid).Subscribe(x =>
             {
                 var arrivePosition = findingCellToShootPieceController.PieceDestinationPosition;
-                var targetPosition = gridMap.GetCellsViewPosition(arrivePosition);
+                var targetPosition = gridMap.GetViewPosition(arrivePosition);
 
                 _aroundList.Clear();
                 var bubblesAround = gridMap.GetBubblesAroundPosition(arrivePosition, _aroundList);
 
                 foreach (var bubble in bubblesAround)
                 {
-                    _onBubbleHitSignal.Bubble = bubble;
+                    _onBubbleHitSignal.Piece = bubble;
                     _onBubbleHitSignal.SoucrePosition = targetPosition;
 
                     signalBus.Fire(_onBubbleHitSignal);

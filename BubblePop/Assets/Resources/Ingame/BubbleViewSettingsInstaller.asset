@@ -14,16 +14,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bubbleViewSettings:
     OnHitBounceDistance: 0.12
-    OnHidBounceHalfDuration: 0.1
+    OnHidBounceHalfDuration: 0.15
     AppearScaleDuration: 0.16
+    AppearFromTopScaleEase:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     SmallPrewarmBubbleSize: 0.75
     SmallPrewarmBubbleAppearDuration: 0.16
     AimingBubbleOverscale: 1.1
     AimingBubbleFromOverscaleToNormalDuration: 0.3
     AimingBubbleTransitionDuration: 0.13
     DropBubbleMinStartVerticalVelocity: 7
-    DropBubbleMaxStartVerticalVelocity: 7
     DropBubbleMaxHorizontalVelocity: 5
+    DropBubbleMaxStartVerticalVelocity: 7
     DropBubbleGravity: -35
     DropBubbleRotationSpeed: 75
     DropBubbleScaleReduceSpeed: 1

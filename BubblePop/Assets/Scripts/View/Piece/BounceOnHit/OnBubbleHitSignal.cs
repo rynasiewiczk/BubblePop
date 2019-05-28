@@ -5,7 +5,7 @@ namespace View
 {
     public class OnBubbleHitSignal
     {
-        public IBubble Bubble;
+        public IPiece Piece;
         public Vector2 SoucrePosition;
     }
 }

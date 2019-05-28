@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Project.Grid
 {
-    public static class BubblesFindingHelper
+    public static class PiecesFindingHelper
     {
         private const int BUBBLE_LEVEL_TO_PROVIDE_TO_IFNORE_LEVEL_CHECK = -1;
 
@@ -31,17 +31,17 @@ namespace Project.Grid
             new Vector2Int(1, 0),
         };
 
-        public static List<IBubble> FindBubblesToCollapse(this IGridMap map, IBubble startBubble, List<IBubble> bufferList)
+        public static List<IPiece> FindBubblesToCollapse(this IGridMap map, IPiece startPiece, List<IPiece> bufferList)
         {
-            bufferList.Add(startBubble);
-            var bubbleLevel = startBubble.Level.Value;
+            bufferList.Add(startPiece);
+            var bubbleLevel = startPiece.Level.Value;
 
-            GetNeighboursWithLevel(map, bubbleLevel, startBubble.Position.Value, Vector2Int.zero, bufferList);
+            GetNeighboursWithLevel(map, bubbleLevel, startPiece.Position.Value, Vector2Int.zero, bufferList);
 
             return bufferList;
         }
 
-        public static List<IBubble> FindBubblesToCollapse(this IGridMap gridMap, int level, Vector2Int position, List<IBubble> bufferList)
+        public static List<IPiece> FindBubblesToCollapse(this IGridMap gridMap, int level, Vector2Int position, List<IPiece> bufferList)
         {
             var bubbleAtPosition = gridMap.GetPieceAtPositionOrNull(position);
             if (bubbleAtPosition != null)
@@ -53,7 +53,7 @@ namespace Project.Grid
             return bufferList;
         }
 
-        private static void GetNeighboursWithLevel(IGridMap map, int level, Vector2Int startPos, Vector2Int dirToIgnore, List<IBubble> bufferList)
+        private static void GetNeighboursWithLevel(IGridMap map, int level, Vector2Int startPos, Vector2Int dirToIgnore, List<IPiece> bufferList)
         {
             var rowSide = map.GetGridSideForRow(startPos.y);
             var checkVectors = rowSide == GridRowSide.Left ? _leftRowCheckVectors : _rightRowCheckVectors;
@@ -65,7 +65,7 @@ namespace Project.Grid
         }
 
         private static void AddToListIfMatch(IGridMap map, int level, Vector2Int startPos, Vector2Int dirToCheck, Vector2Int dirToIgnore,
-            List<IBubble> bufferList)
+            List<IPiece> bufferList)
         {
             var oppositeDir = GetOppositeDir(dirToCheck, map.GetGridSideForRow(startPos.y));
 
@@ -124,25 +124,25 @@ namespace Project.Grid
             return dir;
         }
 
-        private static bool BubbleIsMatch(IGridMap gridMap, IBubble bubble, int level)
+        private static bool BubbleIsMatch(IGridMap gridMap, IPiece piece, int level)
         {
-            var result = bubble != null
-                         && (bubble.Level.Value == level || BUBBLE_LEVEL_TO_PROVIDE_TO_IFNORE_LEVEL_CHECK == level)
-                         && gridMap.IsBubblePlayable(bubble);
+            var result = piece != null
+                         && (piece.Level.Value == level || BUBBLE_LEVEL_TO_PROVIDE_TO_IFNORE_LEVEL_CHECK == level)
+                         && gridMap.IsBubblePlayable(piece);
             return result;
         }
         
-        public static void GetAllConnectedBubbles(this IGridMap gridMap, IBubble startBubble, List<IBubble> bubblesToStay,
-            List<IBubble> bufferListClearedOnEntry)
+        public static void GetAllConnectedBubbles(this IGridMap gridMap, IPiece startPiece, List<IPiece> bubblesToStay,
+            List<IPiece> bufferListClearedOnEntry)
         {
             bufferListClearedOnEntry.Clear();
-            bufferListClearedOnEntry = FindBubblesToCollapse(gridMap, BUBBLE_LEVEL_TO_PROVIDE_TO_IFNORE_LEVEL_CHECK, startBubble.Position.Value,
+            bufferListClearedOnEntry = FindBubblesToCollapse(gridMap, BUBBLE_LEVEL_TO_PROVIDE_TO_IFNORE_LEVEL_CHECK, startPiece.Position.Value,
                 bufferListClearedOnEntry);
 
             bubblesToStay.AddRange(bufferListClearedOnEntry);
         }
 
-        public static List<IBubble> GetAllTopPlayableRowBubblesOnGrid(this IGridMap gridMap, GridSettings gridSettings, List<IBubble> list)
+        public static List<IPiece> GetAllTopPlayableRowBubblesOnGrid(this IGridMap gridMap, GridSettings gridSettings, List<IPiece> list)
         {
             var topPlayableRow = gridSettings.StartGridSize.y - 1;
 
@@ -162,7 +162,7 @@ namespace Project.Grid
             return list;
         }
 
-        public static List<IBubble> GetBubblesAroundPosition(this IGridMap gridMap, Vector2Int position, List<IBubble> bufferList)
+        public static List<IPiece> GetBubblesAroundPosition(this IGridMap gridMap, Vector2Int position, List<IPiece> bufferList)
         {
             var rowSide = gridMap.GetGridSideForRow(position.y);
             var checkVectors = rowSide == GridRowSide.Left ? _leftRowCheckVectors : _rightRowCheckVectors;
@@ -179,7 +179,7 @@ namespace Project.Grid
             return bufferList;
         }
 
-        public static int GetLowestRowWithBubble(List<IBubble> listOfBubbles)
+        public static int GetLowestRowWithBubble(List<IPiece> listOfBubbles)
         {
             var lowestRow = int.MaxValue;
 
@@ -194,15 +194,15 @@ namespace Project.Grid
             return lowestRow;
         }
 
-        public static bool IsBubblePlayable(this IGridMap gridMap, IBubble bubble)
+        public static bool IsBubblePlayable(this IGridMap gridMap, IPiece piece)
         {
-            var disposed = bubble.Destroyed.IsDisposed;
+            var disposed = piece.Destroyed.IsDisposed;
             if (disposed)
             {
                 return false;
             }
 
-            var bubbleIsBelowTopOfPlayableGrid = bubble.Position.Value.y < gridMap.Size.Value.y;
+            var bubbleIsBelowTopOfPlayableGrid = piece.Position.Value.y < gridMap.Size.Value.y;
             return bubbleIsBelowTopOfPlayableGrid;
         }
     }

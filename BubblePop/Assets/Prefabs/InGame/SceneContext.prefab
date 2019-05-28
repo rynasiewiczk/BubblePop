@@ -109,6 +109,8 @@ MonoBehaviour:
     type: 3}
   _droppingBubbleView: {fileID: 43958752895433989, guid: 996203a310aa63941812ce7849187591,
     type: 3}
+  _pieceDestroyParticles: {fileID: 4944195888537709521, guid: a5f57b80efee3614da9c1c7b568effba,
+    type: 3}
 --- !u!114 &995091664302746553
 MonoBehaviour:
   m_ObjectHideFlags: 0

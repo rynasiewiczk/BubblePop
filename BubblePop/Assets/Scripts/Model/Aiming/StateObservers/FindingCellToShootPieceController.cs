@@ -42,7 +42,7 @@ namespace Project.Aiming
         {
             if (_aimEndPointFinder.AimedPieceData != null)
             {
-                var piecesViewPosition = _gridMap.GetCellsViewPosition(_aimEndPointFinder.AimedPieceData.Piece.Position.Value);
+                var piecesViewPosition = _gridMap.GetViewPosition(_aimEndPointFinder.AimedPieceData.Piece.Position.Value);
                 var hitPointRelativeToBubblesPosition = _aimEndPointFinder.AimPath.Last() - piecesViewPosition;
                 var positionToSpawnPiece = _gridMap.GetPositionToSpawnPiece(_aimEndPointFinder.AimedPieceData.Piece,
                     _aimEndPointFinder.AimedPieceData.AimedSide, hitPointRelativeToBubblesPosition);

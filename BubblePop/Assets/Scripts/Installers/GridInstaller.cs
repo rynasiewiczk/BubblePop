@@ -14,7 +14,7 @@ public class GridInstaller : Installer<GridInstaller>
         Container.BindInterfacesTo<GridCellsBuilder>().AsSingle().NonLazy();
         Container.BindInterfacesTo<InitialPiecesBuilder>().AsSingle().NonLazy();
 
-        Container.BindMemoryPool<Bubble, BubblesPool>()
-            .WithInitialSize(70);
+        Container.BindMemoryPool<Piece, BubblesPool>()
+            .WithInitialSize(50);
     }
 }

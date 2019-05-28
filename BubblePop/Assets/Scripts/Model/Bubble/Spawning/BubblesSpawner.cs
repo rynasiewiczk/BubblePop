@@ -7,7 +7,7 @@ namespace Project.Pieces
 {
     public class BubblesSpawner : IBubblesSpawner, IDisposable
     {
-        public ReactiveProperty<IBubble> LatestSpawnedBubble { get; private set; } = new ReactiveProperty<IBubble>();
+        public ReactiveProperty<IPiece> LatestSpawnedBubble { get; private set; } = new ReactiveProperty<IPiece>();
 
         private readonly BubblesPool _bubblesPool = null;
         private readonly PiecesData _piecesData = null;
@@ -27,12 +27,12 @@ namespace Project.Pieces
             _signalBus.TryUnsubscribe<SpawnPieceOnGridSignal>(signal => { SpawnBubble(signal); });
         }
 
-        public IBubble SpawnBubble(SpawnPieceOnGridSignal signal)
+        public IPiece SpawnBubble(SpawnPieceOnGridSignal signal)
         {
             return SpawnBubble(signal.Position, signal.Level);
         }
 
-        private IBubble SpawnBubble(Vector2Int position, int level)
+        private IPiece SpawnBubble(Vector2Int position, int level)
         {
             var bubble = _bubblesPool.Spawn(_piecesData);
             bubble.Setup(position, level);

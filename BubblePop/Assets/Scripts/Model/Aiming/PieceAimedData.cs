@@ -6,11 +6,11 @@ namespace Project.Aiming
 {
     public class PieceAimedData
     {
-        public readonly IBubble Piece;
+        public readonly IPiece Piece;
         public readonly PieceSide AimedSide;
         public readonly Vector2[] PathFromAimingPosition;
 
-        public PieceAimedData(IBubble piece, PieceSide aimedSide, Vector2[] pathFromAimingPosition)
+        public PieceAimedData(IPiece piece, PieceSide aimedSide, Vector2[] pathFromAimingPosition)
         {
             Piece = piece;
             AimedSide = aimedSide;

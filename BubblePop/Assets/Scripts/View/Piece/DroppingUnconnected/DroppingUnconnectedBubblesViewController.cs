@@ -31,7 +31,7 @@ public class DroppingUnconnectedBubblesViewController : IDroppingUnconnectedBubb
     private void DropBubbleView(DroppingUnlinkedBubbleSignal signal)
     {
         var bubble = _droppingBubbleViewPool.Spawn();
-        var position = _gridMap.GetCellsViewPosition(signal.Position);
+        var position = _gridMap.GetViewPosition(signal.Position);
         var color = _piecesData.GetColorForLevel(signal.Level);
         var value = _piecesData.GetValueInDisplayFormatFromPieceLevel(signal.Level, 0);
 

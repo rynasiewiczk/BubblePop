@@ -5,17 +5,17 @@ using UnityEngine;
 
 namespace View
 {
-    public class BubbleViewPool : MonoMemoryPool<IBubble, BubbleView>
+    public class BubbleViewPool : MonoMemoryPool<IPiece, BubbleView>
     {
         public BubbleViewPool(IBubblesSpawner bubblesSpawner)
         {
             bubblesSpawner.LatestSpawnedBubble.Where(x => x != null).Subscribe(x => Spawn(x));
         }
 
-        protected override void Reinitialize(IBubble bubble, BubbleView view)
+        protected override void Reinitialize(IPiece piece, BubbleView view)
         {
-            view.Setup(bubble);
-            bubble.Destroyed.Subscribe(x => Despawn(view));
+            view.Setup(piece);
+            piece.Destroyed.Subscribe(x => Despawn(view));
         }
     }
 }

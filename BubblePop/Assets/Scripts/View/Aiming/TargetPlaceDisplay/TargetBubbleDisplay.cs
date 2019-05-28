@@ -36,7 +36,7 @@ namespace View.Aiming.TargetPlaceDisplay
 
 
             var destination = aimedBubbleData.PathFromAimingPosition[aimedBubbleData.PathFromAimingPosition.Length - 1];
-            destination = _gridMap.GetCellsViewPosition(new Vector2Int((int) destination.x, (int) destination.y));
+            destination = _gridMap.GetViewPosition(new Vector2Int((int) destination.x, (int) destination.y));
             transform.position = destination;
         }
 

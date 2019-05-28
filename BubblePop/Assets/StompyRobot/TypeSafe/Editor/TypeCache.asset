@@ -16,8 +16,8 @@ MonoBehaviour:
   - Path: Assets/Plugins/Sirenix/Odin Inspector/Config/Resources/Sirenix/GlobalSerializationConfig.asset
     Type: Sirenix.Serialization.GlobalSerializationConfig, Sirenix.Serialization.Config,
       Version=1.0.6.9, Culture=neutral, PublicKeyToken=null
-  - Path: Assets/Resources/Ingame/GridSettingsInstaller.asset
-    Type: GridSettingsInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - Path: Assets/Resources/Ingame/BubbleViewSettingsInstaller.asset
+    Type: BubbleViewSettingsInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   - Path: Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt
     Type: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
@@ -52,8 +52,8 @@ MonoBehaviour:
   - Path: Assets/Resources/Ingame/PlayerLevelSettingsInstaller.asset
     Type: PlayerLevelSettingsInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  - Path: Assets/Resources/Ingame/BubbleViewSettingsInstaller.asset
-    Type: BubbleViewSettingsInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  - Path: Assets/Resources/Ingame/GridSettingsInstaller.asset
+    Type: GridSettingsInstaller, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   - Path: Assets/TextMesh Pro/Resources/Fonts & Materials/LiberationSans SDF.asset
     Type: TMPro.TMP_FontAsset, Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral,

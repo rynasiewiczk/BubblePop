@@ -1,5 +1,6 @@
 using UnityEngine;
 using View;
+using View.DestroyParticles;
 using View.DroppingUnconnected;
 using View.FlyingAfterAiming;
 using Zenject;
@@ -9,11 +10,12 @@ public class ViewInstaller : MonoInstaller
     [SerializeField] private BubbleView _bubbleView = null;
     [SerializeField] private FlyingBubbleView _flyingBubbleView = null;
     [SerializeField] private DroppingBubbleView _droppingBubbleView = null;
+    [SerializeField] private PieceDestroyParticles _pieceDestroyParticles = null;
 
     public override void InstallBindings()
     {
         Container.BindMemoryPool<BubbleView, BubbleViewPool>()
-            .WithInitialSize(60)
+            .WithInitialSize(50)
             .FromComponentInNewPrefab(_bubbleView)
             .UnderTransformGroup("BubbleViews");
 
@@ -33,5 +35,11 @@ public class ViewInstaller : MonoInstaller
             .UnderTransformGroup("DroppingBubbleViews");
 
         Container.BindInterfacesTo<DroppingUnconnectedBubblesViewController>().AsSingle().NonLazy();
+
+        Container.BindMemoryPool<PieceDestroyParticles, PieceDestroyParticlesPool>()
+            .WithInitialSize(10)
+            .FromComponentInNewPrefab(_pieceDestroyParticles)
+            .UnderTransformGroup("PieceDestroyParticles");
+        Container.BindInterfacesTo<PieceDestroyParticlesController>().AsSingle().NonLazy();
     }
 }

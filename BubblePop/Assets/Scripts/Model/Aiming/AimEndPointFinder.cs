@@ -72,7 +72,7 @@ namespace Project.Aiming
             if (TopWallWasHit(collider))
             {
                 var cellPosition =
-                    _gridMap.GetCellPositionByWorldPosition(new Vector2(raycastHit.point.x, raycastHit.point.y + _gridMap.GetCellsViewPosition(Vector2.up).y));
+                    _gridMap.GetCellPositionByWorldPosition(new Vector2(raycastHit.point.x, raycastHit.point.y + _gridMap.GetViewPosition(Vector2.up).y));
                 var pieceAtPosition = _gridMap.GetPieceAtPositionOrNull(cellPosition);
 
                 var hitPointRelativeToPiecesCenter = raycastHit.point - cellPosition;

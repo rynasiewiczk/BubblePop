@@ -4,7 +4,7 @@ namespace Project.Pieces
 {
     public interface IBubblesSpawner
     {
-        ReactiveProperty<IBubble> LatestSpawnedBubble { get; }
-        IBubble SpawnBubble(SpawnPieceOnGridSignal signal);
+        ReactiveProperty<IPiece> LatestSpawnedBubble { get; }
+        IPiece SpawnBubble(SpawnPieceOnGridSignal signal);
     }
 }

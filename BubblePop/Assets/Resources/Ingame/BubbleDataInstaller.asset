@@ -18,7 +18,7 @@ MonoBehaviour:
     _pieceLevelAvailableToSpawnAtstart: 3
     InitialMaxPiecesLevel: 5
     _flySpeed: 25
-    combiningDuration: 0.18
+    combiningDuration: 0.22
     _listOfColors:
     - {r: 0.9294118, g: 0.33333334, b: 0.3921569, a: 1}
     - {r: 0.98823535, g: 0.8078432, b: 0.32941177, a: 1}

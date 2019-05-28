@@ -12,7 +12,6 @@ public class InGameInstaller : MonoInstaller
         Random.InitState(42);
         
         Container.BindInterfacesTo<GameplayCamera>().FromInstance(_gameplayCamera).AsSingle();
-        //Container.BindInterfacesTo<AimingStartPointProvider>().AsSingle().NonLazy();
         
         GridActionsInstaller.Install(Container);
         GridInstaller.Install(Container);
