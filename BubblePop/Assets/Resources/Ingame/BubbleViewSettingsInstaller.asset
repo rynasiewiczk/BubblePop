@@ -50,6 +50,8 @@ MonoBehaviour:
     DropBubbleMaxStartVerticalVelocity: 7
     DropBubbleGravity: -35
     DropBubbleRotationSpeed: 75
-    DropBubbleScaleReduceSpeed: 1
-    DropBubbleTransparencyLossSpeed: 0.75
+    DropBubbleScaleReduceSpeed: 0
+    DropBubbleTransparencyLossSpeed: 0
     DroppBubbleHeightToDespawn: -3
+    DestroyOnCombineParticlesAmountRange: {x: 3, y: 6}
+    DestroyOnDropParticlesAmountRange: {x: 15, y: 18}

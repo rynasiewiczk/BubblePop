@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace View
 {
@@ -31,5 +30,8 @@ namespace View
         public float DropBubbleScaleReduceSpeed = .2f;
         public float DropBubbleTransparencyLossSpeed = .2f;
         public float DroppBubbleHeightToDespawn = -3f;
+
+        [Space] public Vector2Int DestroyOnCombineParticlesAmountRange = new Vector2Int(3, 6);
+        public Vector2Int DestroyOnDropParticlesAmountRange = new Vector2Int(5, 8);
     }
 }

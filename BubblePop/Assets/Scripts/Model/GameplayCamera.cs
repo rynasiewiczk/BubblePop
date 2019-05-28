@@ -11,5 +11,11 @@ namespace Model
         {
             Debug.Assert(_camera, "Missing reference: _camera", this);
         }
+        
+        public float GetBottomHeightOfCameraView()
+        {
+            var result = _camera.transform.position.y - _camera.orthographicSize;
+            return result;
+        }
     }
 }

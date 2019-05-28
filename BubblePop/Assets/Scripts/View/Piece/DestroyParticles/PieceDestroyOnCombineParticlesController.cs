@@ -8,18 +8,18 @@ using UnityEngine;
 
 namespace View.DestroyParticles
 {
-    public class PieceDestroyParticlesController : IPieceDestroyParticlesController
+    public class PieceDestroyOnCombineParticlesController : IPieceDestroyOnCombineParticlesController
     {
         private readonly IFindConnectedPiecesWithSameLevelController _findConnectedPiecesWithSameLevelController = null;
-        private readonly PieceDestroyParticlesPool _pieceDestroyParticlesPool = null;
+        private readonly PieceDestroyOnCombineParticlesPool _pieceDestroyOnCombineParticlesPool = null;
         private readonly IGridMap _gridMap = null;
 
         private List<IPiece> _combinedPieces = new List<IPiece>();
 
-        public PieceDestroyParticlesController(IFindConnectedPiecesWithSameLevelController connectedPiecesWithSameLevelController,
-            ICombinePiecesController combinePiecesController, PieceDestroyParticlesPool pieceDestroyParticlesPool, IGridMap gridMap)
+        public PieceDestroyOnCombineParticlesController(IFindConnectedPiecesWithSameLevelController connectedPiecesWithSameLevelController,
+            ICombinePiecesController combinePiecesController, PieceDestroyOnCombineParticlesPool pieceDestroyOnCombineParticlesPool, IGridMap gridMap)
         {
-            _pieceDestroyParticlesPool = pieceDestroyParticlesPool;
+            _pieceDestroyOnCombineParticlesPool = pieceDestroyOnCombineParticlesPool;
             _gridMap = gridMap;
 
             combinePiecesController.PositionOfCollapse.Skip(1).Subscribe(SpawnDestroyElement);
@@ -36,8 +36,8 @@ namespace View.DestroyParticles
                 }
 
                 var position = _gridMap.GetViewPosition(piece.Position.Value);
-                var effect = _pieceDestroyParticlesPool.Spawn();
-                effect.Setup(piece.Level.Value, position);
+                var effect = _pieceDestroyOnCombineParticlesPool.Spawn();
+                effect.Setup(piece.Level.Value, position, true);
             }
         }
     }

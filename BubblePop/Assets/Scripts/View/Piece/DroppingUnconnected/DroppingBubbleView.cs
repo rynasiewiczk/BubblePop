@@ -1,5 +1,7 @@
+using Model;
 using TMPro;
 using UnityEngine;
+using View.DestroyParticles;
 using Zenject;
 using Random = UnityEngine.Random;
 
@@ -10,8 +12,13 @@ namespace View.DroppingUnconnected
         [Inject] private readonly BubbleViewSettings _bubbleViewSettings = null;
         [Inject] private readonly DroppingBubbleViewPool _droppingBubbleViewPool = null;
 
+        [Inject] private readonly PieceDestroyOnDropParticlesPool _pieceDestroyOnDropParticlesPool = null;
+        [Inject] private readonly IGameplayCamera _gameplayCamera = null;
+
         [SerializeField] private SpriteRenderer _spriteRenderer = null;
         [SerializeField] private TextMeshPro _text = null;
+
+        private int level;
 
         private int _horizontalDirection = -1;
 
@@ -20,6 +27,9 @@ namespace View.DroppingUnconnected
 
         private float _gravity;
         private float _rotationSpeed;
+
+        private Color _color;
+        private bool _triggeredFallParticles = false;
 
         private void Awake()
         {
@@ -39,8 +49,7 @@ namespace View.DroppingUnconnected
 
             var scaleDownSpeed = _bubbleViewSettings.DropBubbleScaleReduceSpeed * Time.deltaTime;
             transform.localScale = new Vector3(transform.localScale.x - scaleDownSpeed,
-                transform.localScale.y - scaleDownSpeed,
-                transform.localScale.z);
+                transform.localScale.y - scaleDownSpeed, transform.localScale.z);
 
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.x, transform.eulerAngles.z + _rotationSpeed);
 
@@ -50,22 +59,42 @@ namespace View.DroppingUnconnected
             _spriteRenderer.color = color;
             _text.alpha = color.a;
 
-            if (transform.position.y < _bubbleViewSettings.DroppBubbleHeightToDespawn)
+            FireDestroyParticlesIfOnEdgeOnView();
+            DespawnIfLowEnough();
+        }
+
+        private void FireDestroyParticlesIfOnEdgeOnView()
+        {
+            if (_triggeredFallParticles || !(transform.position.y + .5f <= _gameplayCamera.GetBottomHeightOfCameraView()))
             {
-                DeSpawn();
+                return;
             }
+
+            _triggeredFallParticles = true;
+            var destroyParticles = _pieceDestroyOnDropParticlesPool.Spawn();
+            destroyParticles.Setup(_color, (Vector2) transform.position + Vector2.up / 2, false);
+        }
+
+        private void DespawnIfLowEnough()
+        {
+            if (!(transform.position.y < _bubbleViewSettings.DroppBubbleHeightToDespawn))
+            {
+                return;
+            }
+
+            DeSpawn();
         }
 
         public void Setup(Vector2 position, Color color, string value, int direction)
         {
             transform.position = position;
+            _color = color;
             _spriteRenderer.color = color;
             _text.text = value;
 
             _horizontalDirection = direction;
             _horizontalVelocity = _horizontalDirection * Random.Range(0, _bubbleViewSettings.DropBubbleMaxHorizontalVelocity);
             _rotationSpeed = Random.Range(0, _bubbleViewSettings.DropBubbleRotationSpeed * Time.deltaTime);
-
             _verticalVelocity = Random.Range(_bubbleViewSettings.DropBubbleMinStartVerticalVelocity, _bubbleViewSettings.DropBubbleMaxStartVerticalVelocity);
         }
 
@@ -77,6 +106,8 @@ namespace View.DroppingUnconnected
             color.a = 1;
             _spriteRenderer.color = color;
             _text.alpha = 1;
+
+            _triggeredFallParticles = false;
 
             _droppingBubbleViewPool.Despawn(this);
         }

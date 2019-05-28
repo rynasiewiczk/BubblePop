@@ -5,5 +5,6 @@ namespace Model
     public interface IGameplayCamera
     {
         Camera Camera { get; }
+        float GetBottomHeightOfCameraView();
     }
 }

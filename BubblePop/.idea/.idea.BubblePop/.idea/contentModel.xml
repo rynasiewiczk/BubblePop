@@ -1015,10 +1015,11 @@
               <e p="BubbleViewLayering.cs" t="Include" />
               <e p="BubbleViewScrollingVerticalyComponent.cs" t="Include" />
               <e p="DestroyParticles" t="Include">
-                <e p="IPieceDestroyParticlesController.cs" t="Include" />
+                <e p="IPieceDestroyOnCombineParticlesController.cs" t="Include" />
+                <e p="PieceDestroyOnCombineParticlesController.cs" t="Include" />
+                <e p="PieceDestroyOnCombineParticlesPool.cs" t="Include" />
+                <e p="PieceDestroyOnDropParticlesPool.cs" t="Include" />
                 <e p="PieceDestroyParticles.cs" t="Include" />
-                <e p="PieceDestroyParticlesController.cs" t="Include" />
-                <e p="PieceDestroyParticlesPool.cs" t="Include" />
               </e>
               <e p="DroppingUnconnected" t="Include">
                 <e p="DroppingBubbleView.cs" t="Include" />

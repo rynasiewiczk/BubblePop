@@ -10,7 +10,8 @@ public class ViewInstaller : MonoInstaller
     [SerializeField] private BubbleView _bubbleView = null;
     [SerializeField] private FlyingBubbleView _flyingBubbleView = null;
     [SerializeField] private DroppingBubbleView _droppingBubbleView = null;
-    [SerializeField] private PieceDestroyParticles _pieceDestroyParticles = null;
+    [SerializeField] private PieceDestroyParticles _pieceDestroyOnCombineParticles = null;
+    [SerializeField] private PieceDestroyParticles _pieceDestroyOnDropParticles = null;
 
     public override void InstallBindings()
     {
@@ -36,10 +37,14 @@ public class ViewInstaller : MonoInstaller
 
         Container.BindInterfacesTo<DroppingUnconnectedBubblesViewController>().AsSingle().NonLazy();
 
-        Container.BindMemoryPool<PieceDestroyParticles, PieceDestroyParticlesPool>()
-            .WithInitialSize(10)
-            .FromComponentInNewPrefab(_pieceDestroyParticles)
+        Container.BindInterfacesTo<PieceDestroyOnCombineParticlesController>().AsSingle().NonLazy();
+        Container.BindMemoryPool<PieceDestroyParticles, PieceDestroyOnCombineParticlesPool>()
+            .WithInitialSize(6)
+            .FromComponentInNewPrefab(_pieceDestroyOnCombineParticles)
+            .UnderTransformGroup("PieceDestroyOnCollapseParticles");
+        Container.BindMemoryPool<PieceDestroyParticles, PieceDestroyOnDropParticlesPool>()
+            .WithInitialSize(6)
+            .FromComponentInNewPrefab(_pieceDestroyOnDropParticles)
             .UnderTransformGroup("PieceDestroyParticles");
-        Container.BindInterfacesTo<PieceDestroyParticlesController>().AsSingle().NonLazy();
     }
 }

@@ -1,7 +1,6 @@
 using Project.Pieces;
 using Zenject;
 using UniRx;
-using UnityEngine;
 
 namespace View
 {
