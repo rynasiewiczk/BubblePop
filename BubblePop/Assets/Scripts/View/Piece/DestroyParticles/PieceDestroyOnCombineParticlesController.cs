@@ -10,7 +10,6 @@ namespace View.DestroyParticles
 {
     public class PieceDestroyOnCombineParticlesController : IPieceDestroyOnCombineParticlesController
     {
-        private readonly IFindConnectedPiecesWithSameLevelController _findConnectedPiecesWithSameLevelController = null;
         private readonly PieceDestroyOnCombineParticlesPool _pieceDestroyOnCombineParticlesPool = null;
         private readonly IGridMap _gridMap = null;
 

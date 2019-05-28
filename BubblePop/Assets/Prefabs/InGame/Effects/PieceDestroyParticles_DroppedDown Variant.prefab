@@ -15,12 +15,12 @@ PrefabInstance:
     - target: {fileID: 7488486968936154660, guid: a5f57b80efee3614da9c1c7b568effba,
         type: 3}
       propertyPath: InitialModule.startSpeed.minScalar
-      value: 16
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7488486968936154660, guid: a5f57b80efee3614da9c1c7b568effba,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 7488486968936154660, guid: a5f57b80efee3614da9c1c7b568effba,
         type: 3}

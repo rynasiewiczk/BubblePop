@@ -5,7 +5,7 @@ namespace Model.CombiningBubbles
 {
     public interface ICombinePiecesController
     {
-        int LastCombinedBubbleNeighboursWithSameLevelAmount { get; }
+        int LastCombinedPieceNeighboursWithSameLevelAmount { get; }
         ReactiveProperty<Vector2Int> PositionOfCollapse { get; }
     }
 }

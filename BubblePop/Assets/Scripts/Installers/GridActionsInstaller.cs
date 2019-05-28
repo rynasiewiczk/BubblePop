@@ -27,8 +27,8 @@ public class GridActionsInstaller : Installer<GridActionsInstaller>
         Container.BindInterfacesTo<FindConnectedPiecesWithSameLevelController>().AsSingle().NonLazy();
 
         Container.BindInterfacesTo<CombinePiecesController>().AsSingle().NonLazy();
-        Container.DeclareSignal<CombineBubbleSignal>();
-        Container.DeclareSignal<BubblesCombiningDoneSignal>();
+        Container.DeclareSignal<CombinePieceSignal>();
+        Container.DeclareSignal<PiecesCombiningDoneSignal>();
 
         Container.BindInterfacesTo<DropUnlinkedBubblesController>().AsSingle().NonLazy();
         Container.DeclareSignal<DroppingUnlinkedBubbleSignal>();

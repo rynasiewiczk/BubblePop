@@ -20,14 +20,14 @@ namespace Model.FindingMatches
             _gridMap = gridMap;
             _gameStateController = gameStateController;
 
-            gameStateController.GamePlayState.Where(x => x == GamePlayState.BubblesCombining)
+            gameStateController.GamePlayState.Where(x => x == GamePlayState.PiecesCombining)
                 .Subscribe(x => CombineBubbles(bubblesSpawner.LatestSpawnedBubble.Value));
         }
 
         private void CombineBubbles(IPiece piece)
         {
             _bubblesBufferList.Clear();
-            _bubblesBufferList = _gridMap.FindBubblesToCollapse(piece, _bubblesBufferList);
+            _bubblesBufferList = _gridMap.FindPiecesToCollapse(piece, _bubblesBufferList);
 
             if (_bubblesBufferList.Count == 1)
             {

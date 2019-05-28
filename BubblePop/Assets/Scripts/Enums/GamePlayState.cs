@@ -6,12 +6,12 @@ namespace Enums
 
         Idle,
         Aiming,
-        BubbleFlying,
-        PlacingBubbleOnGrid,
-        BubblesCombining,
-        WaitingForBubblesCombine,
-        DropBubblesAfterCombining,
+        PieceFlying,
+        PlacingPieceOnGrid,
+        PiecesCombining,
+        WaitingForPiecesCombine,
+        DropPiecesAfterCombining,
         ScrollRows,
-        FillBubblesAboveTop,
+        FillPiecesAboveTop,
     }
 }

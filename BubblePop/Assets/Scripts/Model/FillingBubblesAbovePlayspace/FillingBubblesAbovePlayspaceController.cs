@@ -30,7 +30,7 @@ namespace Model.FillingBubblesAbovePlayspace
             _gameStateController = gameStateController;
             _playerLevel = new ReadOnlyReactiveProperty<int>(playerLevelController.PlayerLevel);
 
-            gameStateController.GamePlayState.Where(x => x == GamePlayState.FillBubblesAboveTop).Subscribe(x => FillBubbles());
+            gameStateController.GamePlayState.Where(x => x == GamePlayState.FillPiecesAboveTop).Subscribe(x => FillBubbles());
         }
 
         private void FillBubbles()

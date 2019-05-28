@@ -110,7 +110,7 @@ namespace Project.Grid
             var list = new List<IPiece>();
             foreach (var bubble in gridMap.PiecesRegistry)
             {
-                if (gridMap.IsBubblePlayable(bubble))
+                if (gridMap.IsPiecePlayable(bubble))
                 {
                     list.Add(bubble);
                 }

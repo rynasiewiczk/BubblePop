@@ -32,7 +32,7 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
             _combinePiecesController = combinePiecesController;
             _signalBus = signalBus;
 
-            _gameStateController.GamePlayState.Where(x => x == GamePlayState.DropBubblesAfterCombining).Subscribe(x => DropUnlinkedBubbles());
+            _gameStateController.GamePlayState.Where(x => x == GamePlayState.DropPiecesAfterCombining).Subscribe(x => DropUnlinkedBubbles());
         }
 
         private void DropUnlinkedBubbles()
@@ -66,7 +66,7 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
 
             for (int i = _bubblesToFall.Count - 1; i >= 0; i--)
             {
-                if (!_gridMap.IsBubblePlayable(_bubblesToFall[i]))
+                if (!_gridMap.IsPiecePlayable(_bubblesToFall[i]))
                 {
                     continue;
                 }
@@ -77,7 +77,7 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
                 _bubblesToFall[i].Destroy();
             }
 
-            var nextState = _combinePiecesController.LastCombinedBubbleNeighboursWithSameLevelAmount <= 1 ? GamePlayState.ScrollRows : GamePlayState.BubblesCombining;
+            var nextState = _combinePiecesController.LastCombinedPieceNeighboursWithSameLevelAmount <= 1 ? GamePlayState.ScrollRows : GamePlayState.PiecesCombining;
             _gameStateController.ChangeGamePlayState(nextState);
         }
     }

@@ -15,58 +15,58 @@ namespace Model.CombiningBubbles
     public class CombinePiecesController : ICombinePiecesController
     {
         private readonly IGridMap _gridMap = null;
-        private readonly List<IPiece> _bubblesToCollapseBufferList = new List<IPiece>(10);
-        private readonly CombineBubbleSignal _combineBubbleSignal = new CombineBubbleSignal();
+        private readonly List<IPiece> _piecesToCollapseBufferList = new List<IPiece>(10);
+        private readonly CombinePieceSignal _combinePieceSignal = new CombinePieceSignal();
         private readonly SpawnPieceOnGridSignal _spawnPieceOnGridSignal = new SpawnPieceOnGridSignal();
         private readonly SignalBus _signalBus = null;
         private readonly IGameStateController _gameStateController = null;
-        public int LastCombinedBubbleNeighboursWithSameLevelAmount { get; private set; }
+        public int LastCombinedPieceNeighboursWithSameLevelAmount { get; private set; }
         public ReactiveProperty<Vector2Int> PositionOfCollapse { get; private set; } = new ReactiveProperty<Vector2Int>();
 
-        private readonly BubblesCombiningDoneSignal _bubblesCombiningDoneSignal = new BubblesCombiningDoneSignal();
+        private readonly PiecesCombiningDoneSignal _piecesCombiningDoneSignal = new PiecesCombiningDoneSignal();
 
-        private readonly float _bubblesCombineDuration;
+        private readonly float _piecesCombineDuration;
 
         public CombinePiecesController(IGridMap gridMap, IFindConnectedPiecesWithSameLevelController piecesWithSameLevelController, PiecesData piecesData,
             IGameStateController gameStateController, SignalBus signalBus)
         {
             _gridMap = gridMap;
-            _bubblesCombineDuration = piecesData.CombiningDuration;
+            _piecesCombineDuration = piecesData.CombiningDuration;
             _gameStateController = gameStateController;
             _signalBus = signalBus;
-            piecesWithSameLevelController.CombinePieces.Where(x => x != null && x.Count > 1).Subscribe(CollapseBubbles);
+            piecesWithSameLevelController.CombinePieces.Where(x => x != null && x.Count > 1).Subscribe(CollapsePieces);
         }
 
-        private void CollapseBubbles(List<IPiece> bubbles)
+        private void CollapsePieces(List<IPiece> pieces)
         {
-            _gameStateController.ChangeGamePlayState(GamePlayState.WaitingForBubblesCombine);
+            _gameStateController.ChangeGamePlayState(GamePlayState.WaitingForPiecesCombine);
 
-            var level = bubbles[0].Level.Value;
-            var levelAfterCombination = GetLevelAfterBubblesCombination(level, bubbles.Count);
+            var level = pieces[0].Level.Value;
+            var levelAfterCombination = GetLevelAfterPiecesCombination(level, pieces.Count);
 
-            var bubbleWithMaxNeighboursWithResultLevel = FindBubbleToCollapseTo(bubbles, levelAfterCombination, out var toCollapseNeighboursAfterThisCollapse);
-            LastCombinedBubbleNeighboursWithSameLevelAmount = toCollapseNeighboursAfterThisCollapse;
+            var pieceWithMaxNeighboursWithResultLevel = FindPieceToCollapseTo(pieces, levelAfterCombination, out var toCollapseNeighboursAfterThisCollapse);
+            LastCombinedPieceNeighboursWithSameLevelAmount = toCollapseNeighboursAfterThisCollapse;
 
-            PositionOfCollapse.Value = bubbleWithMaxNeighboursWithResultLevel.Position.Value;
+            PositionOfCollapse.Value = pieceWithMaxNeighboursWithResultLevel.Position.Value;
 
-            var collapseDuration = _bubblesCombineDuration;
+            var collapseDuration = _piecesCombineDuration;
 
-            foreach (var bubble in bubbles)
+            foreach (var piece in pieces)
             {
-                _combineBubbleSignal.Piece = bubble;
-                var combinePosition = bubbleWithMaxNeighboursWithResultLevel.Position.Value;
-                _combineBubbleSignal.CombinePosition = combinePosition;
+                _combinePieceSignal.Piece = piece;
+                var combinePosition = pieceWithMaxNeighboursWithResultLevel.Position.Value;
+                _combinePieceSignal.CombinePosition = combinePosition;
 
-                _signalBus.Fire(_combineBubbleSignal);
+                _signalBus.Fire(_combinePieceSignal);
             }
 
             DOVirtual.DelayedCall(collapseDuration, () =>
             {
-                foreach (var bubble in bubbles)
+                foreach (var piece in pieces)
                 {
-                    if (_gridMap.IsBubblePlayable(bubble))
+                    if (_gridMap.IsPiecePlayable(piece))
                     {
-                        bubble.Destroy();
+                        piece.Destroy();
                     }
                 }
 
@@ -75,44 +75,44 @@ namespace Model.CombiningBubbles
 
                 _signalBus.Fire(_spawnPieceOnGridSignal);
 
-                _bubblesCombiningDoneSignal.ResultLevel = levelAfterCombination;
-                _bubblesCombiningDoneSignal.Position = PositionOfCollapse.Value;
-                _signalBus.Fire(_bubblesCombiningDoneSignal);
+                _piecesCombiningDoneSignal.ResultLevel = levelAfterCombination;
+                _piecesCombiningDoneSignal.Position = PositionOfCollapse.Value;
+                _signalBus.Fire(_piecesCombiningDoneSignal);
 
-                _gameStateController.ChangeGamePlayState(GamePlayState.DropBubblesAfterCombining);
+                _gameStateController.ChangeGamePlayState(GamePlayState.DropPiecesAfterCombining);
             }, false);
         }
 
-        private IPiece FindBubbleToCollapseTo(List<IPiece> bubbles, int level, out int nextNeighbours)
+        private IPiece FindPieceToCollapseTo(List<IPiece> pieces, int level, out int nextNeighbours)
         {
             var maxNumberOfConnections = 1;
             IPiece pieceToCollapseTo = null;
 
-            foreach (var bubble in bubbles)
+            foreach (var piece in pieces)
             {
-                _bubblesToCollapseBufferList.Clear();
-                var bubblesToCollect = _gridMap.FindBubblesToCollapse(level, bubble.Position.Value, _bubblesToCollapseBufferList);
-                var bubblesToCollapseCount = bubblesToCollect.Count;
-                if (!ShouldUpdateBetterFitBubble(bubblesToCollapseCount, maxNumberOfConnections, bubble, pieceToCollapseTo))
+                _piecesToCollapseBufferList.Clear();
+                var piecesToCollect = _gridMap.FindPiecesToCollapse(level, piece.Position.Value, _piecesToCollapseBufferList);
+                var piecesToCollapseCount = piecesToCollect.Count;
+                if (!ShouldUpdateTgeBestFittingPiece(piecesToCollapseCount, maxNumberOfConnections, piece, pieceToCollapseTo))
                 {
                     continue;
                 }
 
-                maxNumberOfConnections = bubblesToCollapseCount;
-                pieceToCollapseTo = bubble;
+                maxNumberOfConnections = piecesToCollapseCount;
+                pieceToCollapseTo = piece;
             }
 
             if (pieceToCollapseTo == null)
             {
-                var bubbleAtTop = bubbles.Aggregate((x1, x2) => x1.Position.Value.y > x2.Position.Value.y ? x1 : x2);
-                pieceToCollapseTo = bubbleAtTop;
+                var pieceAtTop = pieces.Aggregate((x1, x2) => x1.Position.Value.y > x2.Position.Value.y ? x1 : x2);
+                pieceToCollapseTo = pieceAtTop;
             }
 
             nextNeighbours = maxNumberOfConnections;
             return pieceToCollapseTo;
         }
 
-        private static bool ShouldUpdateBetterFitBubble(int numberOfConnectionsAfterCollapse, int maxNumberOfConnections, IPiece piece,
+        private static bool ShouldUpdateTgeBestFittingPiece(int numberOfConnectionsAfterCollapse, int maxNumberOfConnections, IPiece piece,
             IPiece pieceToCollapseTo)
         {
             return numberOfConnectionsAfterCollapse > maxNumberOfConnections
@@ -120,9 +120,9 @@ namespace Model.CombiningBubbles
                        (pieceToCollapseTo == null || piece.Position.Value.y > pieceToCollapseTo.Position.Value.y));
         }
 
-        private int GetLevelAfterBubblesCombination(int level, int bubblesCount)
+        private int GetLevelAfterPiecesCombination(int level, int piecesCount)
         {
-            var result = level + (bubblesCount - 1);
+            var result = level + (piecesCount - 1);
             return result;
         }
     }

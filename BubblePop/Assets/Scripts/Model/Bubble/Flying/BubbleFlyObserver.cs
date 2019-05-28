@@ -26,7 +26,7 @@ namespace Project.Pieces
 
             findingCellToShootPieceController.PieceFlyPath.Skip(1).Where(x => x.Length > 0).Subscribe(x =>
             {
-                _gameStateController.ChangeGamePlayState(GamePlayState.BubbleFlying);
+                _gameStateController.ChangeGamePlayState(GamePlayState.PieceFlying);
                 
                 ChangeStateAfterFlyDuration(x);
             });
@@ -42,7 +42,7 @@ namespace Project.Pieces
             var flySpeed = _piecesData.FlySpeed;
             var flyDuration = distance / flySpeed;
 
-            DOVirtual.DelayedCall(flyDuration, () => { _gameStateController.ChangeGamePlayState(GamePlayState.PlacingBubbleOnGrid); }, false);
+            DOVirtual.DelayedCall(flyDuration, () => { _gameStateController.ChangeGamePlayState(GamePlayState.PlacingPieceOnGrid); }, false);
         }
     }
 }

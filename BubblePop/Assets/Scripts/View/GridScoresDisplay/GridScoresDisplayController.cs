@@ -26,13 +26,13 @@ public class GridScoresDisplayController : MonoBehaviour
 
     private void Start()
     {
-        _signalBus.Subscribe<BubblesCombiningDoneSignal>(ShowText);
+        _signalBus.Subscribe<PiecesCombiningDoneSignal>(ShowText);
         _signalBus.Subscribe<DroppingUnlinkedBubbleSignal>(ShowText);
     }
 
     private void OnDestroy()
     {
-        _signalBus.TryUnsubscribe<BubblesCombiningDoneSignal>(ShowText);
+        _signalBus.TryUnsubscribe<PiecesCombiningDoneSignal>(ShowText);
         _signalBus.TryUnsubscribe<DroppingUnlinkedBubbleSignal>(ShowText);
     }
 
@@ -41,7 +41,7 @@ public class GridScoresDisplayController : MonoBehaviour
         ShowText(signal.Position, signal.Level);
     }
 
-    private void ShowText(BubblesCombiningDoneSignal signal)
+    private void ShowText(PiecesCombiningDoneSignal signal)
     {
         ShowText(signal.Position, signal.ResultLevel);
     }

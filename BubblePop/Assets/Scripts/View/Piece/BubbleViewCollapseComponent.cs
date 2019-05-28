@@ -17,19 +17,17 @@ namespace View
         private void Awake()
         {
             Debug.Assert(_view, "Missing reference: _view", this);
+
+            _signalBus.Subscribe<CombinePieceSignal>(Combine);
         }
 
-        private void Start()
-        {
-            _signalBus.Subscribe<CombineBubbleSignal>(Combine);
-        }
 
         private void OnDestroy()
         {
-            _signalBus.TryUnsubscribe<CombineBubbleSignal>(Combine);
+            _signalBus.TryUnsubscribe<CombinePieceSignal>(Combine);
         }
 
-        private void Combine(CombineBubbleSignal signal)
+        private void Combine(CombinePieceSignal signal)
         {
             if (signal.Piece != _view.Model)
             {

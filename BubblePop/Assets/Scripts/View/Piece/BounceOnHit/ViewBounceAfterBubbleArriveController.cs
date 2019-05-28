@@ -18,7 +18,7 @@ namespace View
         public ViewBounceAfterBubbleArriveController(IGameStateController gameStateController, IFindingCellToShootPieceController findingCellToShootPieceController,
             SignalBus signalBus, IGridMap gridMap)
         {
-            gameStateController.GamePlayState.Where(x => x == GamePlayState.PlacingBubbleOnGrid).Subscribe(x =>
+            gameStateController.GamePlayState.Where(x => x == GamePlayState.PlacingPieceOnGrid).Subscribe(x =>
             {
                 var arrivePosition = findingCellToShootPieceController.PieceDestinationPosition;
                 var targetPosition = gridMap.GetViewPosition(arrivePosition);

@@ -33,6 +33,7 @@ namespace View
         {
             View.OnSetuped += InitScale;
             ScaleDown(true);
+            InitScale();
         }
 
         private void OnDestroy()

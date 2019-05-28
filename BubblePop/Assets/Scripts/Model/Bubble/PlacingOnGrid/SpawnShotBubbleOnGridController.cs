@@ -15,13 +15,13 @@ namespace Project.Pieces.PlacingOnGrid
         {
             var gameStateController1 = gameStateController;
 
-            gameStateController1.GamePlayState.Where(x => x == GamePlayState.PlacingBubbleOnGrid).Subscribe(x =>
+            gameStateController1.GamePlayState.Where(x => x == GamePlayState.PlacingPieceOnGrid).Subscribe(x =>
             {
                 _spawnPieceOnGridSignal.Position = findingCellToShootPieceController.PieceDestinationPosition;
                 _spawnPieceOnGridSignal.Level = nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Value;
                 signalBus.Fire(_spawnPieceOnGridSignal);
                 
-                gameStateController1.ChangeGamePlayState(GamePlayState.BubblesCombining);
+                gameStateController1.ChangeGamePlayState(GamePlayState.PiecesCombining);
             });
         }
     }

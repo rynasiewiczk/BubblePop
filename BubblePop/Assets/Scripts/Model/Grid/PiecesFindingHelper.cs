@@ -31,7 +31,7 @@ namespace Project.Grid
             new Vector2Int(1, 0),
         };
 
-        public static List<IPiece> FindBubblesToCollapse(this IGridMap map, IPiece startPiece, List<IPiece> bufferList)
+        public static List<IPiece> FindPiecesToCollapse(this IGridMap map, IPiece startPiece, List<IPiece> bufferList)
         {
             bufferList.Add(startPiece);
             var bubbleLevel = startPiece.Level.Value;
@@ -41,7 +41,7 @@ namespace Project.Grid
             return bufferList;
         }
 
-        public static List<IPiece> FindBubblesToCollapse(this IGridMap gridMap, int level, Vector2Int position, List<IPiece> bufferList)
+        public static List<IPiece> FindPiecesToCollapse(this IGridMap gridMap, int level, Vector2Int position, List<IPiece> bufferList)
         {
             var bubbleAtPosition = gridMap.GetPieceAtPositionOrNull(position);
             if (bubbleAtPosition != null)
@@ -128,7 +128,7 @@ namespace Project.Grid
         {
             var result = piece != null
                          && (piece.Level.Value == level || BUBBLE_LEVEL_TO_PROVIDE_TO_IFNORE_LEVEL_CHECK == level)
-                         && gridMap.IsBubblePlayable(piece);
+                         && gridMap.IsPiecePlayable(piece);
             return result;
         }
         
@@ -136,7 +136,7 @@ namespace Project.Grid
             List<IPiece> bufferListClearedOnEntry)
         {
             bufferListClearedOnEntry.Clear();
-            bufferListClearedOnEntry = FindBubblesToCollapse(gridMap, BUBBLE_LEVEL_TO_PROVIDE_TO_IFNORE_LEVEL_CHECK, startPiece.Position.Value,
+            bufferListClearedOnEntry = FindPiecesToCollapse(gridMap, BUBBLE_LEVEL_TO_PROVIDE_TO_IFNORE_LEVEL_CHECK, startPiece.Position.Value,
                 bufferListClearedOnEntry);
 
             bubblesToStay.AddRange(bufferListClearedOnEntry);
@@ -194,7 +194,7 @@ namespace Project.Grid
             return lowestRow;
         }
 
-        public static bool IsBubblePlayable(this IGridMap gridMap, IPiece piece)
+        public static bool IsPiecePlayable(this IGridMap gridMap, IPiece piece)
         {
             var disposed = piece.Destroyed.IsDisposed;
             if (disposed)
