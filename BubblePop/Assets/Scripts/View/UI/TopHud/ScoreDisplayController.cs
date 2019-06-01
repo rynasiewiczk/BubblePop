@@ -8,7 +8,7 @@ using UniRx;
 public class ScoreDisplayController : MonoBehaviour
 {
     [Inject] private readonly IScoreController _scoreController = null;
-    [Inject] private PiecesData _piecesData = null;
+    [Inject] private readonly PiecesData _piecesData = null;
 
     [SerializeField] private TextMeshProUGUI _text = null;
 

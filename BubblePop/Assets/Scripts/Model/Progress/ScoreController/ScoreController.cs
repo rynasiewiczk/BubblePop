@@ -10,6 +10,7 @@ namespace Model.ScoreController
     public class ScoreController : IScoreController, IDisposable
     {
         public ReactiveProperty<int> Score { get; }
+        public int LastGainedScore { get; private set; }
 
         private readonly PiecesData _piecesData = null;
         private readonly IGameStateController _gameStateController = null;
@@ -42,12 +43,24 @@ namespace Model.ScoreController
                 return;
             }
 
-            Score.Value += _piecesData.GetValueForLevel(level);
+            UpdateScores(level);
         }
 
         private void GetScoreOnBubbleDrop(int level)
         {
-            Score.Value += _piecesData.GetValueForLevel(level);
+            UpdateScores(level);
+        }
+
+        private void UpdateScores(int level)
+        {
+            var valueForLevel = _piecesData.GetValueForLevel(level);
+            UpdateLastGainedScore(Score.Value - valueForLevel);
+            Score.Value += valueForLevel;
+        }
+
+        private void UpdateLastGainedScore(int score)
+        {
+            LastGainedScore = score;
         }
     }
 }

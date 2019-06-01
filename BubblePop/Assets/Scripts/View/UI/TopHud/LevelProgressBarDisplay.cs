@@ -1,4 +1,5 @@
-﻿using Model.Progress.PlayerLevelController;
+﻿using DG.Tweening;
+using Model.Progress.PlayerLevelController;
 using Model.ScoreController;
 using TMPro;
 using UnityEngine;
@@ -22,6 +23,11 @@ public class LevelProgressBarDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _currentLevelText = null;
     [SerializeField] private TextMeshProUGUI _nextLevelText = null;
 
+    [SerializeField] private float _fillDuration = .1f;
+    public float FillDuration => _fillDuration;
+
+    private Tween _tween = null;
+    
     private void Awake()
     {
         Debug.Assert(_colorfulPanel, "Missing reference: _colorfulPanel", this);
@@ -43,7 +49,9 @@ public class LevelProgressBarDisplay : MonoBehaviour
         var nextLevelColor = _piecesData.GetColorForLevel(currentLevel + 1);
 
         var normalizedProgress = _playerLevelSettings.GetCurrentLevelNormalizedProgress(score);
-        _colorfulPanel.fillAmount = normalizedProgress;
+        
+        _tween?.Kill();
+        _tween = _colorfulPanel.DOFillAmount(normalizedProgress, _fillDuration);
         _colorfulPanel.color = currentLevelColor;
 
         _leftEdgeImage.color = currentLevelColor;
@@ -51,5 +59,12 @@ public class LevelProgressBarDisplay : MonoBehaviour
 
         _rightEdgeImage.color = nextLevelColor;
         _nextLevelText.text = (currentLevel + 1).ToString();
+    }
+
+    public Vector2 GetProgressBarRightEdge()
+    {
+        var leftEdgeXPos = _colorfulPanel.rectTransform.anchoredPosition.x - _colorfulPanel.rectTransform.rect.width / 2;
+        var fillXPos = leftEdgeXPos + _colorfulPanel.fillAmount * _colorfulPanel.rectTransform.rect.width;
+        return new Vector2(fillXPos, _colorfulPanel.rectTransform.anchoredPosition.y + _colorfulPanel.rectTransform.rect.height / 2);
     }
 }

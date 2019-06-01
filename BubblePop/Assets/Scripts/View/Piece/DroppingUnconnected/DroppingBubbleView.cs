@@ -18,7 +18,7 @@ namespace View.DroppingUnconnected
         [SerializeField] private SpriteRenderer _spriteRenderer = null;
         [SerializeField] private TextMeshPro _text = null;
 
-        private int level;
+        private int _level;
 
         private int _horizontalDirection = -1;
 
@@ -55,7 +55,7 @@ namespace View.DroppingUnconnected
 
             var transparencySpeed = _bubbleViewSettings.DropBubbleTransparencyLossSpeed * Time.deltaTime;
             var color = _spriteRenderer.color;
-            color.a = color.a - transparencySpeed;
+            color.a -= transparencySpeed;
             _spriteRenderer.color = color;
             _text.alpha = color.a;
 
@@ -91,6 +91,7 @@ namespace View.DroppingUnconnected
             _color = color;
             _spriteRenderer.color = color;
             _text.text = value;
+            _triggeredFallParticles = false;
 
             _horizontalDirection = direction;
             _horizontalVelocity = _horizontalDirection * Random.Range(0, _bubbleViewSettings.DropBubbleMaxHorizontalVelocity);
@@ -106,8 +107,6 @@ namespace View.DroppingUnconnected
             color.a = 1;
             _spriteRenderer.color = color;
             _text.alpha = 1;
-
-            _triggeredFallParticles = false;
 
             _droppingBubbleViewPool.Despawn(this);
         }

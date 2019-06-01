@@ -869,6 +869,7 @@
             <e p="ProgressInstaller.cs" t="Include" />
             <e p="SignalBusInstaller.cs" t="Include" />
             <e p="Ui" t="Include">
+              <e p="TopHudInstaller.cs" t="Include" />
               <e p="UiData.cs" t="Include" />
               <e p="UiDataInstaller.cs" t="Include" />
               <e p="UiInstaller.cs" t="Include" />
@@ -997,15 +998,6 @@
                 <e p="TargetBubbleDisplayController.cs" t="Include" />
               </e>
             </e>
-            <e p="GridScoresDisplay" t="Include">
-              <e p="GridScoreDisplayText.cs" t="Include" />
-              <e p="GridScoreDisplayTextPool.cs" t="Include" />
-              <e p="GridScoresDisplayController.cs" t="Include" />
-              <e p="PiecesCombiningDoneSignal.cs" t="Include" />
-            </e>
-            <e p="LevelProgressBarDisplay" t="Include">
-              <e p="LevelProgressBarDisplay.cs" t="Include" />
-            </e>
             <e p="Piece" t="Include">
               <e p="BounceOnHit" t="Include">
                 <e p="IViewBounceAfterBubbleArriveController.cs" t="Include" />
@@ -1043,8 +1035,21 @@
               </e>
             </e>
             <e p="Ui" t="Include">
-              <e p="PlayerLevelDisplayController.cs" t="Include" />
-              <e p="ScoreDisplayController.cs" t="Include" />
+              <e p="GridScoresDisplay" t="Include">
+                <e p="GridScoreDisplayText.cs" t="Include" />
+                <e p="GridScoreDisplayTextPool.cs" t="Include" />
+                <e p="GridScoresDisplayController.cs" t="Include" />
+                <e p="PiecesCombiningDoneSignal.cs" t="Include" />
+              </e>
+              <e p="TopHud" t="Include">
+                <e p="IProgressBarParticlesController.cs" t="Include" />
+                <e p="LevelProgressBarDisplay.cs" t="Include" />
+                <e p="PlayerLevelDisplayController.cs" t="Include" />
+                <e p="ProgressBarParticles.cs" t="Include" />
+                <e p="ProgressBarParticlesController.cs" t="Include" />
+                <e p="ProgressBarParticlesPool.cs" t="Include" />
+                <e p="ScoreDisplayController.cs" t="Include" />
+              </e>
             </e>
           </e>
         </e>
