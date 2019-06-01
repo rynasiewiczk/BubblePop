@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UniRx;
 using UnityEngine;
 
 namespace Model.Progress.PlayerLevelController
@@ -37,6 +38,19 @@ namespace Model.Progress.PlayerLevelController
             }
 
             return level;
+        }
+
+        public float GetCurrentLevelNormalizedProgress(int currentScore)
+        {
+            var currentLevel = GetCurrentLevelByScore(currentScore);
+            var scoreForNextLevel = GetRequirementForLevel(currentLevel + 1);
+            var scoreForCurrentLevel = GetRequirementForLevel(currentLevel);
+
+            var scoreBetweenLevelsDifference = scoreForNextLevel - scoreForCurrentLevel;
+            var scoreReachedInCurrentLevel = currentScore - scoreForCurrentLevel;
+
+            var currentLevelProgressNormalized = (float) scoreReachedInCurrentLevel / scoreBetweenLevelsDifference;
+            return currentLevelProgressNormalized;
         }
     }
 }

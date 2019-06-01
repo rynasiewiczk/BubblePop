@@ -1003,6 +1003,9 @@
               <e p="GridScoresDisplayController.cs" t="Include" />
               <e p="PiecesCombiningDoneSignal.cs" t="Include" />
             </e>
+            <e p="LevelProgressBarDisplay" t="Include">
+              <e p="LevelProgressBarDisplay.cs" t="Include" />
+            </e>
             <e p="Piece" t="Include">
               <e p="BounceOnHit" t="Include">
                 <e p="IViewBounceAfterBubbleArriveController.cs" t="Include" />
