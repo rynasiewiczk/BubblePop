@@ -860,7 +860,6 @@
           </e>
           <e p="Installers" t="Include">
             <e p="AimingInstaller.cs" t="Include" />
-            <e p="BubbleViewSettingsInstaller.cs" t="Include" />
             <e p="GridActionsInstaller.cs" t="Include" />
             <e p="GridInstaller.cs" t="Include" />
             <e p="InGameInstaller.cs" t="Include" />
@@ -874,7 +873,10 @@
               <e p="UiDataInstaller.cs" t="Include" />
               <e p="UiInstaller.cs" t="Include" />
             </e>
-            <e p="ViewInstaller.cs" t="Include" />
+            <e p="View" t="Include">
+              <e p="BubbleViewSettingsInstaller.cs" t="Include" />
+              <e p="ViewInstaller.cs" t="Include" />
+            </e>
           </e>
           <e p="Model" t="Include">
             <e p="Aiming" t="Include">

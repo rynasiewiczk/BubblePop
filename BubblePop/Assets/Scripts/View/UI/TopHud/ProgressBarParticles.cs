@@ -22,17 +22,17 @@ public class ProgressBarParticles : MonoBehaviour
     {
         if (gainedScore < 10)
         {
-            return 3;
+            return 4;
         }
 
         if (gainedScore < 65)
         {
-            return 5;
+            return 6;
         }
 
         if (gainedScore < 129)
         {
-            return 7;
+            return 8;
         }
 
         if (gainedScore < 1029)
