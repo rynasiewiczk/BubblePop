@@ -867,7 +867,6 @@
               <e p="PieceDataInstaller.cs" t="Include" />
               <e p="PlayerLevelSettingsInstaller.cs" t="Include" />
               <e p="ProgressInstaller.cs" t="Include" />
-              <e p="SignalBusInstaller.cs" t="Include" />
               <e p="Ui" t="Include">
                 <e p="TopHudInstaller.cs" t="Include" />
                 <e p="UiData.cs" t="Include" />
@@ -1079,13 +1078,20 @@
             </e>
           </e>
           <e p="OutGame" t="Include">
-            <e p="IIngameSceneController.cs" t="Include" />
-            <e p="IngameSceneController.cs" t="Include" />
             <e p="Installers" t="Include">
               <e p="OutgameInstaller.cs" t="Include" />
+              <e p="OutgameUiSettingsInstaller.cs" t="Include" />
             </e>
             <e p="MainMenuPanelController.cs" t="Include" />
+            <e p="OutgameUiSettings.cs" t="Include" />
             <e p="PlayButtonController.cs" t="Include" />
+          </e>
+          <e p="Project" t="Include">
+            <e p="IIngameSceneVisibilityController.cs" t="Include" />
+            <e p="IngameSceneVisibilityController.cs" t="Include" />
+            <e p="OnPlayerButtonClickDelegate.cs" t="Include" />
+            <e p="ScenesManagementInstaller.cs" t="Include" />
+            <e p="SignalBusInstaller.cs" t="Include" />
           </e>
         </e>
         <e p="StompyRobot" t="Include">

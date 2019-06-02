@@ -1,4 +1,5 @@
 using Enums;
+using OutGame;
 using UniRx;
 using Zenject;
 
@@ -14,12 +15,18 @@ namespace Model
 
         private readonly GameStateChangeSignal _gameStateChangeSignal = new GameStateChangeSignal();
 
-        public GameStateController(SignalBus signalBus)
+        public GameStateController(IIngameSceneVisibilityController ingameSceneVisibilityController, SignalBus signalBus)
         {
             _signalBus = signalBus;
 
-            GamePlayState = new ReactiveProperty<GamePlayState>(Enums.GamePlayState.Idle);
+            GamePlayState = new ReactiveProperty<GamePlayState>(Enums.GamePlayState.Paused);
             PreviousGamePlayState = Enums.GamePlayState.None;
+
+            ingameSceneVisibilityController.OnIngameUnpaused.Subscribe(x =>
+            {
+                var nextState = PreviousGamePlayState == Enums.GamePlayState.None ? Enums.GamePlayState.Idle : PreviousGamePlayState;
+                ChangeGamePlayState(nextState);
+            });
         }
 
         public void ChangeGamePlayState(GamePlayState newState)

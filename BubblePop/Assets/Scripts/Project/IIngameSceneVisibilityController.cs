@@ -1,11 +1,11 @@
-using System;
+using Project;
 using UniRx;
 
 namespace OutGame
 {
-    public interface IIngameSceneController
+    public interface IIngameSceneVisibilityController
     {
-        ReactiveCommand OnIngameSceneActivated { get; }
+        OnPlayerButtonClickDelegate OnPlayButtonClicked { get; }
         ReactiveCommand OnIngamePaused { get; }
         ReactiveCommand OnIngameUnpaused { get; }
     }

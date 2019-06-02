@@ -9,7 +9,7 @@ namespace OutGame
     public class MainMenuPanelController : MonoBehaviour
     {
         private RectTransform _rectTransform = null;
-        [Inject] private readonly IIngameSceneController _ingameSceneController = null;
+        [Inject] private readonly IIngameSceneVisibilityController _ingameSceneVisibilityController = null;
 
         private Tween _tween = null;
 
@@ -17,10 +17,8 @@ namespace OutGame
         {
             _rectTransform = transform as RectTransform;
 
-            _ingameSceneController.OnIngameSceneActivated.Subscribe(x => Hide());
-
-            _ingameSceneController.OnIngamePaused.Subscribe(x => Show());
-            _ingameSceneController.OnIngameUnpaused.Subscribe(x => Hide());
+            _ingameSceneVisibilityController.OnIngamePaused.Subscribe(x => Show());
+            _ingameSceneVisibilityController.OnIngameUnpaused.Subscribe(x => Hide());
         }
 
         private void Show()
