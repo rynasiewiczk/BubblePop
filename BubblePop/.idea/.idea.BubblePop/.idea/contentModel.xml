@@ -844,236 +844,248 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="Calculations" t="Include">
-            <e p="VectorsHelper.cs" t="Include" />
-          </e>
-          <e p="Debugg" t="Include">
-            <e p="GameStateDebugger.cs" t="Include" />
-            <e p="NextBubbleDebug.cs" t="Include" />
-            <e p="PlayerLevelDebugger.cs" t="Include" />
-            <e p="ScoreDebug.cs" t="Include" />
-          </e>
-          <e p="Enums" t="Include">
-            <e p="GamePlayState.cs" t="Include" />
-            <e p="GridRowSide.cs" t="Include" />
-            <e p="PieceSide.cs" t="Include" />
-          </e>
-          <e p="Installers" t="Include">
-            <e p="AimingInstaller.cs" t="Include" />
-            <e p="GridActionsInstaller.cs" t="Include" />
-            <e p="GridInstaller.cs" t="Include" />
-            <e p="InGameInstaller.cs" t="Include" />
-            <e p="PieceDataInstaller.cs" t="Include" />
-            <e p="PlayerLevelSettingsInstaller.cs" t="Include" />
-            <e p="ProgressInstaller.cs" t="Include" />
-            <e p="SignalBusInstaller.cs" t="Include" />
-            <e p="Ui" t="Include">
-              <e p="TopHudInstaller.cs" t="Include" />
-              <e p="UiData.cs" t="Include" />
-              <e p="UiDataInstaller.cs" t="Include" />
-              <e p="UiInstaller.cs" t="Include" />
+          <e p="Ingame" t="Include">
+            <e p="Calculations" t="Include">
+              <e p="VectorsHelper.cs" t="Include" />
             </e>
-            <e p="View" t="Include">
-              <e p="BubbleViewSettingsInstaller.cs" t="Include" />
-              <e p="ViewInstaller.cs" t="Include" />
+            <e p="Debug" t="Include">
+              <e p="GameStateDebugger.cs" t="Include" />
+              <e p="NextBubbleDebug.cs" t="Include" />
+              <e p="PlayerLevelDebugger.cs" t="Include" />
+              <e p="ScoreDebug.cs" t="Include" />
             </e>
-          </e>
-          <e p="Model" t="Include">
-            <e p="Aiming" t="Include">
-              <e p="AimEndPointFinder.cs" t="Include" />
-              <e p="AimingDirectionObserver.cs" t="Include" />
-              <e p="AimingSettings.cs" t="Include" />
-              <e p="AimingStartPointProvider.cs" t="Include" />
-              <e p="IAimEndPointFinder.cs" t="Include" />
-              <e p="IAimingDirectionObserver.cs" t="Include" />
-              <e p="IAimingStartPointProvider.cs" t="Include" />
-              <e p="PieceAimedData.cs" t="Include" />
-              <e p="StateObservers" t="Include">
-                <e p="FindingCellToShootPieceController.cs" t="Include" />
-                <e p="IFindingCellToShootPieceController.cs" t="Include" />
-                <e p="IStartAimingStateObserver.cs" t="Include" />
-                <e p="StartAimingStateObserver.cs" t="Include" />
+            <e p="Enums" t="Include">
+              <e p="GamePlayState.cs" t="Include" />
+              <e p="GridRowSide.cs" t="Include" />
+              <e p="PieceSide.cs" t="Include" />
+            </e>
+            <e p="Installers" t="Include">
+              <e p="AimingInstaller.cs" t="Include" />
+              <e p="GridActionsInstaller.cs" t="Include" />
+              <e p="GridInstaller.cs" t="Include" />
+              <e p="InGameInstaller.cs" t="Include" />
+              <e p="PieceDataInstaller.cs" t="Include" />
+              <e p="PlayerLevelSettingsInstaller.cs" t="Include" />
+              <e p="ProgressInstaller.cs" t="Include" />
+              <e p="SignalBusInstaller.cs" t="Include" />
+              <e p="Ui" t="Include">
+                <e p="TopHudInstaller.cs" t="Include" />
+                <e p="UiData.cs" t="Include" />
+                <e p="UiDataInstaller.cs" t="Include" />
+                <e p="UiInstaller.cs" t="Include" />
+              </e>
+              <e p="View" t="Include">
+                <e p="BubbleViewSettingsInstaller.cs" t="Include" />
+                <e p="ViewInstaller.cs" t="Include" />
               </e>
             </e>
-            <e p="Bubble" t="Include">
-              <e p="BubblesPool.cs" t="Include" />
-              <e p="Flying" t="Include">
-                <e p="BubbleFlyObserver.cs" t="Include" />
-                <e p="IBubbleFlyObserver.cs" t="Include" />
-              </e>
-              <e p="IPiece.cs" t="Include" />
-              <e p="Piece.cs" t="Include" />
-              <e p="PiecesData.cs" t="Include" />
-              <e p="PlacingOnGrid" t="Include">
-                <e p="ISpawnShotBubbleOnGridController.cs" t="Include" />
-                <e p="SpawnShotBubbleOnGridController.cs" t="Include" />
-              </e>
-              <e p="Spawning" t="Include">
-                <e p="BubblesSpawner.cs" t="Include" />
-                <e p="IBubblesSpawner.cs" t="Include" />
-                <e p="INextBubbleLevelToSpawnController.cs" t="Include" />
-                <e p="NextBubbleLevelToSpawnController.cs" t="Include" />
-              </e>
-              <e p="SpawnPieceOnGridSignal.cs" t="Include" />
-              <e p="Test" t="Include">
-                <e p="BubblesDebugger.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Camera" t="Include">
-              <e p="GameplayCamera.cs" t="Include" />
-              <e p="IGameplayCamera.cs" t="Include" />
-            </e>
-            <e p="CombiningBubbles" t="Include">
-              <e p="CombinePiecesController.cs" t="Include" />
-              <e p="CombinePieceSignal.cs" t="Include" />
-              <e p="DroppingDisconnectedBubbles" t="Include">
-                <e p="DroppingUnlinkedBubbleSignal.cs" t="Include" />
-                <e p="DropUnlinkedBubblesController.cs" t="Include" />
-                <e p="IDropUnlinkedBubblesController.cs" t="Include" />
-              </e>
-              <e p="ICombinePiecesController.cs" t="Include" />
-            </e>
-            <e p="FillingBubblesAbovePlayspace" t="Include">
-              <e p="FillingBubblesAbovePlayspaceController.cs" t="Include" />
-              <e p="IFillingBubblesAbovePlayspaceController.cs" t="Include" />
-            </e>
-            <e p="FindingMatches" t="Include">
-              <e p="FindConnectedPiecesWithSameLevelController.cs" t="Include" />
-              <e p="IFindConnectedPiecesWithSameLevelController.cs" t="Include" />
-            </e>
-            <e p="GameState" t="Include">
-              <e p="GameStateController.cs" t="Include" />
-              <e p="IGameStateController.cs" t="Include" />
-            </e>
-            <e p="Grid" t="Include">
-              <e p="BuildingGrid" t="Include">
-                <e p="GridCellsBuilder.cs" t="Include" />
-                <e p="IGridCellsBuilder.cs" t="Include" />
-                <e p="IInitialPiecesBuilder.cs" t="Include" />
-                <e p="InitialPiecesBuilder.cs" t="Include" />
-              </e>
-              <e p="Cell.cs" t="Include" />
-              <e p="GridMap.cs" t="Include" />
-              <e p="GridMapHelper.cs" t="Include" />
-              <e p="GridSettings.cs" t="Include" />
-              <e p="GridSettingsInstaller.cs" t="Include" />
-              <e p="ICell.cs" t="Include" />
-              <e p="IGridMap.cs" t="Include" />
-              <e p="PiecesFindingHelper.cs" t="Include" />
-              <e p="Test" t="Include">
-                <e p="GridDebugger.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Input" t="Include">
-              <e p="IInputEventsNotifier.cs" t="Include" />
-              <e p="InputInstaller.cs" t="Include" />
-              <e p="MouseInputEventsNotifier.cs" t="Include" />
-              <e p="Test" t="Include">
-                <e p="InputDebugMessenger.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Progress" t="Include">
-              <e p="PlayerLevelController" t="Include">
-                <e p="IPlayerLevelController.cs" t="Include" />
-                <e p="PlayerLevelController.cs" t="Include" />
-                <e p="PlayerLevelSettings.cs" t="Include" />
-              </e>
-              <e p="ScoreController" t="Include">
-                <e p="IScoreController.cs" t="Include" />
-                <e p="ScoreController.cs" t="Include" />
-              </e>
-            </e>
-            <e p="ScrollingRowsDown" t="Include">
-              <e p="IScrollRowsController.cs" t="Include" />
-              <e p="ScrollRowsController.cs" t="Include" />
-            </e>
-          </e>
-          <e p="View" t="Include">
-            <e p="Aiming" t="Include">
-              <e p="LineDrawer.cs" t="Include" />
-              <e p="LineDrawerController.cs" t="Include" />
-              <e p="PrewarmBubbleDisplay" t="Include">
-                <e p="AimingBubble.cs" t="Include" />
-                <e p="AimingBubblesController.cs" t="Include" />
-                <e p="SmallPrewarmBubble.cs" t="Include" />
-              </e>
-              <e p="TargetPlaceDisplay" t="Include">
-                <e p="TargetBubbleDisplay.cs" t="Include" />
-                <e p="TargetBubbleDisplayController.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Piece" t="Include">
-              <e p="BounceOnHit" t="Include">
-                <e p="IViewBounceAfterBubbleArriveController.cs" t="Include" />
-                <e p="OnBubbleHitSignal.cs" t="Include" />
-                <e p="ViewBounceAfterBubbleArriveController.cs" t="Include" />
-              </e>
-              <e p="BubbleViewAppearingComponent.cs" t="Include" />
-              <e p="BubbleViewBounceComponent.cs" t="Include" />
-              <e p="BubbleViewCollapseComponent.cs" t="Include" />
-              <e p="BubbleViewLayering.cs" t="Include" />
-              <e p="BubbleViewScrollingVerticalyComponent.cs" t="Include" />
-              <e p="DestroyParticles" t="Include">
-                <e p="IPieceDestroyOnCombineParticlesController.cs" t="Include" />
-                <e p="PieceDestroyOnCombineParticlesController.cs" t="Include" />
-                <e p="PieceDestroyOnCombineParticlesPool.cs" t="Include" />
-                <e p="PieceDestroyOnDropParticlesPool.cs" t="Include" />
-                <e p="PieceDestroyParticles.cs" t="Include" />
-              </e>
-              <e p="DroppingUnconnected" t="Include">
-                <e p="DroppingBubbleView.cs" t="Include" />
-                <e p="DroppingBubbleViewPool.cs" t="Include" />
-                <e p="DroppingUnconnectedBubblesViewController.cs" t="Include" />
-                <e p="IDroppingUnconnectedBubblesViewController.cs" t="Include" />
-              </e>
-              <e p="FlyingAfterAiming" t="Include">
-                <e p="FlyingBubbleView.cs" t="Include" />
-                <e p="FlyingBubbleViewController.cs" t="Include" />
-                <e p="FlyingBubbleViewPool.cs" t="Include" />
-                <e p="IFlyingBubbleViewController.cs" t="Include" />
-              </e>
-              <e p="General" t="Include">
-                <e p="BubbleView.cs" t="Include" />
-                <e p="BubbleViewPool.cs" t="Include" />
-                <e p="BubbleViewSettings.cs" t="Include" />
-              </e>
-            </e>
-            <e p="Ui" t="Include">
-              <e p="GridScoresDisplay" t="Include">
-                <e p="GridScoreDisplayText.cs" t="Include" />
-                <e p="GridScoreDisplayTextPool.cs" t="Include" />
-                <e p="GridScoresDisplayController.cs" t="Include" />
-                <e p="PiecesCombiningDoneSignal.cs" t="Include" />
-              </e>
-              <e p="Popups" t="Include">
-                <e p="Core" t="Include">
-                  <e p="AnimationTransitions" t="Include">
-                    <e p="ForTests" t="Include">
-                      <e p="PopupTestAnimationTransition.cs" t="Include" />
-                    </e>
-                    <e p="PopupAnimationDefaultParameters.cs" t="Include" />
-                    <e p="PopupAnimationTransition.cs" t="Include" />
-                    <e p="PopupGenericAnimationTransition.cs" t="Include" />
-                  </e>
-                  <e p="IPopupRequest.cs" t="Include" />
-                  <e p="IPopupsRegistry.cs" t="Include" />
-                  <e p="PopupActionSignal.cs" t="Include" />
-                  <e p="PopupActionType.cs" t="Include" />
-                  <e p="PopupMaster.cs" t="Include" />
-                  <e p="PopupsRegistry.cs" t="Include" />
-                  <e p="PopupView.cs" t="Include" />
+            <e p="Model" t="Include">
+              <e p="Aiming" t="Include">
+                <e p="AimEndPointFinder.cs" t="Include" />
+                <e p="AimingDirectionObserver.cs" t="Include" />
+                <e p="AimingSettings.cs" t="Include" />
+                <e p="AimingStartPointProvider.cs" t="Include" />
+                <e p="IAimEndPointFinder.cs" t="Include" />
+                <e p="IAimingDirectionObserver.cs" t="Include" />
+                <e p="IAimingStartPointProvider.cs" t="Include" />
+                <e p="PieceAimedData.cs" t="Include" />
+                <e p="StateObservers" t="Include">
+                  <e p="FindingCellToShootPieceController.cs" t="Include" />
+                  <e p="IFindingCellToShootPieceController.cs" t="Include" />
+                  <e p="IStartAimingStateObserver.cs" t="Include" />
+                  <e p="StartAimingStateObserver.cs" t="Include" />
                 </e>
               </e>
-              <e p="TopHud" t="Include">
-                <e p="IProgressBarParticlesController.cs" t="Include" />
-                <e p="LevelProgressBarDisplay.cs" t="Include" />
-                <e p="PlayerLevelDisplayController.cs" t="Include" />
-                <e p="ProgressBarParticles.cs" t="Include" />
-                <e p="ProgressBarParticlesController.cs" t="Include" />
-                <e p="ProgressBarParticlesPool.cs" t="Include" />
-                <e p="ScoreDisplayController.cs" t="Include" />
+              <e p="Bubble" t="Include">
+                <e p="BubblesPool.cs" t="Include" />
+                <e p="Flying" t="Include">
+                  <e p="BubbleFlyObserver.cs" t="Include" />
+                  <e p="IBubbleFlyObserver.cs" t="Include" />
+                </e>
+                <e p="IPiece.cs" t="Include" />
+                <e p="Piece.cs" t="Include" />
+                <e p="PiecesData.cs" t="Include" />
+                <e p="PlacingOnGrid" t="Include">
+                  <e p="ISpawnShotBubbleOnGridController.cs" t="Include" />
+                  <e p="SpawnShotBubbleOnGridController.cs" t="Include" />
+                </e>
+                <e p="Spawning" t="Include">
+                  <e p="BubblesSpawner.cs" t="Include" />
+                  <e p="IBubblesSpawner.cs" t="Include" />
+                  <e p="INextBubbleLevelToSpawnController.cs" t="Include" />
+                  <e p="NextBubbleLevelToSpawnController.cs" t="Include" />
+                </e>
+                <e p="SpawnPieceOnGridSignal.cs" t="Include" />
+                <e p="Test" t="Include">
+                  <e p="BubblesDebugger.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Camera" t="Include">
+                <e p="GameplayCamera.cs" t="Include" />
+                <e p="IGameplayCamera.cs" t="Include" />
+              </e>
+              <e p="CombiningBubbles" t="Include">
+                <e p="CombinePiecesController.cs" t="Include" />
+                <e p="CombinePieceSignal.cs" t="Include" />
+                <e p="DroppingDisconnectedBubbles" t="Include">
+                  <e p="DroppingUnlinkedBubbleSignal.cs" t="Include" />
+                  <e p="DropUnlinkedBubblesController.cs" t="Include" />
+                  <e p="IDropUnlinkedBubblesController.cs" t="Include" />
+                </e>
+                <e p="ICombinePiecesController.cs" t="Include" />
+              </e>
+              <e p="FillingBubblesAbovePlayspace" t="Include">
+                <e p="FillingBubblesAbovePlayspaceController.cs" t="Include" />
+                <e p="IFillingBubblesAbovePlayspaceController.cs" t="Include" />
+              </e>
+              <e p="FindingMatches" t="Include">
+                <e p="FindConnectedPiecesWithSameLevelController.cs" t="Include" />
+                <e p="IFindConnectedPiecesWithSameLevelController.cs" t="Include" />
+              </e>
+              <e p="GameState" t="Include">
+                <e p="GameStateChangeSignal.cs" t="Include" />
+                <e p="GameStateController.cs" t="Include" />
+                <e p="IGameStateController.cs" t="Include" />
+              </e>
+              <e p="Grid" t="Include">
+                <e p="BuildingGrid" t="Include">
+                  <e p="GridCellsBuilder.cs" t="Include" />
+                  <e p="IGridCellsBuilder.cs" t="Include" />
+                  <e p="IInitialPiecesBuilder.cs" t="Include" />
+                  <e p="InitialPiecesBuilder.cs" t="Include" />
+                </e>
+                <e p="Cell.cs" t="Include" />
+                <e p="GridMap.cs" t="Include" />
+                <e p="GridMapHelper.cs" t="Include" />
+                <e p="GridSettings.cs" t="Include" />
+                <e p="GridSettingsInstaller.cs" t="Include" />
+                <e p="ICell.cs" t="Include" />
+                <e p="IGridMap.cs" t="Include" />
+                <e p="PiecesFindingHelper.cs" t="Include" />
+                <e p="Test" t="Include">
+                  <e p="GridDebugger.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Input" t="Include">
+                <e p="IInputEventsNotifier.cs" t="Include" />
+                <e p="InputInstaller.cs" t="Include" />
+                <e p="MouseInputEventsNotifier.cs" t="Include" />
+                <e p="Test" t="Include">
+                  <e p="InputDebugMessenger.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Progress" t="Include">
+                <e p="PlayerLevelController" t="Include">
+                  <e p="IPlayerLevelController.cs" t="Include" />
+                  <e p="PlayerLevelController.cs" t="Include" />
+                  <e p="PlayerLevelSettings.cs" t="Include" />
+                </e>
+                <e p="ScoreController" t="Include">
+                  <e p="IScoreController.cs" t="Include" />
+                  <e p="ScoreController.cs" t="Include" />
+                </e>
+              </e>
+              <e p="ScrollingRowsDown" t="Include">
+                <e p="IScrollRowsController.cs" t="Include" />
+                <e p="ScrollRowsController.cs" t="Include" />
               </e>
             </e>
+            <e p="View" t="Include">
+              <e p="Aiming" t="Include">
+                <e p="LineDrawer.cs" t="Include" />
+                <e p="LineDrawerController.cs" t="Include" />
+                <e p="PrewarmBubbleDisplay" t="Include">
+                  <e p="AimingBubble.cs" t="Include" />
+                  <e p="AimingBubblesController.cs" t="Include" />
+                  <e p="SmallPrewarmBubble.cs" t="Include" />
+                </e>
+                <e p="TargetPlaceDisplay" t="Include">
+                  <e p="TargetBubbleDisplay.cs" t="Include" />
+                  <e p="TargetBubbleDisplayController.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Piece" t="Include">
+                <e p="BounceOnHit" t="Include">
+                  <e p="IViewBounceAfterBubbleArriveController.cs" t="Include" />
+                  <e p="OnBubbleHitSignal.cs" t="Include" />
+                  <e p="ViewBounceAfterBubbleArriveController.cs" t="Include" />
+                </e>
+                <e p="BubbleViewAppearingComponent.cs" t="Include" />
+                <e p="BubbleViewBounceComponent.cs" t="Include" />
+                <e p="BubbleViewCollapseComponent.cs" t="Include" />
+                <e p="BubbleViewLayering.cs" t="Include" />
+                <e p="BubbleViewScrollingVerticalyComponent.cs" t="Include" />
+                <e p="DestroyParticles" t="Include">
+                  <e p="IPieceDestroyOnCombineParticlesController.cs" t="Include" />
+                  <e p="PieceDestroyOnCombineParticlesController.cs" t="Include" />
+                  <e p="PieceDestroyOnCombineParticlesPool.cs" t="Include" />
+                  <e p="PieceDestroyOnDropParticlesPool.cs" t="Include" />
+                  <e p="PieceDestroyParticles.cs" t="Include" />
+                </e>
+                <e p="DroppingUnconnected" t="Include">
+                  <e p="DroppingBubbleView.cs" t="Include" />
+                  <e p="DroppingBubbleViewPool.cs" t="Include" />
+                  <e p="DroppingUnconnectedBubblesViewController.cs" t="Include" />
+                  <e p="IDroppingUnconnectedBubblesViewController.cs" t="Include" />
+                </e>
+                <e p="FlyingAfterAiming" t="Include">
+                  <e p="FlyingBubbleView.cs" t="Include" />
+                  <e p="FlyingBubbleViewController.cs" t="Include" />
+                  <e p="FlyingBubbleViewPool.cs" t="Include" />
+                  <e p="IFlyingBubbleViewController.cs" t="Include" />
+                </e>
+                <e p="General" t="Include">
+                  <e p="BubbleView.cs" t="Include" />
+                  <e p="BubbleViewPool.cs" t="Include" />
+                  <e p="BubbleViewSettings.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Ui" t="Include">
+                <e p="GridScoresDisplay" t="Include">
+                  <e p="GridScoreDisplayText.cs" t="Include" />
+                  <e p="GridScoreDisplayTextPool.cs" t="Include" />
+                  <e p="GridScoresDisplayController.cs" t="Include" />
+                  <e p="PiecesCombiningDoneSignal.cs" t="Include" />
+                </e>
+                <e p="Popups" t="Include">
+                  <e p="Core" t="Include">
+                    <e p="AnimationTransitions" t="Include">
+                      <e p="ForTests" t="Include">
+                        <e p="PopupTestAnimationTransition.cs" t="Include" />
+                      </e>
+                      <e p="PopupAnimationDefaultParameters.cs" t="Include" />
+                      <e p="PopupAnimationTransition.cs" t="Include" />
+                      <e p="PopupGenericAnimationTransition.cs" t="Include" />
+                    </e>
+                    <e p="IPopupRequest.cs" t="Include" />
+                    <e p="IPopupsRegistry.cs" t="Include" />
+                    <e p="PopupActionSignal.cs" t="Include" />
+                    <e p="PopupActionType.cs" t="Include" />
+                    <e p="PopupMaster.cs" t="Include" />
+                    <e p="PopupsRegistry.cs" t="Include" />
+                    <e p="PopupView.cs" t="Include" />
+                  </e>
+                </e>
+                <e p="TopHud" t="Include">
+                  <e p="IProgressBarParticlesController.cs" t="Include" />
+                  <e p="LevelProgressBarDisplay.cs" t="Include" />
+                  <e p="PlayerLevelDisplayController.cs" t="Include" />
+                  <e p="ProgressBarParticles.cs" t="Include" />
+                  <e p="ProgressBarParticlesController.cs" t="Include" />
+                  <e p="ProgressBarParticlesPool.cs" t="Include" />
+                  <e p="ScoreDisplayController.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+          <e p="OutGame" t="Include">
+            <e p="IIngameSceneController.cs" t="Include" />
+            <e p="IngameSceneController.cs" t="Include" />
+            <e p="Installers" t="Include">
+              <e p="OutgameInstaller.cs" t="Include" />
+            </e>
+            <e p="MainMenuPanelController.cs" t="Include" />
+            <e p="PlayButtonController.cs" t="Include" />
           </e>
         </e>
         <e p="StompyRobot" t="Include">
