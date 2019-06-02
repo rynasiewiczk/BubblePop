@@ -919,6 +919,10 @@
                 <e p="BubblesDebugger.cs" t="Include" />
               </e>
             </e>
+            <e p="Camera" t="Include">
+              <e p="GameplayCamera.cs" t="Include" />
+              <e p="IGameplayCamera.cs" t="Include" />
+            </e>
             <e p="CombiningBubbles" t="Include">
               <e p="CombinePiecesController.cs" t="Include" />
               <e p="CombinePieceSignal.cs" t="Include" />
@@ -937,7 +941,6 @@
               <e p="FindConnectedPiecesWithSameLevelController.cs" t="Include" />
               <e p="IFindConnectedPiecesWithSameLevelController.cs" t="Include" />
             </e>
-            <e p="GameplayCamera.cs" t="Include" />
             <e p="GameState" t="Include">
               <e p="GameStateController.cs" t="Include" />
               <e p="IGameStateController.cs" t="Include" />
@@ -961,7 +964,6 @@
                 <e p="GridDebugger.cs" t="Include" />
               </e>
             </e>
-            <e p="IGameplayCamera.cs" t="Include" />
             <e p="Input" t="Include">
               <e p="IInputEventsNotifier.cs" t="Include" />
               <e p="InputInstaller.cs" t="Include" />
@@ -1042,6 +1044,25 @@
                 <e p="GridScoreDisplayTextPool.cs" t="Include" />
                 <e p="GridScoresDisplayController.cs" t="Include" />
                 <e p="PiecesCombiningDoneSignal.cs" t="Include" />
+              </e>
+              <e p="Popups" t="Include">
+                <e p="Core" t="Include">
+                  <e p="AnimationTransitions" t="Include">
+                    <e p="ForTests" t="Include">
+                      <e p="PopupTestAnimationTransition.cs" t="Include" />
+                    </e>
+                    <e p="PopupAnimationDefaultParameters.cs" t="Include" />
+                    <e p="PopupAnimationTransition.cs" t="Include" />
+                    <e p="PopupGenericAnimationTransition.cs" t="Include" />
+                  </e>
+                  <e p="IPopupRequest.cs" t="Include" />
+                  <e p="IPopupsRegistry.cs" t="Include" />
+                  <e p="PopupActionSignal.cs" t="Include" />
+                  <e p="PopupActionType.cs" t="Include" />
+                  <e p="PopupMaster.cs" t="Include" />
+                  <e p="PopupsRegistry.cs" t="Include" />
+                  <e p="PopupView.cs" t="Include" />
+                </e>
               </e>
               <e p="TopHud" t="Include">
                 <e p="IProgressBarParticlesController.cs" t="Include" />
