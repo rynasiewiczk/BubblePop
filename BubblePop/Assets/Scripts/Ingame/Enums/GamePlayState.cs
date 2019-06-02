@@ -4,8 +4,6 @@ namespace Enums
     {
         None = 0,
 
-        Paused,
-        
         Idle,
         Aiming,
         PieceFlying,

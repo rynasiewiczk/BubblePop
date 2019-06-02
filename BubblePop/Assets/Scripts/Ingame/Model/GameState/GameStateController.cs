@@ -13,30 +13,31 @@ namespace Model
         public ReactiveProperty<GamePlayState> GamePlayState { get; private set; }
         public GamePlayState PreviousGamePlayState { get; private set; }
 
-        private readonly GameStateChangeSignal _gameStateChangeSignal = new GameStateChangeSignal();
+        private readonly IngamePausedSignal _ingamePauseSignal = new IngamePausedSignal();
+
+        public bool Paused { get; private set; } = true;
 
         public GameStateController(IIngameSceneVisibilityController ingameSceneVisibilityController, SignalBus signalBus)
         {
             _signalBus = signalBus;
 
-            GamePlayState = new ReactiveProperty<GamePlayState>(Enums.GamePlayState.Paused);
+            GamePlayState = new ReactiveProperty<GamePlayState>(Enums.GamePlayState.Idle);
             PreviousGamePlayState = Enums.GamePlayState.None;
 
-            ingameSceneVisibilityController.OnIngameUnpaused.Subscribe(x =>
-            {
-                var nextState = PreviousGamePlayState == Enums.GamePlayState.None ? Enums.GamePlayState.Idle : PreviousGamePlayState;
-                ChangeGamePlayState(nextState);
-            });
+            ingameSceneVisibilityController.OnIngameUnpaused.Subscribe(x => { Paused = false; });
+        }
+
+        public void SetPause(bool flag)
+        {
+            Paused = true;
+            _ingamePauseSignal.Paused = true;
+            _signalBus.Fire(_ingamePauseSignal);
         }
 
         public void ChangeGamePlayState(GamePlayState newState)
         {
             PreviousGamePlayState = GamePlayState.Value;
             GamePlayState.Value = newState;
-
-            _gameStateChangeSignal.GamePlayState = newState;
-            _gameStateChangeSignal.PrevState = PreviousGamePlayState;
-            _signalBus.Fire(_gameStateChangeSignal);
         }
     }
 }

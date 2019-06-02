@@ -7,6 +7,6 @@ public class SignalBusInstaller : MonoInstaller
     {
         Zenject.SignalBusInstaller.Install(Container);
 
-        Container.DeclareSignal<GameStateChangeSignal>();
+        Container.DeclareSignal<IngamePausedSignal>();
     }
 }

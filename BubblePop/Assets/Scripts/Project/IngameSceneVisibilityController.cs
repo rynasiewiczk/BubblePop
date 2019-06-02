@@ -27,12 +27,12 @@ public class IngameSceneVisibilityController : IIngameSceneVisibilityController,
 
         //artificial delay to go around a bug with ignoring scene activation allowance 
         DOVirtual.DelayedCall(.1f, LoadIngameSceneAsInactive);
-        _signalBus.Subscribe<GameStateChangeSignal>(ExecuteIngamePauseCommandIfNeeded);
+        _signalBus.Subscribe<IngamePausedSignal>(ExecuteIngamePauseCommandIfNeeded);
     }
 
-    private void ExecuteIngamePauseCommandIfNeeded(GameStateChangeSignal signal)
+    private void ExecuteIngamePauseCommandIfNeeded(IngamePausedSignal signal)
     {
-        if (signal.GamePlayState == GamePlayState.Paused)
+        if (signal.Paused)
         {
             OnIngamePaused.Execute();
         }
@@ -59,7 +59,7 @@ public class IngameSceneVisibilityController : IIngameSceneVisibilityController,
         OnIngamePaused?.Dispose();
         OnIngameUnpaused?.Dispose();
 
-        _signalBus.TryUnsubscribe<GameStateChangeSignal>(ExecuteIngamePauseCommandIfNeeded);
+        _signalBus.TryUnsubscribe<IngamePausedSignal>(ExecuteIngamePauseCommandIfNeeded);
 
         GC.SuppressFinalize(this);
     }
