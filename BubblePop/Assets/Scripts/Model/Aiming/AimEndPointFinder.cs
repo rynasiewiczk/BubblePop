@@ -72,16 +72,16 @@ namespace Project.Aiming
             if (TopWallWasHit(collider))
             {
                 var cellPosition =
-                    _gridMap.GetCellPositionByWorldPosition(new Vector2(raycastHit.point.x, raycastHit.point.y + _gridMap.GetViewPosition(Vector2.up).y));
+                    GridMapHelper.GetCellPositionByWorldPosition(new Vector2(raycastHit.point.x, raycastHit.point.y + _gridMap.GetViewPosition(Vector2.up).y));
                 var pieceAtPosition = _gridMap.GetPieceAtPositionOrNull(cellPosition);
 
-                var hitPointRelativeToPiecesCenter = raycastHit.point - cellPosition;
-                var aimedSide = hitPointRelativeToPiecesCenter.x > 0 ? PieceSide.BottomLeft : PieceSide.BottomRight;
+                var hitPointWithRowOffset = _gridMap.GetGridSideForRow(cellPosition.y) == GridRowSide.Left ? raycastHit.point : raycastHit.point + Vector2.left;
+                var hitPointRelativeToPiecesCenter = hitPointWithRowOffset - cellPosition;
+                var aimedSide = hitPointRelativeToPiecesCenter.x > 0 ? PieceSide.BottomRight : PieceSide.BottomLeft;
 
                 AimPath.Add(raycastHit.point);
 
-                var invertedAimSide = aimedSide == PieceSide.BottomLeft ? PieceSide.BottomRight : PieceSide.BottomLeft;
-                var finalPositionOnGrid = _gridMap.GetPositionToSpawnPiece(pieceAtPosition, invertedAimSide, cellPosition - raycastHit.point);
+                var finalPositionOnGrid = _gridMap.GetPositionToSpawnPiece(pieceAtPosition, aimedSide, raycastHit.point - cellPosition);
                 var copyOfAimPathWithFinalPositionOnGrid = AimPath.ToArray();
                 copyOfAimPathWithFinalPositionOnGrid[AimPath.Count - 1] = finalPositionOnGrid;
                 AimedPieceData = new PieceAimedData(pieceAtPosition, aimedSide, copyOfAimPathWithFinalPositionOnGrid);

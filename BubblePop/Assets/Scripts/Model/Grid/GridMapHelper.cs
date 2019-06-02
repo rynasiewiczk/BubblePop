@@ -79,10 +79,10 @@ namespace Project.Grid
         }
 
 
-        public static Vector2Int GetCellPositionByWorldPosition(this IGridMap gridMap, Vector2 position)
+        public static Vector2Int GetCellPositionByWorldPosition(Vector2 position)
         {
-            var column = Mathf.RoundToInt(position.x);
             var row = GetRowByWorldHeight(position.y);
+            var column = Mathf.RoundToInt(position.x);
             return new Vector2Int(column, row);
         }
 
