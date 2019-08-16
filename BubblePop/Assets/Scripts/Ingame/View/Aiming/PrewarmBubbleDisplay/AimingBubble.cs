@@ -27,6 +27,8 @@ namespace View.Aiming.PrewarmBubbleDisplay
 
         public void Show(Color color, int value, bool instant)
         {
+            gameObject.SetActive(true);
+            
             _spriteRenderer.color = color;
             _text.text = value.ToString();
 
@@ -52,6 +54,11 @@ namespace View.Aiming.PrewarmBubbleDisplay
                 transform.localScale = Vector3.one;
                 transform.position = targetPosition;
             }
+        }
+
+        public void Hide()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

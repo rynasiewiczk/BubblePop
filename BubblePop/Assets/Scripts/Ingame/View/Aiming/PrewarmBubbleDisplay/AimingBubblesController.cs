@@ -1,6 +1,7 @@
 using Project.Pieces;
 using UniRx;
 using UnityEngine;
+using View.FlyingAfterAiming;
 using Zenject;
 
 namespace View.Aiming.PrewarmBubbleDisplay
@@ -9,6 +10,7 @@ namespace View.Aiming.PrewarmBubbleDisplay
     {
         [Inject] private readonly INextBubbleLevelToSpawnController _nextBubbleLevelToSpawnController = null;
         [Inject] private readonly PiecesData _piecesData = null;
+        [Inject] private readonly SignalBus _signalBus = null;
 
         [SerializeField] private AimingBubble aimingBubble = null;
         [SerializeField] private SmallPrewarmBubble prewarmBubble = null;
@@ -28,6 +30,13 @@ namespace View.Aiming.PrewarmBubbleDisplay
 
             ShowNewPrewarm(_nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Value, true);
             SlideViewToAimPosition(_nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Value, true);
+
+            _signalBus.Subscribe<BubbleFlySignal>(signal => HideBubbleOnShot());
+        }
+
+        private void HideBubbleOnShot()
+        {
+            aimingBubble.Hide();
         }
 
         private void ShowNewPrewarm(int bubbleLevel, bool instant)
@@ -36,7 +45,6 @@ namespace View.Aiming.PrewarmBubbleDisplay
             var value = _piecesData.GetValueForLevel(bubbleLevel);
             prewarmBubble.Show(color, value, instant);
         }
-
 
         private void SlideViewToAimPosition(int bubbleLevel, bool instant)
         {

@@ -1032,6 +1032,7 @@
                   <e p="IDroppingUnconnectedBubblesViewController.cs" t="Include" />
                 </e>
                 <e p="FlyingAfterAiming" t="Include">
+                  <e p="BubbleFlySignal.cs" t="Include" />
                   <e p="FlyingBubbleView.cs" t="Include" />
                   <e p="FlyingBubbleViewController.cs" t="Include" />
                   <e p="FlyingBubbleViewPool.cs" t="Include" />

@@ -1,4 +1,5 @@
 using Model;
+using View.FlyingAfterAiming;
 using Zenject;
 
 public class SignalBusInstaller : MonoInstaller
@@ -8,5 +9,6 @@ public class SignalBusInstaller : MonoInstaller
         Zenject.SignalBusInstaller.Install(Container);
 
         Container.DeclareSignal<IngamePausedSignal>();
+        Container.DeclareSignal<BubbleFlySignal>();
     }
 }

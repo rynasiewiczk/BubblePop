@@ -5,6 +5,7 @@ using Project.Pieces;
 using Project.Grid;
 using UniRx;
 using UnityEngine;
+using Zenject;
 
 namespace View.FlyingAfterAiming
 {
@@ -20,9 +21,12 @@ namespace View.FlyingAfterAiming
         private readonly List<Vector2> _pathCopyList = new List<Vector2>();
         private readonly List<Vector2> _fullFlyPath = new List<Vector2>();
 
+        private readonly SignalBus _signalBus = null;
+        private BubbleFlySignal _bubbleFlySignal = new BubbleFlySignal();
+        
         public FlyingBubbleViewController(IFindingCellToShootPieceController findingCellToShootPieceController,
             INextBubbleLevelToSpawnController nextBubbleLevelToSpawnController,
-            FlyingBubbleViewPool flyingBubbleViewPool, PiecesData piecesData, IGridMap gridMap, IAimingStartPointProvider aimingStartPointProvider)
+            FlyingBubbleViewPool flyingBubbleViewPool, PiecesData piecesData, IGridMap gridMap, IAimingStartPointProvider aimingStartPointProvider, SignalBus signalBus)
         {
             _findingCellToShootPieceController = findingCellToShootPieceController;
             _nextBubbleLevelToSpawnController = nextBubbleLevelToSpawnController;
@@ -31,6 +35,8 @@ namespace View.FlyingAfterAiming
             _gridMap = gridMap;
             _aimingStartPointProvider = aimingStartPointProvider;
 
+            _signalBus = signalBus;
+
             _findingCellToShootPieceController.PieceFlyPath.Where(x => x != null && x.Length > 0).Subscribe(SpawnView);
         }
 
@@ -38,7 +44,6 @@ namespace View.FlyingAfterAiming
         {
             var level = _nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Value;
             var flyingBubbleView = _flyingBubbleViewPool.Spawn();
-
 
             _pathCopyList.Clear();
             for (int i = 0; i < path.Length; i++)
@@ -62,6 +67,7 @@ namespace View.FlyingAfterAiming
             var color = _piecesData.GetColorForLevel(level);
 
             flyingBubbleView.Setup(path3d, bubbleValueValueToDisplay, color, duration);
+            _signalBus.Fire(_bubbleFlySignal);
         }
 
         private float GetFlyDuration(Vector2 startPoint, Vector2[] path)
