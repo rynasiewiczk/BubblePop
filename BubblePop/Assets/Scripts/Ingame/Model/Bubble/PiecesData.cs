@@ -15,7 +15,9 @@ using Random = UnityEngine.Random;
     [FormerlySerializedAs("_maxpieceSpawnLevelsForPlayerLevel")] [SerializeField]
     private List<int> _maxPieceSpawnLevelsForPlayerLevel = null;
 
-    [SerializeField] private int _pieceLevelAvailableToSpawnAtstart = 3;
+    [SerializeField] private int _pieceLevelAvailableToSpawnAtStart = 6;
+
+    [SerializeField] private AnimationCurve _pieceRandomnessWageCurve = null;
 
     public int InitialMaxPiecesLevel = 5;
     [SerializeField] private float _flySpeed = 15f;
@@ -29,7 +31,6 @@ using Random = UnityEngine.Random;
 
     public float FlySpeed => _flySpeed;
     public float CombiningDuration => combiningDuration;
-    public float AfterCombiningDelay = .1f;
 
     public int GetValueForLevel(int level)
     {
@@ -152,7 +153,27 @@ using Random = UnityEngine.Random;
             return minLevel;
         }
 
-        var result = Random.Range(minLevel, maxLevel + 1);
+        var result = GetRandomPieceValueFromCurve(minLevel, maxLevel);
+        return result;
+    }
+
+    private int GetRandomPieceValueFromCurve(int minLevel, int maxLevel)
+    {
+        var listOfLevels = new List<int>();
+
+        for (int i = minLevel; i < maxLevel + 1; i++)
+        {
+            var perc = (float) i / maxLevel;
+            var evaluation = _pieceRandomnessWageCurve.Evaluate(perc);
+            evaluation *= 10;
+            for (int j = 0; j < evaluation; j++)
+            {
+                listOfLevels.Add(i);
+            }
+        }
+
+        var randomIndex = Random.Range(0, listOfLevels.Count - 1);
+        var result = listOfLevels[randomIndex];
         return result;
     }
 
@@ -163,7 +184,7 @@ using Random = UnityEngine.Random;
             return _minPieceSpawnLevelsForPlayerLevel[playerLevel];
         }
 
-        var minLevel = (playerLevel / 5) + 1;
+        var minLevel = (playerLevel / 6) + 1;
 
         if (minLevel < 1)
         {
@@ -181,14 +202,14 @@ using Random = UnityEngine.Random;
             return _maxPieceSpawnLevelsForPlayerLevel[playerLevel];
         }
 
-        var maxLevel = (playerLevel / 2) - 1;
+        var maxLevel = (playerLevel / _pieceLevelAvailableToSpawnAtStart) + _pieceLevelAvailableToSpawnAtStart;
 
-        if (maxLevel < _pieceLevelAvailableToSpawnAtstart)
+        if (maxLevel < _pieceLevelAvailableToSpawnAtStart)
         {
             Debug.LogError("Calculated max piece level is smaller than one granted by start settings.");
         }
 
-        var result = Mathf.Max(_pieceLevelAvailableToSpawnAtstart, maxLevel);
+        var result = Mathf.Max(_pieceLevelAvailableToSpawnAtStart, maxLevel);
         return result;
     }
 }
