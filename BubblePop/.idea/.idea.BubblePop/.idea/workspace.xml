@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d56e2297-98c2-4f48-a3c1-9ee0340c0891" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/Editor/JetBrains/JetBrains.Rider.Unity.Editor.Plugin.Repacked.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Enums/GamePlayState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Enums/GamePlayState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/CombinePiecesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/CombinePiecesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/DroppingDisconnectedBubbles/DropUnlinkedBubblesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/DroppingDisconnectedBubbles/DropUnlinkedBubblesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Project/IngameSceneVisibilityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Project/IngameSceneVisibilityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGame/AimingBubbleController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InGame/AimingBubbleController.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGame/BubbleView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InGame/BubbleView.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGame/BubbleView.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InGame/BubbleView.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGame/FlyingBubbleView.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InGame/FlyingBubbleView.prefab" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,12 +31,15 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/IExplodingTooBigPiecesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/PrewarmBubbleDisplay/AimingBubblesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/InGame/SceneContext.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/PrewarmBubbleDisplay/SmallPrewarmBubble.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/Signals/Main/SignalBus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Art/Shaders/DefaultParticleShader.shader" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewAppearingComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Debug/NextBubbleDebug.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StompyRobot/TypeSafe/usr/Resources.Generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/SignalDeclaration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Enums/GamePlayState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/InGame/AimingBubbleController.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Binding/BindInfo/GameObjectCreationParameters.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/SignalSubscription.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/PieceDataInstaller.cs" root0="FORCE_HIGHLIGHTING" />
@@ -116,7 +115,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Project/IIngameSceneVisibilityController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Project/OnPlayerButtonClickDelegate.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/OutGame/PlayButtonController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/PauseButtonController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateChangeSignal.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/IngamePausedSignal.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/IGameStateController.cs" />
@@ -127,6 +125,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/IExplodingTooBigPiecesController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/ExplodingTooBigPiecesController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/PauseButtonController.cs" />
       </list>
     </option>
   </component>
@@ -210,6 +209,7 @@
       <workItem from="1560372559069" duration="775000" />
       <workItem from="1565948531754" duration="79000" />
       <workItem from="1565949471007" duration="31000" />
+      <workItem from="1565949560882" duration="645000" />
     </task>
     <servers />
   </component>
@@ -248,6 +248,8 @@
   <component name="WindowStateProjectService">
     <state x="640" y="247" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" />
     <state x="640" y="247" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.1080/1920.1200" />
+    <state x="185" y="236" key="SettingsEditor" />
+    <state x="185" y="236" key="SettingsEditor/1920.1080/1920.1200" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
