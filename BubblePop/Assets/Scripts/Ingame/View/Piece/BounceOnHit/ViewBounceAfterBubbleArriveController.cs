@@ -24,7 +24,7 @@ namespace View
                 var targetPosition = gridMap.GetViewPosition(arrivePosition);
 
                 _aroundList.Clear();
-                var bubblesAround = gridMap.GetBubblesAroundPosition(arrivePosition, _aroundList);
+                var bubblesAround = gridMap.GetPiecesAroundPosition(arrivePosition, _aroundList);
 
                 foreach (var bubble in bubblesAround)
                 {

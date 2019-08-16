@@ -162,7 +162,7 @@ namespace Project.Grid
             return list;
         }
 
-        public static List<IPiece> GetBubblesAroundPosition(this IGridMap gridMap, Vector2Int position, List<IPiece> bufferList)
+        public static List<IPiece> GetPiecesAroundPosition(this IGridMap gridMap, Vector2Int position, List<IPiece> bufferList)
         {
             var rowSide = gridMap.GetGridSideForRow(position.y);
             var checkVectors = rowSide == GridRowSide.Left ? _leftRowCheckVectors : _rightRowCheckVectors;
