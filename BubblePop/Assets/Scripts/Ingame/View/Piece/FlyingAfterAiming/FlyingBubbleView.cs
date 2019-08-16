@@ -7,9 +7,8 @@ namespace View.FlyingAfterAiming
 {
     public class FlyingBubbleView : MonoBehaviour
     {
-        [SerializeField] private SpriteRenderer _spriteRenderer = null;
-        [SerializeField] private TextMeshPro _text = null;
-
+        [SerializeField] private PieceView _pieceView = null;
+        
         [Inject] private readonly FlyingBubbleViewPool _flyingBubbleViewPool = null;
 
         private Vector2[] _path;
@@ -17,21 +16,12 @@ namespace View.FlyingAfterAiming
 
         private void Awake()
         {
-            Debug.Assert(_spriteRenderer, "Missing reference: _spriteRenderer", this);
-            Debug.Assert(_text, "Missing reference: _text", this);
+            Debug.Assert(_pieceView, "Missing reference: _pieceView", this);
         }
 
-        private void Start()
+        public void Setup(Vector3[] path, int level, float duration)
         {
-            const int flyingBubbleTextSortingLayer = 998;
-            _text.sortingOrder = flyingBubbleTextSortingLayer;
-        }
-
-        public void Setup(Vector3[] path, string value, Color color, float duration)
-        {
-            _spriteRenderer.color = color;
-            _text.text = value;
-
+            _pieceView.Setup(level);
             transform.DOPath(path, duration).OnComplete(() => { _flyingBubbleViewPool.Despawn(this); });
         }
     }

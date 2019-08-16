@@ -15,10 +15,7 @@ namespace View.DroppingUnconnected
         [Inject] private readonly PieceDestroyOnDropParticlesPool _pieceDestroyOnDropParticlesPool = null;
         [Inject] private readonly IGameplayCamera _gameplayCamera = null;
 
-        [SerializeField] private SpriteRenderer _spriteRenderer = null;
-        [SerializeField] private TextMeshPro _text = null;
-
-        private int _level;
+        [SerializeField] private PieceView _pieceView = null;
 
         private int _horizontalDirection = -1;
 
@@ -28,13 +25,11 @@ namespace View.DroppingUnconnected
         private float _gravity;
         private float _rotationSpeed;
 
-        private Color _color;
         private bool _triggeredFallParticles = false;
 
         private void Awake()
         {
-            Debug.Assert(_spriteRenderer, "Missing reference: _spriteRenderer", this);
-            Debug.Assert(_text, "Missing reference: _text", this);
+            Debug.Assert(_pieceView, "Missing reference: _pieceView", this);
         }
 
         private void Start()
@@ -54,10 +49,9 @@ namespace View.DroppingUnconnected
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.x, transform.eulerAngles.z + _rotationSpeed);
 
             var transparencySpeed = _bubbleViewSettings.DropBubbleTransparencyLossSpeed * Time.deltaTime;
-            var color = _spriteRenderer.color;
-            color.a -= transparencySpeed;
-            _spriteRenderer.color = color;
-            _text.alpha = color.a;
+            var col = _pieceView.GetAlpha();
+            col -= transparencySpeed;
+            _pieceView.SetAlpha(col);
 
             FireDestroyParticlesIfOnEdgeOnView();
             DespawnIfLowEnough();
@@ -72,7 +66,7 @@ namespace View.DroppingUnconnected
 
             _triggeredFallParticles = true;
             var destroyParticles = _pieceDestroyOnDropParticlesPool.Spawn();
-            destroyParticles.Setup(_color, (Vector2) transform.position + Vector2.up / 2, false);
+            destroyParticles.Setup(_pieceView.GetMainColor(), (Vector2) transform.position + Vector2.up / 2, false);
         }
 
         private void DespawnIfLowEnough()
@@ -85,12 +79,10 @@ namespace View.DroppingUnconnected
             DeSpawn();
         }
 
-        public void Setup(Vector2 position, Color color, string value, int direction)
+        public void Setup(Vector2 position, int level, int direction)
         {
             transform.position = position;
-            _color = color;
-            _spriteRenderer.color = color;
-            _text.text = value;
+            _pieceView.Setup(level);
             _triggeredFallParticles = false;
 
             _horizontalDirection = direction;
@@ -103,10 +95,7 @@ namespace View.DroppingUnconnected
         {
             transform.localScale = Vector3.one;
             transform.eulerAngles = Vector3.zero;
-            var color = _spriteRenderer.color;
-            color.a = 1;
-            _spriteRenderer.color = color;
-            _text.alpha = 1;
+            _pieceView.SetAlpha(1);
 
             _droppingBubbleViewPool.Despawn(this);
         }

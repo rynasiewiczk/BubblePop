@@ -8,18 +8,18 @@ namespace View
 {
     public class BubbleViewAppearingComponent : MonoBehaviour
     {
-        [SerializeField] private BubbleView _view = null;
+        [SerializeField] private GridBubble _view = null;
         [Inject] private readonly GridSettings _gridSettings = null;
         [Inject] private readonly BubbleViewSettings _bubbleViewSettings = null;
 
         private bool _scaledUp = true;
         private Tween _tween;
 
-        private BubbleView View
+        private GridBubble View
         {
             get
             {
-                if (_view == null) _view = GetComponentInParent<BubbleView>();
+                if (_view == null) _view = GetComponentInParent<GridBubble>();
                 return _view;
             }
         }

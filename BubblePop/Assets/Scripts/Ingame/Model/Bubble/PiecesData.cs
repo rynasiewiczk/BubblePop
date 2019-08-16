@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using UnityEngine;
 using UnityEngine.Serialization;
+using View;
 using Random = UnityEngine.Random;
 
 [Serializable] public class PiecesData
@@ -21,7 +22,10 @@ using Random = UnityEngine.Random;
 
     [SerializeField] private float combiningDuration = 13f;
 
-    [Space, SerializeField] private List<Color> _listOfColors = null;
+    [FormerlySerializedAs("_listOfColors")] [Space, SerializeField]
+    private List<Color> _listOfInnerColors = null;
+
+    [SerializeField] private List<Color> _listOfOuterColors = null;
 
     public float FlySpeed => _flySpeed;
     public float CombiningDuration => combiningDuration;
@@ -34,16 +38,38 @@ using Random = UnityEngine.Random;
         return (int) result;
     }
 
-    public Color GetColorForLevel(int level)
+    public PieceViewSet GetColorForLevel(int level)
     {
         ValidateProvidedLevel(ref level);
 
-        if (_listOfColors.Count <= level)
+        if (_listOfInnerColors.Count <= level)
         {
-            UpdateListOfColorsUpToRequestedLevel(level);
+            UpdateListOfInnerColorsUpToRequestedLevel(level);
         }
 
-        return _listOfColors[level];
+        var innerColor = _listOfInnerColors[level];
+        var outerColor = GetOuterColorForLevel(level);
+
+        var set = new PieceViewSet(innerColor, outerColor);
+
+        return set;
+    }
+
+    private Color GetOuterColorForLevel(int level)
+    {
+        if (level < 10)
+        {
+            return _listOfInnerColors[level];
+        }
+
+        var index = level / 10;
+        if (_listOfOuterColors.Count <= index)
+        {
+            UpdateListOfOuterColorsUpToRequestedLevel(index);
+        }
+
+        var resultIndex = Mathf.Max(index - 1, 0);
+        return _listOfOuterColors[resultIndex];
     }
 
     public string GetValueInDisplayFormatFromPieceLevel(int level, int decimalNumbers = 0)
@@ -76,16 +102,28 @@ using Random = UnityEngine.Random;
         }
     }
 
-    private void UpdateListOfColorsUpToRequestedLevel(int level)
+    private void UpdateListOfInnerColorsUpToRequestedLevel(int level)
     {
         var randomColors = new List<Color>();
 
-        for (int i = _listOfColors.Count; i <= level; i++)
+        for (int i = _listOfInnerColors.Count; i <= level; i++)
         {
             randomColors.Add(CreateNewRandomColor());
         }
 
-        _listOfColors.AddRange(randomColors);
+        _listOfInnerColors.AddRange(randomColors);
+    }
+
+    private void UpdateListOfOuterColorsUpToRequestedLevel(int index)
+    {
+        var randomColors = new List<Color>();
+
+        for (int i = _listOfOuterColors.Count; i <= index; i++)
+        {
+            randomColors.Add(CreateNewRandomColor());
+        }
+
+        _listOfOuterColors.AddRange(randomColors);
     }
 
     private Color CreateNewRandomColor()

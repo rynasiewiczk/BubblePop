@@ -63,10 +63,8 @@ namespace View.FlyingAfterAiming
             }
 
             var duration = GetFlyDuration(_aimingStartPointProvider.GetAimingStartPoint(), path);
-            var bubbleValueValueToDisplay = _piecesData.GetValueInDisplayFormatFromPieceLevel(level, 0);
-            var color = _piecesData.GetColorForLevel(level);
 
-            flyingBubbleView.Setup(path3d, bubbleValueValueToDisplay, color, duration);
+            flyingBubbleView.Setup(path3d, level, duration);
             _signalBus.Fire(_bubbleFlySignal);
         }
 

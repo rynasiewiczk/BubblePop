@@ -7,7 +7,7 @@ using Zenject;
 
 public class ViewInstaller : MonoInstaller
 {
-    [SerializeField] private BubbleView _bubbleView = null;
+    [SerializeField] private GridBubble _bubbleView = null;
     [SerializeField] private FlyingBubbleView _flyingBubbleView = null;
     [SerializeField] private DroppingBubbleView _droppingBubbleView = null;
     [SerializeField] private PieceDestroyParticles _pieceDestroyOnCombineParticles = null;
@@ -15,7 +15,7 @@ public class ViewInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.BindMemoryPool<BubbleView, BubbleViewPool>()
+        Container.BindMemoryPool<GridBubble, BubbleViewPool>()
             .WithInitialSize(50)
             .FromComponentInNewPrefab(_bubbleView)
             .UnderTransformGroup("BubbleViews");

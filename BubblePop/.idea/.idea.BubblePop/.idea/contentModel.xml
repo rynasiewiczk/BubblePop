@@ -1039,10 +1039,12 @@
                   <e p="IFlyingBubbleViewController.cs" t="Include" />
                 </e>
                 <e p="General" t="Include">
-                  <e p="BubbleView.cs" t="Include" />
                   <e p="BubbleViewPool.cs" t="Include" />
                   <e p="BubbleViewSettings.cs" t="Include" />
+                  <e p="GridBubble.cs" t="Include" />
                 </e>
+                <e p="PieceView.cs" t="Include" />
+                <e p="PieceViewSet.cs" t="Include" />
               </e>
               <e p="Ui" t="Include">
                 <e p="GridScoresDisplay" t="Include">

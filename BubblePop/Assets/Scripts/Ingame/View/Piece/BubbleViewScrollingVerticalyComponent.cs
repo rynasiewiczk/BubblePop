@@ -9,7 +9,7 @@ namespace View
 {
     public class BubbleViewScrollingVerticalyComponent : MonoBehaviour
     {
-        [SerializeField] private BubbleView _view = null;
+        [SerializeField] private GridBubble _view = null;
 
         [Inject] private readonly IScrollRowsController _scrollRowsController = null;
         [Inject] private readonly GridSettings _gridSettings = null;

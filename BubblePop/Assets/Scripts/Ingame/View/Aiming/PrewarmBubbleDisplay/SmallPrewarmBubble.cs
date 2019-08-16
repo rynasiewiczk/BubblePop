@@ -1,5 +1,4 @@
 using DG.Tweening;
-using TMPro;
 using UnityEngine;
 using Zenject;
 
@@ -9,8 +8,7 @@ namespace View.Aiming.PrewarmBubbleDisplay
     {
         [Inject] private readonly BubbleViewSettings _bubbleViewSettings = null;
 
-        [SerializeField] private SpriteRenderer _spriteRenderer = null;
-        [SerializeField] private TextMeshPro _text = null;
+        [SerializeField] private PieceView _pieceView = null;
 
         public Vector2 SpawnPosition => transform.position;
 
@@ -18,15 +16,12 @@ namespace View.Aiming.PrewarmBubbleDisplay
 
         private void Awake()
         {
-            Debug.Assert(_spriteRenderer, "Missing reference: _spriteRenderer", this);
-            Debug.Assert(_text, "Missing reference: _text", this);
+            Debug.Assert(_pieceView, "Missing reference: _pieceView", this);
         }
 
-        public void Show(Color color, int value, bool instant)
+        public void Show(int level, bool instant)
         {
-            _spriteRenderer.color = color;
-            _text.text = value.ToString();
-
+            _pieceView.Setup(level);
 
             var endScale = _bubbleViewSettings.SmallPrewarmBubbleSize;
             var duration = _bubbleViewSettings.SmallPrewarmBubbleAppearDuration;

@@ -14,12 +14,12 @@ public class BubblesDebugger : MonoBehaviour
             return;
         }
 
-        
+
         foreach (var bubble in _gridMap.PiecesRegistry)
         {
             try
             {
-                var color = _piecesData.GetColorForLevel(bubble.Level.Value);
+                var color = _piecesData.GetColorForLevel(bubble.Level.Value).InnerColor;
                 var viewPosition = _gridMap.GetViewPosition(bubble.Position.Value);
 
                 Gizmos.color = color;

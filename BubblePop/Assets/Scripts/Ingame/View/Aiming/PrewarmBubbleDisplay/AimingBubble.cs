@@ -11,26 +11,23 @@ namespace View.Aiming.PrewarmBubbleDisplay
         [Inject] private readonly BubbleViewSettings _bubbleViewSettings = null;
         [Inject] private readonly IAimingStartPointProvider _aimingStartPointProvider = null;
 
-        [SerializeField] private SpriteRenderer _spriteRenderer = null;
-        [SerializeField] private TextMeshPro _text = null;
         [SerializeField] private SmallPrewarmBubble _smallPrewarmBubble = null;
-
+        [SerializeField] private PieceView _pieceView = null;
+        
+        
         private Tween _scalingTween = null;
         private Tween _positioningTween = null;
 
         private void Awake()
         {
-            Debug.Assert(_spriteRenderer, "Missing reference: _spriteRenderer", this);
-            Debug.Assert(_text, "Missing reference: _text", this);
+            Debug.Assert(_pieceView, "Missing reference: _pieceView", this);
             Debug.Assert(_smallPrewarmBubble, "Missing reference: _smallPrewarmBubble", this);
         }
 
-        public void Show(Color color, int value, bool instant)
+        public void Show(int level, bool instant)
         {
             gameObject.SetActive(true);
-            
-            _spriteRenderer.color = color;
-            _text.text = value.ToString();
+            _pieceView.Setup(level);
 
             var startScale = _bubbleViewSettings.SmallPrewarmBubbleSize;
             var targetPosition = _aimingStartPointProvider.GetAimingStartPoint();

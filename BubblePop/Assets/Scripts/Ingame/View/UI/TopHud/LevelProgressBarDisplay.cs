@@ -52,12 +52,12 @@ public class LevelProgressBarDisplay : MonoBehaviour
         
         _tween?.Kill();
         _tween = _colorfulPanel.DOFillAmount(normalizedProgress, _fillDuration);
-        _colorfulPanel.color = currentLevelColor;
+        _colorfulPanel.color = currentLevelColor.InnerColor;
 
-        _leftEdgeImage.color = currentLevelColor;
+        _leftEdgeImage.color = currentLevelColor.InnerColor;
         _currentLevelText.text = currentLevel.ToString();
 
-        _rightEdgeImage.color = nextLevelColor;
+        _rightEdgeImage.color = nextLevelColor.InnerColor;
         _nextLevelText.text = (currentLevel + 1).ToString();
     }
 

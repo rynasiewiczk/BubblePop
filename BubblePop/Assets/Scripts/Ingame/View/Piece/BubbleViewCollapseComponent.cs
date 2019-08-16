@@ -8,7 +8,7 @@ namespace View
 {
     public class BubbleViewCollapseComponent : MonoBehaviour
     {
-        [SerializeField] private BubbleView _view = null;
+        [SerializeField] private GridBubble _view = null;
 
         [Inject] private readonly IGridMap _gridMap = null;
         [Inject] private readonly SignalBus _signalBus = null;

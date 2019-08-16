@@ -112,7 +112,7 @@ namespace Project.Aiming
                 var piecePosition = collider.gameObject.transform.position;
                 var aimedSide = GetPieceAimedSide(raycastHit.point, piecePosition);
                 //todo: get position on row for the collider and get piece from GridMap
-                var pieceView = collider.gameObject.GetComponentInParent<BubbleView>();
+                var pieceView = collider.gameObject.GetComponentInParent<GridBubble>();
 
                 AimPath.Add(raycastHit.point);
 

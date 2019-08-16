@@ -8,7 +8,7 @@ public class BubbleViewBounceComponent : MonoBehaviour
     [Inject] private readonly SignalBus _signalBus = null;
     [Inject] private readonly BubbleViewSettings _bubbleViewSettings = null;
 
-    [SerializeField] private BubbleView _view = null;
+    [SerializeField] private GridBubble _view = null;
 
     private Tween _tween = null;
 

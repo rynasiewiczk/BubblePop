@@ -3,15 +3,15 @@ using Project.Pieces;
 using Project.Grid;
 using TMPro;
 using UnityEngine;
+using View;
 using Zenject;
 
-public class BubbleView : MonoBehaviour
+public class GridBubble : MonoBehaviour
 {
     [Inject] private readonly PiecesData _piecesData = null;
     [Inject] private readonly IGridMap _gridMap = null;
 
-    [SerializeField] private SpriteRenderer _spriteRenderer = null;
-    [SerializeField] private TextMeshPro _text = null;
+    [SerializeField] private PieceView _pieceView = null;
 
     public Action OnSetuped;
 
@@ -19,8 +19,7 @@ public class BubbleView : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Assert(_spriteRenderer, "Missing reference: _spriteRenderer", this);
-        Debug.Assert(_text, "Missing reference: _text", this);
+        Debug.Assert(_pieceView, "Missing reference: _pieceView", this);
     }
 
     private void OnDisable()
@@ -32,8 +31,7 @@ public class BubbleView : MonoBehaviour
     {
         Model = model;
         SetPosition(model.Position.Value);
-        SetColor(model.Level.Value);
-        SetValue(model.Level.Value);
+        SetView(model.Level.Value);
 
         OnSetuped?.Invoke();
     }
@@ -44,15 +42,8 @@ public class BubbleView : MonoBehaviour
         transform.position = viewPosition;
     }
 
-    private void SetColor(int level)
+    private void SetView(int level)
     {
-        var color = _piecesData.GetColorForLevel(level);
-        _spriteRenderer.color = color;
-    }
-
-    private void SetValue(int level)
-    {
-        _text.sortingOrder = 50;
-        _text.text = _piecesData.GetValueInDisplayFormatFromPieceLevel(level, 0);
+        _pieceView.Setup(level);
     }
 }

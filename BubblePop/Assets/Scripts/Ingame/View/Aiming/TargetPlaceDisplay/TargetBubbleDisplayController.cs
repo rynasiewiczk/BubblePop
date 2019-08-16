@@ -30,7 +30,7 @@ namespace View.Aiming.TargetPlaceDisplay
 
         private void UpdateTargetDisplayColor(int level)
         {
-            var color = _piecesData.GetColorForLevel(level);
+            var color = _piecesData.GetColorForLevel(level).InnerColor;
             _display.SetColor(color);
         }
 

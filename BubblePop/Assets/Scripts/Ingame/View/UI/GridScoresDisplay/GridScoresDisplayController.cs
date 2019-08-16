@@ -52,7 +52,7 @@ public class GridScoresDisplayController : MonoBehaviour
         var score = _piecesData.GetValueForLevel(level);
         var fontSize = _uiData.GetFontSizeForScore(score);
         var scoreInFormatToDisplay = _piecesData.GetValueInDisplayFormat(score, 0);
-        var color = _piecesData.GetColorForLevel(level);
+        var color = _piecesData.GetColorForLevel(level).InnerColor;
 
         var displayPosition = GetDisplayPoint(gridPosition);
 

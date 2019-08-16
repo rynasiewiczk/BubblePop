@@ -1,22 +1,19 @@
-using TMPro;
 using UnityEngine;
 
 namespace View
 {
     public class BubbleViewLayering : MonoBehaviour
     {
-        [SerializeField] private BubbleView _view = null;
+        [SerializeField] private GridBubble _view = null;
 
-        [SerializeField] private SpriteRenderer _spriteRenderer = null;
-        [SerializeField] private TextMeshPro _text = null;
+        [SerializeField] private PieceView _pieceView = null;
 
         private int _latestRecordedRow = -1;
 
         private void Awake()
         {
             Debug.Assert(_view, "Missing reference: _view", this);
-            Debug.Assert(_spriteRenderer, "Missing reference: _spriteRenderer", this);
-            Debug.Assert(_text, "Missing reference: _text", this);
+            Debug.Assert(_pieceView, "Missing reference: _pieceView", this);
         }
 
         private void Update()
@@ -41,8 +38,7 @@ namespace View
 
         private void UpdateLayerOfRenderers(int row)
         {
-            _spriteRenderer.sortingOrder = row * BubbleViewSettings.RENDER_LAYERS_MULTIPLAYER;
-            _text.sortingOrder = row * BubbleViewSettings.RENDER_LAYERS_MULTIPLAYER + BubbleViewSettings.TEXT_RENDER_LAYER_ADDITION;
+            _pieceView.SetOrderLayerForRow(row);
         }
     }
 }

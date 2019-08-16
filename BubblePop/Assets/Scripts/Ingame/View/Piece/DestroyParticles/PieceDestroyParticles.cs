@@ -54,7 +54,7 @@ namespace View.DestroyParticles
 
         public void Setup(int pieceLevel, Vector2 position, bool createdOnCombine)
         {
-            var color = _piecesData.GetColorForLevel(pieceLevel);
+            var color = _piecesData.GetColorForLevel(pieceLevel).InnerColor;
             Setup(color, position, createdOnCombine);
         }
 
