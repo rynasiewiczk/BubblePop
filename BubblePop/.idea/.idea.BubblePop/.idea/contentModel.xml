@@ -935,8 +935,9 @@
                 <e p="ICombinePiecesController.cs" t="Include" />
               </e>
               <e p="ExplodingAfterCombining" t="Include">
-                <e p="ExplodingTooBigPiecesController.cs" t="Include" />
+                <e p="ExplodingOvergrownPiecesController.cs" t="Include" />
                 <e p="IExplodingTooBigPiecesController.cs" t="Include" />
+                <e p="OvergrownExplosionSignal.cs" t="Include" />
               </e>
               <e p="FillingBubblesAbovePlayspace" t="Include">
                 <e p="FillingBubblesAbovePlayspaceController.cs" t="Include" />
@@ -1008,6 +1009,7 @@
                   <e p="TargetBubbleDisplayController.cs" t="Include" />
                 </e>
               </e>
+              <e p="CameraShake.cs" t="Include" />
               <e p="Piece" t="Include">
                 <e p="BounceOnHit" t="Include">
                   <e p="IViewBounceAfterBubbleArriveController.cs" t="Include" />

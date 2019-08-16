@@ -31,7 +31,7 @@ public class GridActionsInstaller : Installer<GridActionsInstaller>
         Container.DeclareSignal<CombinePieceSignal>();
         Container.DeclareSignal<PiecesCombiningDoneSignal>();
 
-        Container.BindInterfacesTo<ExplodingTooBigPiecesController>().AsSingle().NonLazy();
+        Container.BindInterfacesTo<ExplodingOvergrownPiecesController>().AsSingle().NonLazy();
 
         Container.BindInterfacesTo<DropUnlinkedBubblesController>().AsSingle().NonLazy();
         Container.DeclareSignal<DroppingUnlinkedBubbleSignal>();

@@ -16,6 +16,7 @@ public class ViewInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+
         Container.BindMemoryPool<GridBubble, BubbleViewPool>()
             .WithInitialSize(50)
             .FromComponentInNewPrefab(_bubbleView)

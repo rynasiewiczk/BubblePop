@@ -10,23 +10,30 @@ using Zenject;
 
 namespace Ingame.Model.ExplodingAfterCombining
 {
-    public class ExplodingTooBigPiecesController : IExplodingTooBigPiecesController
+    public class ExplodingOvergrownPiecesController : IExplodingTooBigPiecesController
     {
         private readonly IGridMap _gridMap = null;
         private readonly PiecesData _piecesData = null;
         private readonly IPlayerLevelController _playerLevelController = null;
 
-        [Inject] private readonly PieceDestroyOnCombineParticlesPool _pieceDestroyOnCombineParticlesPool = null;
-        [Inject] private readonly PieceDestroyOnOvergrownExplosionParticlesPool _pieceDestroyOnOvergrownExplosionParticlesPool = null;
-
+        private readonly PieceDestroyOnCombineParticlesPool _pieceDestroyOnCombineParticlesPool = null;
+        private readonly PieceDestroyOnOvergrownExplosionParticlesPool _pieceDestroyOnOvergrownExplosionParticlesPool = null;
+        
+        private readonly SignalBus _signalBus = null;
+        private readonly OvergrownExplosionSignal _overgrownExplosionSignal = new OvergrownExplosionSignal();
+        
         private readonly List<IPiece> _bufferList = new List<IPiece>(6);
 
-        public ExplodingTooBigPiecesController(IGameStateController gameStateController, IGridMap gridMap, PiecesData piecesData,
-            IPlayerLevelController playerLevelController)
+        public ExplodingOvergrownPiecesController(IGameStateController gameStateController, IGridMap gridMap, PiecesData piecesData,
+            IPlayerLevelController playerLevelController, PieceDestroyOnCombineParticlesPool pieceDestroyOnCombineParticlesPool,
+            PieceDestroyOnOvergrownExplosionParticlesPool pieceDestroyOnOvergrownExplosionParticlesPool, SignalBus signalBus)
         {
             _gridMap = gridMap;
             _piecesData = piecesData;
             _playerLevelController = playerLevelController;
+            _pieceDestroyOnCombineParticlesPool = pieceDestroyOnCombineParticlesPool;
+            _pieceDestroyOnOvergrownExplosionParticlesPool = pieceDestroyOnOvergrownExplosionParticlesPool;
+            _signalBus = signalBus;
 
             gameStateController.GamePlayState.Where(x => x == GamePlayState.DropAndExplodePiecesAfterCombining).Subscribe(x => ExplodeTooBigPieces());
         }
@@ -48,6 +55,8 @@ namespace Ingame.Model.ExplodingAfterCombining
 
             tooBigToken.Destroy();
             FireDestroyEffectForOvergrownPiece(tooBigToken);
+            
+            _signalBus.Fire(_overgrownExplosionSignal);
         }
 
         private void DestroyPiecesAround(IPiece tooBigToken)

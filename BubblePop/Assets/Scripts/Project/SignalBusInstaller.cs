@@ -1,3 +1,4 @@
+using Ingame.Model.ExplodingAfterCombining;
 using Model;
 using View.FlyingAfterAiming;
 using Zenject;
@@ -10,5 +11,6 @@ public class SignalBusInstaller : MonoInstaller
 
         Container.DeclareSignal<IngamePausedSignal>();
         Container.DeclareSignal<BubbleFlySignal>();
+        Container.DeclareSignal<OvergrownExplosionSignal>();
     }
 }
