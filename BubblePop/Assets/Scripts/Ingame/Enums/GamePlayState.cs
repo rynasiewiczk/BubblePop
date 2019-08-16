@@ -10,7 +10,7 @@ namespace Enums
         PlacingPieceOnGrid,
         PiecesCombining,
         WaitingForPiecesCombine,
-        DropPiecesAfterCombining,
+        DropAndExplodePiecesAfterCombining,
         ScrollRows,
         FillPiecesAboveTop,
     }

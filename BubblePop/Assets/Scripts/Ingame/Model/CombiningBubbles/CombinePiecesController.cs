@@ -79,7 +79,7 @@ namespace Model.CombiningBubbles
                 _piecesCombiningDoneSignal.Position = PositionOfCollapse.Value;
                 _signalBus.Fire(_piecesCombiningDoneSignal);
 
-                _gameStateController.ChangeGamePlayState(GamePlayState.DropPiecesAfterCombining);
+                _gameStateController.ChangeGamePlayState(GamePlayState.DropAndExplodePiecesAfterCombining);
             }, false);
         }
 

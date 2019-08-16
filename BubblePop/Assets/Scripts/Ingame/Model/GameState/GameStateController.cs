@@ -9,7 +9,6 @@ namespace Model
     {
         private readonly SignalBus _signalBus = null;
 
-        //TODO: having both properties and signal is duplication of logic. Only signal should remain.
         public ReactiveProperty<GamePlayState> GamePlayState { get; private set; }
         public GamePlayState PreviousGamePlayState { get; private set; }
 

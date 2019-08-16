@@ -1,6 +1,4 @@
-﻿using System;
-using Enums;
-using Model;
+﻿using Model;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

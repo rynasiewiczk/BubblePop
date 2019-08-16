@@ -32,7 +32,7 @@ namespace Model.CombiningBubbles.DroppingDisconnectedBubbles
             _combinePiecesController = combinePiecesController;
             _signalBus = signalBus;
 
-            _gameStateController.GamePlayState.Where(x => x == GamePlayState.DropPiecesAfterCombining).Subscribe(x => DropUnlinkedBubbles());
+            _gameStateController.GamePlayState.Where(x => x == GamePlayState.DropAndExplodePiecesAfterCombining).Subscribe(x => DropUnlinkedBubbles());
         }
 
         private void DropUnlinkedBubbles()
