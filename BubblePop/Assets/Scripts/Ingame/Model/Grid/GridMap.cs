@@ -81,6 +81,8 @@ namespace Project.Grid
 
         }
 
+        
+
         private void AddBubbleToRegistry(IPiece piece)
         {
             if (PiecesRegistry.FirstOrDefault(x => x.Position.Value == piece.Position.Value) != null)

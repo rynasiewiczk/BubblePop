@@ -45,8 +45,8 @@ public class LevelProgressBarDisplay : MonoBehaviour
     private void UpdateScoreDisplay(int score)
     {
         var currentLevel = _playerLevelController.PlayerLevel.Value;
-        var currentLevelColor = _piecesData.GetColorForLevel(currentLevel);
-        var nextLevelColor = _piecesData.GetColorForLevel(currentLevel + 1);
+        var currentLevelColor = _piecesData.GetColorsSetForLevel(currentLevel);
+        var nextLevelColor = _piecesData.GetColorsSetForLevel(currentLevel + 1);
 
         var normalizedProgress = _playerLevelSettings.GetCurrentLevelNormalizedProgress(score);
         

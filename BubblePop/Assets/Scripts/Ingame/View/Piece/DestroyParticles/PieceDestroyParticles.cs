@@ -1,4 +1,5 @@
 using System;
+using Enums;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
@@ -9,6 +10,7 @@ namespace View.DestroyParticles
     {
         [Inject] private readonly PieceDestroyOnCombineParticlesPool _pieceDestroyOnCombineParticlesPool = null;
         [Inject] private readonly PieceDestroyOnDropParticlesPool _pieceDestroyOnDropParticlesPool = null;
+        [Inject] private readonly PieceDestroyOnOvergrownExplosionParticlesPool _pieceDestroyOnOvergrownExplosionParticlesPool = null;
 
         [Inject] private readonly PiecesData _piecesData = null;
         [Inject] private readonly BubbleViewSettings _bubbleViewSettings = null;
@@ -18,7 +20,7 @@ namespace View.DestroyParticles
         private float _enableTime;
         private float _duration = 5f;
 
-        private bool _createdOnCombine = false;
+        private DestroyParticlesSourceType _destroyParticlesSourceType;
 
         private void Awake()
         {
@@ -42,34 +44,54 @@ namespace View.DestroyParticles
                 return;
             }
 
-            if (_createdOnCombine)
+
+            switch (_destroyParticlesSourceType)
             {
-                _pieceDestroyOnCombineParticlesPool.Despawn(this);
-            }
-            else
-            {
-                _pieceDestroyOnDropParticlesPool.Despawn(this);
+                case DestroyParticlesSourceType.Combine:
+                    _pieceDestroyOnCombineParticlesPool.Despawn(this);
+                    break;
+                case DestroyParticlesSourceType.Dropping:
+                    _pieceDestroyOnDropParticlesPool.Despawn(this);
+                    break;
+                case DestroyParticlesSourceType.ExplodeOvergrown:
+                    _pieceDestroyOnOvergrownExplosionParticlesPool.Despawn(this);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
-        public void Setup(int pieceLevel, Vector2 position, bool createdOnCombine)
+        public void Setup(int pieceLevel, Vector2 position, DestroyParticlesSourceType type)
         {
-            var color = _piecesData.GetColorForLevel(pieceLevel).InnerColor;
-            Setup(color, position, createdOnCombine);
+            var color = _piecesData.GetColorsSetForLevel(pieceLevel).InnerColor;
+            Setup(color, position, type);
         }
 
-        public void Setup(Color color, Vector2 position, bool createdOnCombine)
+        public void Setup(Color color, Vector2 position, DestroyParticlesSourceType type)
         {
-            _createdOnCombine = createdOnCombine;
+            _destroyParticlesSourceType = type;
 
             transform.position = position;
             var main = _system.main;
-            main.startColor = color;
 
-            var particlesToEmitRange = createdOnCombine
-                ? _bubbleViewSettings.DestroyOnCombineParticlesAmountRange
-                : _bubbleViewSettings.DestroyOnDropParticlesAmountRange;
+            Vector2Int particlesToEmitRange;
 
+            switch (type)
+            {
+                case DestroyParticlesSourceType.Combine:
+                    particlesToEmitRange = _bubbleViewSettings.DestroyOnCombineParticlesAmountRange;
+                    main.startColor = color;
+                    break;
+                case DestroyParticlesSourceType.Dropping:
+                    particlesToEmitRange = _bubbleViewSettings.DestroyOnDropParticlesAmountRange;
+                    main.startColor = color;
+                    break;
+                case DestroyParticlesSourceType.ExplodeOvergrown:
+                    particlesToEmitRange = _bubbleViewSettings.DestroyOnOvergrownExplosionParticlesAmountRange;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+            }
 
             var particlesToEmit = Random.Range(particlesToEmitRange.x, particlesToEmitRange.y);
             _system.Emit(particlesToEmit);

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Enums;
 using Model.CombiningBubbles;
 using Model.FindingMatches;
 using Project.Grid;
@@ -36,7 +37,7 @@ namespace View.DestroyParticles
 
                 var position = _gridMap.GetViewPosition(piece.Position.Value);
                 var effect = _pieceDestroyOnCombineParticlesPool.Spawn();
-                effect.Setup(piece.Level.Value, position, true);
+                effect.Setup(piece.Level.Value, position, DestroyParticlesSourceType.Combine);
             }
         }
     }

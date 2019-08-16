@@ -12,6 +12,7 @@ public class ViewInstaller : MonoInstaller
     [SerializeField] private DroppingBubbleView _droppingBubbleView = null;
     [SerializeField] private PieceDestroyParticles _pieceDestroyOnCombineParticles = null;
     [SerializeField] private PieceDestroyParticles _pieceDestroyOnDropParticles = null;
+    [SerializeField] private PieceDestroyParticles _pieceDestroyOvergrownExplosionParticles = null;
 
     public override void InstallBindings()
     {
@@ -45,6 +46,10 @@ public class ViewInstaller : MonoInstaller
         Container.BindMemoryPool<PieceDestroyParticles, PieceDestroyOnDropParticlesPool>()
             .WithInitialSize(6)
             .FromComponentInNewPrefab(_pieceDestroyOnDropParticles)
-            .UnderTransformGroup("PieceDestroyParticles");
+            .UnderTransformGroup("PieceDestroyOnDropParticles");
+        Container.BindMemoryPool<PieceDestroyParticles, PieceDestroyOnOvergrownExplosionParticlesPool>()
+            .WithInitialSize(3)
+            .FromComponentInNewPrefab(_pieceDestroyOvergrownExplosionParticles)
+            .UnderTransformGroup("PieceDestroyOvergrownExplosionParticles");
     }
 }

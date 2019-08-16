@@ -15,7 +15,31 @@ MonoBehaviour:
   piecesData:
     _minPieceSpawnLevelsForPlayerLevel: 010000000100000001000000010000000100000002000000020000000200000002000000020000000300000003000000030000000300000003000000
     _maxPieceSpawnLevelsForPlayerLevel: 030000000300000003000000030000000300000004000000040000000400000004000000040000000500000005000000050000000500000005000000
-    _pieceLevelAvailableToSpawnAtstart: 3
+    _pieceLevelAvailableToSpawnAtStart: 6
+    _pieceRandomnessWageCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.00064086914
+        value: 1.0031242
+        inSlope: -0.5083522
+        outSlope: -0.5083522
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.03153236
+      - serializedVersion: 3
+        time: 0.9980784
+        value: 0.6033943
+        inSlope: -0.30756477
+        outSlope: -0.30756477
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.037970327
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
     InitialMaxPiecesLevel: 5
     _flySpeed: 25
     combiningDuration: 0.22
@@ -43,4 +67,3 @@ MonoBehaviour:
     - {r: 0.9831822, g: 1, b: 0.5235849, a: 1}
     - {r: 0.5953378, g: 1, b: 0.8082508, a: 1}
     - {r: 0.8086381, g: 1, b: 0.495283, a: 1}
-    AfterCombiningDelay: 0.1

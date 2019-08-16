@@ -33,5 +33,6 @@ namespace View
 
         [Space] public Vector2Int DestroyOnCombineParticlesAmountRange = new Vector2Int(3, 6);
         public Vector2Int DestroyOnDropParticlesAmountRange = new Vector2Int(5, 8);
+        public Vector2Int DestroyOnOvergrownExplosionParticlesAmountRange = new Vector2Int(30, 40);
     }
 }

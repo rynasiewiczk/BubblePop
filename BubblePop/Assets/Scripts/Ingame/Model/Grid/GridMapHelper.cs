@@ -179,5 +179,19 @@ namespace Project.Grid
             var bubble = gridMap.GetPieceAtPositionOrNull(position);
             return bubble != null;
         }
+        
+        public static IPiece GetFirstTokenEqualOrBiggerThanValueOrNull( this IGridMap gridMap, int level)
+        {
+            var pieces = gridMap.PiecesRegistry;
+            foreach (var piece in pieces)
+            {
+                if (piece.Level.Value >= level)
+                {
+                    return piece;
+                }
+            }
+
+            return null;
+        }
     }
 }

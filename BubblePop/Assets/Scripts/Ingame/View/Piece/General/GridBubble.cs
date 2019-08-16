@@ -1,14 +1,12 @@
 ﻿using System;
 using Project.Pieces;
 using Project.Grid;
-using TMPro;
 using UnityEngine;
 using View;
 using Zenject;
 
 public class GridBubble : MonoBehaviour
 {
-    [Inject] private readonly PiecesData _piecesData = null;
     [Inject] private readonly IGridMap _gridMap = null;
 
     [SerializeField] private PieceView _pieceView = null;

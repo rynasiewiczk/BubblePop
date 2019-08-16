@@ -855,6 +855,7 @@
               <e p="ScoreDebug.cs" t="Include" />
             </e>
             <e p="Enums" t="Include">
+              <e p="DestroyParticlesSourceType.cs" t="Include" />
               <e p="GamePlayState.cs" t="Include" />
               <e p="GridRowSide.cs" t="Include" />
               <e p="PieceSide.cs" t="Include" />
@@ -1023,6 +1024,7 @@
                   <e p="PieceDestroyOnCombineParticlesController.cs" t="Include" />
                   <e p="PieceDestroyOnCombineParticlesPool.cs" t="Include" />
                   <e p="PieceDestroyOnDropParticlesPool.cs" t="Include" />
+                  <e p="PieceDestroyOnOvergrownExplosionParticlesPool.cs" t="Include" />
                   <e p="PieceDestroyParticles.cs" t="Include" />
                 </e>
                 <e p="DroppingUnconnected" t="Include">

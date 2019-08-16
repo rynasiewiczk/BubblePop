@@ -647,6 +647,12 @@ PrefabInstance:
       propertyPath: _gameplayCamera
       value: 
       objectReference: {fileID: 6134786077938436930}
+    - target: {fileID: 995091664302746566, guid: 03294f4e14c8ff54ca69ab1181c86463,
+        type: 3}
+      propertyPath: _pieceDestroyOvergrownExplosionParticles
+      value: 
+      objectReference: {fileID: 2585618082481058632, guid: 0cc7f5f896ef5e2479f588282d2e204d,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03294f4e14c8ff54ca69ab1181c86463, type: 3}
 --- !u!1001 &1460462153646308423
@@ -1163,6 +1169,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1600699618500399597, guid: 46f3f6e706a886d469b96f46c7bb3a16,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1965591444212626540, guid: 46f3f6e706a886d469b96f46c7bb3a16,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46f3f6e706a886d469b96f46c7bb3a16, type: 3}

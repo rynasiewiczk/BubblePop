@@ -28,6 +28,7 @@ using Random = UnityEngine.Random;
     private List<Color> _listOfInnerColors = null;
 
     [SerializeField] private List<Color> _listOfOuterColors = null;
+    private const int DIFFERENCE_BETWEEN_MAX_SPAWNABLE_AND_LIVING_ON_GRID = 3;
 
     public float FlySpeed => _flySpeed;
     public float CombiningDuration => combiningDuration;
@@ -39,7 +40,7 @@ using Random = UnityEngine.Random;
         return (int) result;
     }
 
-    public PieceViewSet GetColorForLevel(int level)
+    public PieceViewSet GetColorsSetForLevel(int level)
     {
         ValidateProvidedLevel(ref level);
 
@@ -210,6 +211,13 @@ using Random = UnityEngine.Random;
         }
 
         var result = Mathf.Max(_pieceLevelAvailableToSpawnAtStart, maxLevel);
+        return result;
+    }
+
+    public int GetBiggestPieceLevelToLiveOnGrid(int playerLevel)
+    {
+        var maxSpawnLevel = GetMaxPieceLevelByPlayerLevel(playerLevel);
+        var result = maxSpawnLevel + DIFFERENCE_BETWEEN_MAX_SPAWNABLE_AND_LIVING_ON_GRID;
         return result;
     }
 }

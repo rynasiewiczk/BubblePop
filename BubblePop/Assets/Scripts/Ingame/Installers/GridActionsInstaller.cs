@@ -1,3 +1,4 @@
+using Ingame.Model.ExplodingAfterCombining;
 using Model;
 using Model.CombiningBubbles;
 using Model.CombiningBubbles.DroppingDisconnectedBubbles;
@@ -29,6 +30,8 @@ public class GridActionsInstaller : Installer<GridActionsInstaller>
         Container.BindInterfacesTo<CombinePiecesController>().AsSingle().NonLazy();
         Container.DeclareSignal<CombinePieceSignal>();
         Container.DeclareSignal<PiecesCombiningDoneSignal>();
+
+        Container.BindInterfacesTo<ExplodingTooBigPiecesController>().AsSingle().NonLazy();
 
         Container.BindInterfacesTo<DropUnlinkedBubblesController>().AsSingle().NonLazy();
         Container.DeclareSignal<DroppingUnlinkedBubbleSignal>();

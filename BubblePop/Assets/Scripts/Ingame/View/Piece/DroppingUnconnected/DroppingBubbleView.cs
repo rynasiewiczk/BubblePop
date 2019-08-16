@@ -1,3 +1,4 @@
+using Enums;
 using Model;
 using TMPro;
 using UnityEngine;
@@ -66,7 +67,7 @@ namespace View.DroppingUnconnected
 
             _triggeredFallParticles = true;
             var destroyParticles = _pieceDestroyOnDropParticlesPool.Spawn();
-            destroyParticles.Setup(_pieceView.GetMainColor(), (Vector2) transform.position + Vector2.up / 2, false);
+            destroyParticles.Setup(_pieceView.GetMainColor(), (Vector2) transform.position + Vector2.up / 2, DestroyParticlesSourceType.Dropping);
         }
 
         private void DespawnIfLowEnough()

@@ -19,7 +19,7 @@ public class BubblesDebugger : MonoBehaviour
         {
             try
             {
-                var color = _piecesData.GetColorForLevel(bubble.Level.Value).InnerColor;
+                var color = _piecesData.GetColorsSetForLevel(bubble.Level.Value).InnerColor;
                 var viewPosition = _gridMap.GetViewPosition(bubble.Position.Value);
 
                 Gizmos.color = color;

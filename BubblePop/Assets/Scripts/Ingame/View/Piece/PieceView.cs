@@ -15,7 +15,7 @@ namespace View
 
         public void Setup(int level)
         {
-            var set = _piecesData.GetColorForLevel(level);
+            var set = _piecesData.GetColorsSetForLevel(level);
             _innerCircle.color = set.InnerColor;
             _outerCircle.color = set.OuterColor;
 
