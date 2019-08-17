@@ -60,7 +60,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_text
-    value: dfasdfa
+    value: new text
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_isRightToLeft
@@ -69,7 +69,7 @@ Preset:
   - target: {fileID: 0}
     propertyPath: m_fontAsset
     value: 
-    objectReference: {fileID: 11400000, guid: 634fd65abf0fea342a501bcdfe577722, type: 2}
+    objectReference: {fileID: 11400000, guid: 0fa4f35c52db7414581a1b250601c73d, type: 2}
   - target: {fileID: 0}
     propertyPath: m_sharedMaterial
     value: 
@@ -235,10 +235,6 @@ Preset:
     value: 514
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: m_isAlignmentEnumConverted
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: m_characterSpacing
     value: 0
     objectReference: {fileID: 0}
@@ -343,6 +339,10 @@ Preset:
     value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
+    propertyPath: m_VertexBufferAutoSizeReduction
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
     propertyPath: m_firstVisibleCharacter
     value: 0
     objectReference: {fileID: 0}
@@ -407,10 +407,6 @@ Preset:
     value: 1
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: m_havePropertiesChanged
-    value: 1
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
     propertyPath: m_isUsingLegacyAnimationComponent
     value: 0
     objectReference: {fileID: 0}
@@ -421,14 +417,6 @@ Preset:
   - target: {fileID: 0}
     propertyPath: m_spriteAnimator
     value: 
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_isInputParsingRequired
-    value: 0
-    objectReference: {fileID: 0}
-  - target: {fileID: 0}
-    propertyPath: m_inputSource
-    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: m_hasFontAssetChanged

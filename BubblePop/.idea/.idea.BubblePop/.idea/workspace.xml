@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d56e2297-98c2-4f48-a3c1-9ee0340c0891" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/Ingame/PlayerLevelSettingsInstaller.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Ingame/PlayerLevelSettingsInstaller.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IngameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/IngameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/ExplodingOvergrownPiecesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/ExplodingOvergrownPiecesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/FindConnectedPiecesWithSameLevelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/FindConnectedPiecesWithSameLevelController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/IFindConnectedPiecesWithSameLevelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/IFindConnectedPiecesWithSameLevelController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/BuildingGrid/InitialPiecesBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/BuildingGrid/InitialPiecesBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/GridMapHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/GridMapHelper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/ScoreController/ScoreController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/ScoreController/ScoreController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/View/CameraShake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/View/CameraShake.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGame/AimingBubbleController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InGame/AimingBubbleController.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StompyRobot/TypeSafe/Editor/TypeCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StompyRobot/TypeSafe/Editor/TypeCache.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +34,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Binding/Binders/GameObject/TransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Enums/DestroyParticlesSourceType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyOnOvergrownExplosionParticlesPool.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/GridScoresDisplay/CombinationMultiplayerDisplayController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/GridScoresDisplay/CombinationMultiplayerDisplayController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/Test/BubblesDebugger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/Spawning/NextBubbleLevelToSpawnController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/Spawning/BubblesSpawner.cs" root0="FORCE_HIGHLIGHTING" />
@@ -64,6 +59,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/LevelProgressBarDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/ICombinePiecesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/CombinePiecesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/GridScoresDisplay/GridScoreDisplayText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/GridScoresDisplay/GridScoresDisplayController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewLayering.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/DroppingDisconnectedBubbles/DropUnlinkedBubblesController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -71,6 +67,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Install/Contexts/ProjectContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewBounceComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Install/Contexts/SceneContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ScrollingRowsDown/IScrollRowsController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewScrollingVerticalyComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/Signals/Main/SignalBus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewCollapseComponent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -135,7 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Project/IngameSceneVisibilityController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Enums/GamePlayState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/IExplodingTooBigPiecesController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" />
@@ -180,12 +176,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/ExplodingOvergrownPiecesController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/IFindConnectedPiecesWithSameLevelController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/CameraShake.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/FindConnectedPiecesWithSameLevelController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/BuildingGrid/InitialPiecesBuilder.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/GridMapHelper.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/ScoreController/ScoreController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/GridScoresDisplay/CombinationMultiplayerDisplayController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/FindConnectedPiecesWithSameLevelController.cs" />
       </list>
     </option>
   </component>
@@ -282,7 +279,7 @@
       <workItem from="1565949560882" duration="747000" />
       <workItem from="1565950424149" duration="681000" />
       <workItem from="1565955322826" duration="11393000" />
-      <workItem from="1566034382441" duration="4573000" />
+      <workItem from="1566034382441" duration="6160000" />
     </task>
     <servers />
   </component>

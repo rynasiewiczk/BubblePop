@@ -16,7 +16,7 @@ MonoBehaviour:
     GridScoreText_MinFontSize: 50
     GridScoreText_MaxFontSize: 130
     GridScoreText_MaxScoreForTopSize: 4096
-    GridScoreText_FadeOutSpeed: 2
-    GridScoreText_ScaleupSpeed: 5
+    GridScoreText_FadeOutSpeed: 1.25
+    GridScoreText_ScaleupSpeed: 4
     GridScoreText_LifeTime: 0.35
-    MoveUpSpeed: 1.5
+    MoveUpSpeed: 2
