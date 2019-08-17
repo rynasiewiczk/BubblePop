@@ -45,7 +45,7 @@ namespace Ingame.Model.ExplodingAfterCombining
 
             _bufferList.Clear();
 
-            var tooBigToken = _gridMap.GetFirstTokenEqualOrBiggerThanValueOrNull(maxAllowedPieceLevelOnGrid);
+            var tooBigToken = _gridMap.GetFirstTokenBiggerThanValueOrNull(maxAllowedPieceLevelOnGrid);
             if (tooBigToken == null)
             {
                 return;

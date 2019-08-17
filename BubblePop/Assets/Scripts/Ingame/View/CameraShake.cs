@@ -1,18 +1,17 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using Ingame.Model.ExplodingAfterCombining;
 using UnityEngine;
 using Zenject;
 
 public class CameraShake : MonoBehaviour
 {
-    [SerializeField] private Transform _toShake;
+    [SerializeField] private Transform _toShake = null;
 
     [SerializeField] private float _strengthOnOvergrownExplosion = 3f;
     [SerializeField] private float _durationOnOvergrownExplosion = .3f;
     [SerializeField] private int _vibratoOnOvergrownExplosion = 5;
 
-    [Inject] private SignalBus _signalBus = null;
+    [Inject] private readonly SignalBus _signalBus = null;
 
     private Vector3 _defaultPosition;
 

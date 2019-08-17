@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: PlayerLevelSettingsInstaller
   m_EditorClassIdentifier: 
   _playerLevelSettings:
-    _scoreRequirementsForLevels: 0000000000000000f4010000e803000088130000dc050000204e0000409c0000a0860100
+    _secondLevelScore: 8000
+    _nextLevelMultiplier: 1.7

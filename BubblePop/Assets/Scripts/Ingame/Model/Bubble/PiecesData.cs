@@ -8,18 +8,10 @@ using Random = UnityEngine.Random;
 
 [Serializable] public class PiecesData
 {
-    //todo: it should go to struct that describes player level range for piece level
-    [FormerlySerializedAs("_minpieceSpawnLevelsForPlayerLevel")] [SerializeField]
-    private List<int> _minPieceSpawnLevelsForPlayerLevel = null;
-
-    [FormerlySerializedAs("_maxpieceSpawnLevelsForPlayerLevel")] [SerializeField]
-    private List<int> _maxPieceSpawnLevelsForPlayerLevel = null;
-
     [SerializeField] private int _pieceLevelAvailableToSpawnAtStart = 6;
 
     [SerializeField] private AnimationCurve _pieceRandomnessWageCurve = null;
 
-    public int InitialMaxPiecesLevel = 5;
     [SerializeField] private float _flySpeed = 15f;
 
     [SerializeField] private float combiningDuration = 13f;
@@ -146,7 +138,7 @@ using Random = UnityEngine.Random;
     public int GetRandomPieceLevelBasedOnPlayerLevel(int playerLevel)
     {
         var minLevel = GetMinPieceLevelByPlayerLevel(playerLevel);
-        var maxLevel = GetMaxPieceLevelByPlayerLevel(playerLevel);
+        var maxLevel = GetMaxPieceLevelToShoot(playerLevel);
 
         if (minLevel > maxLevel)
         {
@@ -180,11 +172,6 @@ using Random = UnityEngine.Random;
 
     private int GetMinPieceLevelByPlayerLevel(int playerLevel)
     {
-        if (_minPieceSpawnLevelsForPlayerLevel.Count > playerLevel)
-        {
-            return _minPieceSpawnLevelsForPlayerLevel[playerLevel];
-        }
-
         var minLevel = (playerLevel / 6) + 1;
 
         if (minLevel < 1)
@@ -196,13 +183,8 @@ using Random = UnityEngine.Random;
         return result;
     }
 
-    private int GetMaxPieceLevelByPlayerLevel(int playerLevel)
+    private int GetMaxPieceLevelToShoot(int playerLevel)
     {
-        if (_maxPieceSpawnLevelsForPlayerLevel.Count > playerLevel)
-        {
-            return _maxPieceSpawnLevelsForPlayerLevel[playerLevel];
-        }
-
         var maxLevel = (playerLevel / _pieceLevelAvailableToSpawnAtStart) + _pieceLevelAvailableToSpawnAtStart;
 
         if (maxLevel < _pieceLevelAvailableToSpawnAtStart)
@@ -216,7 +198,7 @@ using Random = UnityEngine.Random;
 
     public int GetBiggestPieceLevelToLiveOnGrid(int playerLevel)
     {
-        var maxSpawnLevel = GetMaxPieceLevelByPlayerLevel(playerLevel);
+        var maxSpawnLevel = GetMaxPieceLevelToShoot(playerLevel);
         var result = maxSpawnLevel + DIFFERENCE_BETWEEN_MAX_SPAWNABLE_AND_LIVING_ON_GRID;
         return result;
     }

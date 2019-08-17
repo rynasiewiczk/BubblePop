@@ -267,6 +267,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce34ef0afaa84484927a871d7736495c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &797544521 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 359700749800498118, guid: b764d71e3196ba041a01035009348a35,
+    type: 3}
+  m_PrefabInstance: {fileID: 1584099751168997063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1584076365 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4162166235125344898, guid: b034c0e63be03b84abdd9f909622d3bf,
@@ -811,7 +817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e524a07a4a65ef347a9730fa185ff428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _toShake: {fileID: 0}
+  _toShake: {fileID: 797544521}
   _strengthOnOvergrownExplosion: 0.35
   _durationOnOvergrownExplosion: 0.4
   _vibratoOnOvergrownExplosion: 12

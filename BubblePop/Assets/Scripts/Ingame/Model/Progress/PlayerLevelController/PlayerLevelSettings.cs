@@ -1,43 +1,62 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using UniRx;
 using UnityEngine;
 
 namespace Model.Progress.PlayerLevelController
 {
     [Serializable] public class PlayerLevelSettings
     {
-        private const int EXTRA_PERCENTAGE_TO_ADD_WHEN_SCORE_NOT_SPEFICIED = 200;
-        [SerializeField] private List<int> _scoreRequirementsForLevels = null;
+        [SerializeField] private int _secondLevelScore = 17000;
+        [SerializeField] private float _nextLevelMultiplier = 1.5f;
 
         public int GetRequirementForLevel(int level)
         {
-            while (_scoreRequirementsForLevels.Count <= level)
+            if (level < 1)
             {
-                _scoreRequirementsForLevels.Add(_scoreRequirementsForLevels.Last() +
-                                                _scoreRequirementsForLevels.Last() * EXTRA_PERCENTAGE_TO_ADD_WHEN_SCORE_NOT_SPEFICIED / 100);
+                Debug.LogError("Provided level is less than minimal. Provided: " + level);
             }
 
-            return _scoreRequirementsForLevels[level];
+            if (level == 1)
+            {
+                return 0;
+            }
+
+            if (level == 2)
+            {
+                return _secondLevelScore;
+            }
+
+            var scoreForLevel = _secondLevelScore;
+            for (int i = 1; i < level; i++)
+            {
+                scoreForLevel = (int) (scoreForLevel * _nextLevelMultiplier);
+            }
+
+            return scoreForLevel;
         }
 
         public int GetCurrentLevelByScore(int score)
         {
-            var level = 0;
-            for (int i = 0; i < _scoreRequirementsForLevels.Count; i++)
+            var level = 1;
+            var scoreForLevel = 0;
+            var scoreForNextLevel = _secondLevelScore;
+
+            if (score >= scoreForLevel && score < scoreForNextLevel)
             {
-                if (score >= _scoreRequirementsForLevels[i])
-                {
-                    level = i;
-                }
-                else
-                {
-                    break;
-                }
+                return level;
             }
 
-            return level;
+            while (true)
+            {
+                level++;
+
+                scoreForLevel = scoreForNextLevel;
+                scoreForNextLevel = (int) (scoreForLevel * _nextLevelMultiplier);
+
+                if (score >= scoreForLevel && score < scoreForNextLevel)
+                {
+                    return level;
+                }
+            }
         }
 
         public float GetCurrentLevelNormalizedProgress(int currentScore)

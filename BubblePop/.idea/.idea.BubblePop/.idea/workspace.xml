@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d56e2297-98c2-4f48-a3c1-9ee0340c0891" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGame/GameplayCamera.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGame/GameplayCamera.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Ingame/PlayerLevelSettingsInstaller.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Ingame/PlayerLevelSettingsInstaller.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/IngameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/IngameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MenuScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MenuScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/GridActionsInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/GridActionsInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/View/ViewInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/View/ViewInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/ExplodingTooBigPiecesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/ExplodingOvergrownPiecesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/ExplodingTooBigPiecesController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/ExplodingOvergrownPiecesController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Project/SignalBusInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Project/SignalBusInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/FindConnectedPiecesWithSameLevelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/FindConnectedPiecesWithSameLevelController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/IFindConnectedPiecesWithSameLevelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/IFindConnectedPiecesWithSameLevelController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/BuildingGrid/InitialPiecesBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/BuildingGrid/InitialPiecesBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/ScoreController/ScoreController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/ScoreController/ScoreController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/View/CameraShake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/View/CameraShake.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,49 +24,85 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/InGame/SceneContext.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/BuildingGrid/InitialPiecesBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/InGame/AimingBubbleController.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/InGame/BubbleView.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ReactiveProperty.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/AimEndPointFinder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/StateObservers/FindingCellToShootPieceController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/StateObservers/StartAimingStateObserver.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Main/DiContainer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Binding/Binders/GameObject/TransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Enums/DestroyParticlesSourceType.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyOnOvergrownExplosionParticlesPool.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/Test/BubblesDebugger.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/Spawning/NextBubbleLevelToSpawnController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/Spawning/BubblesSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PlacingOnGrid/SpawnShotBubbleOnGridController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Binding/BindInfo/GameObjectCreationParameters.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Camera/GameplayCamera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/ScoreController/ScoreController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/ScoreController/IScoreController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Resources/Ingame/BubbleDataInstaller.asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/IGameStateController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/ProgressBarParticlesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/IngamePausedSignal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/ExplodingOvergrownPiecesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/PauseButtonController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/IExplodingTooBigPiecesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/FindConnectedPiecesWithSameLevelController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/IFindConnectedPiecesWithSameLevelController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/CameraShake.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/LevelProgressBarDisplay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/ICombinePiecesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/CombinePiecesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/GridScoresDisplay/GridScoresDisplayController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewLayering.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/DroppingDisconnectedBubbles/DropUnlinkedBubblesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/OvergrownExplosionSignal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Install/Contexts/ProjectContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewBounceComponent.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Install/Contexts/SceneContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewScrollingVerticalyComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/Signals/Main/SignalBus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewCollapseComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewAppearingComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FillingBubblesAbovePlayspace/FillingBubblesAbovePlayspaceController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StompyRobot/TypeSafe/usr/Resources.Generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/SignalDeclaration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/General/GridBubble.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/InGame/AimingBubbleController.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/General/BubbleViewSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/GridActionsInstaller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53038CCD-6BEC-4FED-AD70-8C999DA7EA3A/59/77ddc3c4/Debug.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/SignalSubscription.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/InGame/BubbleView.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/InGameInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/General/BubbleViewPool.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/PieceDataInstaller.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/PlayerLevelSettingsInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyParticles.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ReactiveProperty.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyOnDropParticlesPool.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/AimEndPointFinder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyOnCombineParticlesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/FlyingAfterAiming/BubbleFlySignal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/View/ViewInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/FlyingAfterAiming/FlyingBubbleView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/FlyingAfterAiming/FlyingBubbleViewPool.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/StateObservers/FindingCellToShootPieceController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Calculations/VectorsHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/FlyingAfterAiming/FlyingBubbleViewController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/OutGame/OutgameUiSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DroppingUnconnected/DroppingBubbleView.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/StateObservers/StartAimingStateObserver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/OutGame/PlayButtonController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/PieceView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/OutGame/MainMenuPanelController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DroppingUnconnected/DroppingUnconnectedBubblesViewController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Main/DiContainer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Binding/Binders/GameObject/TransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/OutGame/Installers/OutgameUiSettingsInstaller.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Enums/DestroyParticlesSourceType.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/OutGame/Installers/OutgameInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/PieceViewSet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Project/ScenesManagementInstaller.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyOnOvergrownExplosionParticlesPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Project/SignalBusInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Internal/Log.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Project/IIngameSceneVisibilityController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -76,55 +111,27 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Project/IngameSceneVisibilityController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Project/OnPlayerButtonClickDelegate.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/PrewarmBubbleDisplay/AimingBubble.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/Test/BubblesDebugger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/PrewarmBubbleDisplay/AimingBubblesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/PrewarmBubbleDisplay/SmallPrewarmBubble.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Art/Shaders/DefaultParticleShader.shader" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Debug/ScoreDebug.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/Spawning/NextBubbleLevelToSpawnController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Debug/PlayerLevelDebugger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Debug/GameStateDebugger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Debug/NextBubbleDebug.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Enums/GamePlayState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/Spawning/BubblesSpawner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Binding/BindInfo/GameObjectCreationParameters.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Camera/GameplayCamera.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Factories/Pooling/MemoryPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Factories/Pooling/MonoMemoryPool.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Factories/Pooling/MemoryPoolBase.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Resources/Ingame/BubbleDataInstaller.asset" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/IGameStateController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/IngamePausedSignal.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/ExplodingOvergrownPiecesController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/PauseButtonController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/IExplodingTooBigPiecesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/IGridMap.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/CameraShake.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/LevelProgressBarDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/GridMap.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/CombinePiecesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/MemoryPoolMonitor/Editor/DebugWindow/InPlaceStableSort.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/GridScoresDisplay/GridScoresDisplayController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewLayering.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/PiecesFindingHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/GridMapHelper.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/DroppingDisconnectedBubbles/DropUnlinkedBubblesController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/OvergrownExplosionSignal.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Install/Contexts/ProjectContext.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewBounceComponent.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Install/Contexts/SceneContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/VectorIntDrawers.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateChangeSignal.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/IngamePausedSignal.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/IGameStateController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/StateObservers/StartAimingStateObserver.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/OutGame/MainMenuPanelController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Project/IngameSceneVisibilityController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Enums/GamePlayState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/IExplodingTooBigPiecesController.cs" />
@@ -150,7 +157,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/PieceView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewLayering.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/PrewarmBubbleDisplay/AimingBubblesController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/GridMap.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/IGridMap.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/GridMapHelper.cs" />
@@ -170,7 +176,13 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Project/SignalBusInstaller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/View/ViewInstaller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/ExplodingOvergrownPiecesController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/IFindConnectedPiecesWithSameLevelController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/CameraShake.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/FindConnectedPiecesWithSameLevelController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/ScoreController/ScoreController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/BuildingGrid/InitialPiecesBuilder.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs" />
       </list>
     </option>
   </component>
@@ -214,10 +226,10 @@
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="17188">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="8536">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="17188" />
+      <option name="pid" value="8536" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -266,7 +278,8 @@
       <workItem from="1565949471007" duration="31000" />
       <workItem from="1565949560882" duration="747000" />
       <workItem from="1565950424149" duration="681000" />
-      <workItem from="1565955322826" duration="10617000" />
+      <workItem from="1565955322826" duration="11393000" />
+      <workItem from="1566034382441" duration="3555000" />
     </task>
     <servers />
   </component>
@@ -305,40 +318,40 @@
   <component name="WindowStateProjectService">
     <state x="640" y="247" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" />
     <state x="640" y="247" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.1080/1920.1200" />
-    <state width="433" height="465" key="DebuggerActiveHint" />
-    <state width="433" height="465" key="DebuggerActiveHint/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.0.bottom" />
-    <state width="1921" height="151" key="GridCell.Tab.0.bottom/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.0.center" />
-    <state width="1921" height="151" key="GridCell.Tab.0.center/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.0.left" />
-    <state width="1921" height="151" key="GridCell.Tab.0.left/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.0.right" />
-    <state width="1921" height="151" key="GridCell.Tab.0.right/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.1.bottom" />
-    <state width="1921" height="151" key="GridCell.Tab.1.bottom/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.1.center" />
-    <state width="1921" height="151" key="GridCell.Tab.1.center/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.1.left" />
-    <state width="1921" height="151" key="GridCell.Tab.1.left/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.1.right" />
-    <state width="1921" height="151" key="GridCell.Tab.1.right/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.2.bottom" />
-    <state width="1921" height="151" key="GridCell.Tab.2.bottom/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.2.center" />
-    <state width="1921" height="151" key="GridCell.Tab.2.center/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.2.left" />
-    <state width="1921" height="151" key="GridCell.Tab.2.left/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.2.right" />
-    <state width="1921" height="151" key="GridCell.Tab.2.right/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.3.bottom" />
-    <state width="1921" height="151" key="GridCell.Tab.3.bottom/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.3.center" />
-    <state width="1921" height="151" key="GridCell.Tab.3.center/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.3.left" />
-    <state width="1921" height="151" key="GridCell.Tab.3.left/1920.1080/1920.1200" />
-    <state width="1921" height="151" key="GridCell.Tab.3.right" />
-    <state width="1921" height="151" key="GridCell.Tab.3.right/1920.1080/1920.1200" />
+    <state width="571" height="465" key="DebuggerActiveHint" />
+    <state width="571" height="465" key="DebuggerActiveHint/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.0.bottom" />
+    <state width="1921" height="296" key="GridCell.Tab.0.bottom/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.0.center" />
+    <state width="1921" height="296" key="GridCell.Tab.0.center/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.0.left" />
+    <state width="1921" height="296" key="GridCell.Tab.0.left/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.0.right" />
+    <state width="1921" height="296" key="GridCell.Tab.0.right/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.1.bottom" />
+    <state width="1921" height="296" key="GridCell.Tab.1.bottom/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.1.center" />
+    <state width="1921" height="296" key="GridCell.Tab.1.center/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.1.left" />
+    <state width="1921" height="296" key="GridCell.Tab.1.left/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.1.right" />
+    <state width="1921" height="296" key="GridCell.Tab.1.right/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.2.bottom" />
+    <state width="1921" height="296" key="GridCell.Tab.2.bottom/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.2.center" />
+    <state width="1921" height="296" key="GridCell.Tab.2.center/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.2.left" />
+    <state width="1921" height="296" key="GridCell.Tab.2.left/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.2.right" />
+    <state width="1921" height="296" key="GridCell.Tab.2.right/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.3.bottom" />
+    <state width="1921" height="296" key="GridCell.Tab.3.bottom/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.3.center" />
+    <state width="1921" height="296" key="GridCell.Tab.3.center/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.3.left" />
+    <state width="1921" height="296" key="GridCell.Tab.3.left/1920.1080/1920.1200" />
+    <state width="1921" height="296" key="GridCell.Tab.3.right" />
+    <state width="1921" height="296" key="GridCell.Tab.3.right/1920.1080/1920.1200" />
     <state x="-1088" y="321" key="RiderGenerateDialog" />
     <state x="-1088" y="321" key="RiderGenerateDialog/1920.1080/1920.1200" />
     <state x="185" y="236" key="SettingsEditor" />
@@ -358,6 +371,32 @@
           <line>20</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Bubble/Test/BubblesDebugger.cs" initialLine="20" />
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs</url>
+          <line>208</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs" initialLine="218">
+            <startOffsets>
+              <option value="6551" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6632" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs</url>
+          <line>201</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs" initialLine="211">
+            <startOffsets>
+              <option value="6300" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6369" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

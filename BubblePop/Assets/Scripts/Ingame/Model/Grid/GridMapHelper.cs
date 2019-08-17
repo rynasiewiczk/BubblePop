@@ -78,7 +78,6 @@ namespace Project.Grid
             return angles;
         }
 
-
         public static Vector2Int GetCellPositionByWorldPosition(Vector2 position)
         {
             var row = GetRowByWorldHeight(position.y);
@@ -180,12 +179,12 @@ namespace Project.Grid
             return bubble != null;
         }
         
-        public static IPiece GetFirstTokenEqualOrBiggerThanValueOrNull( this IGridMap gridMap, int level)
+        public static IPiece GetFirstTokenBiggerThanValueOrNull( this IGridMap gridMap, int level)
         {
             var pieces = gridMap.PiecesRegistry;
             foreach (var piece in pieces)
             {
-                if (piece.Level.Value >= level)
+                if (piece.Level.Value > level)
                 {
                     return piece;
                 }

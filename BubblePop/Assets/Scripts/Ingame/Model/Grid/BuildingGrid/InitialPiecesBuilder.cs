@@ -27,7 +27,7 @@ namespace Project.Grid.BuildingGrid
             {
                 for (int x = 0; x < gridSettings.StartGridSize.x; x++)
                 {
-                    var pieceLevel = Random.Range(1, _piecesData.InitialMaxPiecesLevel + 1);
+                    var pieceLevel = Random.Range(1, _piecesData.GetBiggestPieceLevelToLiveOnGrid(1) + 1);
 
                     _spawnPieceOnGridSignal.Position = new Vector2Int(x, y);
                     _spawnPieceOnGridSignal.Level = pieceLevel;
