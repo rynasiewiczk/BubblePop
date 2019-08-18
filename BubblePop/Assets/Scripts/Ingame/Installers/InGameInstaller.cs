@@ -1,5 +1,4 @@
 using Model;
-using Project.Aiming;
 using UnityEngine;
 using Zenject;
 

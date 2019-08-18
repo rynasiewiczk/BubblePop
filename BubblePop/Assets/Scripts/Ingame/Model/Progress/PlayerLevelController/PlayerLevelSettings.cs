@@ -26,7 +26,7 @@ namespace Model.Progress.PlayerLevelController
             }
 
             var scoreForLevel = _secondLevelScore;
-            for (int i = 1; i < level; i++)
+            for (int i = 2; i < level; i++)
             {
                 scoreForLevel = (int) (scoreForLevel * _nextLevelMultiplier);
             }

@@ -2,16 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d56e2297-98c2-4f48-a3c1-9ee0340c0891" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/InGame/Effects/AimingPieceHighlight.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Prefabs/InGame/Effects/AimingPieceHighlight.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/AimingPieceHighlightParticle.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGame/GridScoresDisplayCanvas.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InGame/GridScoresDisplayCanvas.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Ingame/BubbleDataInstaller.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Ingame/BubbleDataInstaller.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/IngameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/IngameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/View/ViewInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/View/ViewInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/TargetPlaceDisplay/TargetBubbleDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/TargetPlaceDisplay/TargetBubbleDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyOnOvergrownExplosionParticlesPool.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyOnOvergrownExplosionParticlesPool.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/InGameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/InGameInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/Ui/UiInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/Ui/UiInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/View/CameraShake.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/View/CameraShake.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StompyRobot/TypeSafe/Editor/TypeCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StompyRobot/TypeSafe/Editor/TypeCache.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StompyRobot/TypeSafe/usr/Resources.Generated.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StompyRobot/TypeSafe/usr/Resources.Generated.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/PresetManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/PresetManager.asset" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +26,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/InGame/SceneContext.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/LevelUp/LevelUpPopupRequest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/BuildingGrid/InitialPiecesBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/InGame/GridScoresDisplayCanvas.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/InGame/AimingBubbleController.prefab" root0="FORCE_HIGHLIGHTING" />
@@ -40,6 +43,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/StateObservers/FindingCellToShootPieceController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/StateObservers/StartAimingStateObserver.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PiecesData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Providers/TransientProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Main/DiContainer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Binding/Binders/GameObject/TransformScopeConcreteIdArgConditionCopyNonLazyBinder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Enums/DestroyParticlesSourceType.cs" root0="FORCE_HIGHLIGHTING" />
@@ -48,15 +52,26 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/IPiece.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/Test/BubblesDebugger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/Spawning/NextBubbleLevelToSpawnController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/Core/PopupActionSignal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/Core/IPopupRequest.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/Spawning/BubblesSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/PlacingOnGrid/SpawnShotBubbleOnGridController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Binding/BindInfo/GameObjectCreationParameters.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Util/ZenPools.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/Core/PopupView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Camera/GameplayCamera.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/Core/PopupMaster.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://E:/PracaPraca/SuperChef/SuperChefUnity/Assets/01_Sources/Systems/View/AnimateCoinFlySystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/Core/AnimationTransitions/PopupAnimationTransition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/ScoreController/ScoreController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/Core/AnimationTransitions/PopupGenericAnimationTransition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/ScoreController/IScoreController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Binding/Finalizers/ProviderBindingFinalizer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/Core/AnimationTransitions/PopupAnimationDefaultParameters.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/Core/AnimationTransitions/ForTests/PopupTestAnimationTransition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/ProgressBarParticles.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Resources/Ingame/BubbleDataInstaller.asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/IGameStateController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/ProgressBarParticlesController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -83,14 +98,17 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewBounceComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Install/Contexts/SceneContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ScrollingRowsDown/IScrollRowsController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/LevelUp/LevelUpMaster.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewScrollingVerticalyComponent.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/Signals/Main/SignalBus.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewCollapseComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewAppearingComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FillingBubblesAbovePlayspace/FillingBubblesAbovePlayspaceController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/GridInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/StompyRobot/TypeSafe/usr/Resources.Generated.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/SignalDeclaration.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/General/GridBubble.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/ProgressInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/General/BubbleViewSettings.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/GridActionsInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/53038CCD-6BEC-4FED-AD70-8C999DA7EA3A/59/77ddc3c4/Debug.cs" root0="SKIP_HIGHLIGHTING" />
@@ -101,10 +119,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/PlayerLevelSettingsInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyParticles.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyOnDropParticlesPool.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/Ui/UiInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyOnCombineParticlesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/FlyingAfterAiming/BubbleFlySignal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/Ui/TopHudInstaller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/Ui/UiDataInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/Ui/UiData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/View/ViewInstaller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/LevelUp/LevelUpView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/FlyingAfterAiming/FlyingBubbleView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/FlyingAfterAiming/FlyingBubbleViewPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Calculations/VectorsHelper.cs" root0="FORCE_HIGHLIGHTING" />
@@ -138,6 +160,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Debug/NextBubbleDebug.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Enums/GamePlayState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/AimingPieceHighlightParticlePool.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Disposables/RefCountDisposable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Factories/Pooling/MemoryPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Factories/Pooling/MonoMemoryPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/AimingPieceHighlightParticle.cs" root0="FORCE_HIGHLIGHTING" />
@@ -148,21 +171,11 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/PiecesFindingHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/GridMapHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/Sirenix/Odin Inspector/Scripts/Editor/VectorIntDrawers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Plugins/Zenject/Source/Providers/IProviderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DroppingUnconnected/DroppingUnconnectedBubblesViewController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/TargetPlaceDisplay/TargetBubbleDisplayController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/PrewarmBubbleDisplay/SmallPrewarmBubble.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/PrewarmBubbleDisplay/AimingBubble.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Bubble/Test/BubblesDebugger.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/AimEndPointFinder.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewCollapseComponent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewBounceComponent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewScrollingVerticalyComponent.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/General/BubbleViewPool.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewAppearingComponent.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/PieceView.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/BubbleViewLayering.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/PrewarmBubbleDisplay/AimingBubblesController.cs" />
@@ -179,11 +192,9 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyParticles.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/ExplodingTooBigPiecesController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/OvergrownExplosionSignal.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/InGameInstaller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Project/SignalBusInstaller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/ExplodingOvergrownPiecesController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/IFindConnectedPiecesWithSameLevelController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/CameraShake.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/BuildingGrid/InitialPiecesBuilder.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/GridMapHelper.cs" />
@@ -192,7 +203,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/GridScoresDisplay/CombinationMultiplayerDisplayController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/FindConnectedPiecesWithSameLevelController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Cheats/EditorCheats.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Project/IngameSceneVisibilityController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/GridScoresDisplay/GridScoreDisplayText.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/GridScoresDisplay/GridScoresDisplayController.cs" />
@@ -200,9 +210,23 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/AimingPieceHighlightParticle.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyOnOvergrownExplosionParticlesPool.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/AimingPieceHighlightParticlePool.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/View/ViewInstaller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/IAimingPieceHighlightController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/View/ViewInstaller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/IAimingStartPointProvider.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/TargetPlaceDisplay/TargetBubbleDisplayController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/Ui/TopHudInstaller.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Aiming/AimingPieceHighlightController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/Core/PopupMaster.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/Core/PopupView.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/CameraShake.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/Ui/UiInstaller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Project/IngamePopupsInstaller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/InGameInstaller.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/LevelUp/LevelUpPopupRequest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/LevelUp/LevelUpMaster.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/Popups/LevelUp/LevelUpView.cs" />
       </list>
     </option>
   </component>
@@ -218,6 +242,7 @@
   <component name="ProjectId" id="1PVBckRAfhVhpjkq73924Bqlab3" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="Rider.DefaultBreakpoints.AreToggled" value="true" />
@@ -336,6 +361,8 @@
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="691" y="253" key="#Attach_to_Unity_Editor" />
+    <state x="691" y="253" key="#Attach_to_Unity_Editor/1920.1080/1920.1200" />
     <state x="640" y="247" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" />
     <state x="640" y="247" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/1920.1080/1920.1200" />
     <state width="571" height="465" key="DebuggerActiveHint" />
@@ -376,6 +403,8 @@
     <state x="-1088" y="321" key="RiderGenerateDialog/1920.1080/1920.1200" />
     <state x="185" y="236" key="SettingsEditor" />
     <state x="185" y="236" key="SettingsEditor/1920.1080/1920.1200" />
+    <state x="813" y="158" width="716" height="660" key="find.popup" />
+    <state x="813" y="158" width="716" height="660" key="find.popup/1920.1080/1920.1200" />
     <state x="616" y="161" width="672" height="676" key="search.everywhere.popup" />
     <state x="616" y="161" width="672" height="676" key="search.everywhere.popup/1920.1080/1920.1200" />
   </component>
@@ -391,6 +420,32 @@
           <line>20</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Bubble/Test/BubblesDebugger.cs" initialLine="20" />
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/LevelProgressBarDisplay.cs</url>
+          <line>60</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/LevelProgressBarDisplay.cs" initialLine="60">
+            <startOffsets>
+              <option value="2282" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2334" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelSettings.cs</url>
+          <line>67</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/PlayerLevelController/PlayerLevelSettings.cs" initialLine="67">
+            <startOffsets>
+              <option value="1909" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1985" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="36" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

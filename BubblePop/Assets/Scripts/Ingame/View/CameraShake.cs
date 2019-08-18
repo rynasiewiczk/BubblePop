@@ -28,10 +28,6 @@ public class CameraShake : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ShakeOnOvergrownExplosion();
-        }
         _toShake.localPosition = new Vector3(_toShake.localPosition.x, _toShake.localPosition.y, 0);
     }
 

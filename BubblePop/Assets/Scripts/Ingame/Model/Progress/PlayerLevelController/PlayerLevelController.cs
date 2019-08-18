@@ -1,5 +1,7 @@
+using Ingame.View.UI.Popups.LevelUp;
 using Model.ScoreController;
 using UniRx;
+using Zenject;
 
 namespace Model.Progress.PlayerLevelController
 {
@@ -8,12 +10,16 @@ namespace Model.Progress.PlayerLevelController
         public ReactiveProperty<int> PlayerLevel { get; }
 
         private readonly PlayerLevelSettings _playerLevelSettings = null;
+        private readonly SignalBus _signalBus = null;
 
-        public PlayerLevelController(IScoreController scoreController, PlayerLevelSettings playerLevelSettings)
+        private readonly LevelUpPopupRequest _levelUpPopupRequest = new LevelUpPopupRequest();
+
+        public PlayerLevelController(IScoreController scoreController, PlayerLevelSettings playerLevelSettings, SignalBus signalBus)
         {
             PlayerLevel = new ReactiveProperty<int>(1);
             _playerLevelSettings = playerLevelSettings;
-            
+            _signalBus = signalBus;
+
             scoreController.Score.Subscribe(UpdateLevelIfRequirementMet);
         }
 
@@ -23,6 +29,9 @@ namespace Model.Progress.PlayerLevelController
             if (reachedLevel > PlayerLevel.Value)
             {
                 PlayerLevel.Value = reachedLevel;
+
+                _levelUpPopupRequest.Level = PlayerLevel.Value;
+                _signalBus.Fire(_levelUpPopupRequest);
             }
         }
     }

@@ -1,3 +1,5 @@
+using Ingame.View.UI.Popups.LevelUp;
+using Project.Scripts.Popups;
 using UnityEngine;
 using View.GridScoresDisplay;
 using Zenject;
@@ -12,5 +14,8 @@ public class UiInstaller : MonoInstaller
             .WithInitialSize(6)
             .FromComponentInNewPrefab(_gridScoreDisplayText)
             .UnderTransformGroup("GridScoreTextsGroup");
+
+        Container.DeclareSignal<PopupActionSignal>().OptionalSubscriber();
+        Container.DeclareSignal<LevelUpPopupRequest>();
     }
 }

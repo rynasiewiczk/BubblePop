@@ -2,7 +2,6 @@ using Enums;
 using Ingame.Cheats;
 using OutGame;
 using UniRx;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace Model
@@ -35,9 +34,9 @@ namespace Model
 
         public void SetPause(bool flag)
         {
-            Paused = true;
+            Paused = flag;
 
-            _ingamePauseSignal.Paused = true;
+            _ingamePauseSignal.Paused = flag;
             _signalBus.Fire(_ingamePauseSignal);
         }
 

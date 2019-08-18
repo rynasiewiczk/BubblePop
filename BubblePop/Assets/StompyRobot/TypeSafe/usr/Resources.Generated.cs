@@ -333,13 +333,20 @@ public sealed class SRResources {
             }
         }
         
+        public static global::TypeSafe.Resource<global::PopupDefaultAnimationParametersSO> PopupDefaultAnimationParametersSO {
+            get {
+                return ((global::TypeSafe.Resource<global::PopupDefaultAnimationParametersSO>)(@__ts_internal_resources[6]));
+            }
+        }
+        
         private static global::System.Collections.Generic.IList<global::TypeSafe.IResource> @__ts_internal_resources = new global::System.Collections.ObjectModel.ReadOnlyCollection<global::TypeSafe.IResource>(new global::TypeSafe.IResource[] {
                     new global::TypeSafe.Resource<global::PieceDataInstaller>("BubbleDataInstaller", "Ingame/BubbleDataInstaller"),
                     new global::TypeSafe.Resource<global::GridSettingsInstaller>("GridSettingsInstaller", "Ingame/GridSettingsInstaller"),
                     new global::TypeSafe.Resource<global::Project.Aiming.AimingInstaller>("AimingInstaller", "Ingame/AimingInstaller"),
                     new global::TypeSafe.Resource<global::BubbleViewSettingsInstaller>("BubbleViewSettingsInstaller", "Ingame/BubbleViewSettingsInstaller"),
                     new global::TypeSafe.Resource<global::UiDataInstaller>("UiDataInstaller", "Ingame/UiDataInstaller"),
-                    new global::TypeSafe.Resource<global::PlayerLevelSettingsInstaller>("PlayerLevelSettingsInstaller", "Ingame/PlayerLevelSettingsInstaller")});
+                    new global::TypeSafe.Resource<global::PlayerLevelSettingsInstaller>("PlayerLevelSettingsInstaller", "Ingame/PlayerLevelSettingsInstaller"),
+                    new global::TypeSafe.Resource<global::PopupDefaultAnimationParametersSO>("PopupDefaultAnimationParametersSO", "Ingame/PopupDefaultAnimationParametersSO")});
         
         /// <summary>
         /// Return a list of all resources in this folder.

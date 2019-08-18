@@ -62,3 +62,6 @@ MonoBehaviour:
   - Path: Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt
     Type: UnityEngine.TextAsset, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  - Path: Assets/Resources/Ingame/PopupDefaultAnimationParametersSO.asset
+    Type: PopupDefaultAnimationParametersSO, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null

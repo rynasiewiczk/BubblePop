@@ -1083,6 +1083,11 @@
                     <e p="PopupsRegistry.cs" t="Include" />
                     <e p="PopupView.cs" t="Include" />
                   </e>
+                  <e p="LevelUp" t="Include">
+                    <e p="LevelUpMaster.cs" t="Include" />
+                    <e p="LevelUpPopupRequest.cs" t="Include" />
+                    <e p="LevelUpView.cs" t="Include" />
+                  </e>
                 </e>
                 <e p="TopHud" t="Include">
                   <e p="IProgressBarParticlesController.cs" t="Include" />
@@ -1110,6 +1115,7 @@
             <e p="IIngameSceneVisibilityController.cs" t="Include" />
             <e p="IngameSceneVisibilityController.cs" t="Include" />
             <e p="OnPlayerButtonClickDelegate.cs" t="Include" />
+            <e p="PopupDefaultAnimationParametersSO.cs" t="Include" />
             <e p="ScenesManagementInstaller.cs" t="Include" />
             <e p="SignalBusInstaller.cs" t="Include" />
           </e>
