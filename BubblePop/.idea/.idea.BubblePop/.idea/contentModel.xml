@@ -1000,6 +1000,10 @@
             </e>
             <e p="View" t="Include">
               <e p="Aiming" t="Include">
+                <e p="AimingPieceHighlightController.cs" t="Include" />
+                <e p="AimingPieceHighlightParticle.cs" t="Include" />
+                <e p="AimingPieceHighlightParticlePool.cs" t="Include" />
+                <e p="IAimingPieceHighlightController.cs" t="Include" />
                 <e p="LineDrawer.cs" t="Include" />
                 <e p="LineDrawerController.cs" t="Include" />
                 <e p="PrewarmBubbleDisplay" t="Include">

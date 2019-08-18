@@ -1,5 +1,6 @@
 using UnityEngine;
 using View;
+using View.Aiming;
 using View.DestroyParticles;
 using View.DroppingUnconnected;
 using View.FlyingAfterAiming;
@@ -13,7 +14,9 @@ public class ViewInstaller : MonoInstaller
     [SerializeField] private PieceDestroyParticles _pieceDestroyOnCombineParticles = null;
     [SerializeField] private PieceDestroyParticles _pieceDestroyOnDropParticles = null;
     [SerializeField] private PieceDestroyParticles _pieceDestroyOvergrownExplosionParticles = null;
-
+    [SerializeField] private AimingPieceHighlightParticle _aimingPieceHighlightParticle = null;
+    
+    
     public override void InstallBindings()
     {
 
@@ -52,5 +55,11 @@ public class ViewInstaller : MonoInstaller
             .WithInitialSize(3)
             .FromComponentInNewPrefab(_pieceDestroyOvergrownExplosionParticles)
             .UnderTransformGroup("PieceDestroyOvergrownExplosionParticles");
+
+        Container.BindInterfacesTo<AimingPieceHighlightController>().AsSingle().NonLazy();
+        Container.BindMemoryPool<AimingPieceHighlightParticle, AimingPieceHighlightParticlePool>()
+            .WithInitialSize(6)
+            .FromComponentInNewPrefab(_aimingPieceHighlightParticle)
+            .UnderTransformGroup("AimingPieceHighlightParticles");
     }
 }

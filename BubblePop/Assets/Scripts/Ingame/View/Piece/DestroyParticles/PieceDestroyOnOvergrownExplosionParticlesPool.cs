@@ -1,5 +1,3 @@
-using UnityEngine;
-using System;
 using Zenject;
 
 namespace View.DestroyParticles

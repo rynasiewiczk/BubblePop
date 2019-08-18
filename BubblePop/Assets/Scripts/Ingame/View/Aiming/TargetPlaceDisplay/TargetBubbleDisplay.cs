@@ -19,12 +19,6 @@ namespace View.Aiming.TargetPlaceDisplay
 
         private void Update()
         {
-//            if (Time.time < .2f)
-//            {
-//                DisableRenderer();
-//                return;
-//            }
-
             var aimedBubbleData = _aimEndPointFinder.AimedPieceData;
             if (aimedBubbleData == null)
             {
