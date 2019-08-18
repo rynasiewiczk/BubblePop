@@ -848,6 +848,9 @@
             <e p="Calculations" t="Include">
               <e p="VectorsHelper.cs" t="Include" />
             </e>
+            <e p="Cheats" t="Include">
+              <e p="EditorCheats.cs" t="Include" />
+            </e>
             <e p="Debug" t="Include">
               <e p="GameStateDebugger.cs" t="Include" />
               <e p="NextBubbleDebug.cs" t="Include" />
@@ -1052,6 +1055,7 @@
               </e>
               <e p="Ui" t="Include">
                 <e p="GridScoresDisplay" t="Include">
+                  <e p="CombinationMultiplayerDisplayController.cs" t="Include" />
                   <e p="GridScoreDisplayText.cs" t="Include" />
                   <e p="GridScoreDisplayTextPool.cs" t="Include" />
                   <e p="GridScoresDisplayController.cs" t="Include" />

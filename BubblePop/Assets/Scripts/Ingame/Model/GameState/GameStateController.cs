@@ -1,6 +1,8 @@
 using Enums;
+using Ingame.Cheats;
 using OutGame;
 using UniRx;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace Model
@@ -24,11 +26,17 @@ namespace Model
             PreviousGamePlayState = Enums.GamePlayState.None;
 
             ingameSceneVisibilityController.OnIngameUnpaused.Subscribe(x => { Paused = false; });
+            
+            if (EditorCheats.GameStartedFromIngame())
+            {
+                Paused = false;
+            }
         }
 
         public void SetPause(bool flag)
         {
             Paused = true;
+
             _ingamePauseSignal.Paused = true;
             _signalBus.Fire(_ingamePauseSignal);
         }

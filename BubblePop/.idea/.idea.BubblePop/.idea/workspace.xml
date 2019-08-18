@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d56e2297-98c2-4f48-a3c1-9ee0340c0891" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.BubblePop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/InGame/AimingBubbleController.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/InGame/AimingBubbleController.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StompyRobot/TypeSafe/Editor/TypeCache.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StompyRobot/TypeSafe/Editor/TypeCache.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Sprite Assets/EmojiOne.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Project/IngameSceneVisibilityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Project/IngameSceneVisibilityController.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +19,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/InGame/SceneContext.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Grid/BuildingGrid/InitialPiecesBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/InGame/AimingBubbleController.prefab" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Input/MouseInputEventsNotifier.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Prefabs/InGame/BubbleView.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/Observer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Plugins/UniRx/Scripts/UnityEngineBridge/ReactiveProperty.cs" root0="FORCE_HIGHLIGHTING" />
@@ -58,6 +55,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/CameraShake.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/LevelProgressBarDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/ICombinePiecesController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Forge/Assets/Scripts/UI/Coins/UiCoinsFlyController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/CombiningBubbles/CombinePiecesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/GridScoresDisplay/GridScoreDisplayText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/GridScoresDisplay/GridScoresDisplayController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -88,6 +86,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyOnDropParticlesPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/DestroyParticles/PieceDestroyOnCombineParticlesController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/FlyingAfterAiming/BubbleFlySignal.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/Ui/UiData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/Installers/View/ViewInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/FlyingAfterAiming/FlyingBubbleView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/FlyingAfterAiming/FlyingBubbleViewPool.cs" root0="FORCE_HIGHLIGHTING" />
@@ -132,9 +131,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Enums/GamePlayState.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/ExplodingAfterCombining/IExplodingTooBigPiecesController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/TopHud/PauseButtonController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/FlyingAfterAiming/BubbleFlySignal.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/Piece/PieceViewSet.cs" />
@@ -183,6 +180,8 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Progress/ScoreController/ScoreController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/View/UI/GridScoresDisplay/CombinationMultiplayerDisplayController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/FindingMatches/FindConnectedPiecesWithSameLevelController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/GameState/GameStateController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Project/IngameSceneVisibilityController.cs" />
       </list>
     </option>
   </component>
@@ -226,10 +225,10 @@
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="8536">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" pid="18948">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="8536" />
+      <option name="pid" value="18948" />
       <option name="userSelectedPid" value="false" />
       <method v="2" />
     </configuration>
@@ -371,6 +370,45 @@
           <line>20</line>
           <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Bubble/Test/BubblesDebugger.cs" initialLine="20" />
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/StateObservers/StartAimingStateObserver.cs</url>
+          <line>20</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/StateObservers/StartAimingStateObserver.cs" initialLine="20">
+            <startOffsets>
+              <option value="767" />
+            </startOffsets>
+            <endOffsets>
+              <option value="835" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/StateObservers/StartAimingStateObserver.cs</url>
+          <line>25</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/StateObservers/StartAimingStateObserver.cs" initialLine="25">
+            <startOffsets>
+              <option value="907" />
+            </startOffsets>
+            <endOffsets>
+              <option value="973" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/StateObservers/StartAimingStateObserver.cs</url>
+          <line>30</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Ingame/Model/Aiming/StateObservers/StartAimingStateObserver.cs" initialLine="30">
+            <startOffsets>
+              <option value="1045" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1076" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

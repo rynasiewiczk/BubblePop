@@ -1,5 +1,6 @@
 ﻿using System;
 using DG.Tweening;
+using Ingame.Cheats;
 using Model;
 using OutGame;
 using Project;
@@ -10,7 +11,7 @@ using Zenject;
 
 public class IngameSceneVisibilityController : IIngameSceneVisibilityController, IDisposable
 {
-    public OnPlayerButtonClickDelegate OnPlayButtonClicked { get; } 
+    public OnPlayerButtonClickDelegate OnPlayButtonClicked { get; }
     private readonly SignalBus _signalBus = null;
 
     public ReactiveCommand OnIngamePaused { get; private set; } = new ReactiveCommand();
@@ -24,7 +25,7 @@ public class IngameSceneVisibilityController : IIngameSceneVisibilityController,
         _signalBus = signalBus;
         OnPlayButtonClicked += ShowIngameScene;
 
-        //artificial delay to go around a bug with ignoring scene activation allowance 
+        //artificial delay to go around a unity bug with ignoring scene activation allowance 
         DOVirtual.DelayedCall(.1f, LoadIngameSceneAsInactive);
         _signalBus.Subscribe<IngamePausedSignal>(ExecuteIngamePauseCommandIfNeeded);
     }
@@ -50,7 +51,10 @@ public class IngameSceneVisibilityController : IIngameSceneVisibilityController,
 
     private void LoadIngameSceneAsInactive()
     {
-        _ingameLoadingOperation = SceneManager.LoadSceneAsync(SRScenes.IngameScene.name, LoadSceneMode.Additive);
+        if (!EditorCheats.GameStartedFromIngame())
+        {
+            _ingameLoadingOperation = SceneManager.LoadSceneAsync(SRScenes.IngameScene.name, LoadSceneMode.Additive);
+        }
     }
 
     public void Dispose()
