@@ -272,6 +272,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MultiplierCombinationDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 4720208980631506042, guid: dec320194814b7546abcc74426db5c8b,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4720208980631506042, guid: dec320194814b7546abcc74426db5c8b,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5251357703208858586, guid: dec320194814b7546abcc74426db5c8b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -376,16 +386,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4720208980631506042, guid: dec320194814b7546abcc74426db5c8b,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4720208980631506042, guid: dec320194814b7546abcc74426db5c8b,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dec320194814b7546abcc74426db5c8b, type: 3}

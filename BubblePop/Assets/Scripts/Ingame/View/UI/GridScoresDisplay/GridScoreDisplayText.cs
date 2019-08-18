@@ -47,7 +47,7 @@ namespace View.GridScoresDisplay
         public void Setup(Vector2 position, string score, float fontSize, Color color)
         {
             transform.localScale = Vector3.one;
-            RectTransform.anchoredPosition = position;
+            RectTransform.position = new Vector2(position.x, position.y);
 
             _text.text = score;
             _text.fontSize = fontSize;
