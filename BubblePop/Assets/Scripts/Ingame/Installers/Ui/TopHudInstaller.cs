@@ -12,10 +12,10 @@ public class TopHudInstaller : MonoInstaller
         Container.Bind<LevelProgressBarDisplay>().FromInstance(_levelProgressBarDisplay).AsSingle().NonLazy();
         Container.Bind<RectTransform>().FromInstance(_particlesContainer).AsSingle().NonLazy();
 
-        Container.BindMemoryPool<ProgressBarParticles, ProgressBarParticlesPool>()
-            .WithInitialSize(6)
-            .FromComponentInNewPrefab(_progressBarParticles)
-            .UnderTransform(_particlesContainer);
-        Container.BindInterfacesTo<ProgressBarParticlesController>().AsSingle().NonLazy();
+        //Container.BindMemoryPool<ProgressBarParticles, ProgressBarParticlesPool>()
+        //   .WithInitialSize(6)
+        //    .FromComponentInNewPrefab(_progressBarParticles)
+        //    .UnderTransform(_particlesContainer);
+        //Container.BindInterfacesTo<ProgressBarParticlesController>().AsSingle().NonLazy();
     }
 }

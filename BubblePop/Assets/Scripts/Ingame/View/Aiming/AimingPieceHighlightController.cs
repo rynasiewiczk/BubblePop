@@ -2,10 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Enums;
 using Model;
-using Project.Aiming;
 using Project.Grid;
 using Project.Pieces;
-using Sirenix.Utilities;
 using UniRx;
 using Zenject;
 
@@ -14,25 +12,25 @@ namespace View.Aiming
     public class AimingPieceHighlightController : IAimingPieceHighlightController, ITickable
     {
         private readonly IGridMap _gridMap = null;
-        private readonly IAimEndPointFinder _aimEndPointFinder = null;
 
         private readonly AimingPieceHighlightParticlePool _pool;
-
         private readonly HashSet<AimingPieceHighlightParticle> _highlights = new HashSet<AimingPieceHighlightParticle>();
 
         private bool _aiming = false;
-        private IPiece _cachedAimingPiece = null;
+        private int _cachedLevel = -1;
+        
+        [Inject] private readonly INextBubbleLevelToSpawnController _nextBubbleLevelToSpawnController = null;
 
-        public AimingPieceHighlightController(IGridMap gridMap, IAimEndPointFinder aimEndPointFinder, IGameStateController gameStateController,
+        public AimingPieceHighlightController(IGridMap gridMap, IGameStateController gameStateController,
             AimingPieceHighlightParticlePool highlightParticlePool)
         {
             _gridMap = gridMap;
-            _aimEndPointFinder = aimEndPointFinder;
             _pool = highlightParticlePool;
 
             gameStateController.GamePlayState.Where(x => x == GamePlayState.Aiming).Subscribe(x => _aiming = true);
             gameStateController.GamePlayState.Where(x => x != GamePlayState.Aiming).Subscribe(x =>
             {
+                _cachedLevel = -1;
                 _aiming = false;
                 DespawnList();
             });
@@ -45,23 +43,18 @@ namespace View.Aiming
                 return;
             }
 
-            var aimPiece = _aimEndPointFinder.AimedPieceData;
-            if (aimPiece == null)
-            {
-                DespawnList();
-                return;
-            }
-
-            if (aimPiece.Piece == _cachedAimingPiece)
+            var level = _nextBubbleLevelToSpawnController.NextBubbleLevelToSpawn.Value;
+            
+            
+            if (level == _cachedLevel)
             {
                 return;
             }
 
-            _cachedAimingPiece = aimPiece.Piece;
+            _cachedLevel = level;
 
             DespawnList();
 
-            var level = aimPiece.Piece.Level.Value;
             var closePiecesWithLevel = _gridMap.GetAllBubblesOnGrid().Where(x => x.Level.Value == level && _gridMap.IsPiecePlayable(x));
             foreach (var piece in closePiecesWithLevel)
             {
@@ -76,7 +69,10 @@ namespace View.Aiming
 
         private void DespawnList()
         {
-            _highlights.ForEach(x => _pool.Despawn(x));
+            foreach (var highlight in _highlights)
+            {
+                _pool.Despawn(highlight);
+            }
             _highlights.Clear();
         }
     }
